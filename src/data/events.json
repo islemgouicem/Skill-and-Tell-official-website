@@ -1,0 +1,120 @@
+[
+    {
+        "id": "01",
+        "title": "MobAI Hackathon",
+        "description": "Innovate and create AI-powered mobile solutions in our annual hackathon.",
+        "date": "01/01/25",
+        "time": "9:00 AM - 5:00 PM",
+        "tags": [
+            "Tech",
+            "Hackathon",
+            "Competition"
+        ],
+        "image": "/mobai.png?height=600&width=400"
+    },
+    {
+        "id": "02",
+        "title": "Cosmic Exploration",
+        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
+        "date": "02/15/25",
+        "time": "7:00 PM - 9:00 PM",
+        "tags": [
+            "Astronomy",
+            "Lecture",
+            "Discovery"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "03",
+        "title": "Robotics Workshop",
+        "description": "Hands-on session to build and program your own mini-robot.",
+        "date": "03/02/25",
+        "time": "10:00 AM - 4:00 PM",
+        "tags": [
+            "Robotics",
+            "Workshop",
+            "Engineering"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "04",
+        "title": "Quantum Physics Demystified",
+        "description": "An introductory seminar to the fascinating world of quantum mechanics.",
+        "date": "04/10/25",
+        "time": "6:00 PM - 8:00 PM",
+        "tags": [
+            "Physics",
+            "Seminar",
+            "Theory"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "05",
+        "title": "Bio-Engineering Summit",
+        "description": "Exploring the latest advancements in genetic engineering and biotechnology.",
+        "date": "05/20/25",
+        "time": "9:00 AM - 6:00 PM",
+        "tags": [
+            "Biology",
+            "Engineering",
+            "Summit"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "06",
+        "title": "Cosmic Exploration",
+        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
+        "date": "02/15/25",
+        "time": "7:00 PM - 9:00 PM",
+        "tags": [
+            "Astronomy",
+            "Lecture",
+            "Discovery"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "07",
+        "title": "Cosmic Exploration",
+        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
+        "date": "02/15/25",
+        "time": "7:00 PM - 9:00 PM",
+        "tags": [
+            "Astronomy",
+            "Lecture",
+            "Discovery"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "08",
+        "title": "Cosmic Exploration",
+        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
+        "date": "02/15/25",
+        "time": "7:00 PM - 9:00 PM",
+        "tags": [
+            "Astronomy",
+            "Lecture",
+            "Discovery"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    },
+    {
+        "id": "09",
+        "title": "Cosmic Exploration",
+        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
+        "date": "02/15/25",
+        "time": "7:00 PM - 9:00 PM",
+        "tags": [
+            "Astronomy",
+            "Lecture",
+            "Discovery"
+        ],
+        "image": "/placeholder.svg?height=300&width=400"
+    }
+    
+]

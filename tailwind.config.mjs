@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import animate from "tailwindcss-animate"
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config = {
     darkMode: ["class"],
@@ -17,10 +18,14 @@ const config = {
             },
         },
         extend: {
+            fontFamily: {
+                futura: ['Futura', ...defaultTheme.fontFamily.sans],
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
-                ring: "hsl(var(--ring))",
+                titles: "hsl(var(--titles))",
+                ring: "hex(var(--ring))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
                 primary: {

@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --titles: 225 18% 16%
     --background: 0 0% 3.9%; /* space.dark */
     --foreground: 0 0% 88.2%; /* space.text */
     --card: 240 10% 3.9%; /* space.medium */
@@ -57,6 +58,7 @@
     @apply bg-background text-foreground;
     scroll-behavior: smooth; /* Enable smooth scrolling for navigation */
     overflow-x: hidden; /* Prevent horizontal scroll */
+    cursor: url('/cursor.png'), auto;
   }
 
   /* Custom Scrollbar Styling - More Impressive! */
@@ -66,12 +68,11 @@
 
   ::-webkit-scrollbar-track {
     background: #0a001a; /* space.dark */
-    border-radius: 10px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #ff8c00, #ffd700); /* Gradient thumb */
+    background: linear-gradient(135deg, #ff8c00, #8A38F5); /* Gradient thumb */
     border-radius: 10px;
     border: 3px solid #0a001a; /* space.dark border */
     box-shadow: 0 0 8px rgba(255, 215, 0, 0.7); /* Glow effect */
@@ -82,6 +83,21 @@
     box-shadow: 0 0 12px rgba(255, 215, 0, 1); /* Stronger glow on hover */
   }
 }
+
+
+@layer components {
+  .titles {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold font-futura;
+  }
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/futura_bold.ttf') format('ttf'); /* adjust format if needed */
+  font-weight: extrabold;
+  font-style: normal;
+}
+
 
 /* Custom background for dark space theme sections */
 .space-background {
@@ -149,6 +165,75 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.botao {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 10px;
+  background: linear-gradient(135deg, #8e2de2 0%, #ff6a00 100%);
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: 505;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px #8e2de2);
+  transition: 0.5s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.botao .mysvg {
+  display: none;
+}
+
+.botao:hover {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: 0.5s linear;
+}
+
+.botao:hover .texto {
+  display: none;
+}
+
+.botao:hover .mysvg {
+  display: inline;
+}
+
+.botao:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 3.5px solid transparent;
+  border-top: 3.5px solid #fff;
+  border-right: 3.5px solid #fff;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
+}
+
+@keyframes animateC {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+
 
 /* Sparkle effect keyframes */
 @keyframes sparkle-fade-out {

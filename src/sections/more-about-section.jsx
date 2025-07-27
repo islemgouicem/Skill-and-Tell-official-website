@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion.jsx"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { Atom, Brain, Globe, Lightbulb } from "lucide-react"
 
 export default function MoreAboutSection() {
@@ -34,7 +34,9 @@ export default function MoreAboutSection() {
   ]
 
   return (
-    <section id="more-about" className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden"
+    <section
+      id="more-about"
+      className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden"
       style={{ background: "url(/more_About.svg)" }}
     >
       {/* Blurred orange spheres */}
@@ -42,12 +44,15 @@ export default function MoreAboutSection() {
       <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-space-subtle rounded-full mix-blend-screen filter blur-3xl opacity-8 animate-float animation-delay-2000"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-space-text animate-fade-in-up">
+        <h2 className="titles text-center mb-4 text-space-text animate-fade-in-up">
           More About S&T
         </h2>
-        <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+        <p className="text-base md:text-lg text-center max-w-2xl mx-auto text-[#6B7280]">
+          F&Q section to answer the most frequently repeated questions
+        </p>
+        <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-200 mt-6">
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, index) => (
+            {faqItems.map((item) => (
               <div key={item.value}>
                 <AccordionItem
                   value={item.value}
@@ -56,14 +61,14 @@ export default function MoreAboutSection() {
           data-[state=open]:border-2 data-[state=open]:border-[#D7AEFF]"
                 >
                   <AccordionTrigger
-                    className="flex items-center gap-4 p-6 text-left text-xl font-semibold 
+                    className="flex items-center gap-4 p-4 md:p-6 text-left text-lg md:text-xl font-semibold
           text-space-text transition-all duration-300
           data-[state=open]:text-violet-500"
                   >
-                    <item.icon className="h-8 w-8 text-space-accent flex-shrink-0" />
+                    <item.icon className="h-6 w-6 md:h-7 md:w-7 text-space-accent flex-shrink-0" />
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6 text-space-text/90 text-lg">
+                  <AccordionContent className="px-4 pb-4 md:px-6 md:pb-6 text-space-text/90 text-base md:text-lg">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -71,8 +76,6 @@ export default function MoreAboutSection() {
               </div>
             ))}
           </Accordion>
-
-
         </div>
       </div>
     </section>

@@ -1,13 +1,13 @@
-import Navbar from "./components/navbar.jsx"
-import Footer from "./components/footer.jsx"
-import HeroSection from "./components/hero-section.jsx"
-import AboutSection from "./components/about-section.jsx"
-import TeamSection from "./components/team-section.jsx"
-import StatisticsSection from "./components/statistics-section.jsx"
-import EventsSection from "./components/events-section.jsx"
-import AppSection from "./components/app-section.jsx"
-import MoreAboutSection from "./components/more-about-section.jsx"
-import MouseSparkles from "./components/mouse-sparkles.jsx"
+import Navbar from "./layout/navbar.jsx"
+import Footer from "./layout/footer.jsx"
+import HeroSection from "./sections/hero-section.jsx"
+import AboutSection from "./sections/about-section.jsx"
+import TeamSection from "./sections/team-section.jsx"
+import StatisticsSection from "./sections/statistics-section.jsx"
+import EventsSection from "./sections/events-section.jsx"
+import AppSection from "./sections/app-section.jsx"
+import MoreAboutSection from "./sections/more-about-section.jsx"
+import MouseSparkles from "./components/effects/mouse-sparkles.jsx"
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import { Instagram, DiscIcon as Discord, Linkedin, Mail } from "lucide-react"
+import { Instagram, DiscIcon as Discord, Linkedin, Mail, Heart } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -8,8 +8,7 @@ export default function Footer() {
         <div className="space-y-4">
           <a href="#hero" className="flex items-center gap-2">
             {/* User: Place your logo here at public/logo.png */}
-            <img src="/logo_dark.png?height=60&width=60" width={120} height={120} alt="Skill & Tell Logo" />
-            <span className="text-2xl font-bold tracking-wider text-footer-text">Skill & Tell Scientific Club</span>
+            <img src="/logo_dark.png?height=60&width=60" width={150} height={150} alt="Skill & Tell Logo" />
           </a>
           <p className="text-sm text-footer-text/80 max-w-xs">
             Lorem ipsum dolor sit amet consectetur. Magnis fermentum tempus
@@ -24,11 +23,6 @@ export default function Footer() {
               <li>
                 <a href="#hero" className="text-footer-text/80 hover:text-footer-link transition-colors">
                   Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-footer-text/80 hover:text-footer-link transition-colors">
-                  Sponsors
                 </a>
               </li>
               <li>
@@ -74,7 +68,7 @@ export default function Footer() {
         <div className="lg:col-span-1 space-y-4">
           <a
             href="#"
-            className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
             style={{ color: "white", backgroundColor: "rgb(225, 48, 108)" }} // Instagram color
           >
             <Instagram className="h-5 w-5" />
@@ -82,7 +76,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
             style={{ color: "white", backgroundColor: "rgb(114, 137, 218)" }} // Discord color
           >
             <Discord className="h-5 w-5" />
@@ -90,7 +84,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
             style={{ color: "white", backgroundColor: "rgb(0, 119, 181)" }} // LinkedIn color
           >
             <Linkedin className="h-5 w-5" />
@@ -98,7 +92,7 @@ export default function Footer() {
           </a>
           <a
             href="#"
-            className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-xl transition-shadow duration-300"
             style={{ color: "white", backgroundColor: "rgb(234, 67, 53)" }} // Gmail color
           >
             <Mail className="h-5 w-5" />
@@ -107,8 +101,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="container mx-auto px-4 md:px-6 text-center text-md text-footer-text/60 mt-12 border-t border-footer-text/20 pt-8 relative z-10">
-        &copy; Skill & Tell 2025. All rights reserved.
+        <div className="flex items-center justify-center gap-2">
+          &copy; Skill & Tell 2025. All rights reserved. Crafted with
+          <Heart className="h-4 w-4 text-red-500 animate-pulse" />
+        </div>
       </div>
+
     </footer>
   )
 }

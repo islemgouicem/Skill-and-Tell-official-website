@@ -1,0 +1,292 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import { Download } from "lucide-react"
+import { Button } from "../components/ui/button"
+
+export default function AppSection() {
+  const sectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth)
+
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener("resize", handleResize)
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        } else {
+          setIsVisible(false)
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    )
+
+    const currentRef = sectionRef.current // ✅ Cache ref
+
+    if (currentRef) {
+      observer.observe(currentRef)
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      if (currentRef) {
+        observer.unobserve(currentRef)
+      }
+    }
+  }, [])
+
+
+  // Animation styles for images
+  const getImageAnimation = (delay, initialX, initialY, initialRotate = 0) => ({
+    opacity: isVisible ? 1 : 0,
+    // The transform combines the -50%, -50% for centering with the animation offset
+    transform: isVisible
+      ? "translate(-50%, -50%) rotate(var(--rotate, 0deg))" // Final state, using CSS variable for rotation
+      : `translate(calc(-50% + ${initialX}), calc(-50% + ${initialY})) rotate(${initialRotate}deg)`, // Initial state
+    transition: `opacity 1s ease-out ${delay}ms, transform 1s ease-out ${delay}ms`,
+  })
+
+  // Responsive positioning for images
+  const getImageStyle = (
+    baseTop,
+    baseLeft,
+    baseWidth,
+    baseRotate,
+    desktopAdjustments = {},
+    tabletAdjustments = {},
+    mobileAdjustments = {},
+  ) => {
+    let top = baseTop
+    let left = baseLeft
+    let width = baseWidth
+    let rotate = baseRotate
+
+    if (windowWidth >= 1024) {
+      // Desktop adjustments
+      top = desktopAdjustments.top !== undefined ? desktopAdjustments.top : top
+      left = desktopAdjustments.left !== undefined ? desktopAdjustments.left : left
+      width = desktopAdjustments.width !== undefined ? desktopAdjustments.width : width
+      rotate = desktopAdjustments.rotate !== undefined ? desktopAdjustments.rotate : rotate
+    } else if (windowWidth >= 768) {
+      // Tablet adjustments
+      top = tabletAdjustments.top !== undefined ? tabletAdjustments.top : top
+      left = tabletAdjustments.left !== undefined ? tabletAdjustments.left : left
+      width = tabletAdjustments.width !== undefined ? tabletAdjustments.width : width
+      rotate = tabletAdjustments.rotate !== undefined ? tabletAdjustments.rotate : rotate
+    } else {
+      // Mobile adjustments
+      top = mobileAdjustments.top !== undefined ? mobileAdjustments.top : top
+      left = mobileAdjustments.left !== undefined ? mobileAdjustments.left : left
+      width = mobileAdjustments.width !== undefined ? mobileAdjustments.width : width
+      rotate = mobileAdjustments.rotate !== undefined ? mobileAdjustments.rotate : rotate
+    }
+
+    return {
+      position: "absolute",
+      top: `${top}%`,
+      left: `${left}%`,
+      width: `${width}%`,
+      "--rotate": `${rotate}deg`, // Use CSS variable for rotation
+      objectFit: "contain",
+      zIndex: 2, // Ensure images are above background
+      filter: "drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.15))", // Stronger shadow for depth
+    }
+  }
+
+  return (
+    <section
+      id="app-section"
+      ref={sectionRef}
+      style={{
+        position: "relative",
+        width: "100%",
+        minHeight: "100vh", // Ensure enough height for scroll animation
+        backgroundColor: "#FFFFFF", // Explicitly white background
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* Wavy orange line as a separate image overlay */}
+      <img
+        src="/App_section_bg.svg"
+        alt="Wavy orange line background element"
+        style={{
+          position: "absolute",
+          top: "50%", // Adjust based on visual
+          left: "50%", // Adjust based on visual
+          width: "100%", // Covers most of the width
+          height: "auto",
+          transform: "translate(-50%, -50%)", // Center the image
+          objectFit: "contain",
+          zIndex: 1, // Below app elements, above white background
+          opacity: 0.8, // Slight transparency as in image
+        }}
+      />
+
+      {/* Individual App Images - Meticulously positioned and sized */}
+      {/* Image 1: Large phone on left (Member Card screen) */}
+      <img
+        src="/app_section/phone2.png"
+        alt="Large phone showing member card screen"
+        style={{
+          ...getImageStyle(
+            48, // baseTop
+            25, // baseLeft
+            10, // baseWidth
+            { top: 0, left: 3, width: 18 }, // Desktop
+            { top: 0, left: 3, width: 20 }, // Tablet
+            { top: 30, left: 50, width: 20 }, // Mobile
+          ),
+          ...getImageAnimation(0, "-150px", "0", -10), // Animate from left
+        }}
+      />
+
+      {/* Image 2: Top middle purple card (Skill&Tell) */}
+      <img
+        src="/app_section/card1.png"
+        alt="Skill&Tell card with purple background"
+        style={{
+          ...getImageStyle(
+            18, // baseTop
+            48, // baseLeft
+            16, // baseWidth
+            -10, // baseRotate
+            { top: 18, left: 32, width: 16, rotate: -10 }, // Desktop
+            { top: 15, left: 65, width: 22, rotate: -10 }, // Tablet
+            { top: 15, left: 75, width: 35, rotate: -10 }, // Mobile
+          ),
+          ...getImageAnimation(200, "0", "-150px", 20), // Animate from top
+        }}
+      />
+
+      {/* Image 3: Top right white member card */}
+      <img
+        src="/app_section/member_card.png"
+        alt="White member card"
+        style={{
+          ...getImageStyle(
+            20, // baseTop
+            78, // baseLeft
+            20, // baseWidth
+            15, // baseRotate
+            { top: 20, left: 90, width: 20 }, // Desktop
+            { top: 25, left: 85, width: 28 }, // Tablet
+            { top: 25, left: 25, width: 45 }, // Mobile
+          ),
+          ...getImageAnimation(400, "150px", "-150px", -20), // Animate from top-right
+        }}
+      />
+
+      {/* Image 4: Middle right purple QR card */}
+      <img
+        src="/app_section/qr.png"
+        alt="Purple QR card"
+        style={{
+          ...getImageStyle(
+            45, // baseTop
+            70, // baseLeft
+            20, // baseWidth
+            5, // baseRotate
+            { top: 30, left: 80, width: 15, rotate: -20 }, // Desktop
+            { top: 50, left: 65, width: 28, rotate: 5 }, // Tablet
+            { top: 45, left: 50, width: 45, rotate: 5 }, // Mobile
+          ),
+          ...getImageAnimation(600, "150px", "0", 10), // Animate from right
+        }}
+      />
+
+      {/* Image 5: Bottom left small purple card (Event name) */}
+      <img
+        src="/app_section/card2.png"
+        alt="Small purple event card"
+        style={{
+          ...getImageStyle(
+            75, // baseTop
+            28, // baseLeft
+            18, // baseWidth
+            -10, // baseRotate
+            { top: 75, left: 10, width: 14, rotate: -10 }, // Desktop
+          ),
+          ...getImageAnimation(800, "-150px", "150px", -15), // Animate from bottom-left
+        }}
+      />
+
+      {/* Image 6: Bottom middle-left small QR card (Placeholder for the one on the orange line) */}
+      <img
+        src="/app_section/event_card.png"
+        alt="Small QR card on orange line"
+        style={{
+          ...getImageStyle(
+            85, // baseTop
+            45, // baseLeft
+            15, // baseWidth
+            15, // baseRotate
+            { top: 85, left: 30, width: 15, rotate: 15 }, // Desktop
+            { top: 80, left: 55, width: 20, rotate: 15 }, // Tablet
+            { top: 70, left: 70, width: 35, rotate: 15 }, // Mobile
+          ),
+          ...getImageAnimation(1000, "0", "150px", 20), // Animate from bottom
+        }}
+      />
+
+      {/* Image 7: Bottom right phone (Login screen) */}
+      <img
+        src="/app_section/phone1.png"
+        alt="Phone showing login screen"
+        style={{
+          ...getImageStyle(
+            75, // baseTop
+            80, // baseLeft
+            18, // baseWidth
+            0, // baseRotate
+            { top: 75, left: 85, width: 18 }, // Desktop
+            { top: 70, left: 75, width: 30 }, // Tablet
+            { top: 80, left: 50, width: 50 }, // Mobile
+          ),
+          ...getImageAnimation(1200, "150px", "150px", -10), // Animate from bottom-right
+        }}
+      />
+
+      {/* Centered Download App Button */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center"
+      >
+        <button className="botao">
+          <svg
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mysvg"
+          >
+            <g id="Interface / Download">
+              <path
+                d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
+                stroke="#f1f1f1"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </g>
+          </svg>
+
+          <span className="texto flex justify-between"><Download className="mr-2" />Download</span>
+        </button>
+
+      </div>
+
+
+
+    </section>
+  )
+}
