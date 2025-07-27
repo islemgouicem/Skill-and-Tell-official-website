@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+  "homepage": "https://islemgouicem.github.io/snt_website"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
