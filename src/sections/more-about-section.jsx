@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { Atom, Brain, Globe, Lightbulb } from "lucide-react"
+import gurl from "../lib/image-util.js"
 
 export default function MoreAboutSection() {
   const faqItems = [
@@ -37,7 +38,7 @@ export default function MoreAboutSection() {
     <section
       id="more-about"
       className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: "url(/more_About.svg)" }}
+      style={{ background: `url(${gurl('more_About.svg')})` }}
     >
       {/* Blurred orange spheres */}
       <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-space-accent rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-float"></div>

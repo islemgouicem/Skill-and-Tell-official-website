@@ -5,6 +5,7 @@ import { Tag } from "lucide-react"
 // import { Button } from "./ui/button.jsx" // Original commented import
 import { Card, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import events from "../data/events.json" // Original import path
+import gurl from "../lib/image-util.js"
 
 export default function EventsSection() {
   const [activeIndex, setActiveIndex] = useState(0) // First card open by default
@@ -86,7 +87,7 @@ export default function EventsSection() {
     <section
       id="events"
       className="relative py-8 md:py-10 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: "url(/Events_Section.svg)" }} // Original background image path
+      style={{ background: `url(${gurl('Events_Section.svg')})` }} // Original background image path
     >
       {/* Blurred orange spheres */}
       <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-space-accent rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-float"></div>
@@ -106,7 +107,7 @@ export default function EventsSection() {
               }`}
           >
             <img
-              src="/left.png"
+              src={`${gurl("left.png")}`}
               alt="Previous"
               className="h-16 w-auto transition-all duration-300"
             />
@@ -187,7 +188,7 @@ export default function EventsSection() {
 
                       <div className="relative w-full h-[40%] mt-4 rounded-lg overflow-hidden">
                         <img
-                          src={event.image || "/placeholder.svg"}
+                          src={`${gurl(event.image)}` || `${gurl("/placeholder.svg")}`}
                           alt={event.title}
                           className="object-cover w-full h-full"
                         />
@@ -206,7 +207,7 @@ export default function EventsSection() {
               }`}
           >
             <img
-              src="/right.png"
+              src={`${gurl("right.png")}`}
               alt="Next"
               className="h-16 w-auto transition-all duration-300"
             />

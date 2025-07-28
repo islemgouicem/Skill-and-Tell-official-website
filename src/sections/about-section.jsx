@@ -2,6 +2,7 @@
 
 import { Lightbulb, Rocket, Users, Award } from "lucide-react"
 import { useInView } from "../components/ui/use_in_view.js"
+import gurl from "../lib/image-util.js"
 
 export default function AboutSection() {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.1 })
@@ -16,7 +17,7 @@ export default function AboutSection() {
       {/* Background pattern */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[url('/white_bg.png')] bg-top bg-no-repeat pointer-events-none select-none"
+        className={`absolute inset-0 bg-[url(${gurl('white_bg.png')})] bg-top bg-no-repeat pointer-events-none select-none`}
         style={{ zIndex: 0 }}
       />
 
@@ -36,7 +37,7 @@ export default function AboutSection() {
             <div className="relative w-[100px] sm:w-[120px] md:w-[140px] flex-shrink-0">
               <img
                 ref={phoneRef}
-                src="/phone.png"
+                src={`${gurl("phone.png")}`}
                 alt="Skill & Tell App Mockup"
                 className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-full object-cover 
                   transition-all duration-1000 w-auto h-[400px] overflow-visible
@@ -90,7 +91,7 @@ export default function AboutSection() {
                   </div>
                 </div>
                 <img
-                  src="/about_us1.png"
+                  src={`${gurl("about_us1.png")}`}
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
@@ -99,7 +100,7 @@ export default function AboutSection() {
               {/* Our Specialty Card with Image */}
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
-                  src="/about_us2.png"
+                  src={`${gurl("about_us2.png")}`}
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
@@ -180,7 +181,7 @@ export default function AboutSection() {
               {/* Our Vision Card + Image (bottom-left) */}
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
-                  src="/about_us1.png"
+                  src={`${gurl("about_us1.png")}`}
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />
@@ -209,7 +210,7 @@ export default function AboutSection() {
             <div className="flex justify-center items-end">
               <img
                 ref={phoneRef}
-                src="/phone.png"
+                src={`${gurl("phone.png")}`}
                 alt="Skill & Tell App Mockup"
                 className={`object-contain translate-y-10 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[200px] xl:max-w-[240px] h-auto ${
                   phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
@@ -240,7 +241,7 @@ export default function AboutSection() {
                   </div>
                 </div>
                 <img
-                  src="/about_us2.png"
+                  src={`${gurl("about_us2.png")}`}
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />

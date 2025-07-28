@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Download } from "lucide-react"
-import { Button } from "../components/ui/button"
+import gurl from "../lib/image-util.js"
 
 export default function AppSection() {
   const sectionRef = useRef(null)
@@ -117,7 +117,7 @@ export default function AppSection() {
     >
       {/* Wavy orange line as a separate image overlay */}
       <img
-        src="/App_section_bg.svg"
+        src={`${gurl("/App_section_bg.svg")}` }
         alt="Wavy orange line background element"
         style={{
           position: "absolute",
@@ -135,7 +135,7 @@ export default function AppSection() {
       {/* Individual App Images - Meticulously positioned and sized */}
       {/* Image 1: Large phone on left (Member Card screen) */}
       <img
-        src="/app_section/phone2.png"
+        src= {`${gurl("app_section/phone2.png")}` }
         alt="Large phone showing member card screen"
         style={{
           ...getImageStyle(
@@ -152,7 +152,7 @@ export default function AppSection() {
 
       {/* Image 2: Top middle purple card (Skill&Tell) */}
       <img
-        src="/app_section/card1.png"
+        src={`${gurl("app_section/card1.png")}` }
         alt="Skill&Tell card with purple background"
         style={{
           ...getImageStyle(
@@ -170,7 +170,7 @@ export default function AppSection() {
 
       {/* Image 3: Top right white member card */}
       <img
-        src="/app_section/member_card.png"
+        src={`${gurl("app_section/member_card.png")}` }
         alt="White member card"
         style={{
           ...getImageStyle(
@@ -188,7 +188,7 @@ export default function AppSection() {
 
       {/* Image 4: Middle right purple QR card */}
       <img
-        src="/app_section/qr.png"
+        src={`${gurl("app_section/qr.png")}` }
         alt="Purple QR card"
         style={{
           ...getImageStyle(
@@ -206,7 +206,7 @@ export default function AppSection() {
 
       {/* Image 5: Bottom left small purple card (Event name) */}
       <img
-        src="/app_section/card2.png"
+        src={`${gurl("app_section/card2.png")}` }
         alt="Small purple event card"
         style={{
           ...getImageStyle(
@@ -222,7 +222,7 @@ export default function AppSection() {
 
       {/* Image 6: Bottom middle-left small QR card (Placeholder for the one on the orange line) */}
       <img
-        src="/app_section/event_card.png"
+        src={`${gurl("app_section/event_card.png")}` }
         alt="Small QR card on orange line"
         style={{
           ...getImageStyle(
@@ -240,7 +240,7 @@ export default function AppSection() {
 
       {/* Image 7: Bottom right phone (Login screen) */}
       <img
-        src="/app_section/phone1.png"
+        src={`${gurl("app_section/phone1.png")}` }
         alt="Phone showing login screen"
         style={{
           ...getImageStyle(

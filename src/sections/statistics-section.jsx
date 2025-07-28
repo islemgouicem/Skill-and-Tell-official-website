@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import gurl from "../lib/image-util.js"
 
 // Helper component for animating numbers
 const AnimatedNumber = ({ value, isVisible, delay }) => {
@@ -160,7 +161,7 @@ export default function StatisticsSection() {
     >
       {/* Background image - Re-added as per your original code */}
       <img
-        src="/white_bg.png?height=1000&width=1000"
+        src={`${gurl("white_bg.png")}?height=1000&width=1000`}
         alt=""
         aria-hidden="true"
         style={{

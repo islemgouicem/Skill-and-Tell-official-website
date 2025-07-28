@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { Menu } from "lucide-react"
 import { Button } from "../components/ui/button.jsx"
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet.jsx"
+import gurl from "../lib/image-util.js"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -108,7 +109,7 @@ export default function Navbar() {
           <a href="#hero" className="flex items-center gap-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
             {/* User: Place your logo here at public/logo.png */}
             <img
-              src="/logo.png?height=40&width=40"
+              src={`${gurl("logo.png")}?height=40&width=40`}
               width={100}
               height={100}
               alt="Skill & Tell Logo"
@@ -145,7 +146,7 @@ export default function Navbar() {
             <SheetContent side="right" className="border-space-subtle w-[250px] text-space-text" 
             style={{background: "url(/background.svg)"}}>
               <a href="#hero" className="flex items-center gap-2 mb-6" onClick={(e) => handleNavLinkClick(e, "#hero")}>
-                <img src="/logo.png?height=40&width=40" width={100} height={100} alt="Skill & Tell Logo" />
+                <img src={`${gurl("logo.png")}?height=60&width=60`} width={100} height={100} alt="Skill & Tell Logo" />
               </a>
               <nav className="grid gap-4 py-6">
                 {navLinks.map((link) => (

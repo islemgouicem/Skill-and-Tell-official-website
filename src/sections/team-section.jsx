@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { Card, CardContent, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import teamMembers from "../data/team.json" // Original import path
+import gurl from "../lib/image-util.js"
 
 export default function TeamSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -104,7 +105,7 @@ export default function TeamSection() {
     <section
       id="team"
       className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden h-screen" // Changed to h-screen, removed flex centering
-      style={{ background: "url(/Team_Section.svg)" }} 
+      style={{ background: `url(${gurl("Team_Section.svg")})` }} 
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full">
@@ -117,7 +118,7 @@ export default function TeamSection() {
           {" "}
           <button onClick={prevMember} className="absolute left-0 md:left-10 z-20 p-1 transition-all duration-300">
             <img
-              src="/left.png"
+              src={`${gurl("left.png")}`}
               alt="Previous"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />
@@ -145,7 +146,7 @@ export default function TeamSection() {
                 >
                   <CardContent className="flex flex-col items-center text-center p-0">
                     <img
-                      src={member.image || "/pfp.png"}
+                      src={ `${gurl(member.image)}` || `${gurl("/pfp.png")}`}
                       width={120}
                       height={120}
                       alt={member.name}
@@ -187,7 +188,7 @@ export default function TeamSection() {
           </div>
           <button onClick={nextMember} className="absolute right-0 md:right-10 z-20 p-1 transition-all duration-300">
             <img
-              src="/right.png"
+              src={`${gurl("right.png")}`}
               alt="Next"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />

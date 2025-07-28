@@ -1,4 +1,5 @@
 import { Instagram, DiscIcon as Discord, Linkedin, Mail, Heart } from "lucide-react"
+import gurl from "../lib/image-util.js"
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="space-y-4">
           <a href="#hero" className="flex items-center gap-2">
             {/* User: Place your logo here at public/logo.png */}
-            <img src="/logo_dark.png?height=60&width=60" width={150} height={150} alt="Skill & Tell Logo" />
+            <img src={`${gurl("logo_dark.png")}?height=60&width=60`} width={150} height={150} alt="Skill & Tell Logo" />
           </a>
           <p className="text-sm text-footer-text/80 max-w-xs">
             Lorem ipsum dolor sit amet consectetur. Magnis fermentum tempus
