@@ -2,7 +2,7 @@
 
 import { Button } from "../components/ui/button.jsx"
 import { Avatar,AvatarImage,AvatarFallback } from "../components/ui/avatar.jsx"
-
+import background from "/background.SVG";
 function ShieldBadge({ children, className }) {
   return (
     <div
@@ -20,7 +20,7 @@ export default function HeroSection() {
     <section
       id="hero"
       className="relative h-screen flex items-center justify-center text-center text-space-text bg-cover bg-top bg-no-repeat"
-      style={{ backgroundImage: "url('/background.svg')" }}
+      style={{ backgroundImage:  `url(${background})` }}
     >
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[55vh] md:h-[50vh] lg:h-[45vh] overflow-hidden z-10 pointer-events-none">
         <spline-viewer
