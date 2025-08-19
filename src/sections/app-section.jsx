@@ -102,7 +102,7 @@ export default function AppSection() {
 
   return (
     <section
-      id="app-section"
+      id="app"
       ref={sectionRef}
       style={{
         position: "relative",
@@ -117,7 +117,7 @@ export default function AppSection() {
     >
       {/* Wavy orange line as a separate image overlay */}
       <img
-        src={`${gurl("/App_section_bg.svg")}` }
+        src={`${gurl("images/App_section_bg.svg")}`}
         alt="Wavy orange line background element"
         style={{
           position: "absolute",
@@ -135,16 +135,18 @@ export default function AppSection() {
       {/* Individual App Images - Meticulously positioned and sized */}
       {/* Image 1: Large phone on left (Member Card screen) */}
       <img
-        src= {`${gurl("app_section/phone2.png")}` }
+        src={`${gurl("images/phone2.png")}`}
+        loading="lazy"
         alt="Large phone showing member card screen"
         style={{
           ...getImageStyle(
             48, // baseTop
             25, // baseLeft
             10, // baseWidth
-            { top: 0, left: 3, width: 18 }, // Desktop
-            { top: 0, left: 3, width: 20 }, // Tablet
-            { top: 30, left: 50, width: 20 }, // Mobile
+            0,
+            { top: 25, left: 12, width: 15 }, // Desktop
+            { top: 10, left: 20, width: 20 }, // Tablet
+            { top: 10, left: 20, width: 30 }, // Mobile
           ),
           ...getImageAnimation(0, "-150px", "0", -10), // Animate from left
         }}
@@ -152,7 +154,8 @@ export default function AppSection() {
 
       {/* Image 2: Top middle purple card (Skill&Tell) */}
       <img
-        src={`${gurl("app_section/card1.png")}` }
+        src={`${gurl("images/card1.png")}`}
+        loading="lazy"
         alt="Skill&Tell card with purple background"
         style={{
           ...getImageStyle(
@@ -162,33 +165,14 @@ export default function AppSection() {
             -10, // baseRotate
             { top: 18, left: 32, width: 16, rotate: -10 }, // Desktop
             { top: 15, left: 65, width: 22, rotate: -10 }, // Tablet
-            { top: 15, left: 75, width: 35, rotate: -10 }, // Mobile
+            { top: 5, left: 45, width: 35, rotate: -5 }, // Mobile
           ),
           ...getImageAnimation(200, "0", "-150px", 20), // Animate from top
         }}
       />
-
-      {/* Image 3: Top right white member card */}
       <img
-        src={`${gurl("app_section/member_card.png")}` }
-        alt="White member card"
-        style={{
-          ...getImageStyle(
-            20, // baseTop
-            78, // baseLeft
-            20, // baseWidth
-            15, // baseRotate
-            { top: 20, left: 90, width: 20 }, // Desktop
-            { top: 25, left: 85, width: 28 }, // Tablet
-            { top: 25, left: 25, width: 45 }, // Mobile
-          ),
-          ...getImageAnimation(400, "150px", "-150px", -20), // Animate from top-right
-        }}
-      />
-
-      {/* Image 4: Middle right purple QR card */}
-      <img
-        src={`${gurl("app_section/qr.png")}` }
+        src={`${gurl("images/qr.png")}`}
+        loading="lazy"
         alt="Purple QR card"
         style={{
           ...getImageStyle(
@@ -198,15 +182,38 @@ export default function AppSection() {
             5, // baseRotate
             { top: 30, left: 80, width: 15, rotate: -20 }, // Desktop
             { top: 50, left: 65, width: 28, rotate: 5 }, // Tablet
-            { top: 45, left: 50, width: 45, rotate: 5 }, // Mobile
+            { top: 25, left: 70, width: 40, rotate: 5 }, // Mobile
           ),
           ...getImageAnimation(600, "150px", "0", 10), // Animate from right
         }}
       />
 
+      {/* Image 3: Top right white member card */}
+      <img
+        src={`${gurl("images/member_card.png")}`}
+        loading="lazy"
+        alt="White member card"
+        style={{
+          ...getImageStyle(
+            20, // baseTop
+            78, // baseLeft
+            20, // baseWidth
+            15, // baseRotate
+            { top: 20, left: 90, width: 20 }, // Desktop
+            { top: 25, left: 85, width: 28 }, // Tablet
+            { top: 15, left: 85, width: 50 }, // Mobile
+          ),
+          ...getImageAnimation(400, "150px", "-150px", -20), // Animate from top-right
+        }}
+      />
+
+      {/* Image 4: Middle right purple QR card */}
+
+
       {/* Image 5: Bottom left small purple card (Event name) */}
       <img
-        src={`${gurl("app_section/card2.png")}` }
+        src={`${gurl("images/card2.png")}`}
+        loading="lazy"
         alt="Small purple event card"
         style={{
           ...getImageStyle(
@@ -215,6 +222,8 @@ export default function AppSection() {
             18, // baseWidth
             -10, // baseRotate
             { top: 75, left: 10, width: 14, rotate: -10 }, // Desktop
+            { top: 75, left: 10, width: 14, rotate: -10 }, // tab
+            { top: 75, left: 25, width: 35, rotate: -10 }, // mobile
           ),
           ...getImageAnimation(800, "-150px", "150px", -15), // Animate from bottom-left
         }}
@@ -222,7 +231,8 @@ export default function AppSection() {
 
       {/* Image 6: Bottom middle-left small QR card (Placeholder for the one on the orange line) */}
       <img
-        src={`${gurl("app_section/event_card.png")}` }
+        src={`${gurl("images/event_card.png")}`}
+        loading="lazy"
         alt="Small QR card on orange line"
         style={{
           ...getImageStyle(
@@ -232,7 +242,7 @@ export default function AppSection() {
             15, // baseRotate
             { top: 85, left: 30, width: 15, rotate: 15 }, // Desktop
             { top: 80, left: 55, width: 20, rotate: 15 }, // Tablet
-            { top: 70, left: 70, width: 35, rotate: 15 }, // Mobile
+            { top: 84, left: 34, width: 35, rotate: 15 }, // Mobile
           ),
           ...getImageAnimation(1000, "0", "150px", 20), // Animate from bottom
         }}
@@ -240,7 +250,8 @@ export default function AppSection() {
 
       {/* Image 7: Bottom right phone (Login screen) */}
       <img
-        src={`${gurl("app_section/phone1.png")}` }
+        src={`${gurl("images/phone1.png")}`}
+        loading="lazy"
         alt="Phone showing login screen"
         style={{
           ...getImageStyle(
@@ -248,9 +259,9 @@ export default function AppSection() {
             80, // baseLeft
             18, // baseWidth
             0, // baseRotate
-            { top: 75, left: 85, width: 18 }, // Desktop
+            { top: 85, left: 85, width: 18 }, // Desktop
             { top: 70, left: 75, width: 30 }, // Tablet
-            { top: 80, left: 50, width: 50 }, // Mobile
+            { top: 90, left: 80, width: 25 }, // Mobile
           ),
           ...getImageAnimation(1200, "150px", "150px", -10), // Animate from bottom-right
         }}
@@ -258,9 +269,23 @@ export default function AppSection() {
 
       {/* Centered Download App Button */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center"
+        className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center h-full"
       >
-        <button className="botao">
+        <h2
+          className="titles mb-4 text-neutral-600 animate-fade-in-up"
+        >
+          S&T App
+        </h2>
+
+        <p
+          className="leading-7 text-center max-w-xl mx-auto text-gray-500 mb-6 text-sm"
+        >
+          Lorem ipsum dolor sit amet consectetur. Tellus mi id purus pulvinar molestie
+          neque semper arcu. Sodales nunc sed amet nunc dui quam ridiculus ornare.
+          Sed velit tincidunt purus sit mi sit ut. Suscipit bibendum ul
+        </p>
+
+        <button className="botao bg-space-accent rounded-4xl">
           <svg
             width="24px"
             height="24px"
@@ -280,10 +305,12 @@ export default function AppSection() {
             </g>
           </svg>
 
-          <span className="texto flex justify-between"><Download className="mr-2" />Download</span>
+          <span className="texto flex justify-between">
+            <p className="mr-2">Download</p> <Download className="mr-2" />
+          </span>
         </button>
-
       </div>
+
 
 
 

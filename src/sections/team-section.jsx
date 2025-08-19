@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { Card, CardContent, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import teamMembers from "../data/team.json" // Original import path
 import gurl from "../lib/image-util.js"
 
-export default function TeamSection() {
+function TeamSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [windowWidth, setWindowWidth] = useState(0)
 
@@ -105,20 +105,19 @@ export default function TeamSection() {
     <section
       id="team"
       className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden h-screen" // Changed to h-screen, removed flex centering
-      style={{ background: `url(${gurl("Team_Section.svg")})` }} 
+      style={{ background: `url(${gurl("images/Team_Section.svg")})` }} 
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full">
         {" "}
-        <h2 className="titles text-center my-6 text-space-text animate-fade-in-up">
-          {" "}
+        <h2 className="titles text-center mt-10 text-space-text animate-fade-in-up">
           Our Heads
         </h2>
         <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[450px] lg:min-h-[500px] w-full">
           {" "}
           <button onClick={prevMember} className="absolute left-0 md:left-10 z-20 p-1 transition-all duration-300">
             <img
-              src={`${gurl("left.png")}`}
+              src={`${gurl("images/left.png")}`}
               alt="Previous"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />
@@ -146,9 +145,10 @@ export default function TeamSection() {
                 >
                   <CardContent className="flex flex-col items-center text-center p-0">
                     <img
-                      src={ `${gurl(member.image)}` || `${gurl("/pfp.png")}`}
+                      src={ `${gurl(member.image)}` || `${gurl("images/pfp.png")}`}
                       width={120}
                       height={120}
+                      loading="lazy" 
                       alt={member.name}
                       className="rounded-full object-cover mb-5 border-4 border-space-accent shadow-md" // Changed width/height to 120
                     />
@@ -188,7 +188,7 @@ export default function TeamSection() {
           </div>
           <button onClick={nextMember} className="absolute right-0 md:right-10 z-20 p-1 transition-all duration-300">
             <img
-              src={`${gurl("right.png")}`}
+              src={`${gurl("images/right.png")}`}
               alt="Next"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />
@@ -198,3 +198,4 @@ export default function TeamSection() {
     </section>
   )
 }
+export default  React.memo(TeamSection)

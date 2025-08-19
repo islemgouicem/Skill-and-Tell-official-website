@@ -1,0 +1,43 @@
+"use client"
+
+import React from "react"
+import { Menu } from "lucide-react"
+import { Button } from "../components/ui/button.jsx"
+import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet.jsx"
+import Logo from "./Logo.jsx" // memoized logo component
+import gurl from "../lib/image-util.js"
+
+function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
+    return (
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden text-space-text">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+            </SheetTrigger>
+            <SheetContent
+                side="right"
+                className="border-space-subtle w-[250px] text-space-text"
+                style={{ backgroundImage: `url(${gurl('images/background.svg')})` }}
+            >
+                <a href="#hero" className="flex items-center gap-2 mb-6" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                    <Logo size={60} />
+                </a>
+                <nav className="grid gap-4 py-6">
+                    {navLinks.map(({ name, href }) => (
+                        <a
+                            key={name}
+                            href={href}
+                            className="flex w-full items-center py-2 text-lg font-semibold hover:text-[#d7aeff] transition-colors"
+                            onClick={(e) => handleNavLinkClick(e, href)}
+                        >
+                            {name}
+                        </a>
+                    ))}
+                </nav>
+            </SheetContent>
+        </Sheet>
+    )
+}
+export default React.memo(MobileNavbar)

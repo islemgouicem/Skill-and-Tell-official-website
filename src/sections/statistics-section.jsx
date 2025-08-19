@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import gurl from "../lib/image-util.js"
 
 // Helper component for animating numbers
@@ -54,7 +54,7 @@ const AnimatedNumber = ({ value, isVisible, delay }) => {
   )
 }
 
-export default function StatisticsSection() {
+function StatisticsSection() {
   const sectionRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
@@ -161,7 +161,7 @@ export default function StatisticsSection() {
     >
       {/* Background image - Re-added as per your original code */}
       <img
-        src={`${gurl("white_bg.png")}?height=1000&width=1000`}
+        src={`${gurl("images/white_bg.png")}?height=1000&width=1000`}
         alt=""
         aria-hidden="true"
         style={{
@@ -309,3 +309,4 @@ export default function StatisticsSection() {
     </section>
   )
 }
+export default React.memo(StatisticsSection)

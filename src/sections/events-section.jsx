@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { Tag } from "lucide-react"
 // import { Button } from "./ui/button.jsx" // Original commented import
 import { Card, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import events from "../data/events.json" // Original import path
 import gurl from "../lib/image-util.js"
 
-export default function EventsSection() {
+function EventsSection() {
   const [activeIndex, setActiveIndex] = useState(0) // First card open by default
   const [currentStartIndex, setCurrentStartIndex] = useState(0) // Index of the first visible card
   const [windowWidth, setWindowWidth] = useState(0)
@@ -87,7 +87,7 @@ export default function EventsSection() {
     <section
       id="events"
       className="relative py-8 md:py-10 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: `url(${gurl('Events_Section.svg')})` }} // Original background image path
+      style={{ background: `url(${gurl('images/Events_Section.svg')})` }} // Original background image path
     >
       {/* Blurred orange spheres */}
       <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-space-accent rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-float"></div>
@@ -107,7 +107,7 @@ export default function EventsSection() {
               }`}
           >
             <img
-              src={`${gurl("left.png")}`}
+              src={`${gurl("images/left.png")}`}
               alt="Previous"
               className="h-16 w-auto transition-all duration-300"
             />
@@ -137,7 +137,7 @@ export default function EventsSection() {
                   <Card
                     key={event.id}
                     onClick={() => handleCardClick(index)}
-                    className={`relative frosted-glass rounded-xl shadow-xl border border-space-subtle cursor-pointer 
+                    className={`relative frosted-glass rounded-md shadow-xl border cursor-pointer 
                       transition-all duration-500 ease-in-out flex-shrink-0 h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden
                       ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     style={{
@@ -188,8 +188,9 @@ export default function EventsSection() {
 
                       <div className="relative w-full h-[40%] mt-4 rounded-lg overflow-hidden">
                         <img
-                          src={`${gurl(event.image)}` || `${gurl("/placeholder.svg")}`}
+                          src={`images/${gurl(event.image)}` || `${gurl("images/placeholder.svg")}`}
                           alt={event.title}
+                          loading="lazy" 
                           className="object-cover w-full h-full"
                         />
                       </div>
@@ -207,7 +208,7 @@ export default function EventsSection() {
               }`}
           >
             <img
-              src={`${gurl("right.png")}`}
+              src={`${gurl("images/right.png")}`}
               alt="Next"
               className="h-16 w-auto transition-all duration-300"
             />
@@ -217,3 +218,4 @@ export default function EventsSection() {
     </section>
   )
 }
+export default React.memo(EventsSection)
