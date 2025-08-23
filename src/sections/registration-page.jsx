@@ -257,7 +257,7 @@ function RegistrationPage({ onBack }) {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src="../../public/icons/Profile.svg"
+                                    src={gurl("icons/Profile.svg")}
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -324,7 +324,7 @@ function RegistrationPage({ onBack }) {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src="../../public/icons/acad.svg"
+                                    src={gurl("icons/acad.svg")}
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -391,7 +391,7 @@ function RegistrationPage({ onBack }) {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src="../../public/icons/department.svg"
+                                    src={gurl("icons/department.svg")}
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -457,7 +457,7 @@ function RegistrationPage({ onBack }) {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src="../../public/icons/motivation.svg"
+                                    src={gurl("icons/motivation.svg")}
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -528,7 +528,7 @@ function RegistrationPage({ onBack }) {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src="../../public/icons/Camera.svg"
+                                    src={gurl("icons/Camera.svg")}
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />

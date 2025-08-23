@@ -14,6 +14,17 @@
   --animate-float: float 3s ease-in-out infinite;
   --animate-card-expand: card-expand 0.3s ease-out forwards;
   --animate-card-collapse: card-collapse 0.3s ease-out forwards;
+  /* blackhole */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-black-hole-spin: black-hole-spin 6s ease-in-out infinite;
+  --animate-matter-orbit: matter-orbit 3s linear infinite;
+  --animate-matter-orbit-reverse: matter-orbit-reverse 4s linear infinite;
+  --animate-void-pulse: void-pulse 2s ease-in-out infinite;
+  --animate-particle-float: particle-float 4s ease-in-out infinite;
+  --animate-fade-out-loader: fade-out-loader 0.8s ease-out forwards;
+
+
 
   /* basic stylings */
   --container-center: true;
@@ -596,4 +607,68 @@
   backdrop-filter: blur(15px);
 }
 
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<   registration form >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<   loading page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* Black Hole Animations */
+@keyframes black-hole-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes matter-orbit {
+  0% { 
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: rotate(180deg) translateX(100px) rotate(-180deg);
+    opacity: 0.4;
+  }
+  100% { 
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes matter-orbit-reverse {
+  0% { 
+    transform: rotate(0deg) translateX(90px) rotate(0deg);
+    opacity: 1;
+  }
+  50% { 
+    transform: rotate(-180deg) translateX(80px) rotate(180deg);
+    opacity: 0.6;
+  }
+  100% { 
+    transform: rotate(-360deg) translateX(90px) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes void-pulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px hsl(var(--void-glow) / 0.3),
+      0 0 40px hsl(var(--void-glow) / 0.2),
+      0 0 80px hsl(var(--void-glow) / 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px hsl(var(--void-glow) / 0.5),
+      0 0 60px hsl(var(--void-glow) / 0.3),
+      0 0 120px hsl(var(--void-glow) / 0.2);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(-5px) translateX(-3px); }
+  75% { transform: translateY(-8px) translateX(2px); }
+}
+
+@keyframes fade-out-loader {
+  0% { opacity: 1; visibility: visible; }
+  90% { opacity: 0; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}

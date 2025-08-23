@@ -73,7 +73,7 @@ export default function Footer() {
             className="socialm"
           // Instagram color
           >
-            <img src="/icons/_Instagram.svg" className="h-5 w-5" />
+            <img src={gurl("icons/Instagram.svg")} className="h-5 w-5" />
             <span className="font-medium text-neutral-300">Follow us for updates!</span>
           </a>
 
@@ -81,21 +81,21 @@ export default function Footer() {
             href="#"
             className="socialm"
           >
-            <img src="/icons/_Discord.svg" className="h-5 w-5" />
+            <img src={gurl("icons/Discord.svg")} className="h-5 w-5" />
             <span className="font-medium text-neutral-300">Join our community</span>
           </a>
           <a
             href="#"
             className="socialm"
           >
-            <img src="/icons/_Linkedin.svg" className="h-5 w-5" />
+            <img src={gurl("icons/Linkedin.svg")} className="h-5 w-5" />
             <span className="font-medium text-neutral-300" >Let's connect and collaborate</span>
           </a>
           <a
             href="#"
             className="socialm"
           >
-            <img src="/icons/Gmail.svg" className="h-5 w-5" />
+            <img src={gurl("icons/Gmail.svg")} className="h-5 w-5" />
             <span className="font-medium text-neutral-300">Reach out for collaborations!</span>
           </a>
         </div>

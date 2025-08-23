@@ -1,5 +1,6 @@
 import { useState, Suspense, lazy } from "react"
 import Navbar from "./layout/navbar.jsx"
+// import BlackHoleLoader from "./components/BlackHoleLoader";
 import HeroSection from "./sections/hero-section.jsx"
 import MouseSparkles from "./components/effects/mouse-sparkles.jsx"
 const Footer = lazy(() => import("./layout/footer.jsx"));
@@ -13,7 +14,9 @@ const RegistrationPage = lazy(() => import("./sections/registration-page.jsx"));
 
 function App() {
   const [showRegistration, setShowRegistration] = useState(false)
+  // const [isLoading, setIsLoading] = useState(true)
 
+  // const handleLoadingComplete = () => setIsLoading(false)
   const handleRegisterClick = () => setShowRegistration(true)
   const handleBackToHome = () => setShowRegistration(false)
 
@@ -25,7 +28,10 @@ function App() {
     <div
       className="min-h-screen flex flex-col bg-space-dark text-space-text transition-opacity duration-500 "
     >
-      <MouseSparkles/>
+      <MouseSparkles />
+      {/* {isLoading && (
+        <BlackHoleLoader onLoadingComplete={handleLoadingComplete} />
+      )} */}
       <Navbar />
       <main className="flex-1">
         <HeroSection onRegisterClick={handleRegisterClick} />

@@ -164,7 +164,7 @@ function EventsSection() {
                     >
                       <div className="relative w-full h-[40%] rounded-lg overflow-hidden">
                         <img
-                          src={`images/${gurl(event.image)}` || `${gurl("images/placeholder.svg")}`}
+                          src={`${gurl(event.image)}` || `${gurl("images/placeholder.svg")}`}
                           alt={event.title}
                           loading="lazy"
                           className="object-cover w-full h-full"
