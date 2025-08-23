@@ -2,20 +2,32 @@
 
 import React, { useState, useEffect } from "react"
 import { Instagram, Linkedin, Mail } from "lucide-react"
+import { useInView } from "../components/ui/use_in_view.js"
 import { Card, CardContent, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import teamMembers from "../data/team.json" // Original import path
 import gurl from "../lib/image-util.js"
 
 function TeamSection() {
+  const [sectionRef, sectionInView] = useInView({ threshold: 0.1 })
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [windowWidth, setWindowWidth] = useState(0)
+  const [hasRun, setHasRun] = useState(false);
+
 
   useEffect(() => {
+    if (sectionInView && !hasRun) {
+      const half = Math.floor(teamMembers.length / 2);
+      for (let i = 0; i < half; i++) {
+        nextMember(); // run your procedure
+      }
+      setHasRun(true); // prevent running again
+    }
     const handleResize = () => setWindowWidth(window.innerWidth)
     window.addEventListener("resize", handleResize)
     handleResize() // Set initial width
     return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  }, [sectionInView, hasRun])
 
   const getCardTransform = (index, total, current, width) => {
     const offset = index - current
@@ -104,13 +116,14 @@ function TeamSection() {
   return (
     <section
       id="team"
-      className="relative py-16 md:py-24 bg-space-dark text-space-text overflow-hidden h-screen" // Changed to h-screen, removed flex centering
-      style={{ background: `url(${gurl("images/Team_Section.svg")})` }} 
+      ref={sectionRef}
+      className="relative  bg-space-dark text-space-text overflow-hidden" // Changed to h-screen, removed flex centering
+      style={{ background: `url(${gurl("images/Team_Section.svg")})` }}
     >
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full">
-        {" "}
-        <h2 className="titles text-center mt-10 text-space-text animate-fade-in-up">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full py-4 sm:py-6 md:py-8">
+        <h2 className={`titles text-neutral-100 transition-all duration-1000
+          ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}`}>
           Our Heads
         </h2>
         <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[450px] lg:min-h-[500px] w-full">
@@ -134,7 +147,7 @@ function TeamSection() {
                 <Card
                   key={member.id}
                   className="absolute w-[80%] sm:w-[300px] md:w-[320px] max-w-[98vw] inset-x-0 mx-auto p-6 border border-space-subtle 
-  bg-space-light/30 backdrop-blur-md shadow-xl transition-all duration-500 ease-in-out origin-center" // Further adjusted card width
+  heads-card shadow-xl transition-all duration-500 ease-in-out origin-center" // Further adjusted card width
                   style={{
                     transform,
                     opacity,
@@ -145,16 +158,16 @@ function TeamSection() {
                 >
                   <CardContent className="flex flex-col items-center text-center p-0">
                     <img
-                      src={ `${gurl(member.image)}` || `${gurl("images/pfp.png")}`}
+                      src={`${gurl(member.image)}` || `${gurl("images/pfp.png")}`}
                       width={120}
                       height={120}
-                      loading="lazy" 
+                      loading="lazy"
                       alt={member.name}
-                      className="rounded-full object-cover mb-5 border-4 border-space-accent shadow-md" // Changed width/height to 120
+                      className="rounded-full object-cover mb-5 border-3 border-space-accent shadow-md" // Changed width/height to 120
                     />
-                    <CardTitle className="text-3xl font-bold text-space-text mb-2">{member.name}</CardTitle>
-                    <CardDescription className="text-space-accent text-xl mb-4">{member.role}</CardDescription>
-                    <p className="text-space-text/90 mb-6 text-base">{member.description}</p>
+                    <CardTitle className="text-2xl font-bold text-neutral-100 mb-2">{member.name}</CardTitle>
+                    <CardDescription className="text-accent-500 text-lg mb-4">{member.role}</CardDescription>
+                    <p className="text-white mb-6">{member.description}</p>
                     <div className="flex gap-5">
                       <a
                         href={member.social.instagram}
@@ -198,4 +211,4 @@ function TeamSection() {
     </section>
   )
 }
-export default  React.memo(TeamSection)
+export default React.memo(TeamSection)

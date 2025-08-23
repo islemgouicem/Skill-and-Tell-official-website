@@ -65,7 +65,7 @@ function Navbar() {
       <header
         className={`fixed w-full z-50 transition-all duration-500 ease-in-out backdrop-blur-sm shadow-lg ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        } bg-gradient-to-br from-[rgba(26,1,50,0.4)] to-[rgba(215,174,255,0.4)]`}
+        } bg-gradient-to-br navbar-bg`}
         onMouseEnter={showNavbar}
         onMouseLeave={() => !isOpen && startHideTimer(2000)}
       >

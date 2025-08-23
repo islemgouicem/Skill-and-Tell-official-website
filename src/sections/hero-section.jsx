@@ -1,20 +1,11 @@
 "use client"
 
 import { Button } from "../components/ui/button.jsx"
+import Shield from "../components/ui/shield_badge.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
 import HeroSpline from "../components/ui/spline_3d.jsx"
 import gurl from "../lib/image-util.js"
-function ShieldBadge({ children, className }) {
-  return (
-    <div
-      className={`relative bg-space-light/70 border border-space-subtle shadow-lg backdrop-blur-sm p-4 rounded-xl flex flex-col items-center justify-center w-[120px] h-[140px] ${className}`}
-    >
-      <div className="absolute bottom-[-10px] w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-space-light/70"></div>
-      <div className="absolute bottom-[-11px] w-0 h-0 border-l-[11px] border-r-[11px] border-t-[11px] border-l-transparent border-r-transparent border-t-space-subtle"></div>
-      {children}
-    </div>
-  )
-}
+
 
 export default function HeroSection({ onRegisterClick }) {
   return (
@@ -46,15 +37,15 @@ export default function HeroSection({ onRegisterClick }) {
           </span>
         </h1>
         <p className="max-w-3xl text-md md:text-xl text-white/70 mb-6">
-          Start your journey with our creative, inspiring and welcoming club, where skills are sharpened, 
+          Start your journey with our creative, inspiring and welcoming club, where skills are sharpened,
           ideas come to life, collaboration thrives, and passion, fun, and excitement pave the way for success!
         </p>
         <Button
           onClick={onRegisterClick}
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
           drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white hover:from-[#FF6D00] 
-          hover:to-[rgba(255,109,0,0)] text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-md transition-all 
-          ease-in-out duration-700"
+          hover:to-[rgba(255,109,0,0)] text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-md transition-colors 
+          ease-in-out duration-700 border border-Main-300/50"
         >
           Register Now
         </Button>
@@ -64,12 +55,9 @@ export default function HeroSection({ onRegisterClick }) {
 
       {/* Members */}
       <div
-        className="absolute top-[20%] left-4 md:top-[32%] md:left-[6%] xl:top-[32%] xl:left-[6%] 
-        rounded-full py-2 px-4 flex items-center space-x-2 
-        backdrop-blur-sm transform -rotate-10 hover:scale-105 transition-transform duration-300 z-20"
-        style={{
-          background: 'linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.1))',
-        }}
+        className="badges absolute top-[20%] left-4 md:top-[32%] md:left-[6%] xl:top-[29%] xl:left-[8.5%] 
+        rounded-full py-2 px-4 flex items-center space-x-2 border-1 border-white/50
+        transform -rotate-10 hover:scale-105 transition-transform duration-300 z-20"
       >
         <div className="flex -space-x-2 overflow-hidden">
           <Avatar className="w-8 h-8 border-2 border-white">
@@ -88,39 +76,30 @@ export default function HeroSection({ onRegisterClick }) {
         <span className="text-sm md:text-base font-semibold drop-shadow-sm jusitfy-start"><p className="text-[#ff6d00] font-bold">534+</p> Members</span>
       </div>
 
+      {/* participants */}
+      <div
+        className="badges absolute top-[18%] left-[78%] 
+        rounded-full py-2 px-4 flex flex-col items-center space-x-2 border-1 border-white/50
+        transform rotate-10 hover:scale-105 transition-transform duration-300 z-20 overflow-hidden"
+      >
+          
+        <p className="text-[#ff6d00] font-bold">400+</p>
+        <p className="text-sm md:text-base font-semibold drop-shadow-sm jusitfy-start">Participants In Events</p>
+      </div>
+      {/* projects */}
+      <div
+        className="badges absolute top-[80%] left-[7%] 
+        rounded-full py-2 px-8 flex flex-col justify-center space-x-2 border-1 border-white/50
+        transform -rotate-12 hover:scale-105 transition-transform duration-300 z-20 overflow-hidden"
+      >
+          
+        <p className="text-[#ff6d00] font-bold">4+</p>
+        <p className="text-sm md:text-base font-semibold drop-shadow-sm jusitfy-start">Projects</p>
+      </div>
+      <div className="absolute top-[70%] left-[78%] transform hover:scale-105 transition-transform duration-300">
+        <Shield className="w-40 h-40"/>
+      </div>
 
     </section>
   )
 }
-
-{/* Events */ }
-{/* <div className="absolute top-[10%] right-4 md:top-[15%] md:right-[10%] lg:top-[18%] lg:right-[15%] xl:top-[20%] xl:right-[20%] bg-space-light/70 border border-space-subtle rounded-full py-2 px-4 shadow-lg backdrop-blur-sm transform rotate-6 hover:scale-105 transition-transform duration-300 z-20">
-        <span className="text-space-text text-sm md:text-base font-semibold drop-shadow-sm">
-          400+ Participants in Events
-        </span>
-      </div> */}
-
-{/* Projects */ }
-{/* <div className="absolute bottom-[25%] left-4 md:bottom-[20%] md:left-[10%] lg:bottom-[22%] lg:left-[15%] xl:bottom-[25%] xl:left-[20%] bg-space-light/70 border border-space-subtle rounded-lg py-2 px-4 shadow-lg backdrop-blur-sm transform rotate-3 hover:scale-105 transition-transform duration-300 z-20">
-        <span className="text-space-text text-sm md:text-base font-semibold drop-shadow-sm">50+ Projects</span>
-      </div> */}
-
-{/* Shield Badge for Years */ }
-{/* <ShieldBadge
-        className="fixed bottom-0 right-4 md:right-6 lg:right-8 translate-y-[calc(100%-40px)] 
-          md:translate-y-[calc(100%-48px)] lg:translate-y-[calc(100%-56px)] z-50 transform -rotate-6 
-          hover:scale-105 transition-transform duration-300"
-      >
-
-        <div className="flex -space-x-2 mb-2">
-          <Avatar className="w-8 h-8 border-2 border-white">
-            <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Year 1" />
-            <AvatarFallback>Y1</AvatarFallback>
-          </Avatar>
-          <Avatar className="w-8 h-8 border-2 border-white">
-            <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Year 2" />
-            <AvatarFallback>Y2</AvatarFallback>
-          </Avatar>
-        </div>
-        <span className="text-space-text text-sm md:text-base font-semibold drop-shadow-sm">5+ Years</span>
-      </ShieldBadge> */}

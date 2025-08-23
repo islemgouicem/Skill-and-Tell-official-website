@@ -18,11 +18,11 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
             </SheetTrigger>
             <SheetContent
                 side="right"
-                className="border-space-subtle w-[250px] text-space-text"
+                className="border-Main-400 w-[250px] text-space-text"
                 style={{ backgroundImage: `url(${gurl('images/background.svg')})` }}
             >
-                <a href="#hero" className="flex items-center gap-2 mb-6" onClick={(e) => handleNavLinkClick(e, "#hero")}>
-                    <Logo size={60} />
+                <a href="#hero" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                    <Logo size={100} />
                 </a>
                 <nav className="grid gap-4 py-6">
                     {navLinks.map(({ name, href }) => (

@@ -7,24 +7,24 @@ import React from 'react'
 
 function AboutSection() {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.1 })
-  const [phoneRef, phoneInView] = useInView({ threshold: 0.5 })
+  const [phoneRef, phoneInView] = useInView({ threshold: 0.3 })
   const [card1Ref, card1InView] = useInView({ threshold: 0.3 })
   const [card2Ref, card2InView] = useInView({ threshold: 0.3 })
   const [card3Ref, card3InView] = useInView({ threshold: 0.3 })
   const [card4Ref, card4InView] = useInView({ threshold: 0.3 })
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-[#F7F0FF] text-space-text overflow-hidden lg:h-screen">
+    <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:h-screen">
       {/* Background pattern */}
       <div
         aria-hidden="true"
-        className={`absolute inset-0 bg-[url(${gurl('images/white_bg.png')})] bg-top bg-no-repeat pointer-events-none select-none`}
-        style={{ zIndex: 0 }}
+        className={`absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none select-none w-full`}
+        style={{ backgroundImage: `url(${gurl('images/white_bg.png')})` }}
       />
 
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col py-4 sm:py-6 md:py-8">
         <h2
-          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold text-center mb-4 sm:mb-6 md:mb-8 text-[#222631] transition-all duration-1000 
+          className={`titles text-neutral-600 transition-all duration-1000 
             ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}
             opacity-100 translate-y-0`}
         >
@@ -38,7 +38,7 @@ function AboutSection() {
             <div className="relative w-[100px] sm:w-[120px] md:w-[140px] flex-shrink-0">
               <img
                 ref={phoneRef}
-                loading="lazy" 
+                loading="lazy"
                 src={`${gurl("images/phone.png")}`}
                 alt="Skill & Tell App Mockup"
                 className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-full object-cover 
@@ -52,8 +52,8 @@ function AboutSection() {
               {/* About Us Card */}
               <div
                 ref={card1Ref}
-                className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 
-                  opacity-100 translate-y-0`}
+                className="about-cont p-2 sm:p-3 md:p-4 rounded-md shadow-lg transition-all duration-700 
+                  opacity-100 translate-y-0"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -77,7 +77,7 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <div
                   ref={card2Ref}
-                  className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 
+                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 
                     opacity-100 translate-y-0`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -94,7 +94,7 @@ function AboutSection() {
                 </div>
                 <img
                   src={`${gurl("images/about_us1.png")}`}
-                  loading="lazy" 
+                  loading="lazy"
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
@@ -104,13 +104,13 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
                   src={`${gurl("images/about_us2.png")}`}
-                  loading="lazy" 
+                  loading="lazy"
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
                 <div
                   ref={card3Ref}
-                  className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 
+                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 
                     opacity-100 translate-y-0`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -130,7 +130,7 @@ function AboutSection() {
               {/* Our Achievements Card */}
               <div
                 ref={card4Ref}
-                className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 
+                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 
                   opacity-100 translate-y-0`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -160,9 +160,8 @@ function AboutSection() {
               {/* About Us Card (top-left) */}
               <div
                 ref={card1Ref}
-                className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 ${
-                  card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
+                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 ${card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -186,15 +185,14 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
                   src={`${gurl("images/about_us1.png")}`}
-                  loading="lazy" 
+                  loading="lazy"
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />
                 <div
                   ref={card2Ref}
-                  className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 ${
-                    card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
+                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 ${card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Rocket className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -217,9 +215,8 @@ function AboutSection() {
                 ref={phoneRef}
                 src={`${gurl("images/phone.png")}`}
                 alt="Skill & Tell App Mockup"
-                className={`object-contain translate-y-10 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[200px] xl:max-w-[240px] h-auto ${
-                  phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                }`}
+                className={`object-contain translate-y-0 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[240px] xl:max-w-[260px] h-auto ${phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  }`}
               />
             </div>
 
@@ -229,9 +226,8 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <div
                   ref={card3Ref}
-                  className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 ${
-                    card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
+                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 ${card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -247,7 +243,7 @@ function AboutSection() {
                 </div>
                 <img
                   src={`${gurl("images/about_us2.png")}`}
-                  loading="lazy" 
+                  loading="lazy"
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />
@@ -256,9 +252,8 @@ function AboutSection() {
               {/* Our Achievements Card (bottom-right) */}
               <div
                 ref={card4Ref}
-                className={`bg-[#5A328D] p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 ${
-                  card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
+                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 ${card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />

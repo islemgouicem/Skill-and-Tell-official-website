@@ -62,6 +62,8 @@ function RegistrationPage({ onBack }) {
         "IT Department",
         "Marketing Department",
         "Relex Department",
+        "Human Resources Department",
+        "Logistics Department",
     ]
     const wilayas = ["Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar", "Blida",
         "Bouira", "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Algiers", "Djelfa", "Jijel", "Sétif",
@@ -88,6 +90,7 @@ function RegistrationPage({ onBack }) {
     };
     const handleSelectChange = (field, value) => {
         setFormData(prev => ({ ...prev, [field]: value }))
+
         if (errors[field]) {
             setErrors((prev) => {
                 const updated = { ...prev };
@@ -125,35 +128,37 @@ function RegistrationPage({ onBack }) {
     const validateStep = () => {
         let stepErrors = {};
 
-        // if (currentStep === 1) {
-        //     if (!formData.fullname.trim()) stepErrors.fullname = "Please enter your Full name";
-        //     if (!formData.phone.trim()) stepErrors.phone = "Please enter your Phone number";
-        //     if (!formData.email.trim()) stepErrors.email = "Please enter a valid Email address";
-        //     if (!formData.discordID.trim()) stepErrors.discordID = "Please enter your Discord ID";
-        // }
+        if (currentStep === 1) {
+            if (!formData.fullname.trim()) stepErrors.fullname = "Please enter your Full name";
+            if (!formData.phone.trim()) stepErrors.phone = "Please enter your Phone number";
+            if (!formData.email.trim()) stepErrors.email = "Please enter a valid Email address";
+            if (!formData.discordID.trim()) stepErrors.discordID = "Please enter your Discord ID";
+        }
 
-        // if (currentStep === 2) {
-        //     if (!formData.university.trim()) stepErrors.university = "Please enter the name of your University";
-        //     if (!formData.yearOfStudy) stepErrors.yearOfStudy = "Please specify your current year of study";
-        //     if (!formData.field.trim()) stepErrors.field = "Please enter your Field of study";
-        //     if (!formData.university_location) stepErrors.university_location = "Please select the city where your university is located";
-        // }
+        if (currentStep === 2) {
+            if (!formData.university.trim()) stepErrors.university = "Please enter the name of your University";
+            if (!formData.yearOfStudy) stepErrors.yearOfStudy = "Please specify your current year of study";
+            if (!formData.field.trim()) stepErrors.field = "Please enter your Field of study";
+            if (!formData.university_location) stepErrors.university_location = "Please select the city where your university is located";
+        }
 
-        // if (currentStep === 3) {
-        //     if (!formData.dep1) stepErrors.dep1 = "First choice is required";
-        //     if (!formData.dep2) stepErrors.dep2 = "Second choice is required";
-        //     if (!formData.dep3) stepErrors.dep3 = "Third choice is required";
-        // }
+        if (currentStep === 3) {
+            if (!formData.dep1) stepErrors.dep1 = "First choice is required";
+            if (!formData.dep2) stepErrors.dep2 = "Second choice is required";
+            if (!formData.dep3) stepErrors.dep3 = "Third choice is required";
+            if (formData.dep1 == formData.dep2 || formData.dep1 == formData.dep3 || formData.dep2 == formData.dep3) {
+                stepErrors.similar = "Nice try didi :); options should be different";
+            }
+        }
 
-        // if (currentStep === 4) {
-        //     if (!formData.dep1_motiv.trim()) stepErrors.dep1_motiv = "Motivation for first choice is required";
-        //     if (!formData.dep2_3_motiv.trim()) stepErrors.dep2_3_motiv = "Write about your second/third choices";
-        //     if (!formData.goals.trim()) stepErrors.goals = "Your goals are required";
-        // }
-        // if (currentStep === 5) {
-        //     if (!formData.image) stepErrors.dep1_motiv = "Please upload your profile photo";
-
-        // }
+        if (currentStep === 4) {
+            if (!formData.dep1_motiv.trim()) stepErrors.dep1_motiv = "Motivation for first choice is required";
+            if (!formData.dep2_3_motiv.trim()) stepErrors.dep2_3_motiv = "Write about your second/third choices";
+            if (!formData.goals.trim()) stepErrors.goals = "Your goals are required";
+        }
+        if (currentStep === 5) {
+            if (!formData.image) stepErrors.dep1_motiv = "Please upload your profile photo";
+        }
 
         setErrors(stepErrors);
         return Object.keys(stepErrors).length === 0;
@@ -215,14 +220,14 @@ function RegistrationPage({ onBack }) {
 
     return (
         <div
-            className="min-h-screen p-2 bg-cover bg-center bg-no-repeat"
+            className="min-h-screen p-2 bg-cover bg-center bg-repeat"
             style={{ backgroundImage: `url(${gurl('images/Team_Section.svg')})` }}
         >
-            
+
             {/* Header */}
-            <div className="max-w-6xl mx-auto pt-2 pb-2">
-                <div className="mb-2 text-center">
-                    <h1 className="inline-block text-3xl font-bold p-2" style={{
+            <div className="max-w-6xl mx-auto py-4">
+                <div className="mb-4 text-center">
+                    <h1 className="inline-block text-3xl sm:text-4xl md:text-5xl font-bold p-2" style={{
                         color: "#190432",
                         background: "linear-gradient(90deg,#FF6D00,#8A38F5)",
                         WebkitBackgroundClip: "text",
@@ -233,7 +238,7 @@ function RegistrationPage({ onBack }) {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-[#7B2CBF] rounded-full h-2 mb-8">
+                <div className="w-full bg-Main-600 rounded-full h-2 mb-8">
                     <div
                         className="h-2 rounded-full transition-all duration-500"
                         style={{
@@ -391,6 +396,8 @@ function RegistrationPage({ onBack }) {
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
                                 <h2 className="section-title">Department Preferences</h2>
+                                {errors.similar && <p className="text-error-200 text-sm my-1">* {errors.similar}</p>}
+
                             </div>
 
                             <div className="space-y-6 px-10">
@@ -439,6 +446,7 @@ function RegistrationPage({ onBack }) {
                                         {errors.dep3 && <p className="text-error-200 text-sm my-1">* {errors.dep3}</p>}
 
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -461,10 +469,17 @@ function RegistrationPage({ onBack }) {
                                     <label className="input-label">Motivation for First-Choice Department <Star /></label>
                                     <textarea
                                         value={formData.dep1_motiv}
-                                        onChange={(e) => handleInputChange("dep1_motiv", e.target.value)}
-                                        className="input-style h-24 resize-none textarea-scroll"
+                                        onChange={(e) => {
+                                            handleInputChange("dep1_motiv", e.target.value);
+
+                                            // Auto-resize logic
+                                            e.target.style.height = "auto"; // reset height
+                                            e.target.style.height = e.target.scrollHeight + "px"; // set new height
+                                        }}
+                                        className="input-style resize-none  pr-4 overflow-hidden"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
+
                                     {errors.dep1_motiv && <p className="text-error-200 text-sm my-1">* {errors.dep1_motiv}</p>}
 
                                 </div>
@@ -472,10 +487,17 @@ function RegistrationPage({ onBack }) {
                                     <label className="input-label">Additional Thoughts on Second/Third Choices <Star /></label>
                                     <textarea
                                         value={formData.dep2_3_motiv}
-                                        onChange={(e) => handleInputChange("dep2_3_motiv", e.target.value)}
-                                        className="input-style h-24 resize-none"
-                                        placeholder="Feel free to share why you picked your second or third choice, or what you'd enjoy about working in those teams."
+                                        onChange={(e) => {
+                                            handleInputChange("dep2_3_motiv", e.target.value);
+
+                                            // Auto-resize logic
+                                            e.target.style.height = "auto"; // reset height
+                                            e.target.style.height = e.target.scrollHeight + "px"; // set new height
+                                        }}
+                                        className="input-style resize-none  pr-4 overflow-hidden"
+                                        placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
+
                                     {errors.dep2_3_motiv && <p className="text-error-200 text-sm my-1">* {errors.dep2_3_motiv}</p>}
 
                                 </div>
@@ -483,10 +505,17 @@ function RegistrationPage({ onBack }) {
                                     <label className="input-label">Your Goals in Skill & Tell <Star /></label>
                                     <textarea
                                         value={formData.goals}
-                                        onChange={(e) => handleInputChange("goals", e.target.value)}
-                                        className="input-style h-24 resize-none"
-                                        placeholder="What would you like to achieve, learn, or contribute as a member of the club?"
+                                        onChange={(e) => {
+                                            handleInputChange("goals", e.target.value);
+
+                                            // Auto-resize logic
+                                            e.target.style.height = "auto"; // reset height
+                                            e.target.style.height = e.target.scrollHeight + "px"; // set new height
+                                        }}
+                                        className="input-style resize-none textarea-scroll pr-4 overflow-hidden"
+                                        placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
+
                                     {errors.goals && <p className="text-error-200 text-sm my-1">* {errors.goals}</p>}
 
                                 </div>
@@ -545,10 +574,11 @@ function RegistrationPage({ onBack }) {
                                     />
                                     <Button
                                         onClick={() => fileInputRef.current?.click()}
-                                        className="bg-gradient-to-r from-space-accent to-space-purple text-white hover:from-space-orange-light hover:to-space-purple px-8 py-3"
+                                        className="gradient-buttons text-white hover:from-space-orange-light hover:to-space-purple px-8 py-3"
                                     >
-                                        <Upload className="w-5 h-5 mr-2" />
                                         {formData.profilePhotoPreview ? "Change Photo" : "Upload Photo"}
+                                        <Upload className="w-5 h-5 ml-2" />
+
                                     </Button>
                                     {errors.profilePhoto && <p className="text-error-200 text-sm my-1">* {errors.profilePhoto}</p>}
 
@@ -569,7 +599,7 @@ function RegistrationPage({ onBack }) {
                         <Button
                             onClick={currentStep === 1 ? onBack : prevStep}
                             variant="ghost"
-                            className="text-white border border-Main-500 rounded-lg hover:bg-space-light disabled:opacity-50"
+                            className="text-white/80 border border-Main-500 rounded-sm hover:bg-space-light disabled:opacity-50"
                         >
                             <ArrowLeft className="w-5 h-5 mr-2" />
                             {currentStep === 1 ? 'Back to home' : ' Back'}
@@ -610,7 +640,7 @@ function RegistrationPage({ onBack }) {
                         ) : (
                             <Button
                                 onClick={nextStep}
-                                className="bg-gradient-to-l rounded-sm from-accent-500/90 to-Main-500/0 text-white hover:from-space-orange-light hover:to-space-purple"
+                                className="gradient-buttons rounded-sm text-white hover:from-space-orange-light hover:to-space-purple"
                             >
                                 Next
                                 <ArrowRight className="w-5 h-5 ml-2" />

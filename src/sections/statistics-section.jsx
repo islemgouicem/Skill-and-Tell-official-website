@@ -41,11 +41,10 @@ const AnimatedNumber = ({ value, isVisible, delay }) => {
 
   return (
     <p
+    className="text-accent-300 font-futura_bold"
       style={{
         fontSize: "2.5rem", // Reduced from 3rem (text-5xl) to 2.5rem (approx text-4xl)
         lineHeight: "1",
-        fontWeight: "800", // font-extrabold
-        color: "#FF8C00", // vibrant-orange
         marginBottom: "0.5rem", // mb-2
       }}
     >
@@ -138,9 +137,9 @@ function StatisticsSection() {
   // Responsive font sizes for paragraph
   const getParagraphFontSize = () => {
     if (windowWidth >= 768) {
-      return "1.125rem" // Reduced from 1.25rem (md:text-xl) to 1.125rem (approx md:text-lg)
+      return "1rem" // Reduced from 1.25rem (md:text-xl) to 1.125rem (approx md:text-lg)
     }
-    return "1rem" // Reduced from 1.125rem (text-lg) to 1rem (approx text-base)
+    return "0.8rem" // Reduced from 1.125rem (text-lg) to 1rem (approx text-base)
   }
 
   return (
@@ -267,8 +266,8 @@ function StatisticsSection() {
                   border: "1px solid #E0E0E0", // border-[#E0E0E0]
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
+                  alignItems: "start",
+                  textAlign: "start",
                   transform: cardTransform, // Dynamic transform
                   transition: `transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, opacity 0.8s ease-out ${
                     200 + index * 100
@@ -282,11 +281,10 @@ function StatisticsSection() {
               >
                 <AnimatedNumber value={stat.value} isVisible={isVisible} delay={200 + index * 100} />
                 <p
+                className="font-futura_md_bt text-neutral-500"
                   style={{
                     fontSize: "1.125rem", // Reduced from 1.25rem (text-xl) to 1.125rem (approx text-lg)
                     lineHeight: "1.75rem",
-                    fontWeight: "600", // font-semibold
-                    color: "#2D2D2D", // dark-grey
                     marginBottom: "1rem", // mb-4
                   }}
                 >

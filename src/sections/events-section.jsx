@@ -94,7 +94,7 @@ function EventsSection() {
       <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-space-subtle rounded-full mix-blend-screen filter blur-3xl opacity-8 animate-float animation-delay-2000"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <h2 className="titles text-center mb-12 text-space-text animate-fade-in-up">
+        <h2 className="titles mb-12 text-white animate-fade-in-up">
           Our Events
         </h2>
 
@@ -117,7 +117,7 @@ function EventsSection() {
           <div className="relative overflow-hidden mx-auto" style={{
             width: `${getTotalVisibleWidth()}px`,
             maxWidth: `${windowWidth - 200}px`,
-            minWidth:'100%',
+            minWidth: '100%',
             height: '100%'
           }}>
             <div
@@ -137,7 +137,7 @@ function EventsSection() {
                   <Card
                     key={event.id}
                     onClick={() => handleCardClick(index)}
-                    className={`relative frosted-glass rounded-md shadow-xl border cursor-pointer 
+                    className={`relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
                       transition-all duration-500 ease-in-out flex-shrink-0 h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden
                       ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     style={{
@@ -162,38 +162,43 @@ function EventsSection() {
                       className={`absolute inset-0 p-6 flex flex-col justify-between transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"
                         }`}
                     >
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="text-space-glow text-3xl font-bold">{event.id}</div>
-                        <div className="text-space-text/70 text-sm">{event.date}</div>
-                      </div>
-
-                      <div className="flex-grow">
-                        <CardTitle className="text-2xl font-bold text-space-text mb-2">
-                          {event.title}
-                        </CardTitle>
-                        <CardDescription className="text-space-text/90 text-sm mb-4 max-h-[120px] overflow-y-auto">
-                          {event.description}
-                        </CardDescription>
-                        <div className="flex flex-wrap gap-2">
-                          {event.tags.map((tag, tagIndex) => (
-                            <span
-                              key={tagIndex}
-                              className="bg-space-subtle text-space-text text-xs px-3 py-1 rounded-full flex items-center gap-1"
-                            >
-                              <Tag className="h-3 w-3" /> {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="relative w-full h-[40%] mt-4 rounded-lg overflow-hidden">
+                      <div className="relative w-full h-[40%] rounded-lg overflow-hidden">
                         <img
                           src={`images/${gurl(event.image)}` || `${gurl("images/placeholder.svg")}`}
                           alt={event.title}
-                          loading="lazy" 
+                          loading="lazy"
                           className="object-cover w-full h-full"
                         />
                       </div>
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          
+                          <div className="text-space-glow text-3xl font-bold">{event.id}</div>
+                          <div className="text-space-text/70 text-sm">{event.date}</div>
+                        </div>
+
+                        <div className="flex-grow ">
+                          <CardTitle className="text-2xl font-bold text-space-text mb-2">
+                            {event.title}
+                          </CardTitle>
+                          <CardDescription className="text-space-text/90 text-sm mb-4 max-h-[120px] overflow-y-auto">
+                            {event.description}
+                          </CardDescription>
+                          <div className="flex flex-wrap gap-2">
+                            {event.tags.map((tag, tagIndex) => (
+                              <span
+                                key={tagIndex}
+                                className="bg-space-subtle text-space-text text-xs px-3 py-1 rounded-full flex items-center gap-1"
+                              >
+                                <Tag className="h-3 w-3" /> {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+
+
                     </div>
                   </Card>
                 )

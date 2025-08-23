@@ -56,17 +56,20 @@ function MoreAboutSection() {
                 >
                   <AccordionTrigger
                     className="flex items-center md:px-6 text-left text-lg md:text-xl font-semibold
-          text-space-text transition-all duration-100
-          data-[state=open]:text-violet-500"
+          text-neutral-200 transition-all duration-100
+          data-[state=open]:text-Main-300"
                   >
-                    <img
-                      src={gurl("images/snt.svg")}
-                      alt="Logo"
-                      className="h-15 w-15 md:h-15 md:w-15 flex-shrink-0"
-                    />
-                    {item.question}
+                    <div className="flex items-center">
+                      <img
+                        src={gurl("images/snt.svg")}
+                        alt="Logo"
+                        className="h-15 w-15 md:h-15 md:w-15 flex-shrink-0"
+                      />
+                      {item.question}
+                    </div>
+
                   </AccordionTrigger>
-                  <AccordionContent className="px-4 pb-4 md:px-6 md:pb-6 text-space-text/90 text-base md:text-lg">
+                  <AccordionContent className="px-4 pb-4 md:px-6 md:pb-6 text-neutral-200 md:text-lg">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>

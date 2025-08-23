@@ -272,20 +272,20 @@ export default function AppSection() {
         className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center h-full"
       >
         <h2
-          className="titles mb-4 text-neutral-600 animate-fade-in-up"
+          className="titles mb-6 text-neutral-600 animate-fade-in-up font-extrabold"
         >
           S&T App
         </h2>
 
         <p
-          className="leading-7 text-center max-w-xl mx-auto text-gray-500 mb-6 text-sm"
+          className="leading-7 text-center max-w-xl mx-auto text-neutral-400 mb-6 text-sm"
         >
           Lorem ipsum dolor sit amet consectetur. Tellus mi id purus pulvinar molestie
           neque semper arcu. Sodales nunc sed amet nunc dui quam ridiculus ornare.
           Sed velit tincidunt purus sit mi sit ut. Suscipit bibendum ul
         </p>
 
-        <button className="botao bg-space-accent rounded-4xl">
+        <button className="botao bg-accent-400 rounded-4xl">
           <svg
             width="24px"
             height="24px"
@@ -306,7 +306,7 @@ export default function AppSection() {
           </svg>
 
           <span className="texto flex justify-between">
-            <p className="mr-2">Download</p> <Download className="mr-2" />
+            <p className="mr-2">Download</p> <img src={gurl("icons/download.svg")} className="mr-2" />
           </span>
         </button>
       </div>
