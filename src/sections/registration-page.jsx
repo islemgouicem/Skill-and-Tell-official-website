@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
 import SuccessfulReg from "./succesful_reg.jsx"
-import gurl from "../lib/image-util.js"
 
 import {
     X,
@@ -227,7 +226,7 @@ function RegistrationPage() {
     return (
         <div
             className="min-h-screen p-2 bg-cover bg-center bg-repeat"
-            style={{ backgroundImage: `url(${gurl('images/Team_Section.webp')})` }}
+            style={{ backgroundImage: "url('/images/Team_Section.webp')" }}
         >
 
             {/* Header */}
@@ -256,7 +255,7 @@ function RegistrationPage() {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src={gurl("icons/Profile.svg")}
+                                    src="/icons/Profile.svg"
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -323,7 +322,7 @@ function RegistrationPage() {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src={gurl("icons/acad.svg")}
+                                    src="/icons/acad.svg"
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -390,7 +389,7 @@ function RegistrationPage() {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src={gurl("icons/department.svg")}
+                                    src="/icons/department.svg"
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -456,7 +455,7 @@ function RegistrationPage() {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src={gurl("icons/motivation.svg")}
+                                    src="/icons/motivation.svg"
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />
@@ -527,7 +526,7 @@ function RegistrationPage() {
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
-                                    src={gurl("icons/Camera.svg")}
+                                    src="/icons/Camera.svg"
                                     alt="User Icon"
                                     className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
                                 />

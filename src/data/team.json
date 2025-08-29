@@ -4,7 +4,7 @@
         "name": "Full name1",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -16,7 +16,7 @@
         "name": "Full name2",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -28,7 +28,7 @@
         "name": "Full name3",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -40,7 +40,7 @@
         "name": "Full name4",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -53,7 +53,7 @@
         "name": "Full name5",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -66,7 +66,7 @@
         "name": "Full name6",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",
@@ -79,7 +79,7 @@
         "name": "Full name7",
         "role": "Position",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "images/pfp.png",
+        "image": "/images/pfp.png",
         "social": {
             "instagram": "#",
             "mail": "#",

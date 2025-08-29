@@ -1,5 +1,4 @@
 import { Heart } from "lucide-react"
-import gurl from "../lib/image-util.js"
 
 export default function Footer() {
   return (
@@ -10,7 +9,7 @@ export default function Footer() {
         <div className="space-y-4">
           <a href="#hero" className="flex items-center gap-2">
             {/* User: Place your logo here at public/logo.png */}
-            <img src={`${gurl("images/logo_dark.png")}?height=60&width=60`} width={150} height={150} alt="Skill & Tell Logo" />
+            <img src="/images/logo_dark.png?height=60&width=60" width={150} height={150} alt="Skill & Tell Logo" />
           </a>
           <p className="text-sm text-footer-text/80 max-w-xs">
             Lorem ipsum dolor sit amet consectetur. Magnis fermentum tempus
@@ -73,7 +72,7 @@ export default function Footer() {
             className="socialm"
           // Instagram color
           >
-            <img src={gurl("icons/Instagram.svg")} className="h-5 w-5" />
+            <img src="/icons/Instagram.svg" className="h-5 w-5" alt="instagram"/>
             <span className="font-medium text-neutral-300">Follow us for updates!</span>
           </a>
 
@@ -81,21 +80,21 @@ export default function Footer() {
             href="#"
             className="socialm"
           >
-            <img src={gurl("icons/Discord.svg")} className="h-5 w-5" />
+            <img src="/icons/Discord.svg" className="h-5 w-5" alt="discord"/>
             <span className="font-medium text-neutral-300">Join our community</span>
           </a>
           <a
             href="#"
             className="socialm"
           >
-            <img src={gurl("icons/Linkedin.svg")} className="h-5 w-5" />
+            <img src="/icons/Linkedin.svg" className="h-5 w-5" alt="linkedin" />
             <span className="font-medium text-neutral-300" >Let's connect and collaborate</span>
           </a>
           <a
             href="#"
             className="socialm"
           >
-            <img src={gurl("icons/Gmail.svg")} className="h-5 w-5" />
+            <img src="/icons/Gmail.svg" className="h-5 w-5" alt="Gmail"/>
             <span className="font-medium text-neutral-300">Reach out for collaborations!</span>
           </a>
         </div>

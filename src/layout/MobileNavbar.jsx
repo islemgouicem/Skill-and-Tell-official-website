@@ -4,7 +4,6 @@ import { Menu } from "lucide-react"
 import { Button } from "../components/ui/button.jsx"
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet.jsx"
 import Logo from "./Logo.jsx" // memoized logo component
-import gurl from "../lib/image-util.js"
 
 function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
     return (
@@ -18,7 +17,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
             <SheetContent
                 side="right"
                 className="border-Main-400 w-[250px] text-space-text"
-                style={{ backgroundImage: `url(${gurl('images/background.webp')})` }}
+                style={{ backgroundImage: "url('images/background.webp')" }}
             >
                 <a href="#hero" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                     <Logo size={100} />

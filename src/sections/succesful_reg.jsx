@@ -3,7 +3,6 @@ import React from "react"
 import Footer from "../layout/footer.jsx"
 
 import { Button } from "../components/ui/button"
-import gurl from "../lib/image-util.js"
 
 import { CheckCircle, ArrowLeft } from "lucide-react"
 
@@ -13,7 +12,7 @@ function SuccessfulReg({ onBack }) {
         <>
             <div
                 className="p-2 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${gurl('images/Team_Section.webp')})` }}
+                style={{ backgroundImage: "url('images/Team_Section.webp')" }}
             >
                 {/* Header */}
                 <div className="max-w-6xl mx-auto pt-2 pb-2">

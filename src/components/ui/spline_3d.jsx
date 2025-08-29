@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import gurl from "../../lib/image-util"
 
 function HeroSpline() {
     const [ready, setReady] = useState(false);

@@ -1,6 +1,5 @@
 import * as Select from "@radix-ui/react-select";
 import { ChevronDown, ChevronUp, Check } from "lucide-react";
-import gurl from "../../lib/image-util"
 
 
 export default function CosmicSelect({
@@ -19,7 +18,7 @@ export default function CosmicSelect({
             >
                 <Select.Value placeholder={placeholder} className="data-[placeholder]:text-neutral-400 text-start text-sm"/>
                 <Select.Icon>
-                    <img src={gurl("icons/chevron.svg")} className="h-4 w-4" alt="chevron" />
+                    <img src="/icons/chevron.svg" className="h-4 w-4" alt="chevron" />
                 </Select.Icon>
             </Select.Trigger>
 

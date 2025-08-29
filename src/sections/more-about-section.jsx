@@ -1,7 +1,8 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import faqItems from "../data/faq.json"
-import gurl from "../lib/image-util.js"
 import React from 'react'
+
+import snt from "../assets/images/snt.svg"
 
 function MoreAboutSection() {
   return (
@@ -9,7 +10,7 @@ function MoreAboutSection() {
       id="more-about"
       className="relative py-12 md:py-18 bg-space-dark text-space-text overflow-hidden"
       style={{
-        background: `url(${gurl('images/more_About.webp')})`,
+        background: "url('/images/more_About.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
         backgroundPosition: "center", // keeps it centered
         backgroundRepeat: "no-repeat", // avoids tiling
@@ -40,7 +41,7 @@ function MoreAboutSection() {
                   >
                     <div className="flex items-center text-sm sm:text-base md:text-lg">
                       <img
-                        src={gurl("images/snt.svg")}
+                        src={snt}
                         alt="Logo"
                         className="h-15 w-15 md:h-15 md:w-15 flex-shrink-0"
                       />

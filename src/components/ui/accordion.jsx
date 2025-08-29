@@ -1,7 +1,6 @@
 import React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { cn } from "../../lib/utils" // Adjusted import path
-import gurl from "../../lib/image-util"
 
 const Accordion = AccordionPrimitive.Root
 
@@ -21,7 +20,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
       {...props}
     >
       {children}
-      <img src={gurl("icons/chevron.svg")} className="h-4 w-4 shrink-0 transition-transform duration-200 mr-2" />
+      <img src="/icons/chevron.svg" className="h-4 w-4 shrink-0 transition-transform duration-200 mr-2" alt="" aria-hidden="true" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))

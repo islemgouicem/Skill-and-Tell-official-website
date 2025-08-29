@@ -5,7 +5,9 @@ import { Instagram, Linkedin, Mail } from "lucide-react"
 import { useInView } from "../components/ui/use_in_view.js"
 import { Card, CardContent, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
 import teamMembers from "../data/team.json" // Original import path
-import gurl from "../lib/image-util.js"
+
+import left from "../assets/images/left.png"
+import right from "../assets/images/right.png"
 
 function TeamSection() {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.1 })
@@ -119,7 +121,7 @@ function TeamSection() {
       ref={sectionRef}
       className="relative  bg-space-dark text-space-text overflow-hidden" // Changed to h-screen, removed flex centering
       style={{
-        background: `url(${gurl("images/Team_Section.webp")})`,
+        background: "url('/images/Team_Section.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
         backgroundPosition: "center", // keeps it centered
         backgroundRepeat: "no-repeat", // avoids tiling
@@ -135,7 +137,7 @@ function TeamSection() {
           {" "}
           <button onClick={prevMember} className="absolute pointer left-0 md:left-10 z-20 p-1 transition-all duration-300">
             <img
-              src={`${gurl("images/left.png")}`}
+              src={left}
               alt="Previous"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />
@@ -163,7 +165,7 @@ function TeamSection() {
                 >
                   <CardContent className="flex flex-col items-center text-center p-0">
                     <img
-                      src={`${gurl(member.image)}` || `${gurl("images/pfp.png")}`}
+                      src={member.image || "/images/pfp.png"}
                       width={120}
                       height={120}
                       loading="lazy"
@@ -206,7 +208,7 @@ function TeamSection() {
           </div>
           <button onClick={nextMember} className="pointer absolute right-0 md:right-10 z-20 p-1 transition-all duration-300">
             <img
-              src={`${gurl("images/right.png")}`}
+              src={right}
               alt="Next"
               className="h-16 w-auto transition-all duration-300 hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]"
             />

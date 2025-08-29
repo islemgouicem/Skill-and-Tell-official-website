@@ -1,7 +1,17 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import gurl from "../lib/image-util.js"
+
+
+//images
+import phone2 from "../assets/images/phone2.png"
+import phone1 from "../assets/images/phone1.png"
+import card1 from "../assets/images/card1.png"
+import card2 from "../assets/images/card2.png"
+import qr from "../assets/images/qr.png"
+import member_card from "../assets/images/member_card.png"
+import event_card from "../assets/images/event_card.png"
+
 
 export default function AppSection() {
   const sectionRef = useRef(null)
@@ -120,11 +130,11 @@ export default function AppSection() {
         {/* Mobile background */}
         <source
           media="(max-width: 768px)"
-          srcSet={gurl("images/app_mob_bg.svg")}
+          srcSet="/images/app_mob_bg.svg"
         />
         {/* Default (desktop) */}
         <img
-          src={gurl("images/App_section_bg.svg")}
+          src="/images/App_section_bg.svg"
           alt="Wavy orange line background element"
           className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
         />
@@ -134,7 +144,7 @@ export default function AppSection() {
       {/* Individual App Images - Meticulously positioned and sized */}
       {/* Image 1: Large phone on left (Member Card screen) */}
       <img
-        src={`${gurl("images/phone2.png")}`}
+        src={phone2}
         loading="lazy"
         alt="Large phone showing member card screen"
         style={{
@@ -153,7 +163,7 @@ export default function AppSection() {
 
       {/* Image 2: Top middle purple card (Skill&Tell) */}
       <img
-        src={`${gurl("images/card1.png")}`}
+        src={card1}
         loading="lazy"
         alt="Skill&Tell card with purple background"
         style={{
@@ -170,7 +180,7 @@ export default function AppSection() {
         }}
       />
       <img
-        src={`${gurl("images/qr.png")}`}
+        src={qr}
         loading="lazy"
         alt="Purple QR card"
         style={{
@@ -189,7 +199,7 @@ export default function AppSection() {
 
       {/* Image 3: Top right white member card */}
       <img
-        src={`${gurl("images/member_card.png")}`}
+        src={member_card}
         loading="lazy"
         alt="White member card"
         style={{
@@ -211,7 +221,7 @@ export default function AppSection() {
 
       {/* Image 5: Bottom left small purple card (Event name) */}
       <img
-        src={`${gurl("images/card2.png")}`}
+        src={card2}
         loading="lazy"
         alt="Small purple event card"
         style={{
@@ -230,7 +240,7 @@ export default function AppSection() {
 
       {/* Image 6: Bottom middle-left small QR card (Placeholder for the one on the orange line) */}
       <img
-        src={`${gurl("images/event_card.png")}`}
+        src={event_card}
         loading="lazy"
         alt="Small QR card on orange line"
         style={{
@@ -249,7 +259,7 @@ export default function AppSection() {
 
       {/* Image 7: Bottom right phone (Login screen) */}
       <img
-        src={`${gurl("images/phone1.png")}`}
+        src={phone1}
         loading="lazy"
         alt="Phone showing login screen"
         style={{
@@ -304,7 +314,7 @@ export default function AppSection() {
           </svg>
 
           <span className="texto flex justify-between">
-            <p className="mr-2">Download</p> <img src={gurl("icons/download.svg")} className="mr-2" />
+            <p className="mr-2">Download</p> <img src="/icons/download.svg" className="mr-2" alt="" aria-hidden="true"/>
           </span>
         </button>
       </div>

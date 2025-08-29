@@ -10,7 +10,7 @@
             "Hackathon",
             "Competition"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "02",
@@ -23,7 +23,7 @@
             "Lecture",
             "Discovery"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "03",
@@ -36,7 +36,7 @@
             "Workshop",
             "Engineering"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "04",
@@ -49,7 +49,7 @@
             "Seminar",
             "Theory"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "05",
@@ -62,7 +62,7 @@
             "Engineering",
             "Summit"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "06",
@@ -75,7 +75,7 @@
             "Lecture",
             "Discovery"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "07",
@@ -88,7 +88,7 @@
             "Lecture",
             "Discovery"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "08",
@@ -101,7 +101,7 @@
             "Lecture",
             "Discovery"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     },
     {
         "id": "09",
@@ -114,7 +114,7 @@
             "Lecture",
             "Discovery"
         ],
-        "image": "images/indabax.png"
+        "image": "/images/indabax.png"
     }
     
 ]

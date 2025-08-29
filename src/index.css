@@ -391,7 +391,7 @@
 
 @font-face {
   font-family: 'futura';
-  src: url('/fonts/FutuMd.woff2') format('truetype');
+  src: url('./assets/fonts/FutuMd.woff2') format('truetype');
   font-display: swap;
   font-style: normal;
   
@@ -399,21 +399,21 @@
 
 @font-face {
   font-family: 'futura_lt_bt';
-  src: url('/fonts/Futura_Lt_BT.woff2') format('truetype');
+  src: url('./assets/fonts/Futura_Lt_BT.woff2') format('truetype');
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'futura_md_bt';
-  src: url('/fonts/FuturaMediumBT.woff2') format('truetype');
+  src: url('./assets/fonts/FuturaMediumBT.woff2') format('truetype');
   font-display: swap;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'futura_bold';
-  src: url('/fonts/FuturaBoldBT.woff2') format('truetype');
+  src: url('./assets/fonts/FuturaBoldBT.woff2') format('truetype');
   font-display: swap;
   font-weight: 800;
   font-style: normal;
