@@ -15,7 +15,6 @@ function AboutSection() {
 
   return (
     <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:h-screen">
-      {/* Background pattern */}
       <div
         aria-hidden="true"
         className={`absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none select-none w-full`}
@@ -24,7 +23,7 @@ function AboutSection() {
 
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col py-4 sm:py-6 md:py-8">
         <h2
-          className={`titles text-neutral-600 transition-all duration-1000 
+          className={`titles text-neutral-600 transition-all duration-1000 mt-4
             ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}
             opacity-100 translate-y-0`}
         >
@@ -41,20 +40,18 @@ function AboutSection() {
                 loading="lazy"
                 src={`${gurl("images/phone.png")}`}
                 alt="Skill & Tell App Mockup"
-                className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-full object-cover 
-                  transition-all duration-1000 w-auto h-[400px] overflow-visible
-                  opacity-100 scale-100`}
+                className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[130%] object-contain 
+                  transition-all duration-1000 w-auto h-[400px]
+                  opacity-100 scale-220`}
               />
             </div>
 
             {/* Cards container - takes the rest of the width, stacks vertically */}
-            <div className="flex-1 flex flex-col justify-center space-y-2 sm:space-y-3 pl-2 sm:pl-4">
+            <div className="flex-1 flex flex-col justify-center space-y-4 pl-2 sm:pl-4">
               {/* About Us Card */}
               <div
                 ref={card1Ref}
-                className="about-cont p-2 sm:p-3 md:p-4 rounded-md shadow-lg transition-all duration-700 
-                  opacity-100 translate-y-0"
-              >
+                className="about-cont abouty opacity-100 translate-y-0">
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
                   <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white">About us :</h3>
@@ -62,11 +59,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>
@@ -77,8 +74,7 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <div
                   ref={card2Ref}
-                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 
-                    opacity-100 translate-y-0`}
+                  className={`bg-Main-600 abouty flex-1`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Rocket className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -86,7 +82,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -110,8 +106,7 @@ function AboutSection() {
                 />
                 <div
                   ref={card3Ref}
-                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 
-                    opacity-100 translate-y-0`}
+                  className={`bg-Main-600 abouty flex-1`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -119,7 +114,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -130,8 +125,7 @@ function AboutSection() {
               {/* Our Achievements Card */}
               <div
                 ref={card4Ref}
-                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 
-                  opacity-100 translate-y-0`}
+                className={`about-cont abouty`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -140,11 +134,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>
@@ -160,7 +154,7 @@ function AboutSection() {
               {/* About Us Card (top-left) */}
               <div
                 ref={card1Ref}
-                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 ${card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                className={`about-cont p-3 sm:p-4 rounded-md shadow-lg transition-all duration-700 ${card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -170,11 +164,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>
@@ -191,7 +185,7 @@ function AboutSection() {
                 />
                 <div
                   ref={card2Ref}
-                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 delay-200 ${card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  className={`bg-Main-600 p-3 sm:p-4 rounded-md shadow-lg flex-1 transition-all duration-700 delay-200 ${card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -200,7 +194,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -226,7 +220,7 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <div
                   ref={card3Ref}
-                  className={`bg-Main-600 p-2 sm:p-3 md:p-4 rounded-lg shadow-lg flex-1 transition-all duration-700 ${card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  className={`bg-Main-600 p-3 sm:p-4 rounded-md shadow-lg flex-1 transition-all duration-700 ${card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -235,7 +229,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -252,7 +246,7 @@ function AboutSection() {
               {/* Our Achievements Card (bottom-right) */}
               <div
                 ref={card4Ref}
-                className={`about-cont p-2 sm:p-3 md:p-4 rounded-lg shadow-lg transition-all duration-700 delay-200 ${card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                className={`about-cont p-3 sm:p-4 rounded-md shadow-lg transition-all duration-700 delay-200 ${card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -262,11 +256,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    <p className="text-white/90 text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>

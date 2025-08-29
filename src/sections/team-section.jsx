@@ -118,7 +118,7 @@ function TeamSection() {
       id="team"
       ref={sectionRef}
       className="relative  bg-space-dark text-space-text overflow-hidden" // Changed to h-screen, removed flex centering
-      style={{ background: `url(${gurl("images/Team_Section.svg")})` }}
+      style={{ background: `url(${gurl("images/Team_Section.webp")})` }}
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full py-4 sm:py-6 md:py-8">
@@ -128,7 +128,7 @@ function TeamSection() {
         </h2>
         <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[450px] lg:min-h-[500px] w-full">
           {" "}
-          <button onClick={prevMember} className="absolute left-0 md:left-10 z-20 p-1 transition-all duration-300">
+          <button onClick={prevMember} className="absolute pointer left-0 md:left-10 z-20 p-1 transition-all duration-300">
             <img
               src={`${gurl("images/left.png")}`}
               alt="Previous"
@@ -199,7 +199,7 @@ function TeamSection() {
               )
             })}
           </div>
-          <button onClick={nextMember} className="absolute right-0 md:right-10 z-20 p-1 transition-all duration-300">
+          <button onClick={nextMember} className="pointer absolute right-0 md:right-10 z-20 p-1 transition-all duration-300">
             <img
               src={`${gurl("images/right.png")}`}
               alt="Next"

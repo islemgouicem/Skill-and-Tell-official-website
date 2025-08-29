@@ -22,6 +22,7 @@ const Shield = (props) => (
                 xmlns="http://www.w3.org/1999/xhtml"
                 style={{
                     backdropFilter: "blur(7.5px)",
+                    WebkitBackdropFilter: "blur(7.5px)", // Safari / iOS support
                     clipPath: "url(#bgblur_0_2060_8790_clip_path)",
                     height: "100%",
                     width: "100%",
@@ -43,7 +44,7 @@ const Shield = (props) => (
                         <AvatarImage src={`${gurl('images/Ellipse_1.png')}?height=32&width=32`} alt="Member 1" />
                         <AvatarFallback>M1</AvatarFallback>
                     </Avatar>
-                    <Avatar className="w-13 h-13 border-2 border-white z-10">
+                    <Avatar className="w-14 h-14 border-2 border-white z-10">
                         <AvatarImage src={`${gurl('images/indabax.png')}?height=32&width=32`} alt="Member 2" />
                         <AvatarFallback>M2</AvatarFallback>
                     </Avatar>

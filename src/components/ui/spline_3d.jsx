@@ -9,17 +9,12 @@ function HeroSpline() {
     }, []);
 
     return (
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[55vh] md:h-[50vh] lg:h-[45vh] overflow-hidden z-10 pointer-events-none bg-transparent">
-            {ready && (
-                <video
-                    src={`${gurl('planet.mp4')}`} // place your mp4 file in public/ folder
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[20vh] object-contain bg-transparent"
-                />
-            )}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[45vh] md:h-[50vh] lg:h-[45vh] overflow-hidden z-10 pointer-events-none">
+            <spline-viewer
+                url="https://prod.spline.design/SPeUB6kJeccOWbLo/scene.splinecode"
+                // Adjusted height and vertical translation for better scaling on different screen sizes
+                class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[20vh]"
+            ></spline-viewer>
         </div>
     );
 }

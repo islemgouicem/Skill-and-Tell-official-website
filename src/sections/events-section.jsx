@@ -87,11 +87,8 @@ function EventsSection() {
     <section
       id="events"
       className="relative py-8 md:py-10 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: `url(${gurl('images/Events_Section.svg')})` }} // Original background image path
+      style={{ background: `url(${gurl('images/Events_Section.webp')})` }} // Original background image path
     >
-      {/* Blurred orange spheres */}
-      <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-space-accent rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-float"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-space-subtle rounded-full mix-blend-screen filter blur-3xl opacity-8 animate-float animation-delay-2000"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <h2 className="titles mb-12 text-white animate-fade-in-up">
@@ -103,7 +100,7 @@ function EventsSection() {
           <button
             onClick={prevEvent}
             disabled={!canGoPrev}
-            className={`absolute left-0 md:left-10 z-20 p-1 transition-all duration-300 ${!canGoPrev ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
+            className={`absolute pointer left-0 md:left-10 z-20 p-1 transition-all duration-300 ${!canGoPrev ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
               }`}
           >
             <img
@@ -137,7 +134,7 @@ function EventsSection() {
                   <Card
                     key={event.id}
                     onClick={() => handleCardClick(index)}
-                    className={`relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
+                    className={`pointer relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
                       transition-all duration-500 ease-in-out flex-shrink-0 h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden
                       ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     style={{
@@ -147,7 +144,7 @@ function EventsSection() {
                   >
                     {/* Collapsed State */}
                     <div
-                      className={`absolute inset-0 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100"
+                      className={`absolute pointer inset-0 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100"
                         }`}
                     >
                       <div className="flex flex-col items-center justify-center h-full text-center p-4">
@@ -209,7 +206,7 @@ function EventsSection() {
           <button
             onClick={nextEvent}
             disabled={!canGoNext}
-            className={`absolute right-0 md:right-10 z-20 p-1 transition-all duration-300 ${!canGoNext ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
+            className={`absolute pointer right-0 md:right-10 z-20 p-1 transition-all duration-300 ${!canGoNext ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
               }`}
           >
             <img

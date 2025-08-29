@@ -1,4 +1,4 @@
-import { Instagram, DiscIcon as Discord, Linkedin, Mail, Heart } from "lucide-react"
+import { Heart } from "lucide-react"
 import gurl from "../lib/image-util.js"
 
 export default function Footer() {

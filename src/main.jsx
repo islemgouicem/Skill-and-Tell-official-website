@@ -1,12 +1,10 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import Loader from "./layout/Loader.jsx";
+import React from "react";
+import {createRoot } from "react-dom/client";
+import Root from "./Root.jsx"; // The new Router component
+import "./index.css";
 
-import App from "./App.jsx" // Your main App component
-import "./index.css" // Your global CSS
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>
-)
+);

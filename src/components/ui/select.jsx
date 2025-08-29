@@ -14,10 +14,10 @@ export default function CosmicSelect({
         <Select.Root value={value} onValueChange={onValueChange} required={required}>
             {/* Trigger styled like .input-style */}
             <Select.Trigger
-                className="input-style flex items-center justify-between gap-2 text-neutral-300"
+                className="input-style flex items-center justify-between gap-2 text-neutral-300 text-sm"
                 aria-label={placeholder}
             >
-                <Select.Value placeholder={placeholder} className="data-[placeholder]:text-neutral-400"/>
+                <Select.Value placeholder={placeholder} className="data-[placeholder]:text-neutral-400 text-start text-sm"/>
                 <Select.Icon>
                     <img src={gurl("icons/chevron.svg")} className="h-4 w-4" alt="chevron" />
                 </Select.Icon>
@@ -35,7 +35,7 @@ export default function CosmicSelect({
                             <Select.Item
                                 key={option}
                                 value={option}
-                                className="relative flex items-center px-4 py-2 rounded-md text-neutral-200
+                                className="pointer relative flex items-center px-4 py-2 rounded-md text-neutral-200
                                         cursor-pointer hover:bg-space-accent hover:text-white focus:bg-space-accent focus:text-white outline-none"
                             >
                                 <Select.ItemText>{option}</Select.ItemText>

@@ -9,9 +9,8 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
   --animate-glow: glow 2s infinite alternate;
-  --animate-star-twinkle: star-twinkle 3s infinite alternate;
-  --animate-nebula-move: nebula-move 60s linear infinite alternate;
   --animate-float: float 3s ease-in-out infinite;
+  --animate-grow: grow 10s ease-in-out infinite;
   --animate-card-expand: card-expand 0.3s ease-out forwards;
   --animate-card-collapse: card-collapse 0.3s ease-out forwards;
   /* blackhole */
@@ -21,9 +20,7 @@
   --animate-matter-orbit: matter-orbit 3s linear infinite;
   --animate-matter-orbit-reverse: matter-orbit-reverse 4s linear infinite;
   --animate-void-pulse: void-pulse 2s ease-in-out infinite;
-  --animate-particle-float: particle-float 4s ease-in-out infinite;
   --animate-fade-out-loader: fade-out-loader 0.8s ease-out forwards;
-
 
 
   /* basic stylings */
@@ -46,6 +43,11 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-titles: hsl(var(--titles));
+  --color-gradient-nebula: radial-gradient(
+    ellipse at center,
+    hsl(240 20% 10%) 0%,
+    hsl(240 25% 3%) 70%
+  );
   --color-ring: hex(var(--ring));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -115,6 +117,9 @@
   --color-footer-button-bg-linkedin: #0077B5;
   --color-footer-button-bg-gmail: #EA4335;
   --color-footer-button-text: #FFFFFF;
+
+
+
 }
 
 /* Keyframes */
@@ -161,26 +166,12 @@
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.6)
   }
 }
-
-@keyframes star-twinkle {
-
-  0%,
-  100% {
-    opacity: 0.5
+@keyframes grow {
+  0%, 100% {
+    transform: scale(1);
   }
-
   50% {
-    opacity: 1
-  }
-}
-
-@keyframes nebula-move {
-  0% {
-    background-position: 0% 0%
-  }
-
-  100% {
-    background-position: 100% 100%
+    transform: scale(1.1); /* grows 10% bigger */
   }
 }
 
@@ -192,7 +183,7 @@
   }
 
   50% {
-    transform: translateY(-10px)
+    transform: translateY(-8px)
   }
 }
 
@@ -302,8 +293,11 @@
     /* Enable smooth scrolling for navigation */
     overflow-x: hidden;
     /* Prevent horizontal scroll */
-    cursor: url('images/cursor.png'), auto;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
+
+
 
   button {
     @apply cursor-pointer;
@@ -346,12 +340,15 @@
 
 
 @layer components {
+  section{
+    @apply overflow-hidden
+  }
   .titles {
     @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl mb-4 sm:mb-6 md:mb-8 font-futura_bold text-center;
   }
 
   .input-style {
-    @apply w-full py-2 pr-3 pl-5 bg-space-light/10 border border-Main-500 rounded-md text-space-text placeholder-neutral-300 focus:border-space-accent focus:outline-none;
+    @apply w-full py-2 pr-3 pl-5 text-sm bg-space-light/10 border border-Main-500 rounded-md text-space-text placeholder-neutral-300 focus:border-space-accent focus:outline-none;
   }
 
   .input-label {
@@ -359,19 +356,18 @@
   }
 
   .input-cont {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-x-25 gap-y-14 px-10;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-25 gap-y-14 px-2 md:px-10;
   }
 
   .section-title {
     @apply text-2xl font-bold text-space-text mb-2
   }
-
+  .abouty{
+    @apply p-2 sm:p-3 md:p-4 rounded-md shadow-lg transition-all duration-700 delay-200 opacity-100 translate-y-0;
+  }
   .socialm {
-    @apply bg-white border flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300;
-    color: rgb(225, 48, 108);
+    @apply bg-white border border-neutral-300 flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-    border-color: rgb(212 212 212);
-    /* same as border-neutral-300 */
   }
 
 
@@ -383,34 +379,42 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 70px;
+}
+.grad-title{
+    color: #190432;
+    background: linear-gradient(90deg,#FF6D00,#8A38F5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: 3px transparent;
 }
 
 @font-face {
   font-family: 'futura';
-  src: url('/fonts/FutuMd.ttf') format('truetype');
-  font-display: block;
+  src: url('/fonts/FutuMd.woff2') format('truetype');
+  font-display: swap;
   font-style: normal;
+  
 }
 
 @font-face {
   font-family: 'futura_lt_bt';
-  src: url('/fonts/Futura_Lt_BT.ttf') format('truetype');
-  font-display: block;
+  src: url('/fonts/Futura_Lt_BT.woff2') format('truetype');
+  font-display: swap;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'futura_md_bt';
-  src: url('/fonts/FuturaMediumBT.ttf') format('truetype');
-  font-display: block;
+  src: url('/fonts/FuturaMediumBT.woff2') format('truetype');
+  font-display: swap;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'futura_bold';
-  src: url('/fonts/FuturaBoldBT.ttf') format('truetype');
-  font-display: block;
+  src: url('/fonts/FuturaBoldBT.woff2') format('truetype');
+  font-display: swap;
   font-weight: 800;
   font-style: normal;
 }
@@ -427,33 +431,6 @@
   }
 }
 
-
-/* Custom background for dark space theme sections */
-.space-background {
-  background: radial-gradient(circle at 20% 80%, rgba(26, 0, 51, 0.8) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(43, 0, 77, 0.8) 0%, transparent 50%),
-    linear-gradient(135deg, #0a001a 0%, #1a0033 100%);
-  background-size: 200% 200%;
-  animation: nebula-move 60s linear infinite alternate;
-  position: relative;
-  overflow: hidden;
-}
-
-
-
-/* Grid pattern for dark sections */
-.grid-pattern {
-  background-image: linear-gradient(to right, theme("colors.space.grid") 1px, transparent 1px),
-    linear-gradient(to bottom, theme("colors.space.grid") 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
 
 /* Frosted glass effect */
 .frosted-glass {
@@ -479,18 +456,18 @@
   height: 60px;
   font-size: 18px;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 20px;
   color: #fff;
   font-family: Roboto, sans-serif;
-  font-weight: 505;
-  cursor: pointer;
+  font-weight: 500;
   filter: drop-shadow(0 0 10px #ff6a00);
+  -webkit-filter: drop-shadow(0 0 10px #ff6a00); /* iOS Safari */
   transition: 0.5s linear;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .botao .mysvg {
@@ -539,7 +516,6 @@
 
 .about-cont {
   background: linear-gradient(210.17deg, rgba(215, 174, 255, 0.28) -9.19%, rgba(26, 1, 50, 0.63) 96.76%), rgba(60, 9, 108, 0.6);
-
 }
 
 .heads-card {
@@ -584,6 +560,7 @@
   backdrop-filter: blur(15px);
   border-radius: 12px;
   position: relative;
+  overflow: hidden;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -660,12 +637,6 @@
   }
 }
 
-@keyframes particle-float {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  25% { transform: translateY(-10px) translateX(5px); }
-  50% { transform: translateY(-5px) translateX(-3px); }
-  75% { transform: translateY(-8px) translateX(2px); }
-}
 
 @keyframes fade-out-loader {
   0% { opacity: 1; visibility: visible; }

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, Suspense } from "react"
-import { Menu } from "lucide-react"
 import Logo from "./Logo.jsx"
 
 // Lazy load mobile navbar
-const MobileNavbar = React.lazy(() => import("./MobileNavbar.jsx"))
+import MobileNavbar from "./MobileNavbar.jsx"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)

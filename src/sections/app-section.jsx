@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Download } from "lucide-react"
 import gurl from "../lib/image-util.js"
 
 export default function AppSection() {
@@ -116,21 +115,21 @@ export default function AppSection() {
       }}
     >
       {/* Wavy orange line as a separate image overlay */}
-      <img
-        src={`${gurl("images/App_section_bg.svg")}`}
-        alt="Wavy orange line background element"
-        style={{
-          position: "absolute",
-          top: "50%", // Adjust based on visual
-          left: "50%", // Adjust based on visual
-          width: "100%", // Covers most of the width
-          height: "auto",
-          transform: "translate(-50%, -50%)", // Center the image
-          objectFit: "contain",
-          zIndex: 1, // Below app elements, above white background
-          opacity: 0.8, // Slight transparency as in image
-        }}
-      />
+
+      <picture>
+        {/* Mobile background */}
+        <source
+          media="(max-width: 768px)"
+          srcSet={gurl("images/app_mob_bg.svg")}
+        />
+        {/* Default (desktop) */}
+        <img
+          src={gurl("images/App_section_bg.svg")}
+          alt="Wavy orange line background element"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+        />
+      </picture>
+
 
       {/* Individual App Images - Meticulously positioned and sized */}
       {/* Image 1: Large phone on left (Member Card screen) */}
@@ -272,7 +271,7 @@ export default function AppSection() {
         className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center h-full"
       >
         <h2
-          className="titles mb-6 text-neutral-600 animate-fade-in-up font-extrabold"
+          className="titles mb-6 text-neutral-600 font-extrabold"
         >
           S&T App
         </h2>
@@ -282,10 +281,9 @@ export default function AppSection() {
         >
           Lorem ipsum dolor sit amet consectetur. Tellus mi id purus pulvinar molestie
           neque semper arcu. Sodales nunc sed amet nunc dui quam ridiculus ornare.
-          Sed velit tincidunt purus sit mi sit ut. Suscipit bibendum ul
         </p>
 
-        <button className="botao bg-accent-400 rounded-4xl">
+        <button className="botao pointer bg-accent-400 rounded-4xl">
           <svg
             width="24px"
             height="24px"

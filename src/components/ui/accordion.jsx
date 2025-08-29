@@ -1,6 +1,5 @@
 import React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDown } from "lucide-react"
 import { cn } from "../../lib/utils" // Adjusted import path
 import gurl from "../../lib/image-util"
 
@@ -16,13 +15,13 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:text-Main-300 [&[data-state=open]>img]:rotate-180",
+        "flex flex-1 items-center justify-between py-1 md:py-2 font-medium transition-all hover:text-Main-300 [&[data-state=open]>img]:rotate-180",
         className,
       )}
       {...props}
     >
       {children}
-      <img src={gurl("icons/chevron.svg")} className="h-4 w-4 shrink-0 transition-transform duration-200" />
+      <img src={gurl("icons/chevron.svg")} className="h-4 w-4 shrink-0 transition-transform duration-200 mr-2" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))

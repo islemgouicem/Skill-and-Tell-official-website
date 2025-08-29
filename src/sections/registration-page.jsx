@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useRef } from "react"
+import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
 import SuccessfulReg from "./succesful_reg.jsx"
@@ -19,7 +20,12 @@ function Star() {
     return <span className="text-error-200">*</span>;
 }
 
-function RegistrationPage({ onBack }) {
+function RegistrationPage() {
+    const navigate = useNavigate();
+
+    const onBack = () => {
+        navigate("/"); // Navigate back to the main site
+    };
     const [currentStep, setCurrentStep] = useState(1)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -165,7 +171,7 @@ function RegistrationPage({ onBack }) {
     };
 
     const nextStep = () => {
-        if (validateStep()) {
+        if (true) { /*validateStep()*/
             setCurrentStep((prev) => prev + 1);
         }
     };
@@ -227,14 +233,7 @@ function RegistrationPage({ onBack }) {
             {/* Header */}
             <div className="max-w-6xl mx-auto py-4">
                 <div className="mb-4 text-center">
-                    <h1 className="inline-block text-3xl sm:text-4xl md:text-5xl font-bold p-2" style={{
-                        color: "#190432",
-                        background: "linear-gradient(90deg,#FF6D00,#8A38F5)",
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        WebkitTextStroke: "3px transparent",
-                        letterSpacing: "0.05em",
-                    }}>Join Skill&Tell</h1>
+                    <h1 className="inline-block text-3xl sm:text-4xl md:text-5xl font-bold p-2 grad-title">Join Skill&Tell</h1>
                 </div>
 
                 {/* Progress Bar */}
@@ -251,7 +250,7 @@ function RegistrationPage({ onBack }) {
 
             {/* Form Container */}
             <div className="max-w-5xl mx-auto mb-6">
-                <div className="glass rounded-2xl p-8">
+                <div className="glass rounded-2xl p-6 md:p-8">
                     {/* Step 1: Personal Information */}
                     {currentStep === 1 && (
                         <div className="space-y-6 animate-fade-in-up">
@@ -400,7 +399,7 @@ function RegistrationPage({ onBack }) {
 
                             </div>
 
-                            <div className="space-y-6 px-10">
+                            <div className="space-y-6 px-2 md:px-10">
                                 <h3 className="text-white text-lg md:text-[20px] font-bold mb-1">
                                     Pick Your Top 3 Departments (by Priority):
                                 </h3>
@@ -464,7 +463,7 @@ function RegistrationPage({ onBack }) {
                                 <h2 className="section-title">Motivation</h2>
                             </div>
 
-                            <div className="space-y-6 px-10">
+                            <div className="space-y-6 px-2 md:px-10">
                                 <div>
                                     <label className="input-label">Motivation for First-Choice Department <Star /></label>
                                     <textarea
@@ -476,7 +475,7 @@ function RegistrationPage({ onBack }) {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none  pr-4 overflow-hidden"
+                                        className="input-style resize-none  pr-4 min-h-[80px] overflow-hidden text-sm"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -484,7 +483,7 @@ function RegistrationPage({ onBack }) {
 
                                 </div>
                                 <div>
-                                    <label className="input-label">Additional Thoughts on Second/Third Choices <Star /></label>
+                                    <label className="input-label">Additional Thoughts on Second/Third Choices<Star /></label>
                                     <textarea
                                         value={formData.dep2_3_motiv}
                                         onChange={(e) => {
@@ -494,7 +493,7 @@ function RegistrationPage({ onBack }) {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none  pr-4 overflow-hidden"
+                                        className="input-style resize-none min-h-[80px] pr-4 overflow-hidden"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -512,7 +511,7 @@ function RegistrationPage({ onBack }) {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none textarea-scroll pr-4 overflow-hidden"
+                                        className="input-style resize-none textarea-scroll min-h-[80px] pr-4 overflow-hidden"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -619,25 +618,7 @@ function RegistrationPage({ onBack }) {
                             ))}
                         </div>
 
-                        {currentStep === totalSteps ? (
-                            <Button
-                                onClick={submitForm}
-                                disabled={isSubmitting}
-                                className="bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 px-8"
-                            >
-                                {isSubmitting ? (
-                                    <>
-                                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                                        Submitting...
-                                    </>
-                                ) : (
-                                    <>
-                                        <CheckCircle className="w-5 h-5 mr-2" />
-                                        Submit Registration
-                                    </>
-                                )}
-                            </Button>
-                        ) : (
+                        {currentStep < totalSteps ? (
                             <Button
                                 onClick={nextStep}
                                 className="gradient-buttons rounded-sm text-white hover:from-space-orange-light hover:to-space-purple"
@@ -645,8 +626,26 @@ function RegistrationPage({ onBack }) {
                                 Next
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
-                        )}
+                        ) : (<Button
+                            onClick={submitForm}
+                            disabled={isSubmitting}
+                            className="bg-gradient-to-r rounded-sm from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 px-4 lg:px-8"
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                                    Submitting...
+                                </>
+                            ) : (
+                                <>
+                                    <CheckCircle className="w-5 h-5 mr-2" />
+                                    Submit
+                                </>
+                            )}
+                        </Button>)}
                     </div>
+
+
                 </div>
             </div>
         </div>

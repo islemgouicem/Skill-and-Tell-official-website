@@ -1,0 +1,22 @@
+[
+    {
+        "value": "item-1",
+        "question": "What kind of activities does the club offer?",
+        "answer": "We offer a wide range of activities including hands-on workshops, interactive seminars, hackathons, coding challenges, research projects, and field trips to scientific institutions. Our events cover various scientific disciplines."
+    },
+    {
+        "value": "item-2",
+        "question": "Who can join Skill & Tell?",
+        "answer": "Skill & Tell is open to all students with a passion for science and learning, regardless of their academic background or prior experience. We welcome curious minds from all fields!"
+    },
+    {
+        "value": "item-3",
+        "question": "How can I contribute to the club?",
+        "answer": "There are many ways to contribute! You can join our project teams, volunteer for events, share your knowledge in workshops, or even propose new initiatives. We encourage active participation from all members."
+    },
+    {
+        "value": "item-4",
+        "question": "Are there opportunities for leadership roles?",
+        "answer": "We believe in nurturing leadership skills. Members can apply for various leadership positions within the club, lead projects, or become mentors for new members."
+    }
+]
