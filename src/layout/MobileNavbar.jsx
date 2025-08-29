@@ -18,7 +18,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
             <SheetContent
                 side="right"
                 className="border-Main-400 w-[250px] text-space-text"
-                style={{ backgroundImage: `url(${gurl('images/background.svg')})` }}
+                style={{ backgroundImage: `url(${gurl('images/background.webp')})` }}
             >
                 <a href="#hero" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                     <Logo size={100} />

@@ -13,7 +13,12 @@ export default function HeroSection({ onRegisterClick }) {
     <section
       id="hero"
       className="relative h-screen flex items-center justify-center text-center text-space-text bg-cover bg-top bg-no-repeat"
-      style={{ backgroundImage: `url(${gurl('images/background.svg')})` }}
+      style={{
+        backgroundImage: `url(${gurl('images/background.webp')})`,
+        backgroundSize: "cover",   // makes it scale and fill the section
+        backgroundPosition: "center", // keeps it centered
+        backgroundRepeat: "no-repeat", // avoids tiling
+      }}
     >
       {/* <HeroSpline /> */}
 

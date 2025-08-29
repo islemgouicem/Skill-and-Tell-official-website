@@ -8,7 +8,12 @@ function MoreAboutSection() {
     <section
       id="more-about"
       className="relative py-12 md:py-18 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: `url(${gurl('images/more_About.svg')})` }}
+      style={{
+        background: `url(${gurl('images/more_About.webp')})`,
+        backgroundSize: "cover",   // makes it scale and fill the section
+        backgroundPosition: "center", // keeps it centered
+        backgroundRepeat: "no-repeat", // avoids tiling
+      }}
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">

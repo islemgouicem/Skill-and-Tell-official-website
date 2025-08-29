@@ -13,7 +13,7 @@ function SuccessfulReg({ onBack }) {
         <>
             <div
                 className="p-2 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${gurl('images/Team_Section.svg')})` }}
+                style={{ backgroundImage: `url(${gurl('images/Team_Section.webp')})` }}
             >
                 {/* Header */}
                 <div className="max-w-6xl mx-auto pt-2 pb-2">

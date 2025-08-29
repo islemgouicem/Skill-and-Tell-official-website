@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig(({ mode }) => {
   return {
+    base: mode === "production" ? "/snt_website/" : "/",
     plugins: [tailwindcss(), react()],
     optimizeDeps: {
       include: ["lucide-react"], // make sure icons are optimized properly

@@ -87,7 +87,12 @@ function EventsSection() {
     <section
       id="events"
       className="relative py-8 md:py-10 bg-space-dark text-space-text overflow-hidden"
-      style={{ background: `url(${gurl('images/Events_Section.webp')})` }} // Original background image path
+      style={{
+        background: `url(${gurl('images/Events_Section.webp')})`,
+        backgroundSize: "cover",   // makes it scale and fill the section
+        backgroundPosition: "center", // keeps it centered
+        backgroundRepeat: "no-repeat", // avoids tiling
+      }} // Original background image path
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -169,7 +174,7 @@ function EventsSection() {
                       </div>
                       <div>
                         <div className="flex justify-between items-start mb-4">
-                          
+
                           <div className="text-space-glow text-3xl font-bold">{event.id}</div>
                           <div className="text-space-text/70 text-sm">{event.date}</div>
                         </div>

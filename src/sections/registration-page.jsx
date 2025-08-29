@@ -227,7 +227,7 @@ function RegistrationPage() {
     return (
         <div
             className="min-h-screen p-2 bg-cover bg-center bg-repeat"
-            style={{ backgroundImage: `url(${gurl('images/Team_Section.svg')})` }}
+            style={{ backgroundImage: `url(${gurl('images/Team_Section.webp')})` }}
         >
 
             {/* Header */}

@@ -118,7 +118,12 @@ function TeamSection() {
       id="team"
       ref={sectionRef}
       className="relative  bg-space-dark text-space-text overflow-hidden" // Changed to h-screen, removed flex centering
-      style={{ background: `url(${gurl("images/Team_Section.webp")})` }}
+      style={{
+        background: `url(${gurl("images/Team_Section.webp")})`,
+        backgroundSize: "cover",   // makes it scale and fill the section
+        backgroundPosition: "center", // keeps it centered
+        backgroundRepeat: "no-repeat", // avoids tiling
+      }}
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full py-4 sm:py-6 md:py-8">
