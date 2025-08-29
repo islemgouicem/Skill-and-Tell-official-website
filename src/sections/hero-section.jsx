@@ -5,8 +5,6 @@ import Shield from "../components/ui/shield_badge.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
 // const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
 
-import gurl from "../lib/image-util.js"
-
 
 export default function HeroSection({ onRegisterClick }) {
   return (
@@ -14,7 +12,7 @@ export default function HeroSection({ onRegisterClick }) {
       id="hero"
       className="relative h-screen flex items-center justify-center text-center text-space-text bg-cover bg-top bg-no-repeat"
       style={{
-        backgroundImage: `url(${gurl('images/background.webp')})`,
+        backgroundImage: "url('/images/background.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
         backgroundPosition: "center", // keeps it centered
         backgroundRepeat: "no-repeat", // avoids tiling
@@ -71,20 +69,20 @@ export default function HeroSection({ onRegisterClick }) {
         flex items-center space-x-1 md:space-x-2 
         border border-white/50
         transform -rotate-6 md:-rotate-10 
-         transition-transform animate-float [animation-delay:0s]
+        transition-transform animate-float [animation-delay:0s]
         z-20"
       >
         <div className="flex -space-x-1 md:-space-x-2 overflow-hidden">
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src={`${gurl('images/Ellipse_1.png')}?height=32&width=32`} alt="Member 1" />
+            <AvatarImage src="images/Ellipse_1.png?height=32&width=32" alt="Member 1" />
             <AvatarFallback>M1</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src={`${gurl('images/Ellipse_2.png')}?height=32&width=32`} alt="Member 2" />
+            <AvatarImage src="images/Ellipse_2.png?height=32&width=32" alt="Member 2" />
             <AvatarFallback>M2</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src={`${gurl('images/Ellipse_3.png')}?height=32&width=32`} alt="Member 3" />
+            <AvatarImage src="images/Ellipse_3.png?height=32&width=32" alt="Member 3" />
             <AvatarFallback>M3</AvatarFallback>
           </Avatar>
         </div>
