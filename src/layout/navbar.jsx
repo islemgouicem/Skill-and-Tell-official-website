@@ -69,7 +69,7 @@ function Navbar() {
         onMouseLeave={() => !isOpen && startHideTimer(2000)}
       >
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-          <a href="#hero" className="flex items-center gap-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+          <a href="#hero" aria-label="logo" className="flex items-center gap-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
             <Logo />
           </a>
 

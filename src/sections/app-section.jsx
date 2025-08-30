@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react"
 
 
 //images
-import phone2 from "../assets/images/phone2.png"
-import phone1 from "../assets/images/phone1.png"
-import card1 from "../assets/images/card1.png"
-import card2 from "../assets/images/card2.png"
+import phone2 from "../assets/images/phone2.webp"
+import phone1 from "../assets/images/phone1.webp"
+import card1 from "../assets/images/card1.webp"
+import card2 from "../assets/images/card2.webp"
 import qr from "../assets/images/qr.png"
-import member_card from "../assets/images/member_card.png"
-import event_card from "../assets/images/event_card.png"
+import member_card from "../assets/images/member_card.webp"
+import event_card from "../assets/images/event_card.webp"
 
 
 export default function AppSection() {

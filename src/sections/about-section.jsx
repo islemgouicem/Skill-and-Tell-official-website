@@ -5,9 +5,9 @@ import { useInView } from "../components/ui/use_in_view.js"
 import React from 'react'
 
 //images
-import aboutus1 from "../assets/images/about_us1.png"
-import aboutus2 from "../assets/images/about_us2.png"
-import phone from "../assets/images/phone.png"
+import aboutus1 from "../assets/images/about_us1.webp"
+import aboutus2 from "../assets/images/about_us2.webp"
+import phone from "../assets/images/phone.webp"
 
 function AboutSection() {
   const [sectionRef, sectionInView] = useInView({ threshold: 0.1 })

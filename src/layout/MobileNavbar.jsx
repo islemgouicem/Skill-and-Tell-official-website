@@ -19,7 +19,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                 className="border-Main-400 w-[250px] text-space-text"
                 style={{ backgroundImage: "url('images/background.webp')" }}
             >
-                <a href="#hero" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                <a href="#hero" aria-label="logo" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                     <Logo size={100} />
                 </a>
                 <nav className="grid gap-4 py-6">

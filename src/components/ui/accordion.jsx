@@ -1,17 +1,17 @@
 import React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import {Item, Header, Trigger, Content, Root} from "@radix-ui/react-accordion"
 import { cn } from "../../lib/utils" // Adjusted import path
 
-const Accordion = AccordionPrimitive.Root
+const Accordion = Root
 
 const AccordionItem = React.forwardRef(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn("", className)} {...props} />
+  <Item ref={ref} className={cn("", className)} {...props} />
 ))
 AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
+  <Header className="flex">
+    <Trigger
       ref={ref}
       className={cn(
         "flex flex-1 items-center justify-between py-1 md:py-2 font-medium transition-all hover:text-Main-300 [&[data-state=open]>img]:rotate-180",
@@ -21,13 +21,13 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
     >
       {children}
       <img src="/icons/chevron.svg" className="h-4 w-4 shrink-0 transition-transform duration-200 mr-2" alt="" aria-hidden="true" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
+    </Trigger>
+  </Header>
 ))
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+AccordionTrigger.displayName = Trigger.displayName
 
 const AccordionContent = React.forwardRef(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
+  <Content
     ref={ref}
     className={cn(
       "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
@@ -36,8 +36,8 @@ const AccordionContent = React.forwardRef(({ className, children, ...props }, re
     {...props}
   >
     <div className="pb-4 pt-0">{children}</div>
-  </AccordionPrimitive.Content>
+  </Content>
 ))
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
+AccordionContent.displayName = Content.displayName
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }

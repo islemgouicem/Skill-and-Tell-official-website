@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Logo and Description */}
         <div className="space-y-4">
-          <a href="#hero" className="flex items-center gap-2">
+          <a href="#hero" className="flex items-center gap-2" aria-label="logo">
             {/* User: Place your logo here at public/logo.png */}
             <img src="/images/logo_dark.png?height=60&width=60" width={150} height={150} alt="Skill & Tell Logo" />
           </a>

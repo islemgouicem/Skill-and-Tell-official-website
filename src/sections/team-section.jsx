@@ -179,6 +179,7 @@ function TeamSection() {
                       <a
                         href={member.social.instagram}
                         target="_blank"
+                        aria-label="instagram"
                         rel="noopener noreferrer"
                         className="text-space-text hover:text-space-accent transition-colors"
                       >
@@ -187,6 +188,7 @@ function TeamSection() {
                       <a
                         href={member.social.mail}
                         target="_blank"
+                        aria-label="gmail"
                         rel="noopener noreferrer"
                         className="text-space-text hover:text-red-600 transition-colors"
                       >
@@ -195,6 +197,7 @@ function TeamSection() {
                       <a
                         href={member.social.linkedin}
                         target="_blank"
+                        aria-label="linkedin"
                         rel="noopener noreferrer"
                         className="text-space-text hover:text-[#0077b5] transition-colors"
                       >

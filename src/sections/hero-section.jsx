@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
-// const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
+const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
 
 
 export default function HeroSection({ onRegisterClick }) {
@@ -18,11 +18,11 @@ export default function HeroSection({ onRegisterClick }) {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
-      {/* <HeroSpline /> */}
+      <HeroSpline />
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight 
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight 
         text-space-text drop-shadow-lg"
         >
           Start your journey with <br />
@@ -40,7 +40,7 @@ export default function HeroSection({ onRegisterClick }) {
             Skill&amp;Tell
           </span>
         </h1>
-        <p className="max-w-3xl text-md md:text-xl text-white/70 mb-6">
+        <p className="max-w-3xl text-sm md:text-lg text-white/70 mb-6">
           Start your journey with our creative, inspiring and welcoming club, where skills are sharpened,
           ideas come to life, collaboration thrives, and passion, fun, and excitement pave the way for success!
         </p>
@@ -49,9 +49,9 @@ export default function HeroSection({ onRegisterClick }) {
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 
             hover:from-[#FF6D00] hover:to-[rgba(255,109,0,0)] 
-            text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-md 
+            text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-md transition-color duration-1800
             border border-Main-300/50 pointer
-            animate-grow transition-color duration-1000"
+            animate-grow"
         >
           Register Now
         </Button>

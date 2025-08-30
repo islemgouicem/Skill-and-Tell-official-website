@@ -12,7 +12,7 @@ function HeroSpline() {
             <spline-viewer
                 url="https://prod.spline.design/SPeUB6kJeccOWbLo/scene.splinecode"
                 // Adjusted height and vertical translation for better scaling on different screen sizes
-                class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[20vh]"
+                class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[30vh]"
             ></spline-viewer>
         </div>
     );

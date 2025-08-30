@@ -171,17 +171,15 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1); /* grows 10% bigger */
+    transform: scale(1.05); /* grows 10% bigger */
   }
 }
 
 @keyframes float {
 
-  0%,
-  100% {
+  0%,100% {
     transform: translateY(0)
   }
-
   50% {
     transform: translateY(-8px)
   }
@@ -583,6 +581,8 @@
   background: linear-gradient(208.43deg, rgba(26, 1, 50, 0.16) 2.67%, rgba(215, 174, 255, 0.16) 96.85%);
   backdrop-filter: blur(15px);
 }
+
+
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<   loading page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* Black Hole Animations */
