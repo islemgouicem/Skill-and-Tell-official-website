@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
-const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
+// const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
 
 
 export default function HeroSection({ onRegisterClick }) {
@@ -18,7 +18,7 @@ export default function HeroSection({ onRegisterClick }) {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
-      <HeroSpline />
+      {/* <HeroSpline /> */}
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1
