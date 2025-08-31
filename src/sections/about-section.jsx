@@ -5,6 +5,7 @@ import { useInView } from "../components/ui/use_in_view.js"
 import React from 'react'
 
 //images
+import whitebg from "../assets/images/white_bg.webp"
 import aboutus1 from "../assets/images/about_us1.webp"
 import aboutus2 from "../assets/images/about_us2.webp"
 import phone from "../assets/images/phone.webp"
@@ -19,10 +20,21 @@ function AboutSection() {
 
   return (
     <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:h-screen">
-      <div
+      <img
+        src={whitebg}
+        alt=""
         aria-hidden="true"
-        className={`absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none select-none w-full`}
-        style={{ backgroundImage: "url('/images/white_bg.png')",}}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "90%", // w-[90%]
+          height: "auto", // h-auto
+          objectFit: "cover", // object-cover
+          pointerEvents: "none", // pointer-events-none
+          userSelect: "none", // select-none
+          zIndex: 0,
+        }}
       />
 
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col py-4 sm:py-6 md:py-8">

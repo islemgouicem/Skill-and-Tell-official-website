@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from "react"
+import whitebg from "../assets/images/white_bg.webp"
 
 // Helper component for animating numbers
 const AnimatedNumber = ({ value, isVisible, delay }) => {
@@ -159,7 +160,7 @@ function StatisticsSection() {
     >
       {/* Background image - Re-added as per your original code */}
       <img
-        src="/images/white_bg.png?height=1000&width=1000"
+        src={whitebg}
         alt=""
         aria-hidden="true"
         style={{

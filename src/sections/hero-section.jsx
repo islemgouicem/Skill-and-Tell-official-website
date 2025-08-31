@@ -62,7 +62,7 @@ export default function HeroSection({ onRegisterClick }) {
 
       {/* Members */}
       <div
-        className="badges absolute top-[6%] left-3 
+        className="badges absolute top-[15%] left-3 
         md:top-[32%] md:left-[6%] 
         xl:top-[29%] xl:left-[8.5%] 
         rounded-full py-1 px-2 md:py-2 md:px-4 
@@ -94,7 +94,7 @@ export default function HeroSection({ onRegisterClick }) {
 
       {/* participants */}
       <div
-        className="badges absolute top-[12%] left-[65%] 
+        className="badges absolute top-[12%] left-[67%] 
                     md:top-[18%] md:left-[78%] 
                     rounded-full py-1 px-2 md:py-2 md:px-4 
                     flex flex-col items-center 
@@ -122,9 +122,9 @@ export default function HeroSection({ onRegisterClick }) {
         <p className="text-[10px] md:text-base font-semibold drop-shadow-sm">Projects</p>
       </div>
 
-      <div className="z-10 absolute rotate-12 top-[62%] left-[58%] md:top-[70%] md:left-[78%] 
+      <div className="z-10 absolute rotate-12 top-[62%] left-[65%] md:top-[70%] md:left-[78%] 
       transform  transition-transform animate-float [animation-delay:6s]">
-        <Shield className="w-30 h-30 md:w-40 md:h-40" />
+        <Shield/>
       </div>
 
     </section>

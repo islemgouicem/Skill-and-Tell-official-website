@@ -293,6 +293,7 @@
     /* Prevent horizontal scroll */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    cursor: url("/src/assets/images/cursor.png") 4 4, auto;
   }
 
 
@@ -581,7 +582,9 @@
   background: linear-gradient(208.43deg, rgba(26, 1, 50, 0.16) 2.67%, rgba(215, 174, 255, 0.16) 96.85%);
   backdrop-filter: blur(15px);
 }
-
+a, button,.pointer {
+  cursor: url("/src/assets/images/pointer.png") 4 4, pointer;
+}
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<   loading page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */

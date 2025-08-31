@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef, Suspense } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Logo from "./Logo.jsx"
-
-// Lazy load mobile navbar
 import MobileNavbar from "./MobileNavbar.jsx"
 
 function Navbar() {
@@ -62,9 +60,8 @@ function Navbar() {
       />
 
       <header
-        className={`fixed w-full z-50 transition-all duration-500 ease-in-out backdrop-blur-sm shadow-lg ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        } bg-gradient-to-br navbar-bg`}
+        className={`fixed w-full z-50 transition-all duration-500 ease-in-out backdrop-blur-sm shadow-lg ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+          } bg-gradient-to-br navbar-bg`}
         onMouseEnter={showNavbar}
         onMouseLeave={() => !isOpen && startHideTimer(2000)}
       >
@@ -88,10 +85,7 @@ function Navbar() {
             ))}
           </nav>
 
-          {/* Lazy Mobile Navbar */}
-          <Suspense fallback={<div />}>
-            <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
-          </Suspense>
+          <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
         </div>
       </header>
     </>
