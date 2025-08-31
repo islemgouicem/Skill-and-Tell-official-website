@@ -57,7 +57,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#more_about" className="text-footer-text/80 hover:text-footer-link transition-colors">
+                <a href="#FQ" className="text-footer-text/80 hover:text-footer-link transition-colors">
                   F&Q
                 </a>
               </li>

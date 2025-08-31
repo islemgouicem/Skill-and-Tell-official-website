@@ -13,7 +13,7 @@ function Navbar() {
     { name: "Statistics", href: "#statistics" },
     { name: "Events", href: "#events" },
     { name: "App", href: "#app" },
-    { name: "F&Q", href: "#more-about" },
+    { name: "F&Q", href: "#FQ" },
     { name: "Contacts", href: "#contacts" }
   ]
 

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
 import SuccessfulReg from "./succesful_reg.jsx"
-
+import wilayas from "../data/wilayas.json"
 import {
     X,
     ArrowLeft,
@@ -14,7 +14,6 @@ import {
     Loader2,
 } from "lucide-react"
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
 function Star() {
     return <span className="text-error-200">*</span>;
 }
@@ -25,6 +24,7 @@ function RegistrationPage() {
     const onBack = () => {
         navigate("/"); // Navigate back to the main site
     };
+
     const [currentStep, setCurrentStep] = useState(1)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -70,13 +70,7 @@ function RegistrationPage() {
         "Human Resources Department",
         "Logistics Department",
     ]
-    const wilayas = ["Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar", "Blida",
-        "Bouira", "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Algiers", "Djelfa", "Jijel", "Sétif",
-        "Saïda", "Skikda", "Sidi Bel Abbès", "Annaba", "Guelma", "Constantine", "Médéa", "Mostaganem", "M'Sila", "Mascara",
-        "Ouargla", "Oran", "El Bayadh", "Illizi", "Bordj Bou Arréridj", "Boumerdès", "El Tarf", "Tindouf", "Tissemsilt",
-        "El Oued", "Khenchela", "Souk Ahras", "Tipaza", "Mila", "Aïn Defla", "Naâma", "Aïn Témouchent", "Ghardaïa",
-        "Relizane", "El M’Ghair", "El Menia", "Ouled Djellal", "Bordj Baji Mokhtar", "Béni Abbès", "Timimoun",
-        "Touggourt", "Djanet", "In Salah", "In Guezzam"];
+
 
     const handleInputChange = (field, value) => {
         setFormData((prev) => ({
@@ -93,6 +87,7 @@ function RegistrationPage() {
             });
         }
     };
+
     const handleSelectChange = (field, value) => {
         setFormData(prev => ({ ...prev, [field]: value }))
 
@@ -103,14 +98,6 @@ function RegistrationPage() {
                 return updated;
             });
         }
-    }
-
-
-    const handleArrayChange = (field, value) => {
-        setFormData((prev) => ({
-            ...prev,
-            [field]: prev[field].includes(value) ? prev[field].filter((item) => item !== value) : [...prev[field], value],
-        }))
     }
 
     const handlePhotoUpload = (event) => {
@@ -130,7 +117,7 @@ function RegistrationPage() {
 
     const [errors, setErrors] = useState({});
 
-    const validateStep = () => {
+    const validateStep = () => { // more validation logic to be added 
         let stepErrors = {};
 
         if (currentStep === 1) {
@@ -170,7 +157,7 @@ function RegistrationPage() {
     };
 
     const nextStep = () => {
-        if (true) { /*validateStep()*/
+        if (validateStep()) { /*uncomment*/
             setCurrentStep((prev) => prev + 1);
         }
     };
@@ -186,29 +173,12 @@ function RegistrationPage() {
         setIsSubmitting(true)
 
         try {
-            // Convert profile photo to base64 for Google Sheets
-            let photoBase64 = ""
-            if (formData.profilePhoto) {
-                photoBase64 = formData.profilePhotoPreview.split(",")[1]
-            }
-
             const submissionData = {
                 ...formData,
-                profilePhoto: photoBase64,
                 submissionDate: new Date().toISOString(),
             }
-
-            // Remove the preview URL as it's not needed for submission
             delete submissionData.profilePhotoPreview
-
-            //   const response = await fetch(GOOGLE_SCRIPT_URL, {
-            //     method: "POST",
-            //     mode: "no-cors",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(submissionData),
-            //   })
+            // <<<<<<<<<<<<<<<<<<<<<<<<< database logic goes here >>>>>>>>>>>>>>>>
 
             setIsSubmitted(true)
         } catch (error) {

@@ -54,16 +54,16 @@ const Shield = (props) => {
             >
                 {/* Content is now guaranteed to be inside the clipped, stacked container */}
                 <div className="flex -space-x-3 overflow-hidden mb-2">
-                    <Avatar className="w-8 h-8 border-2 border-white">
-                        <AvatarImage src="/images/Ellipse_1.png?height=32&width=32" alt="Member 1" />
+                    <Avatar className="w-8 h-8 lg:w-10 lg:h-10 border-2 border-white">
+                        <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 1" />
                         <AvatarFallback>M1</AvatarFallback>
                     </Avatar>
-                    <Avatar className="w-10 h-10 border-2 border-white z-10">
+                    <Avatar className="w-10 h-10 lg:w-12 lg:h-12 border-2 border-white z-10">
                         <AvatarImage src={indabax} alt="Member 2" />
                         <AvatarFallback>M2</AvatarFallback>
                     </Avatar>
-                    <Avatar className="w-8 h-8 border-2 border-white">
-                        <AvatarImage src="/images/Ellipse_3.png?height=32&width=32" alt="Member 3" />
+                    <Avatar className="w-8 h-8 lg:w-10 lg:h-10 border-2 border-white">
+                        <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 3" />
                         <AvatarFallback>M3</AvatarFallback>
                     </Avatar>
                 </div>

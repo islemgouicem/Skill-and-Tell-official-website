@@ -101,7 +101,7 @@ function EventsSection() {
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <h2 className="titles mb-12 text-white animate-fade-in-up">
+        <h2 className="titles mb-12 text-white">
           Our Events
         </h2>
 

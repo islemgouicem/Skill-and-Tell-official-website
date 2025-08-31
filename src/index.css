@@ -14,8 +14,6 @@
   --animate-card-expand: card-expand 0.3s ease-out forwards;
   --animate-card-collapse: card-collapse 0.3s ease-out forwards;
   /* blackhole */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-black-hole-spin: black-hole-spin 6s ease-in-out infinite;
   --animate-matter-orbit: matter-orbit 3s linear infinite;
   --animate-matter-orbit-reverse: matter-orbit-reverse 4s linear infinite;
@@ -580,6 +578,14 @@
 
 .navbar-bg {
   background: linear-gradient(208.43deg, rgba(26, 1, 50, 0.16) 2.67%, rgba(215, 174, 255, 0.16) 96.85%);
+  backdrop-filter: blur(15px);
+}
+.mob-navbar-bg {
+  background: linear-gradient(
+    208.43deg,
+    rgba(90, 30, 150, 0.25) 2.67%,   /* deep violet */
+    rgba(180, 100, 255, 0.25) 96.85% /* light violet */
+  );
   backdrop-filter: blur(15px);
 }
 a, button,.pointer {

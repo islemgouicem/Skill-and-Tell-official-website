@@ -4,10 +4,10 @@ import React from 'react'
 
 import snt from "../assets/images/snt.svg"
 
-function MoreAboutSection() {
+function FQ() {
   return (
     <section
-      id="more-about"
+      id="FQ"
       className="relative py-12 md:py-18 bg-space-dark text-space-text overflow-hidden"
       style={{
         background: "url('/images/more_About.webp')",
@@ -18,13 +18,13 @@ function MoreAboutSection() {
     >
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <h2 className="titles text-center mb-4 text-space-text animate-fade-in-up">
+        <h2 className="titles text-center mb-4 text-space-text">
           More About S&T
         </h2>
         <p className="text-base md:text-lg text-center max-w-2xl mx-auto text-[#6B7280]">
           F&Q section to answer the most frequently repeated questions
         </p>
-        <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-200 mt-6 py-0">
+        <div className="max-w-3xl mx-auto mt-6 py-0">
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item) => (
               <div key={item.value}>
@@ -62,4 +62,4 @@ function MoreAboutSection() {
     </section>
   )
 }
-export default React.memo(MoreAboutSection)
+export default React.memo(FQ)

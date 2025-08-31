@@ -73,16 +73,16 @@ export default function HeroSection({ onRegisterClick }) {
         z-20"
       >
         <div className="flex -space-x-1 md:-space-x-2 overflow-hidden">
-          <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src="/images/Ellipse_1.png?height=32&width=32" alt="Member 1" />
+          <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
+            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 1" />
             <AvatarFallback>M1</AvatarFallback>
           </Avatar>
-          <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src="/images/Ellipse_2.png?height=32&width=32" alt="Member 2" />
+          <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
+            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 2" />
             <AvatarFallback>M2</AvatarFallback>
           </Avatar>
-          <Avatar className="w-6 h-6 md:w-8 md:h-8 border border-white">
-            <AvatarImage src="/images/Ellipse_3.png?height=32&width=32" alt="Member 3" />
+          <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
+            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 3" />
             <AvatarFallback>M3</AvatarFallback>
           </Avatar>
         </div>

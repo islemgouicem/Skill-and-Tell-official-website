@@ -10,7 +10,7 @@ const TeamSection = lazy(() => import("./sections/team-section.jsx"));
 const StatisticsSection = lazy(() => import("./sections/statistics-section.jsx"));
 const EventsSection = lazy(() => import("./sections/events-section.jsx"));
 const AppSection = lazy(() => import("./sections/app-section.jsx"));
-const MoreAboutSection = lazy(() => import("./sections/more-about-section.jsx"));
+const FQ = lazy(() => import("./sections/more-about-section.jsx"));
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +40,7 @@ function App() {
           <StatisticsSection />
           <EventsSection />
           <AppSection />
-          <MoreAboutSection />
+          <FQ />
         </Suspense>
       </main>
       <Footer />
