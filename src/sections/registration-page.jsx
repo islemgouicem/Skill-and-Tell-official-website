@@ -444,7 +444,7 @@ function RegistrationPage() {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none  pr-4 min-h-[80px] overflow-hidden text-sm"
+                                        className="input-style resize-none pr-4 textarea-responsive overflow-hidden text-sm"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -462,7 +462,7 @@ function RegistrationPage() {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none min-h-[80px] pr-4 overflow-hidden"
+                                        className="input-style resize-none textarea-responsive pr-4 overflow-hidden"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -480,7 +480,7 @@ function RegistrationPage() {
                                             e.target.style.height = "auto"; // reset height
                                             e.target.style.height = e.target.scrollHeight + "px"; // set new height
                                         }}
-                                        className="input-style resize-none textarea-scroll min-h-[80px] pr-4 overflow-hidden"
+                                        className="input-style resize-none textarea-responsive pr-4 overflow-hidden"
                                         placeholder="Tell us why you're interested in this department. What excites you about it? Do you have any relevant skills or experience?"
                                     />
 
@@ -573,19 +573,7 @@ function RegistrationPage() {
                             {currentStep === 1 ? 'Back to home' : ' Back'}
                         </Button>
 
-                        <div className="flex space-x-2">
-                            {Array.from({ length: totalSteps }, (_, i) => (
-                                <div
-                                    key={i}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${i + 1 === currentStep
-                                        ? "bg-space-accent scale-125" //bg-[radial-gradient(circle,var(--color-accent-500)_0%,color-mix(in_srgb,var(--color-accent-500)_38%,transparent)_100%)]
-                                        : i + 1 < currentStep
-                                            ? "bg-space-accent/70"
-                                            : "bg-space-subtle"
-                                        }`}
-                                />
-                            ))}
-                        </div>
+
 
                         {currentStep < totalSteps ? (
                             <Button
@@ -613,7 +601,19 @@ function RegistrationPage() {
                             )}
                         </Button>)}
                     </div>
-
+                    <div className="w-fit mx-auto flex space-x-2 mt-4 md:mt-6">
+                        {Array.from({ length: totalSteps }, (_, i) => (
+                            <div
+                                key={i}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${i + 1 === currentStep
+                                    ? "bg-space-accent scale-125" //bg-[radial-gradient(circle,var(--color-accent-500)_0%,color-mix(in_srgb,var(--color-accent-500)_38%,transparent)_100%)]
+                                    : i + 1 < currentStep
+                                        ? "bg-space-accent/70"
+                                        : "bg-space-subtle"
+                                    }`}
+                            />
+                        ))}
+                    </div>
 
                 </div>
             </div>

@@ -10,7 +10,7 @@ function Logo({ size = 100 }) {
             height={size}
             alt="Skill & Tell Logo"
             className="transition-transform duration-300"
-            fetchpriority="low"
+            fetchPriority="low"
         />
     );
 }

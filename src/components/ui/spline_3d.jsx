@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function HeroSpline() {
+function HeroVideo() {
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
@@ -9,13 +9,16 @@ function HeroSpline() {
 
     return (
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[45vh] md:h-[50vh] lg:h-[45vh] overflow-hidden z-10 pointer-events-none">
-            <spline-viewer
-                url="https://prod.spline.design/SPeUB6kJeccOWbLo/scene.splinecode"
-                // Adjusted height and vertical translation for better scaling on different screen sizes
-                class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[30vh]"
-            ></spline-viewer>
+            <video
+                src="/video/planet.webm" // place your .webm file in /public/videos
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover -translate-y-[10vh] md:-translate-y-[15vh] lg:-translate-y-[30vh]"
+            />
         </div>
     );
 }
 
-export default React.memo(HeroSpline);
+export default React.memo(HeroVideo);

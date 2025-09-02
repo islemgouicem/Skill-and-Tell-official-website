@@ -652,3 +652,19 @@ a, button,.pointer {
   90% { opacity: 0; visibility: visible; }
   100% { opacity: 0; visibility: hidden; }
 }
+
+.textarea-responsive {
+  min-height: 0; 
+}
+
+@media (max-width: 640px) {
+  .textarea-responsive {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .textarea-responsive {
+    min-height: 100px;
+  }
+}

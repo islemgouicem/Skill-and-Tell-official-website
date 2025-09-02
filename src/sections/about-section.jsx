@@ -53,7 +53,6 @@ function AboutSection() {
             <div className="relative w-[100px] sm:w-[120px] md:w-[140px] flex-shrink-0">
               <img
                 ref={phoneRef}
-                loading="lazy"
                 src={phone}
                 alt="Skill & Tell App Mockup"
                 className={`absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[130%] object-contain 
@@ -75,11 +74,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-sm leading-tight">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>
@@ -98,7 +97,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-sm leading-tight">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -106,7 +105,7 @@ function AboutSection() {
                 </div>
                 <img
                   src={aboutus1}
-                  loading="lazy"
+
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
@@ -116,7 +115,6 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
                   src={aboutus2}
-                  loading="lazy"
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
                 />
@@ -130,7 +128,7 @@ function AboutSection() {
                   </div>
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
-                    <p className="text-white/90 text-sm leading-tight">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
@@ -150,11 +148,11 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-sm leading-tight mb-2">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
                       Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
                       risus mi cursus eu pharetra.
                     </p>
-                    <p className="text-white/90 text-sm leading-tight">
+                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
                     </p>
                   </div>
@@ -195,7 +193,7 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <img
                   src={aboutus1}
-                  loading="lazy"
+
                   alt="Group photo 1"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />
@@ -253,7 +251,6 @@ function AboutSection() {
                 </div>
                 <img
                   src={aboutus2}
-                  loading="lazy"
                   alt="Group photo 2"
                   className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                 />
