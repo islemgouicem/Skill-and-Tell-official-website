@@ -1,0 +1,221 @@
+[
+  {
+    "id": 1,
+    "email": "akrambenrabah7@gmail.com",
+    "name": "Benrabah akram taher",
+    "image": "/images/managers/BenrabahAkram.jpg",
+    "role": "Production Co-manager",
+    "instagram": "https://www.instagram.com/_.akram._gavix_?igsh=MXZ1d25uejdnaWNvMA==",
+    "linkedin": "",
+    "description": "Benrabah akram is a dedicated and passionate member of Skill&Tell, currently serving as the Production Co-manager. He works with creativity commitment, and a drive to empower others."
+  },
+  {
+    "id": 2,
+    "email": "wassim.taleb@ensia.edu.dz",
+    "name": "Taleb Wassim",
+    "image": "/images/managers/TalebWassim.jpg",
+    "role": "Production Co-manager",
+    "instagram": "https://www.instagram.com/yoitswassim?igsh=MWdsMm8zeDhjaGJ2Yg==",
+    "linkedin": "www.linkedin.com/in/wassim-student-taleb-597058379",
+    "description": "I'm a 3rd year student, also a video editor and i enjoy working on teams."
+  },
+  {
+    "email": "ouksil.sayad@ensia.edu.dz",
+    "id": 3,
+    "name": "Sayad ouksil",
+    "image": "/images/managers/OuksilSayad.jpg",
+    "role": "Production co-manager",
+    "instagram": "https://www.instagram.com/ouksil__sayad?igsh=MWR1ODc4aHhnMXZn",
+    "linkedin": "https://www.linkedin.com/in/ouksil-sayad-405915354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Ambitious and always learning.\nWilling to learn from others."
+  },
+  {
+    "email": "mohamedmerah362@gmail.com",
+    "id": 4,
+    "name": "Merah Mohammed El Amine",
+    "image": "",
+    "role": "Production lead",
+    "instagram": "https://www.instagram.com/moha_mrhnn?igsh=aGdxODA5NGp3aHQ%3D&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/merah-mohammed-412234387?trk=contact-info",
+    "description": "Mohamed is a dedicated and passionate member of Skill&Tell, currently serving as the head of production department . With a strong background in editing ,he leads with creativity, commitment, and a drive to empower others."
+  },
+  {
+    "id": 5,
+    "email": "hala.boutaya@ensia.edu.dz",
+    "name": "Hala BOUTAYA",
+    "role": "Events Department Leader",
+    "image": "/images/managers/boutaya_hala.jpg",
+    "instagram": "https://www.instagram.com/halla.btv?igsh=bWloa2l0bzJyNmZn",
+    "linkedin": "https://www.linkedin.com/in/halla-boutaya-92991a2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "I am Boutaya Hala, leader of the Events Department, passionate about organizing impactful and creative events. With strong planning and coordination skills."
+  },
+  {
+    "id": 6,
+    "email": "sanaa.toutah@ensia.edu.dz",
+    "name": "Sanaa TOUTAH",
+    "image": "/images/managers/Sanaa_TOUTAH.JPG",
+    "role": "logistics manager",
+    "instagram": "https://www.instagram.com/sanaatoutah?igsh=MXZha3NuajV5amZrMg==",
+    "linkedin": "https://www.linkedin.com/in/sanaa-toutah-a1a330331/",
+    "description": "As Logistics Manager of Skill & Tell, Sanaa brings creativity and great experience to event organization. Honest and hardworking, she is passionate about making every project impactful and well-structured."
+  },
+  {
+    "id": 7,
+    "email": "nour.tliba@ensia.edu.dz",
+    "name": "Nour TLIBA",
+    "image": "/images/managers/nourT.jpg",
+    "role": "Relex Lead",
+    "instagram": "https://www.instagram.com/nourtliba?igsh=MXN4bXduNTQ0bW83bw%3D%3D&utm_source=qr",
+    "linkedin": "",
+    "description": "People tell me I’m friendly, outgoing and intense in whatever I do. I love learning new things and feel content when doing meaningful stuff."
+  },
+  {
+    "id": 8,
+    "email": "mohamed.ramy.guettal@ensia.edu.dz",
+    "name": "Mohamed Ramy Guettal",
+    "image": "/images/managers/RamyGuettal.jpg",
+    "role": "Marketing Lead",
+    "instagram": "https://www.instagram.com/ramyguettal?igsh=Y2ppdzRoNjNwc256",
+    "linkedin": "www.linkedin.com/in/mohamed-ramy-guettal",
+    "description": "Third-year AI student and Marketing Manager at Skill&Tell, passionate about AI, technology, and production, with a strong drive for innovation and leadership"
+  },
+  {
+    "id": 9,
+    "email": "yasmine.kihal@ensia.edu.dz",
+    "name": "Yasmine KIHAL",
+    "role": "HR co-manager",
+    "image": "/images/managers/Jass.jpg",
+    "instagram": "https://www.instagram.com/jasmine_khll?igsh=MWd3M3p1dzIzY2d1aQ==",
+    "linkedin": "https://www.linkedin.com/in/yasmine-kihal-4105b0301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "An individual who's trying to learn, evolve and make a difference in this academic community."
+  },
+  {
+    "id": 10,
+    "email": "badri.amouri@ensia.edu.dz",
+    "name": "Badri Amouri",
+    "image": "/images/managers/badri.jpg",
+    "role": "HR Lead",
+    "instagram": "/",
+    "linkedin": "https://www.linkedin.com/in/badri-amouri-6b307a304?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "I am Badri, HR lead of Skill&Tell. I am a motivated and curious person with strong communication and teamwork skills. I’m passionate about technology, startups, and community work, and I enjoy learning new things while contributing to meaningful projects"
+  },
+  {
+    "id": 11,
+    "email": "maissa.alioua@ensia.edu.dz",
+    "name": "Maissa Alioua",
+    "image": "/images/managers/AliouaMaissa.JPG",
+    "role": "Vice President",
+    "instagram": "https://www.instagram.com/maissa_alioua?igsh=Z3cwYW44d3QzZmNp&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/maissa-alioua-040805252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Maissa is the Vice President of Skill & Tell, dedicated and passionate about empowering others. With strong soft skills in leadership, communication, and teamwork, she strives to create impact through creativity and dedication."
+  },
+  {
+    "id": 12,
+    "email": "moussa.boussekine@ensia.edu.dz",
+    "name": "Moussa Boussekine",
+    "image": "/images/managers/moussa.PNG",
+    "role": "President",
+    "instagram": "moussanotfound",
+    "linkedin": "www.linkedin.com/in/moussa-boussekine",
+    "description": "I love exploring new ideas, working on startup projects, and bringing people together to learn, grow, and enjoy the journey as a community"
+  },
+  {
+    "id": 13,
+    "email": "abderahim.khefif@ensia.edu.dz",
+    "name": "Khefif Abderahim",
+    "image": "/images/managers/Khefif_Abderahim.JPG",
+    "role": "SG",
+    "instagram": "https://www.instagram.com/k.azuuuu?igsh=MTIyZTl6czg2MWE4Ng%3D%3D&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/abderrahim-khefif-ab1798306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Ambitious and creative improving myself day by day in my way to become a better version to become what i wanna be"
+  },
+  {
+    "id": 14,
+    "email": "islem.gouicem@ensia.edu.dz",
+    "name": "Islem GOUICEM",
+    "image": "/images/managers/islem_GOUICEM.jpg",
+    "role": "IT Lead",
+    "instagram": "https://www.instagram.com/islem_gcm?igsh=Mnd1NmEzdXNwNnU4&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/islem-gouicem-12ab5b2a3/",
+    "description": "Passionate about tech and entrepreneurship, leads the IT department to create impactful projects, empower members with hands-on skills, and transform ideas into reality."
+  },
+  {
+    "id": 15,
+    "email": "houda.rahmani@ensia.edu.dz",
+    "name": "Rahmani Houda",
+    "image": "",
+    "role": "AI manager",
+    "instagram": "#",
+    "linkedin": "https://www.linkedin.com/in/houda-rahmani-258114298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "Rahmani Houda is a dedicated and passionate member of Skill&Tell, currently serving as the head of Artificial Intelligence. With a strong background in AI, she leads with creativity commitment, and a drive to empower others."
+  },
+  {
+    "id": 16,
+    "email": "fatma.imene.djelili@ensia.edu.dz",
+    "name": "Djelili Imene Fatma ",
+    "image": "/images/managers/Imene.Fatma.Djelili.jpg",
+    "role": "Dev manager",
+    "instagram": "https://www.instagram.com/imene.djelili?igsh=MXZ1bHhxMTd1MnU5ZQ==",
+    "linkedin": "https://www.linkedin.com/in/imene-djelili-741373319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "I'm Imene, an Algerian student who loves programming, problem-solving, and exploring new tech ideas."
+  },
+  {
+    "id": 17,
+    "email": "achraf.baha.eddine.bennacer@ensia.edu.dz",
+    "name": "Achraf baha eddine bennacer",
+    "image": "/images/managers/Achraf-bennacer.jpg",
+    "role": "Dev co manager",
+    "instagram": "https://www.instagram.com/ax666raf?igsh=ZXE5Z2VqaXg4Ymk0",
+    "linkedin": "https://www.linkedin.com/in/achraf-baha-eddine-bennacer-5a91012a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Achraf is a dedicated and passionate manager, currently serving as the Dev co-manager. With a strong background in web and mobile development, he leads with creativity, commitment, and a drive to empower others."
+  },
+  {
+    "id": 18,
+    "email": "malekkdjr@gmail.com",
+    "name": "DJAARAOUI ABDELMALEK",
+    "role": "Design lead",
+    "instagram": "https://www.instagram.com/malekkdjr?igsh=MTQzMW80a3owbXRxcA==",
+    "linkedin": "https://www.linkedin.com/in/abdelmalek-djaaraoui-69805728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "I'm Abdelmalek, a passionate designer and technology enthusiast, always exploring creativity and innovation.\nI love building digital solutions that make a real impact."
+  },
+  {
+    "id": 19,
+    "email": "Bmlydia64@gmail.com",
+    "name": "Mokhtar Lydia",
+    "image": "",
+    "role": "Graphic Design Manager",
+    "instagram": "https://www.instagram.com/_.lyschxia._?igsh=cGZzc3NsMnRhcHI=",
+    "linkedin": "#",
+    "description": "An enthusiastic girl with multiple abilities and a lot of passion"
+  },
+  {
+    "id": 20,
+    "email": "ahlem.toubrinet@ensia.edu.dz",
+    "name": "Ahlem Toubrinet",
+    "image": "/images/managers/Ahlem_Toubrinet.jpg",
+    "role": "UI/UX manager",
+    "instagram": "#",
+    "linkedin": "https://www.linkedin.com/in/ahlem-toubrinet/",
+    "description": "Passionate about design and proud to shape user experiences as UI/UX Manager at Skill&Tell."
+  },
+  {
+    "id": 21,
+    "email": "nour.zamiche@ensia.edu.dz",
+    "name": "Nour Zamiche",
+    "role": "Workshops manager",
+    "image": "/images/managers/NourZamiche.jpg",
+    "instagram": "https://www.instagram.com/nourzamiche?igsh=MXRlN3ZlbGN5YmF0cA==",
+    "linkedin": "https://www.linkedin.com/in/nour-zamiche-37a69128b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "Nour Zamiche is a dedicated and passionate member of Skill&Tell, currently serving as the workshops manager. With a strong background in events planning and management, she leads with creativity, commitment, and a drive to empower others."
+  },
+  {
+    "id": 22,
+    "email": "manel-bouchra.debab@ensia.edu.dz",
+    "name": "DEBAB Manel Bouchra",
+    "image": "/images/managers/DEBAB_Manel-Bouchra.jpg",
+    "role": "Communication Manger",
+    "instagram": "https://www.instagram.com/maneeeeeeeelou?igsh=YWtucXI1ZjRyMmNq&utm_source=qr",
+    "linkedin": "https://www.linkedin.com/in/manel-bouchra-debab-54a3a6387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Manel known as El Wahraniya, is a dedicated and passionate member of Skill&Tell, currently serving as the head of the communication lead. Occupying this post due to her skills when it comes to dealing with people from different backgrounds. You can reach out to her if you have any question."
+  }
+]

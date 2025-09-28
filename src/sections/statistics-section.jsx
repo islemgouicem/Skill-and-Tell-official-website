@@ -97,22 +97,20 @@ function StatisticsSection() {
 
   const stats = [
     {
-      value: "234+",
-      label: "members this year",
+      value: "4+",
+      label: "Annual Events",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Dolor vivamus gravida purus augue euismod risus et. Facilisi iaculis ultrices rhoncus suspendisse egestas",
+        "We organize exciting events every year—from hands-on workshops to national competitions—bringing innovation and collaboration to life.",
     },
     {
-      value: "234+",
-      label: "members this year",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Dolor vivamus gravida purus augue euismod risus et. Facilisi iaculis ultrices rhoncus suspendisse egestas",
+      value: "200+",
+      label: "Members participated",
+      description: "Our community keeps growing, with over 200 passionate students actively engaging in Skill&Tell's events and competitions."
     },
     {
-      value: "234+",
-      label: "members this year",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Dolor vivamus gravida purus augue euismod risus et. Facilisi iaculis ultrices rhoncus suspendisse egestas",
+      value: "10+",
+      label: "Partner Clubs/Organizations",
+      description:"We proudly collaborate with clubs and organizations across Algeria to expand learning, share knowledge, and build real-world skills."
     },
   ]
 
@@ -217,9 +215,9 @@ function StatisticsSection() {
               color: "#6B7280", // medium-grey
             }}
           >
-            Lorem ipsum dolor sit amet consectetur. Pharetra vitae eget luctus malesuada. Massa amet malesuada amet
-            proin sit sed sociis nisi amet. Velit faucibus eu elit nibh ac rutrum. Nec morbi orci bibendum id proin
-            eros.
+            Discover the impact we've made through numbers. From active members to successful events and 
+            collaborations, these stats reflect our community’s growth, dedication, and shared passion for 
+            learning and innovation.
           </p>
         </div>
 

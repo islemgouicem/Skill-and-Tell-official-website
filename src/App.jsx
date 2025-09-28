@@ -10,7 +10,7 @@ const TeamSection = lazy(() => import("./sections/team-section.jsx"));
 const StatisticsSection = lazy(() => import("./sections/statistics-section.jsx"));
 const EventsSection = lazy(() => import("./sections/events-section.jsx"));
 const AppSection = lazy(() => import("./sections/app-section.jsx"));
-const FQ = lazy(() => import("./sections/more-about-section.jsx"));
+const FQ = lazy(() => import("./sections/FQ-section.jsx"));
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true);

@@ -11,7 +11,7 @@ function SuccessfulReg({ onBack }) {
     return (
         <>
             <div
-                className="p-2 bg-cover bg-center bg-no-repeat"
+                className="p-2 bg-cover bg-center bg-no-repeat h-screen"
                 style={{ backgroundImage: "url('images/Team_Section.webp')" }}
             >
                 {/* Header */}

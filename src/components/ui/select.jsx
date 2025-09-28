@@ -1,4 +1,5 @@
-import * as Select from "@radix-ui/react-select";
+import {Root, Trigger, Value, Icon, Portal,
+    Content, ScrollUpButton, Item, Viewport, ScrollDownButton, ItemIndicator, ItemText } from "@radix-ui/react-select";
 import { ChevronDown, ChevronUp, Check } from "lucide-react";
 
 
@@ -10,46 +11,46 @@ export default function CosmicSelect({
     required,
 }) {
     return (
-        <Select.Root value={value} onValueChange={onValueChange} required={required}>
+        <Root value={value} onValueChange={onValueChange} required={required}>
             {/* Trigger styled like .input-style */}
-            <Select.Trigger
+            <Trigger
                 className="input-style flex items-center justify-between gap-2 text-neutral-300 text-sm"
                 aria-label={placeholder}
             >
-                <Select.Value placeholder={placeholder} className="data-[placeholder]:text-neutral-400 text-start text-sm"/>
-                <Select.Icon>
+                <Value placeholder={placeholder} className="data-[placeholder]:text-neutral-400 text-start text-sm"/>
+                <Icon>
                     <img src="/icons/chevron.svg" className="h-4 w-4" alt="chevron" />
-                </Select.Icon>
-            </Select.Trigger>
+                </Icon>
+            </Trigger>
 
             {/* Dropdown content keeps previous nice styling */}
-            <Select.Portal>
-                <Select.Content className="z-50 bg-Main-700 border border-Main-500 rounded-md shadow-lg">
-                    <Select.ScrollUpButton className="flex items-center justify-center py-1">
+            <Portal>
+                <Content className="z-50 bg-Main-700 border border-Main-500 rounded-md shadow-lg">
+                    <ScrollUpButton className="flex items-center justify-center py-1">
                         <ChevronUp className="h-4 w-4 text-space-text" />
-                    </Select.ScrollUpButton>
+                    </ScrollUpButton>
 
-                    <Select.Viewport className="p-1">
+                    <Viewport className="p-1">
                         {options.map((option) => (
-                            <Select.Item
+                            <Item
                                 key={option}
                                 value={option}
                                 className="pointer relative flex items-center px-4 py-2 rounded-md text-neutral-200
                                         cursor-pointer hover:bg-space-accent hover:text-white focus:bg-space-accent focus:text-white outline-none"
                             >
-                                <Select.ItemText>{option}</Select.ItemText>
-                                <Select.ItemIndicator className="absolute right-3">
+                                <ItemText>{option}</ItemText>
+                                <ItemIndicator className="absolute right-3">
                                     <Check className="h-4 w-4" />
-                                </Select.ItemIndicator>
-                            </Select.Item>
+                                </ItemIndicator>
+                            </Item>
                         ))}
-                    </Select.Viewport>
+                    </Viewport>
 
-                    <Select.ScrollDownButton className="flex items-center justify-center py-1">
+                    <ScrollDownButton className="flex items-center justify-center py-1">
                         <ChevronDown className="h-4 w-4 text-space-text" />
-                    </Select.ScrollDownButton>
-                </Select.Content>
-            </Select.Portal>
-        </Select.Root>
+                    </ScrollDownButton>
+                </Content>
+            </Portal>
+        </Root>
     );
 }

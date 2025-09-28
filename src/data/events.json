@@ -14,7 +14,7 @@
     },
     {
         "id": "02",
-        "title": "Cosmic Exploration",
+        "title": "Arcade",
         "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
         "date": "02/15/25",
         "time": "7:00 PM - 9:00 PM",
@@ -27,7 +27,7 @@
     },
     {
         "id": "03",
-        "title": "Robotics Workshop",
+        "title": "IndabaX",
         "description": "Hands-on session to build and program your own mini-robot.",
         "date": "03/02/25",
         "time": "10:00 AM - 4:00 PM",
@@ -40,7 +40,7 @@
     },
     {
         "id": "04",
-        "title": "Quantum Physics Demystified",
+        "title": "AgriChallenge",
         "description": "An introductory seminar to the fascinating world of quantum mechanics.",
         "date": "04/10/25",
         "time": "6:00 PM - 8:00 PM",
@@ -48,71 +48,6 @@
             "Physics",
             "Seminar",
             "Theory"
-        ],
-        "image": "/images/indabax.webp"
-    },
-    {
-        "id": "05",
-        "title": "Bio-Engineering Summit",
-        "description": "Exploring the latest advancements in genetic engineering and biotechnology.",
-        "date": "05/20/25",
-        "time": "9:00 AM - 6:00 PM",
-        "tags": [
-            "Biology",
-            "Engineering",
-            "Summit"
-        ],
-        "image": "/images/indabax.webp"
-    },
-    {
-        "id": "06",
-        "title": "Cosmic Exploration",
-        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
-        "date": "02/15/25",
-        "time": "7:00 PM - 9:00 PM",
-        "tags": [
-            "Astronomy",
-            "Lecture",
-            "Discovery"
-        ],
-        "image": "/images/indabax.webp"
-    },
-    {
-        "id": "07",
-        "title": "Cosmic Exploration",
-        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
-        "date": "02/15/25",
-        "time": "7:00 PM - 9:00 PM",
-        "tags": [
-            "Astronomy",
-            "Lecture",
-            "Discovery"
-        ],
-        "image": "/images/indabax.webp"
-    },
-    {
-        "id": "08",
-        "title": "Cosmic Exploration",
-        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
-        "date": "02/15/25",
-        "time": "7:00 PM - 9:00 PM",
-        "tags": [
-            "Astronomy",
-            "Lecture",
-            "Discovery"
-        ],
-        "image": "/images/indabax.webp"
-    },
-    {
-        "id": "09",
-        "title": "Cosmic Exploration",
-        "description": "A journey through the cosmos, exploring black holes and distant galaxies.",
-        "date": "02/15/25",
-        "time": "7:00 PM - 9:00 PM",
-        "tags": [
-            "Astronomy",
-            "Lecture",
-            "Discovery"
         ],
         "image": "/images/indabax.webp"
     }

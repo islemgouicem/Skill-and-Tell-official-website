@@ -289,11 +289,12 @@ export default function AppSection() {
         <p
           className="leading-7 text-center max-w-xl mx-auto text-neutral-400 mb-6 text-sm"
         >
-          Lorem ipsum dolor sit amet consectetur. Tellus mi id purus pulvinar molestie
-          neque semper arcu. Sodales nunc sed amet nunc dui quam ridiculus ornare.
+          Skill&Tell App lets you stay connected. Explore all events, discover opportunities, 
+          and interact with members and leaders. Built to keep you updated, involved, and inspired. 
+          Join us, grow with us.
         </p>
 
-        <button className="botao pointer bg-accent-400 rounded-4xl">
+        <button type="button" className="botao pointer bg-accent-400 rounded-4xl">
           <svg
             width="24px"
             height="24px"
@@ -314,7 +315,7 @@ export default function AppSection() {
           </svg>
 
           <span className="texto flex justify-between">
-            <p className="mr-2">Download</p> <img src="/icons/download.svg" className="mr-2" alt="" aria-hidden="true"/>
+            <span className="mr-2">Download</span> <img src="/icons/download.svg" className="mr-2" alt="" aria-hidden="true" />
           </span>
         </button>
       </div>

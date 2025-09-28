@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { useInView } from "../components/ui/use_in_view.js"
 import { Card, CardContent, CardDescription, CardTitle } from "../components/ui/card.jsx" // Original import path
-import teamMembers from "../data/team.json" // Original import path
+import teamMembers from "../data/managers_info.json" // Original import path
 
 import left from "../assets/images/left.png"
 import right from "../assets/images/right.png"
@@ -119,7 +119,7 @@ function TeamSection() {
     <section
       id="team"
       ref={sectionRef}
-      className="relative  bg-space-dark text-space-text overflow-hidden" // Changed to h-screen, removed flex centering
+      className="relative bg-space-dark text-space-text overflow-hidden py-4 h-[600px] md:h-auto flex flex-col items-center"
       style={{
         background: "url('/images/Team_Section.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
@@ -127,12 +127,11 @@ function TeamSection() {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
+      <h2 className="titles text-neutral-100 pb-10 md:pb-0">
+        Our Heads
+      </h2>
+      <div className="container mx-auto px-1 md:px-4 relative z-10 w-full pt-4 flex flex-col justify-center py-4 sm:py-6 md:py-8">
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full pt-4 flex flex-col justify-center h-full py-4 sm:py-6 md:py-8">
-        <h2 className={`titles text-neutral-100 transition-all duration-1000
-          ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}`}>
-          Our Heads
-        </h2>
         <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[450px] lg:min-h-[500px] w-full">
           {" "}
           <button onClick={prevMember} className="absolute pointer left-0 md:left-10 z-20 p-1 transition-all duration-300">
@@ -153,32 +152,33 @@ function TeamSection() {
               return (
                 <Card
                   key={member.id}
-                  className="absolute w-[80%] sm:w-[300px] md:w-[320px] max-w-[98vw] inset-x-0 mx-auto p-6 border border-space-subtle 
-  heads-card shadow-xl transition-all duration-500 ease-in-out origin-center" // Further adjusted card width
+                  className="absolute w-[85%] sm:w-[300px] md:w-[320px] max-w-[98vw] inset-x-0 mx-auto p-6 border border-space-subtle 
+  heads-card shadow-xl transition-all duration-500 ease-in-out origin-center h-[500px] md:h-[550px]"
                   style={{
                     transform,
                     opacity,
                     zIndex,
                     display,
-                    height: "auto",
                   }}
                 >
-                  <CardContent className="flex flex-col items-center text-center p-0">
+                  <CardContent className="flex flex-col justify-between items-center text-center p-0 h-full">
                     <img
                       src={member.image || "/images/pfp.png"}
                       width={120}
                       height={120}
                       loading="lazy"
                       alt={member.name}
-                      className="rounded-full object-cover mb-5 border-3 border-space-accent shadow-md" // Changed width/height to 120
+                      className="w-[120px] h-[120px] rounded-full object-cover mb-5 border-4 border-space-accent shadow-md"
                     />
-                    <CardTitle className="text-2xl font-bold text-neutral-100 mb-2">{member.name}</CardTitle>
-                    <CardDescription className="text-accent-500 text-lg mb-4">{member.role}</CardDescription>
-                    <p className="text-white mb-6">{member.description}</p>
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-neutral-100 mb-2">{member.name}</CardTitle>
+                      <CardDescription className="text-accent-500 text-xl mb-4 font-bold">{member.role}</CardDescription>
+                      <p className="text-white mb-6 text-sm sm:text-base">{member.description}</p>
+                    </div>
+
                     <div className="flex gap-5">
                       <a
-                        href={member.social.instagram}
-                        target="_blank"
+                        href={member.instagram}
                         aria-label="instagram"
                         rel="noopener noreferrer"
                         className="text-space-text hover:text-space-accent transition-colors"
@@ -186,8 +186,7 @@ function TeamSection() {
                         <Instagram className="h-7 w-7" />
                       </a>
                       <a
-                        href={member.social.mail}
-                        target="_blank"
+                        href={`mailto:${member.email}`}
                         aria-label="gmail"
                         rel="noopener noreferrer"
                         className="text-space-text hover:text-red-600 transition-colors"
@@ -195,7 +194,7 @@ function TeamSection() {
                         <Mail className="h-7 w-7" />
                       </a>
                       <a
-                        href={member.social.linkedin}
+                        href={member.linkedin}
                         target="_blank"
                         aria-label="linkedin"
                         rel="noopener noreferrer"

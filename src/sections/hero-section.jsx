@@ -1,12 +1,22 @@
 "use client"
-import { lazy } from "react";
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
+import NotOpen from "../components/ui/reg_not_open.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
-// const HeroSpline = lazy(() => import("../components/ui/spline_3d.jsx"));
+import HeroSpline from "../components/ui/spline_3d.jsx";
+import { useState } from "react"
 
 
 export default function HeroSection({ onRegisterClick }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
   return (
     <section
       id="hero"
@@ -18,7 +28,7 @@ export default function HeroSection({ onRegisterClick }) {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
-      {/* <HeroSpline /> */}
+      <HeroSpline />
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1
@@ -45,7 +55,8 @@ export default function HeroSection({ onRegisterClick }) {
           ideas come to life, collaboration thrives, and passion, fun, and excitement pave the way for success!
         </p>
         <Button
-          onClick={onRegisterClick}
+          onClick={handleOpenPopup}
+          /*handleOpenPopup */
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 
             hover:from-[#FF6D00] hover:to-[rgba(255,109,0,0)] 
@@ -56,8 +67,11 @@ export default function HeroSection({ onRegisterClick }) {
           Register Now
         </Button>
 
-      </div>
 
+
+      </div>
+      <NotOpen isOpen={isPopupOpen}
+        onClose={handleClosePopup} />
       {/* Floating  Badges */}
 
       {/* Members */}
@@ -74,15 +88,15 @@ export default function HeroSection({ onRegisterClick }) {
       >
         <div className="flex -space-x-1 md:-space-x-2 overflow-hidden">
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 1" />
+            <AvatarImage src="/images/managers/OuksilSayad.jpg?height=32&width=32" alt="Member 1" />
             <AvatarFallback>M1</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 2" />
+            <AvatarImage src="/images/managers/RamyGuettal.jpg?height=32&width=32" alt="Member 2" />
             <AvatarFallback>M2</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/pfp.png?height=32&width=32" alt="Member 3" />
+            <AvatarImage src="/images/managers/islem_GOUICEM.jpg?height=32&width=32" alt="Member 3" />
             <AvatarFallback>M3</AvatarFallback>
           </Avatar>
         </div>
@@ -124,7 +138,7 @@ export default function HeroSection({ onRegisterClick }) {
 
       <div className="z-10 absolute rotate-12 top-[62%] left-[65%] md:top-[70%] md:left-[78%] 
       transform  transition-transform animate-float [animation-delay:6s]">
-        <Shield/>
+        <Shield />
       </div>
 
     </section>

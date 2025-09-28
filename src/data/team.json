@@ -1,10 +1,10 @@
 [
     {
         "id": 1,
-        "name": "Full name1",
-        "role": "Position",
+        "name": "Debab Manel Bouchra",
+        "role": "Communication manager",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, quia? ",
-        "image": "/images/pfp.png",
+        "image": "/images/managers/Benrabah Akram.jpg",
         "social": {
             "instagram": "#",
             "mail": "#",

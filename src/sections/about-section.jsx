@@ -19,7 +19,7 @@ function AboutSection() {
   const [card4Ref, card4InView] = useInView({ threshold: 0.3 })
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:h-screen">
+    <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:min-h-screen pb-4">
       <img
         src={whitebg}
         alt=""
@@ -37,7 +37,7 @@ function AboutSection() {
         }}
       />
 
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col py-4 sm:py-6 md:py-8">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col pt-4 sm:pt-6 md:pt-8">
         <h2
           className={`titles text-neutral-600 transition-all duration-1000 mt-4
             ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}
@@ -75,12 +75,15 @@ function AboutSection() {
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
                     <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      Skill&Tell is a dynamic scientific club at the National Higher School of
+                      Artificial Intelligence (ENSIA). Now in its fourth year, it fosters student
+                      growth by emphasizing soft skills including marketing, multimedia,
+                      and photography—empowering members to express themselves, collaborate effectively,
+                      and engage in creative, impactful initiatives.
                     </p>
-                    <p className="text-white/90 text-xs sm:text-sm leading-tight">
+                    {/* <p className="text-white/90 text-xs sm:text-sm leading-tight">
                       Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -129,8 +132,10 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      At Skill&Tell, we specialize in nurturing essential soft skills through hands-on experience.
+                      From marketing strategies to multimedia production, our focus is on helping members unlock
+                      their creative potential, build confidence, and thrive in collaborative, real-world
+                      environments.
                     </p>
                   </div>
                 </div>
@@ -149,12 +154,10 @@ function AboutSection() {
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
                     <p className="text-white/90 text-xs sm:text-sm leading-tight mb-2">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      Over the past years, Skill&Tell has organized impactful workshops, engaging events, and creative projects that left a lasting impression.
                     </p>
                     <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                      Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
-                    </p>
+                      From student-led initiatives to collaborative partnerships, our milestones reflect our commitment to growth, innovation, and excellence in soft skill development.                    </p>
                   </div>
                 </div>
               </div>
@@ -178,13 +181,16 @@ function AboutSection() {
                 <div className="flex gap-2 sm:gap-3">
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
-                    <p className="text-white/90 text-sm leading-tight mb-2">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
-                    </p>
                     <p className="text-white/90 text-sm leading-tight">
-                      Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
+                      Skill&Tell is a dynamic scientific club at the National Higher School of
+                      Artificial Intelligence (ENSIA). Now in its fourth year, it fosters student
+                      growth by emphasizing soft skills including marketing, multimedia,
+                      and photography—empowering members to express themselves, collaborate effectively,
+                      and engage in creative, impactful initiatives.
                     </p>
+                    {/* <p className="text-white/90 text-sm leading-tight">
+                      Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -209,8 +215,9 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-sm leading-tight">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      We envision a community where creativity, communication, and collaboration thrive.
+                      Skill&Tell aims to inspire students to grow beyond academics, shaping future leaders
+                      equipped with essential soft skills for both personal and professional success.
                     </p>
                   </div>
                 </div>
@@ -224,7 +231,7 @@ function AboutSection() {
                 src={phone}
                 alt="Skill & Tell App Mockup"
                 className={`object-contain translate-y-0 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[240px] xl:max-w-[260px] h-auto ${phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                  }`}
+                  } absolute bottom-[-40px] `}
               />
             </div>
 
@@ -244,8 +251,10 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-sm leading-tight">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      At Skill&Tell, we specialize in nurturing essential soft skills through hands-on experience.
+                      From marketing strategies to multimedia production, our focus is on helping members unlock
+                      their creative potential, build confidence, and thrive in collaborative, real-world
+                      environments.
                     </p>
                   </div>
                 </div>
@@ -270,12 +279,10 @@ function AboutSection() {
                   <div className="w-0.5 bg-white/50 flex-shrink-0" />
                   <div>
                     <p className="text-white/90 text-sm leading-tight mb-2">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      Over the past years, Skill&Tell has organized impactful workshops, engaging events, and creative projects that left a lasting impression.
                     </p>
                     <p className="text-white/90 text-sm leading-tight">
-                      Cum enim quis pellentesque vestibulum elementum nulla. Bibendum netus id feugiat purus fringilla.
-                    </p>
+                      From student-led initiatives to collaborative partnerships, our milestones reflect our commitment to growth, innovation, and excellence in soft skill development.                    </p>
                   </div>
                 </div>
               </div>

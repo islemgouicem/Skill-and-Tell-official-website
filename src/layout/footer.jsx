@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer id="contacts" className="bg-footer-background text-footer-text pt-12 md:pt-16 relative overflow-hidden">
       <div className="container max-w-[1600px] mx-auto px-8 md:px-14 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-        
+
         {/* Logo and Description */}
         <div className="space-y-4">
           <a href="#hero" className="flex items-center gap-2" aria-label="logo">
@@ -68,33 +68,39 @@ export default function Footer() {
         {/* Social/Contact Buttons */}
         <div className="lg:col-span-1 space-y-4">
           <a
-            href="#"
+            href="https://www.instagram.com/skillntell.club?igsh=MTFzZ3dpMTY2cGV5bg=="
             className="socialm"
+            target="_blank"
+            rel="noopener noreferrer"
           // Instagram color
           >
-            <img src="/icons/Instagram.svg" className="h-5 w-5" alt="instagram"/>
+            <img src="/icons/Instagram.svg" className="h-5 w-5" alt="instagram" />
             <span className="font-medium text-neutral-300">Follow us for updates!</span>
           </a>
 
           <a
             href="#"
             className="socialm"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <img src="/icons/Discord.svg" className="h-5 w-5" alt="discord"/>
+            <img src="/icons/Discord.svg" className="h-5 w-5" alt="discord" />
             <span className="font-medium text-neutral-300">Join our community</span>
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/skill-tell-club/"
             className="socialm"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img src="/icons/Linkedin.svg" className="h-5 w-5" alt="linkedin" />
             <span className="font-medium text-neutral-300" >Let's connect and collaborate</span>
           </a>
           <a
-            href="#"
+            href="mailto:skill.and.tell@ensia.edu.dz"
             className="socialm"
           >
-            <img src="/icons/Gmail.svg" className="h-5 w-5" alt="Gmail"/>
+            <img src="/icons/Gmail.svg" className="h-5 w-5" alt="Gmail" />
             <span className="font-medium text-neutral-300">Reach out for collaborations!</span>
           </a>
         </div>

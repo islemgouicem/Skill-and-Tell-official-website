@@ -1,5 +1,5 @@
 {
-  "name": "snt",
+  "name": "skillntell",
   "homepage": "https://islemgouicem.github.io/snt_website/",
   "private": true,
   "version": "0.0.0",
@@ -16,7 +16,6 @@
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.14",
-    "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
