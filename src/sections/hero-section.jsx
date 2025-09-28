@@ -28,7 +28,7 @@ export default function HeroSection({ onRegisterClick }) {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
-      <HeroSpline />
+      {/* <HeroSpline /> */}
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1

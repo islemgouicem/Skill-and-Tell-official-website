@@ -166,7 +166,6 @@ function TeamSection() {
                       src={member.image || "/images/pfp.png"}
                       width={120}
                       height={120}
-                      loading="lazy"
                       alt={member.name}
                       className="w-[120px] h-[120px] rounded-full object-cover mb-5 border-4 border-space-accent shadow-md"
                     />
