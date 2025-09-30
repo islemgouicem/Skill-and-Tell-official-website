@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
 import { useNavigate } from "react-router-dom";
 import wilayas from "../data/wilayas.json"
-import { supabase } from "../lib/supabaseClient";
+// import { supabase } from "../lib/supabaseClient";
 
 import {
     X,
