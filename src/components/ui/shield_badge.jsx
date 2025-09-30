@@ -1,5 +1,4 @@
 import { Avatar, AvatarImage, AvatarFallback } from "./avatar.jsx"
-import indabax from "../../assets/images/indabax.webp"
 
 const Shield = (props) => {
     // We define the SVG path data once to avoid repeating it.
@@ -55,15 +54,15 @@ const Shield = (props) => {
                 {/* Content is now guaranteed to be inside the clipped, stacked container */}
                 <div className="flex -space-x-3 overflow-hidden mb-2">
                     <Avatar className="w-8 h-8 lg:w-10 lg:h-10 border-2 border-white">
-                        <AvatarImage src={indabax} alt="Member 1" />
+                        <AvatarImage src="/images/indabax.jpg" alt="Member 1" />
                         <AvatarFallback>M1</AvatarFallback>
                     </Avatar>
                     <Avatar className="w-10 h-10 lg:w-12 lg:h-12 border-2 border-white z-10">
-                        <AvatarImage src={indabax} alt="Member 2" />
+                        <AvatarImage src="/images/agri.jpg" alt="Member 2" />
                         <AvatarFallback>M2</AvatarFallback>
                     </Avatar>
                     <Avatar className="w-8 h-8 lg:w-10 lg:h-10 border-2 border-white">
-                        <AvatarImage src={indabax} alt="Member 3" />
+                        <AvatarImage src="/images/Arcade.jpg" alt="Member 3" />
                         <AvatarFallback>M3</AvatarFallback>
                     </Avatar>
                 </div>

@@ -1,10 +1,11 @@
 "use client"
 import React, { useState, useRef } from "react"
-import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
-import SuccessfulReg from "./succesful_reg.jsx"
+import { useNavigate } from "react-router-dom";
 import wilayas from "../data/wilayas.json"
+import { supabase } from "../lib/supabaseClient";
+
 import {
     X,
     ArrowLeft,
@@ -18,17 +19,13 @@ function Star() {
     return <span className="text-error-200">*</span>;
 }
 
+
 function RegistrationPage() {
-    const navigate = useNavigate();
-
-    const onBack = () => {
-        navigate("/"); // Navigate back to the main site
-    };
-
     const [currentStep, setCurrentStep] = useState(1)
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [isSubmitted, setIsSubmitted] = useState(false)
     const fileInputRef = useRef(null)
+    const navigate = useNavigate();
+
 
     const [formData, setFormData] = useState({
         // Personal Information
@@ -117,14 +114,38 @@ function RegistrationPage() {
 
     const [errors, setErrors] = useState({});
 
-    const validateStep = () => { // more validation logic to be added 
+    const validateStep = async () => { // more validation logic to be added 
         let stepErrors = {};
 
         if (currentStep === 1) {
             if (!formData.fullname.trim()) stepErrors.fullname = "Please enter your Full name";
-            if (!formData.phone.trim()) stepErrors.phone = "Please enter your Phone number";
-            if (!formData.email.trim()) stepErrors.email = "Please enter a valid Email address";
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(formData.phone)) {
+                stepErrors.phone = "Please respect the given format (no spaces)";
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                stepErrors.email = "Please enter a valid Email address";
+            }
             if (!formData.discordID.trim()) stepErrors.discordID = "Please enter your Discord ID";
+            // if (Object.keys(stepErrors).length === 0) {
+            //     const { data, error } = await supabase
+            //         .from("registration")
+            //         .select("id")
+            //         .eq("email", formData.email)
+            //         .single();
+
+            //     if (data) {
+            //         localStorage.setItem("alreadyRegistered", "true");
+            //         navigate("/registered", {
+            //             state: {
+            //                 title: "You're already registered",
+            //                 message: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
+            //             },
+            //         });
+            //         return false;
+            //     }
+            // }
         }
 
         if (currentStep === 2) {
@@ -139,25 +160,45 @@ function RegistrationPage() {
             if (!formData.dep2) stepErrors.dep2 = "Second choice is required";
             if (!formData.dep3) stepErrors.dep3 = "Third choice is required";
             if (formData.dep1 == formData.dep2 || formData.dep1 == formData.dep3 || formData.dep2 == formData.dep3) {
-                stepErrors.similar = "Nice try didi :); options should be different";
+                stepErrors.similar = "Department choices must be different";
             }
         }
 
         if (currentStep === 4) {
-            if (!formData.dep1_motiv.trim()) stepErrors.dep1_motiv = "Motivation for first choice is required";
-            if (!formData.dep2_3_motiv.trim()) stepErrors.dep2_3_motiv = "Write about your second/third choices";
-            if (!formData.goals.trim()) stepErrors.goals = "Your goals are required";
+            if (!formData.dep1_motiv.trim() || formData.dep1_motiv.trim().length < 30) {
+                stepErrors.dep1_motiv = "Write at least 30 characters about your first choice";
+            }
+
+            if (!formData.dep2_3_motiv.trim() || formData.dep2_3_motiv.trim().length < 30) {
+                stepErrors.dep2_3_motiv = "Write at least 30 characters about your second/third choices";
+            }
+
+            if (!formData.goals.trim() || formData.goals.trim().length < 30) {
+                stepErrors.goals = "Write at least 30 characters about your goals";
+            }
+
+            if (formData.dep1_motiv.trim().length > 1000) {
+                stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+            }
+            if (formData.dep2_3_motiv.trim().length > 1000) {
+                stepErrors.dep2_3_motiv = "Keep it less than 1000 chcharacters";
+            }
+            if (formData.goals.trim().length > 1000) {
+                stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+            }
         }
-        if (currentStep === 5) {
-            if (!formData.image) stepErrors.dep1_motiv = "Please upload your profile photo";
-        }
+
+        // if (currentStep === 5) {
+        //     if (!formData.image) stepErrors.dep1_motiv = "Please upload your profile photo";
+        // }
 
         setErrors(stepErrors);
         return Object.keys(stepErrors).length === 0;
     };
 
-    const nextStep = () => {
-        if (validateStep()) { /*uncomment*/
+    const nextStep = async () => {
+        const isValid = await validateStep();
+        if (isValid) { /*uncomment*/
             setCurrentStep((prev) => prev + 1);
         }
     };
@@ -179,8 +220,29 @@ function RegistrationPage() {
             }
             delete submissionData.profilePhotoPreview
             // <<<<<<<<<<<<<<<<<<<<<<<<< database logic goes here >>>>>>>>>>>>>>>>
+            const { error } = await supabase.from("registration").insert([
+                {
+                    fullname: submissionData.fullname,
+                    email: submissionData.email,
+                    phone: submissionData.phone,
+                    discord_id: submissionData.discordID,
+                    university: submissionData.university,
+                    university_location: submissionData.university_location,
+                    field: submissionData.field,
+                    year_of_study: submissionData.yearOfStudy,
+                    dep1: submissionData.dep1,
+                    dep2: submissionData.dep2,
+                    dep3: submissionData.dep3,
+                    dep1_motiv: submissionData.dep1_motiv,
+                    dep2_3_motiv: submissionData.dep2_3_motiv,
+                    goals: submissionData.goals,
+                },
+            ]);
 
-            setIsSubmitted(true)
+            if (error) throw error;
+            localStorage.setItem("alreadyRegistered", "true");
+
+            navigate("/registered");
         } catch (error) {
             console.error("Error submitting form:", error)
             alert("There was an error submitting your registration. Please try again.")
@@ -189,9 +251,7 @@ function RegistrationPage() {
         }
     }
 
-    if (isSubmitted) {
-        return <SuccessfulReg onBack={onBack} />
-    }
+
 
     return (
         <div
@@ -252,7 +312,7 @@ function RegistrationPage() {
                                         value={formData.phone}
                                         onChange={(e) => handleInputChange("phone", e.target.value)}
                                         className="input-style"
-                                        placeholder="+213 XXX XX XX XX"
+                                        placeholder="Eg: 0712435687"
                                         required
                                     />
                                     {errors.phone && <p className="text-error-200 text-sm my-1">* {errors.phone}</p>}
@@ -565,7 +625,7 @@ function RegistrationPage() {
                         Back to Home
                     </Button> */}
                         <Button
-                            onClick={currentStep === 1 ? onBack : prevStep}
+                            onClick={currentStep === 1 ? () => navigate("/") : prevStep}
                             variant="ghost"
                             className="text-white/80 border border-Main-500 rounded-sm hover:bg-space-light disabled:opacity-50"
                         >

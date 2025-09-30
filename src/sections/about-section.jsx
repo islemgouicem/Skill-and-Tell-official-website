@@ -230,8 +230,8 @@ function AboutSection() {
                 ref={phoneRef}
                 src={phone}
                 alt="Skill & Tell App Mockup"
-                className={`object-contain translate-y-0 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[240px] xl:max-w-[260px] h-auto ${phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                  } absolute bottom-[-40px] `}
+                className={`object-contain translate-y-0 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[190px] lg:max-w-[250px] xl:max-w-[270px] h-auto ${phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  } absolute bottom-[-60px] `}
               />
             </div>
 

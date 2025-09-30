@@ -1,14 +1,32 @@
 "use client"
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
-import NotOpen from "../components/ui/reg_not_open.jsx"
+import PopUp from "../components/ui/popup.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
+import { useNavigate } from "react-router-dom";
 import HeroSpline from "../components/ui/spline_3d.jsx";
 import { useState } from "react"
 
 
-export default function HeroSection({ onRegisterClick }) {
+export default function HeroSection() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const navigate = useNavigate();
+
+
+  const handleRegisterClick = () => {
+    const registeredEmail = localStorage.getItem("alreadyRegistered");
+    // if (registeredEmail) {
+    //   navigate("/registered", {
+    //     state: {
+    //       title: "You're already registered",
+    //       msg: "Thank you for registering. Please wait for our response, we'll getback to you soon."
+    //     }
+    //   });
+    // } else {
+    navigate("/registeration");
+    // }
+  };
+
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -28,7 +46,13 @@ export default function HeroSection({ onRegisterClick }) {
         backgroundRepeat: "no-repeat", // avoids tiling
       }}
     >
-      {/* <HeroSpline /> */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full z-10 pointer-events-none">
+        <img
+          src="/purpleplanet.png" // replace with your image path
+          alt="Hero"
+          className="w-full h-auto max-h-[90vh] md:max-h-[60vh] lg:max-h-[30vh] object-contain"
+        />
+      </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1
@@ -70,10 +94,11 @@ export default function HeroSection({ onRegisterClick }) {
 
 
       </div>
-      <NotOpen isOpen={isPopupOpen}
+      <PopUp isOpen={isPopupOpen}
         onClose={handleClosePopup} />
-      {/* Floating  Badges */}
 
+
+      {/* Floating  Badges */}
       {/* Members */}
       <div
         className="badges absolute top-[15%] left-3 

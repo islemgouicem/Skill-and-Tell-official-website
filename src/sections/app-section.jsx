@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import PopUp from "../components/ui/popup.jsx"
 
 
 //images
@@ -17,6 +18,15 @@ export default function AppSection() {
   const sectionRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   useEffect(() => {
     setWindowWidth(window.innerWidth)
@@ -289,12 +299,12 @@ export default function AppSection() {
         <p
           className="leading-7 text-center max-w-xl mx-auto text-neutral-400 mb-6 text-sm"
         >
-          Skill&Tell App lets you stay connected. Explore all events, discover opportunities, 
-          and interact with members and leaders. Built to keep you updated, involved, and inspired. 
+          Skill&Tell App lets you stay connected. Explore all events, discover opportunities,
+          and interact with members and leaders. Built to keep you updated, involved, and inspired.
           Join us, grow with us.
         </p>
 
-        <button type="button" className="botao pointer bg-accent-400 rounded-4xl">
+        <button type="button" onClick={handleOpenPopup} className="botao pointer bg-accent-400 rounded-4xl">
           <svg
             width="24px"
             height="24px"
@@ -318,9 +328,15 @@ export default function AppSection() {
             <span className="mr-2">Download</span> <img src="/icons/download.svg" className="mr-2" alt="" aria-hidden="true" />
           </span>
         </button>
+
       </div>
 
-
+      <PopUp isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        title={"The App"}
+        subtitle={"Launching Soon. Stay Ready."}
+        msg={"Something big is on the way. Get ready for a whole new experience!"}
+      />
 
 
     </section>

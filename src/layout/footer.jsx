@@ -12,7 +12,8 @@ export default function Footer() {
             <img src="/images/logo_dark.png?height=60&width=60" width={150} height={150} alt="Skill & Tell Logo" />
           </a>
           <p className="text-sm text-footer-text/80 max-w-xs">
-            Lorem ipsum dolor sit amet consectetur. Magnis fermentum tempus
+            A community of learners and innovators.
+            Together we share skills, ideas, and growth.
           </p>
         </div>
 

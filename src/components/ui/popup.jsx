@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { X, AlertCircle } from "lucide-react"
 
-const BouncingPopup = ({ isOpen, onClose }) => {
+const BouncingPopup = ({ isOpen, onClose,
+    title = "Registration",
+    subtitle= "Comming soon",
+    msg = "Registration isn't open just yet, Stay tuned for an amazing experience!" }) => {
     const [isVisible, setIsVisible] = useState(false)
     const [isAnimatingOut, setIsAnimatingOut] = useState(false)
 
@@ -64,7 +67,7 @@ const BouncingPopup = ({ isOpen, onClose }) => {
 
                 {/* Main content */}
                 <div
-                className="bg-Main-700"
+                    className="bg-Main-700"
                     style={{
                         position: "relative",
                         borderRadius: "1rem",
@@ -142,23 +145,22 @@ const BouncingPopup = ({ isOpen, onClose }) => {
                             marginBottom: "1rem"
                         }}
                     >
-                        Registration
+                        {title}
                         <span className="block text-accent-400">
-                            Coming Soon!
+                            {subtitle}
                         </span>
                     </h2>
 
                     {/* Message */}
                     <p
-                    className="text-white"
+                        className="text-white"
                         style={{
                             fontSize: "1rem",
                             lineHeight: 1.5,
                             marginBottom: "1.5rem"
                         }}
                     >
-                        Registration isn't open just yet, Stay
-                        tuned for an amazing experience!
+                        {msg}
                     </p>
 
                     {/* Decorative dots */}

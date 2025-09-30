@@ -1,24 +1,19 @@
-import { useState, lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
-const Navbar = lazy(() => import("./layout/navbar.jsx"));
+import { Suspense } from "react";
+import Navbar from "./layout/navbar.jsx";
 // import LoadingScreen from "./layout/Loading.jsx";
-const HeroSection = lazy(() => import("./sections/hero-section.jsx"));
-const MouseSparkles = lazy(() => import("./components/effects/mouse-sparkles.jsx"));
-const Footer = lazy(() => import("./layout/footer.jsx"));
-const AboutSection = lazy(() => import("./sections/about-section.jsx"));
-const TeamSection = lazy(() => import("./sections/team-section.jsx"));
-const StatisticsSection = lazy(() => import("./sections/statistics-section.jsx"));
-const EventsSection = lazy(() => import("./sections/events-section.jsx"));
-const AppSection = lazy(() => import("./sections/app-section.jsx"));
-const FQ = lazy(() => import("./sections/FQ-section.jsx"));
+import HeroSection from "./sections/hero-section.jsx";
+import MouseSparkles from "./components/effects/mouse-sparkles.jsx";
+import Footer from "./layout/footer.jsx";
+import AboutSection from "./sections/about-section.jsx";
+import TeamSection from "./sections/team-section.jsx";
+import StatisticsSection from "./sections/statistics-section.jsx";
+import EventsSection from "./sections/events-section.jsx";
+import AppSection from "./sections/app-section.jsx";
+import FQ from "./sections/FQ-section.jsx";
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
-  const handleRegisterClick = () => {
-    navigate("/register");
-  };
 
   // const handleLoadingComplete = () => {
   //   setIsLoading(false);
@@ -33,7 +28,7 @@ function App() {
       <MouseSparkles />
       <Navbar />
       <main className="flex-1">
-        <HeroSection onRegisterClick={handleRegisterClick} />
+        <HeroSection />
         <Suspense>
           <AboutSection />
           <TeamSection />

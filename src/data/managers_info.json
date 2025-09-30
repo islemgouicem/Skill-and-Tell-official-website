@@ -1,12 +1,22 @@
 [
   {
+    "id": 24,
+    "email": "tarek.iouanoughene@ensia.edu.dz",
+    "name": "Tarek Iouanoughene",
+    "image": "/images/managers/tarek.webp",
+    "role": "Media Manger",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "Tarek is the Media Manager at Skill&Tell, bringing creativity, dedication, and a passion for empowering others."
+  },
+  {
     "id": 1,
     "email": "akrambenrabah7@gmail.com",
     "name": "Benrabah akram taher",
     "image": "/images/managers/BenrabahAkram.jpg",
     "role": "Production Co-manager",
     "instagram": "https://www.instagram.com/_.akram._gavix_?igsh=MXZ1d25uejdnaWNvMA==",
-    "linkedin": "",
+    "linkedin": "javascript:void(0)",
     "description": "Benrabah akram is a dedicated and passionate member of Skill&Tell, currently serving as the Production Co-manager. He works with creativity commitment, and a drive to empower others."
   },
   {
@@ -43,7 +53,7 @@
     "id": 5,
     "email": "hala.boutaya@ensia.edu.dz",
     "name": "Hala BOUTAYA",
-    "role": "Events Department Leader",
+    "role": "Events Lead",
     "image": "/images/managers/boutaya_hala.jpg",
     "instagram": "https://www.instagram.com/halla.btv?igsh=bWloa2l0bzJyNmZn",
     "linkedin": "https://www.linkedin.com/in/halla-boutaya-92991a2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -63,7 +73,7 @@
     "id": 7,
     "email": "nour.tliba@ensia.edu.dz",
     "name": "Nour TLIBA",
-    "image": "/images/managers/nourT.webp",
+    "image": "/images/managers/nourT.jpg",
     "role": "Relex Lead",
     "instagram": "https://www.instagram.com/nourtliba?igsh=MXN4bXduNTQ0bW83bw%3D%3D&utm_source=qr",
     "linkedin": "",
@@ -87,7 +97,7 @@
     "image": "/images/managers/Jass.webp",
     "instagram": "https://www.instagram.com/jasmine_khll?igsh=MWd3M3p1dzIzY2d1aQ==",
     "linkedin": "https://www.linkedin.com/in/yasmine-kihal-4105b0301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "description": "An individual who's trying to learn, evolve and make a difference in this academic community."
+    "description": "This is Jass! A lifelong learner and AI fan, part of the SkillnTell fam since day one. I love reading (and occasionally writing) and aim to inspire young people in academia while making a small difference wherever I go. Fun fact: I sometimes forget my real name's Yasmine because everyone calls me Jass."
   },
   {
     "id": 10,
@@ -95,7 +105,7 @@
     "name": "Badri Amouri",
     "image": "/images/managers/badri.jpg",
     "role": "HR Lead",
-    "instagram": "/",
+    "instagram": "javascript:void(0)",
     "linkedin": "https://www.linkedin.com/in/badri-amouri-6b307a304?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     "description": "I am Badri, HR lead of Skill&Tell. I am a motivated and curious person with strong communication and teamwork skills. I’m passionate about technology, startups, and community work, and I enjoy learning new things while contributing to meaningful projects"
   },
@@ -115,7 +125,7 @@
     "name": "Moussa Boussekine",
     "image": "/images/managers/moussa.PNG",
     "role": "President",
-    "instagram": "moussanotfound",
+    "instagram": "javascript:void(0)",
     "linkedin": "www.linkedin.com/in/moussa-boussekine",
     "description": "I love exploring new ideas, working on startup projects, and bringing people together to learn, grow, and enjoy the journey as a community"
   },
@@ -145,7 +155,7 @@
     "name": "Rahmani Houda",
     "image": "",
     "role": "AI manager",
-    "instagram": "#",
+    "instagram": "javascript:void(0)",
     "linkedin": "https://www.linkedin.com/in/houda-rahmani-258114298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "description": "Rahmani Houda is a dedicated and passionate member of Skill&Tell, currently serving as the head of Artificial Intelligence. With a strong background in AI, she leads with creativity commitment, and a drive to empower others."
   },
@@ -173,6 +183,7 @@
     "id": 18,
     "email": "malekkdjr@gmail.com",
     "name": "DJAARAOUI ABDELMALEK",
+    "image":"/images/managers/Malek.jpg",
     "role": "Design lead",
     "instagram": "https://www.instagram.com/malekkdjr?igsh=MTQzMW80a3owbXRxcA==",
     "linkedin": "https://www.linkedin.com/in/abdelmalek-djaaraoui-69805728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -185,7 +196,7 @@
     "image": "",
     "role": "Graphic Design Manager",
     "instagram": "https://www.instagram.com/_.lyschxia._?igsh=cGZzc3NsMnRhcHI=",
-    "linkedin": "#",
+    "linkedin": "javascript:void(0)",
     "description": "An enthusiastic girl with multiple abilities and a lot of passion"
   },
   {
@@ -194,7 +205,7 @@
     "name": "Ahlem Toubrinet",
     "image": "/images/managers/Ahlem_Toubrinet.jpg",
     "role": "UI/UX manager",
-    "instagram": "#",
+    "instagram": "javascript:void(0)",
     "linkedin": "https://www.linkedin.com/in/ahlem-toubrinet/",
     "description": "Passionate about design and proud to shape user experiences as UI/UX Manager at Skill&Tell."
   },
@@ -217,5 +228,25 @@
     "instagram": "https://www.instagram.com/maneeeeeeeelou?igsh=YWtucXI1ZjRyMmNq&utm_source=qr",
     "linkedin": "https://www.linkedin.com/in/manel-bouchra-debab-54a3a6387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     "description": "Manel known as El Wahraniya, is a dedicated and passionate member of Skill&Tell, currently serving as the head of the communication lead. Occupying this post due to her skills when it comes to dealing with people from different backgrounds. You can reach out to her if you have any question."
+  },
+  {
+    "id": 23,
+    "email": "aris.kouache@ensia.edu.dz",
+    "name": "Kouache aris",
+    "image": "/images/managers/aris.jpg",
+    "role": "Sponsor Manger",
+    "instagram": "",
+    "linkedin": "https://www.linkedin.com/in/manel-bouchra-debab-54a3a6387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "description": "Aris is the Sponsor Manager at Skill&Tell, driving partnerships and support with dedication and strategic vision."
+  },
+  {
+    "id": 25,
+    "email": "javascript:void(0)",
+    "name": "Sami Kadi",
+    "image": "/images/managers/sami_kadi.jpg",
+    "role": "Communication Co-manger",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "Sami is the Communication Co-Manager at Skill&Tell, connecting teams and audiences with clarity and creativity."
   }
 ]

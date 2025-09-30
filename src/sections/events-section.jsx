@@ -169,7 +169,7 @@ function EventsSection() {
                       className={`absolute inset-0 p-6 flex flex-col justify-between transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"
                         }`}
                     >
-                      <div className="relative w-full h-[40%] rounded-lg overflow-hidden">
+                      <div className="relative w-full h-[45%] rounded-lg overflow-hidden">
                         <img
                           src={`${event.image}` || "/images/placeholder.webp"}
                           alt={event.title}

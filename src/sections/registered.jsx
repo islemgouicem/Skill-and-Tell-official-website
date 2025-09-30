@@ -1,13 +1,17 @@
 "use client"
 import React from "react"
 import Footer from "../layout/footer.jsx"
-
-import { Button } from "../components/ui/button"
-
+import { Button } from "../components/ui/button.jsx"
+import { useLocation, useNavigate } from "react-router-dom";
 import { CheckCircle, ArrowLeft } from "lucide-react"
 
 
-function SuccessfulReg({ onBack }) {
+function Registered() {
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const title = state?.title || "Registration Complete!";
+    const msg = state?.msg || "Thanks for registering to be part of Skill & Tell. We're excited to review your application and welcome you to our creative community!";
+
     return (
         <>
             <div
@@ -47,14 +51,13 @@ function SuccessfulReg({ onBack }) {
                             <h1
                                 className="inline-block text-5xl md:text-14xl p-2 gradient-text text-center font-bold"
                             >
-                                Registration Complete!
+                                {title}
                             </h1>
 
 
-                            <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto text-center my-10">Thanks for registering to be part of Skill & Tell. We're excited to review your
-                                application and welcome you to our creative community!</p>
+                            <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto text-center my-10">{msg}</p>
                             <Button
-                                onClick={onBack}
+                                onClick={() => navigate("/")}
                                 className="text-white rounded-md mt-4 px-8 py-3 bg-gradient-to-r from-[#8A38F5]/0 to-[#FF6D00] hover:from-space-orange-light hover:to-space-purple"
                             >
                                 <ArrowLeft className="w-5 h-5 mr-2" />
@@ -72,5 +75,5 @@ function SuccessfulReg({ onBack }) {
 
     )
 }
-export default React.memo(SuccessfulReg)
+export default React.memo(Registered)
 
