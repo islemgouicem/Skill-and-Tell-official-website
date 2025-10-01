@@ -101,8 +101,8 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                      Lorem ipsum dolor sit amet consectetur. Dolor enim facilisis maecenas interdum amet. Vitae viverra
-                      risus mi cursus eu pharetra.
+                      We envision a community where creativity, communication, and collaboration thrive. 
+                      Skill&Tell aims to inspire students to grow beyond academics, shaping future leaders equipped with essential soft skills for both personal and professional success.
                     </p>
                   </div>
                 </div>
