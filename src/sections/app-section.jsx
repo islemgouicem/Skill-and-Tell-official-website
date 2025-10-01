@@ -288,7 +288,7 @@ export default function AppSection() {
 
       {/* Centered Download App Button */}
       <div
-        className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center h-full"
+        className="flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center h-full w-full"
       >
         <h2
           className="titles mb-6 text-neutral-600 font-extrabold"
@@ -297,7 +297,7 @@ export default function AppSection() {
         </h2>
 
         <p
-          className="leading-7 text-center max-w-xl mx-auto text-neutral-400 mb-6 text-sm"
+          className="leading-7 text-center max-w-sm md:max-w-xl mx-auto text-neutral-400 mb-6 text-sm"
         >
           Skill&Tell App lets you stay connected. Explore all events, discover opportunities,
           and interact with members and leaders. Built to keep you updated, involved, and inspired.

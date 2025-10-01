@@ -96,7 +96,6 @@ function EventsSection() {
         background: "url('images/Events_Section.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
         backgroundPosition: "center", // keeps it centered
-        backgroundRepeat: "no-repeat", // avoids tiling
       }} // Original background image path
     >
 
@@ -105,7 +104,7 @@ function EventsSection() {
           Our Events
         </h2>
 
-        <div className="relative flex items-center justify-center h-[450px] md:h-[500px] lg:h-[550px]">
+        <div className="relative flex items-center justify-center h-[600px] md:h-[500px] lg:h-[550px]">
           {/* Navigation Arrows */}
           <button
             onClick={prevEvent}
@@ -145,7 +144,7 @@ function EventsSection() {
                     key={event.id}
                     onClick={() => handleCardClick(index)}
                     className={`pointer relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
-                      transition-all duration-500 ease-in-out flex-shrink-0 h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden
+                      transition-all duration-500 ease-in-out flex-shrink-0 h-full overflow-hidden
                       ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                     style={{
                       width: `${cardWidth}px`,
