@@ -19,7 +19,7 @@ function AboutSection() {
   const [card4Ref, card4InView] = useInView({ threshold: 0.3 })
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden lg:min-h-screen pb-4">
+    <section id="about" ref={sectionRef} className="relative bg-Main-100 text-space-text overflow-hidden  pb-4">
       <img
         src={whitebg}
         alt=""
@@ -37,7 +37,7 @@ function AboutSection() {
         }}
       />
 
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col pt-4 sm:pt-6 md:pt-8">
+      <div className="container mx-auto px-2 md:px-6 lg:px-4 relative z-10 h-full flex flex-col pt-4 sm:pt-6 md:pt-8">
         <h2
           className={`titles text-neutral-600 transition-all duration-1000 mt-4
             ${sectionInView ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-10"}
@@ -231,7 +231,7 @@ function AboutSection() {
                 src={phone}
                 alt="Skill & Tell App Mockup"
                 className={`object-contain translate-y-0 transition-all duration-1000 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[190px] lg:max-w-[250px] xl:max-w-[270px] h-auto ${phoneInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                  } absolute bottom-[-60px] `}
+                  } absolute bottom-[-60px] xl:bottom-[-100px] 2xl:bottom-[-150px] `}
               />
             </div>
 
