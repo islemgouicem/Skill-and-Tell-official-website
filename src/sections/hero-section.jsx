@@ -15,16 +15,16 @@ export default function HeroSection() {
 
   const handleRegisterClick = () => {
     const registeredEmail = localStorage.getItem("alreadyRegistered");
-    // if (registeredEmail) {
-    //   navigate("/registered", {
-    //     state: {
-    //       title: "You're already registered",
-    //       msg: "Thank you for registering. Please wait for our response, we'll getback to you soon."
-    //     }
-    //   });
-    // } else {
+    if (falregisteredEmailse) { //registeredEmail
+      navigate("/registered", {
+        state: {
+          title: "You're already registered",
+          msg: "Thank you for registering. Please wait for our response, we'll get back to you soon."
+        }
+      });
+    } else {
     navigate("/registeration");
-    // }
+    }
   };
 
 

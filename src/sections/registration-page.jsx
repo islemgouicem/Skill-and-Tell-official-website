@@ -4,13 +4,11 @@ import { Button } from "../components/ui/button"
 import CosmicSelect from "../components/ui/select"
 import { useNavigate } from "react-router-dom";
 import wilayas from "../data/wilayas.json"
-// import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../lib/supabaseClient";
 
 import {
-    X,
     ArrowLeft,
     ArrowRight,
-    Upload,
     CheckCircle,
     Loader2,
 } from "lucide-react"
@@ -23,9 +21,7 @@ function Star() {
 function RegistrationPage() {
     const [currentStep, setCurrentStep] = useState(1)
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const fileInputRef = useRef(null)
     const navigate = useNavigate();
-
 
     const [formData, setFormData] = useState({
         // Personal Information
@@ -40,33 +36,33 @@ function RegistrationPage() {
         field: "",
         yearOfStudy: "",
 
-        // department info:
-        dep1: "",
-        dep2: "",
-        dep3: "",
+        // // department info:
+        // dep1: "",
+        // dep2: "",
+        // dep3: "",
 
-        // Club-specific Information
-        dep1_motiv: "",
-        dep2_3_motiv: "",
-        goals: "",
+        // // Club-specific Information
+        // dep1_motiv: "",
+        // dep2_3_motiv: "",
+        // goals: "",
 
-        // Profile Photo
-        profilePhoto: null,
-        profilePhotoPreview: null,
+        // // Profile Photo
+        // profilePhoto: null,
+        // profilePhotoPreview: null,
     })
 
-    const totalSteps = 5
+    const totalSteps = 2
     const yearOptions = [
         "1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year", "Graduate"
     ];
-    const departments = [
-        "Design Department",
-        "IT Department",
-        "Marketing Department",
-        "Relex Department",
-        "Human Resources Department",
-        "Logistics Department",
-    ]
+    // const departments = [
+    //     "Design Department",
+    //     "IT Department",
+    //     "Marketing Department",
+    //     "Relex Department",
+    //     "Human Resources Department",
+    //     "Logistics Department",
+    // ]
 
 
     const handleInputChange = (field, value) => {
@@ -97,20 +93,20 @@ function RegistrationPage() {
         }
     }
 
-    const handlePhotoUpload = (event) => {
-        const file = event.target.files[0]
-        if (file) {
-            const reader = new FileReader()
-            reader.onload = (e) => {
-                setFormData((prev) => ({
-                    ...prev,
-                    profilePhoto: file,
-                    profilePhotoPreview: e.target.result,
-                }))
-            }
-            reader.readAsDataURL(file)
-        }
-    }
+    // const handlePhotoUpload = (event) => {
+    //     const file = event.target.files[0]
+    //     if (file) {
+    //         const reader = new FileReader()
+    //         reader.onload = (e) => {
+    //             setFormData((prev) => ({
+    //                 ...prev,
+    //                 profilePhoto: file,
+    //                 profilePhotoPreview: e.target.result,
+    //             }))
+    //         }
+    //         reader.readAsDataURL(file)
+    //     }
+    // }
 
     const [errors, setErrors] = useState({});
 
@@ -127,66 +123,67 @@ function RegistrationPage() {
             if (!emailRegex.test(formData.email)) {
                 stepErrors.email = "Please enter a valid Email address";
             }
-            if (!formData.discordID.trim()) stepErrors.discordID = "Please enter your Discord ID";
-            // if (Object.keys(stepErrors).length === 0) {
-            //     const { data, error } = await supabase
-            //         .from("registration")
-            //         .select("id")
-            //         .eq("email", formData.email)
-            //         .single();
+            if (Object.keys(stepErrors).length === 0) {
+                const { data, error } = await supabase
+                    .from("registration")
+                    .select("fullname")
+                    .eq("email", formData.email.trim());
 
-            //     if (data) {
-            //         localStorage.setItem("alreadyRegistered", "true");
-            //         navigate("/registered", {
-            //             state: {
-            //                 title: "You're already registered",
-            //                 message: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
-            //             },
-            //         });
-            //         return false;
-            //     }
-            // }
+                if (data.length > 0) {
+
+                    localStorage.setItem("alreadyRegistered", "true");
+                    navigate("/registered", {
+                        state: {
+                            title: "You're already registered",
+                            msg: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
+                        },
+                    });
+                    window.scrollTo(0, 0);
+
+                    return false;
+                }
+            }
         }
 
         if (currentStep === 2) {
             if (!formData.university.trim()) stepErrors.university = "Please enter the name of your University";
             if (!formData.yearOfStudy) stepErrors.yearOfStudy = "Please specify your current year of study";
             if (!formData.field.trim()) stepErrors.field = "Please enter your Field of study";
-            if (!formData.university_location) stepErrors.university_location = "Please select the city where your university is located";
+            // if (!formData.university_location) stepErrors.university_location = "Please select the city where your university is located";
         }
 
-        if (currentStep === 3) {
-            if (!formData.dep1) stepErrors.dep1 = "First choice is required";
-            if (!formData.dep2) stepErrors.dep2 = "Second choice is required";
-            if (!formData.dep3) stepErrors.dep3 = "Third choice is required";
-            if (formData.dep1 == formData.dep2 || formData.dep1 == formData.dep3 || formData.dep2 == formData.dep3) {
-                stepErrors.similar = "Department choices must be different";
-            }
-        }
+        // if (currentStep === 3) {
+        //     if (!formData.dep1) stepErrors.dep1 = "First choice is required";
+        //     if (!formData.dep2) stepErrors.dep2 = "Second choice is required";
+        //     if (!formData.dep3) stepErrors.dep3 = "Third choice is required";
+        //     if (formData.dep1 == formData.dep2 || formData.dep1 == formData.dep3 || formData.dep2 == formData.dep3) {
+        //         stepErrors.similar = "Department choices must be different";
+        //     }
+        // }
 
-        if (currentStep === 4) {
-            if (!formData.dep1_motiv.trim() || formData.dep1_motiv.trim().length < 30) {
-                stepErrors.dep1_motiv = "Write at least 30 characters about your first choice";
-            }
+        // if (currentStep === 4) {
+        //     if (!formData.dep1_motiv.trim() || formData.dep1_motiv.trim().length < 30) {
+        //         stepErrors.dep1_motiv = "Write at least 30 characters about your first choice";
+        //     }
 
-            if (!formData.dep2_3_motiv.trim() || formData.dep2_3_motiv.trim().length < 30) {
-                stepErrors.dep2_3_motiv = "Write at least 30 characters about your second/third choices";
-            }
+        //     if (!formData.dep2_3_motiv.trim() || formData.dep2_3_motiv.trim().length < 30) {
+        //         stepErrors.dep2_3_motiv = "Write at least 30 characters about your second/third choices";
+        //     }
 
-            if (!formData.goals.trim() || formData.goals.trim().length < 30) {
-                stepErrors.goals = "Write at least 30 characters about your goals";
-            }
+        //     if (!formData.goals.trim() || formData.goals.trim().length < 30) {
+        //         stepErrors.goals = "Write at least 30 characters about your goals";
+        //     }
 
-            if (formData.dep1_motiv.trim().length > 1000) {
-                stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
-            }
-            if (formData.dep2_3_motiv.trim().length > 1000) {
-                stepErrors.dep2_3_motiv = "Keep it less than 1000 chcharacters";
-            }
-            if (formData.goals.trim().length > 1000) {
-                stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
-            }
-        }
+        //     if (formData.dep1_motiv.trim().length > 1000) {
+        //         stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+        //     }
+        //     if (formData.dep2_3_motiv.trim().length > 1000) {
+        //         stepErrors.dep2_3_motiv = "Keep it less than 1000 chcharacters";
+        //     }
+        //     if (formData.goals.trim().length > 1000) {
+        //         stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+        //     }
+        // }
 
         // if (currentStep === 5) {
         //     if (!formData.image) stepErrors.dep1_motiv = "Please upload your profile photo";
@@ -211,44 +208,45 @@ function RegistrationPage() {
     }
 
     const submitForm = async () => {
-        setIsSubmitting(true)
+        const isValid = await validateStep();
+        if (isValid) {
+            setIsSubmitting(true)
 
-        try {
-            const submissionData = {
-                ...formData,
-                submissionDate: new Date().toISOString(),
+            try {
+                // <<<<<<<<<<<<<<<<<<<<<<<<< database logic goes here >>>>>>>>>>>>>>>>
+                const { error } = await supabase.from("registration").insert([
+                    {
+                        fullname: formData.fullname.trim(),
+                        email: formData.email.trim(),
+                        phone: formData.phone.trim(),
+                        discord_id: formData.discordID.trim() || null,
+                        university: formData.university.trim(),
+                        university_location: formData.university_location || null,
+                        field: formData.field.trim(),
+                        year_of_study: formData.yearOfStudy,
+                        // dep1: formData.dep1  || null,
+                        // dep2: formData.dep2,
+                        // dep3: formData.dep3,
+                        // dep1_motiv: formData.dep1_motiv,
+                        // dep2_3_motiv: formData.dep2_3_motiv,
+                        // goals: formData.goals,
+                    },
+                ]);
+
+                if (error) throw error;
+                localStorage.setItem("alreadyRegistered", "true");
+
+                navigate("/registered");
+                window.scrollTo(0, 0);
+            } catch (error) {
+                console.error("Error submitting form:", error)
+                alert("There was an error submitting your registration. Please try again.")
+            } finally {
+                setIsSubmitting(false)
             }
-            delete submissionData.profilePhotoPreview
-            // <<<<<<<<<<<<<<<<<<<<<<<<< database logic goes here >>>>>>>>>>>>>>>>
-            const { error } = await supabase.from("registration").insert([
-                {
-                    fullname: submissionData.fullname,
-                    email: submissionData.email,
-                    phone: submissionData.phone,
-                    discord_id: submissionData.discordID,
-                    university: submissionData.university,
-                    university_location: submissionData.university_location,
-                    field: submissionData.field,
-                    year_of_study: submissionData.yearOfStudy,
-                    dep1: submissionData.dep1,
-                    dep2: submissionData.dep2,
-                    dep3: submissionData.dep3,
-                    dep1_motiv: submissionData.dep1_motiv,
-                    dep2_3_motiv: submissionData.dep2_3_motiv,
-                    goals: submissionData.goals,
-                },
-            ]);
-
-            if (error) throw error;
-            localStorage.setItem("alreadyRegistered", "true");
-
-            navigate("/registered");
-        } catch (error) {
-            console.error("Error submitting form:", error)
-            alert("There was an error submitting your registration. Please try again.")
-        } finally {
-            setIsSubmitting(false)
         }
+
+
     }
 
 
@@ -331,7 +329,7 @@ function RegistrationPage() {
                                     {errors.email && <p className="text-error-200 text-sm my-1">* {errors.email}</p>}
                                 </div>
                                 <div>
-                                    <label className="input-label">Discord ID <Star /></label>
+                                    <label className="input-label">Discord ID</label>
                                     <input
                                         type="text"
                                         value={formData.discordID}
@@ -399,7 +397,7 @@ function RegistrationPage() {
 
                                 </div>
                                 <div>
-                                    <label className="input-label">University Location(City) <Star /></label>
+                                    <label className="input-label">University Location(City)</label>
                                     <CosmicSelect
                                         placeholder="Select the city of your university"
                                         options={wilayas}
@@ -415,7 +413,7 @@ function RegistrationPage() {
                     )}
 
                     {/* Step 3: Department Information */}
-                    {currentStep === 3 && (
+                    {/* {currentStep === 3 && (
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
@@ -478,10 +476,10 @@ function RegistrationPage() {
                                 </div>
                             </div>
                         </div>
-                    )}
+                    )} */}
 
                     {/* Step 4: motivation */}
-                    {currentStep === 4 && (
+                    {/* {currentStep === 4 && (
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
@@ -549,10 +547,10 @@ function RegistrationPage() {
                                 </div>
                             </div>
                         </div>
-                    )}
+                    )} */}
 
                     {/* Step 5: Profile Photo */}
-                    {currentStep === 5 && (
+                    {/* {currentStep === 5 && (
                         <div className="space-y-6 animate-fade-in-up">
                             <div className="text-center mb-8">
                                 <img
@@ -616,7 +614,7 @@ function RegistrationPage() {
                                 </div>
                             </div>
                         </div>
-                    )}
+                    )} */}
 
                     {/* Navigation Buttons */}
                     <div className="flex justify-between items-center mt-12 pt-8 border-t border-space-subtle">
@@ -625,7 +623,7 @@ function RegistrationPage() {
                         Back to Home
                     </Button> */}
                         <Button
-                            onClick={currentStep === 1 ? () => navigate("/") : prevStep}
+                            onClick={currentStep === 1 ? () => { navigate("/"); window.scrollTo(0, 0); } : prevStep}
                             variant="ghost"
                             className="text-white/80 border border-Main-500 rounded-sm hover:bg-space-light disabled:opacity-50"
                         >

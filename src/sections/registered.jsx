@@ -10,7 +10,7 @@ function Registered() {
     const navigate = useNavigate();
     const { state } = useLocation();
     const title = state?.title || "Registration Complete!";
-    const msg = state?.msg || "Thanks for registering to be part of Skill & Tell. We're excited to review your application and welcome you to our creative community!";
+    const msg = state?.msg || "Thanks for registering to be part of Skill & Tell. We're excited to have you on board, and welcome to our creative community!";
 
     return (
         <>
