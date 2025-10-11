@@ -123,26 +123,26 @@ function RegistrationPage() {
             if (!emailRegex.test(formData.email)) {
                 stepErrors.email = "Please enter a valid Email address";
             }
-            if (Object.keys(stepErrors).length === 0) {
-                const { data, error } = await supabase
-                    .from("registration")
-                    .select("fullname")
-                    .eq("email", formData.email.trim());
+            // if (Object.keys(stepErrors).length === 0) {
+            //     const { data, error } = await supabase
+            //         .from("registration")
+            //         .select("fullname")
+            //         .eq("email", formData.email.trim());
 
-                if (data.length > 0) {
+            //     if (data.length > 0) {
 
-                    localStorage.setItem("alreadyRegistered", "true");
-                    navigate("/registered", {
-                        state: {
-                            title: "You're already registered",
-                            msg: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
-                        },
-                    });
-                    window.scrollTo(0, 0);
+            //         localStorage.setItem("alreadyRegistered", "true");
+            //         navigate("/registered", {
+            //             state: {
+            //                 title: "You're already registered",
+            //                 msg: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
+            //             },
+            //         });
+            //         window.scrollTo(0, 0);
 
-                    return false;
-                }
-            }
+            //         return false;
+            //     }
+            // }
         }
 
         if (currentStep === 2) {
