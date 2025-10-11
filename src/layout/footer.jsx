@@ -62,6 +62,11 @@ export default function Footer() {
                   F&Q
                 </a>
               </li>
+              <li>
+                <a href="https://miniarcadepuzzle.netlify.app/" target="_blank" className="text-footer-text/80 hover:text-footer-link transition-colors">
+                  Riddle-1
+                </a>
+              </li>
             </ul>
           </div>
         </div>

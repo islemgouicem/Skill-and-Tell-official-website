@@ -97,7 +97,7 @@ function StatisticsSection() {
 
   const stats = [
     {
-      value: "4+",
+      value: "5+",
       label: "Annual Events",
       description:
         "We organize exciting events every year—from hands-on workshops to national competitions—bringing innovation and collaboration to life.",

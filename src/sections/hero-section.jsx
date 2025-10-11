@@ -14,23 +14,27 @@ export default function HeroSection() {
 
 
   const handleRegisterClick = () => {
-    const registeredEmail = localStorage.getItem("alreadyRegistered");
-    if (falregisteredEmailse) { //registeredEmail
-      navigate("/registered", {
-        state: {
-          title: "You're already registered",
-          msg: "Thank you for registering. Please wait for our response, we'll get back to you soon."
-        }
-      });
-    } else {
-    navigate("/registeration");
-    }
+    // const registeredEmail = localStorage.getItem("alreadyRegistered");
+    // if (registeredEmail) { //registeredEmail
+    //   navigate("/registered", {
+    //     state: {
+    //       title: "You're already registered",
+    //       msg: "Thank you for registering. Please wait for our response, we'll get back to you soon."
+    //     }
+    //   });
+    // } else {
+      navigate("/registeration");
+    // }
   };
 
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
   };
+  const openingDate = new Date('2025-10-11T15:00:00');
+  const now = new Date();
+
+  const isOpen = now >= openingDate;
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
@@ -78,8 +82,9 @@ export default function HeroSection() {
           Start your journey with our creative, inspiring and welcoming club, where skills are sharpened,
           ideas come to life, collaboration thrives, and passion, fun, and excitement pave the way for success!
         </p>
+
         <Button
-          onClick={handleOpenPopup}
+          onClick={isOpen ? handleRegisterClick : handleOpenPopup}
           /*handleOpenPopup */
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 

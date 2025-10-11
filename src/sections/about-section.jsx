@@ -50,7 +50,7 @@ function AboutSection() {
           {/* Mobile Layout (Phone on left, cards on right) */}
           <div className=" lg:hidden flex-1 flex flex-row items-stretch">
             {/* Phone container - positioned absolutely to crop half */}
-            <div className="relative w-[100px] sm:w-[120px] md:w-[140px] flex-shrink-0">
+            <div className="relative w-[130px] sm:w-[120px] md:w-[140px] flex-shrink-0">
               <img
                 ref={phoneRef}
                 src={phone}
@@ -92,7 +92,7 @@ function AboutSection() {
               <div className="flex items-stretch gap-2 sm:gap-3">
                 <div
                   ref={card2Ref}
-                  className={`bg-Main-600 abouty flex-1`}
+                  className="bg-Main-600 abouty w-1/2 sm:w-1/2 md:w-1/2 h-auto"
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Rocket className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -101,8 +101,7 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                      We envision a community where creativity, communication, and collaboration thrive. 
-                      Skill&Tell aims to inspire students to grow beyond academics, shaping future leaders equipped with essential soft skills for both personal and professional success.
+                      We envision a community where creativity, communication, and collaboration thrive, inspiring students to grow beyond academics and become future leaders with strong soft skills.
                     </p>
                   </div>
                 </div>
@@ -110,7 +109,7 @@ function AboutSection() {
                   src={aboutus1}
 
                   alt="Group photo 1"
-                  className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
+                  className="rounded-md object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
                 />
               </div>
 
@@ -119,11 +118,11 @@ function AboutSection() {
                 <img
                   src={aboutus2}
                   alt="Group photo 2"
-                  className="rounded-md object-cover w-16 sm:w-20 md:w-24 h-full flex-shrink-0"
+                  className="rounded-md object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
                 />
                 <div
                   ref={card3Ref}
-                  className={`bg-Main-600 abouty flex-1`}
+                  className={`bg-Main-600 abouty w-1/2 sm:w-1/2 md:w-1/2`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white flex-shrink-0" />
@@ -132,10 +131,7 @@ function AboutSection() {
                   <div className="flex gap-2 sm:gap-3">
                     <div className="w-0.5 bg-white/50 flex-shrink-0" />
                     <p className="text-white/90 text-xs sm:text-sm leading-tight">
-                      At Skill&Tell, we specialize in nurturing essential soft skills through hands-on experience.
-                      From marketing strategies to multimedia production, our focus is on helping members unlock
-                      their creative potential, build confidence, and thrive in collaborative, real-world
-                      environments.
+                      At Skill&Tell, we nurture essential soft skills through hands-on experience, helping members unlock their creativity, build confidence, and thrive in real-world collaborations.
                     </p>
                   </div>
                 </div>

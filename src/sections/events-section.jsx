@@ -28,7 +28,7 @@ function EventsSection() {
   const getCarouselSettings = useCallback((width) => {
     if (width >= 1024) return { cardsToShow: 7, activeCardWidth: 450, inactiveCardWidth: 80 } // Desktop
     if (width >= 768) return { cardsToShow: 4, activeCardWidth: 380, inactiveCardWidth: 80 } // Tablet
-    return { cardsToShow: 2, activeCardWidth: 280, inactiveCardWidth: 80 } // Mobile
+    return { cardsToShow: 1, activeCardWidth: 320, inactiveCardWidth: 80 } // Mobile
   }, [])
 
   const { cardsToShow, activeCardWidth, inactiveCardWidth } = getCarouselSettings(windowWidth)
@@ -52,13 +52,13 @@ function EventsSection() {
   // Navigation functions
   const nextEvent = () => {
     if (!canGoNext) return
-    setActiveIndex(-1) // Close any open card
+    setActiveIndex(-1)
     setCurrentStartIndex(prevIndex => prevIndex + 1)
   }
 
   const prevEvent = () => {
     if (!canGoPrev) return
-    setActiveIndex(-1) // Close any open card
+    setActiveIndex(-1)
     setCurrentStartIndex(prevIndex => prevIndex - 1)
   }
 
@@ -99,7 +99,7 @@ function EventsSection() {
       }} // Original background image path
     >
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="container mx-auto relative z-10">
         <h2 className="titles mb-12 text-white">
           Our Events
         </h2>
@@ -109,7 +109,7 @@ function EventsSection() {
           <button
             onClick={prevEvent}
             disabled={!canGoPrev}
-            className={`absolute pointer left-0 md:left-10 z-20 p-1 transition-all duration-300 ${!canGoPrev ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
+            className={`absolute pointer left-0 lg:left-10 z-20 p-1 transition-all duration-300 ${!canGoPrev ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
               }`}
           >
             <img
@@ -121,15 +121,11 @@ function EventsSection() {
 
           {/* Carousel Viewport - Fixed container that shows only visible cards */}
           <div className="relative overflow-hidden mx-auto" style={{
-            width: `${getTotalVisibleWidth()}px`,
-            maxWidth: `${windowWidth - 200}px`,
-            minWidth: '100%',
             height: '100%'
           }}>
             <div
-              className="flex items-center gap-4 h-full transition-all duration-500 ease-in-out"
+              className="flex items-center justify-center gap-4 h-full transition-all duration-500 ease-in-out"
               style={{
-                justifyContent: 'center',
                 width: 'fit-content',
                 margin: '0 auto'
               }}
@@ -145,10 +141,12 @@ function EventsSection() {
                     onClick={() => handleCardClick(index)}
                     className={`pointer relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
                       transition-all duration-500 ease-in-out flex-shrink-0 h-full overflow-hidden
-                      ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                      ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none absolute'}`}
                     style={{
                       width: `${cardWidth}px`,
                       transform: isVisible ? 'scale(1)' : 'scale(0.8)',
+                      transitionProperty: 'opacity, width',
+
                     }}
                   >
                     {/* Collapsed State */}
@@ -215,7 +213,7 @@ function EventsSection() {
           <button
             onClick={nextEvent}
             disabled={!canGoNext}
-            className={`absolute pointer right-0 md:right-10 z-20 p-1 transition-all duration-300 ${!canGoNext ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
+            className={`absolute pointer right-0 lg:right-10 z-20 p-1 transition-all duration-300 ${!canGoNext ? 'opacity-30 cursor-not-allowed' : 'hover:filter hover:drop-shadow-[0_0_24px_rgba(138,43,226,1)]'
               }`}
           >
             <img
