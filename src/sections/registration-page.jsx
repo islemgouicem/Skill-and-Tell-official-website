@@ -329,7 +329,7 @@ function RegistrationPage() {
                                     {errors.email && <p className="text-error-200 text-sm my-1">* {errors.email}</p>}
                                 </div>
                                 <div>
-                                    <label className="input-label">Discord ID</label>
+                                    <label className="input-label">Discord ID(optional)</label>
                                     <input
                                         type="text"
                                         value={formData.discordID}

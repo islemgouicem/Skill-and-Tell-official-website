@@ -183,7 +183,7 @@
     "id": 18,
     "email": "malekkdjr@gmail.com",
     "name": "DJAARAOUI ABDELMALEK",
-    "image":"/images/managers/Malek.jpg",
+    "image": "/images/managers/Malek.jpg",
     "role": "Design lead",
     "instagram": "https://www.instagram.com/malekkdjr?igsh=MTQzMW80a3owbXRxcA==",
     "linkedin": "https://www.linkedin.com/in/abdelmalek-djaaraoui-69805728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -241,6 +241,16 @@
   },
   {
     "id": 25,
+    "email": "javascript:void(0)",
+    "name": "Abdessalam Hagani",
+    "image": "/images/managers/salamo.jpg",
+    "role": "Opportunities manger",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "Salamo is the Opportunities Manager at Skill&Tell, responsible for identifying and managing new opportunities for our growth."
+  },
+  {
+    "id": 26,
     "email": "javascript:void(0)",
     "name": "Sami Kadi",
     "image": "/images/managers/sami_kadi.jpg",
