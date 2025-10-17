@@ -1,6 +1,6 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Navbar from "./layout/navbar.jsx";
-// import LoadingScreen from "./layout/Loading.jsx";
+import LoadingScreen from "./layout/Loading.jsx";
 import HeroSection from "./sections/hero-section.jsx";
 import MouseSparkles from "./components/effects/mouse-sparkles.jsx";
 import Footer from "./layout/footer.jsx";
@@ -12,16 +12,16 @@ import AppSection from "./sections/app-section.jsx";
 import FQ from "./sections/FQ-section.jsx";
 
 function App() {
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
 
-  // const handleLoadingComplete = () => {
-  //   setIsLoading(false);
-  // };
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
-  // if (isLoading) {
-  //   return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
-  // }
+  if (isLoading) {
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-space-dark text-space-text transition-opacity duration-500">

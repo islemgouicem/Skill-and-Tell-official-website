@@ -21,6 +21,7 @@ function Star() {
 function RegistrationPage() {
     const [currentStep, setCurrentStep] = useState(1)
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isCheckingEmail, setIsCheckingEmail] = useState(false);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -123,26 +124,26 @@ function RegistrationPage() {
             if (!emailRegex.test(formData.email)) {
                 stepErrors.email = "Please enter a valid Email address";
             }
-            // if (Object.keys(stepErrors).length === 0) {
-            //     const { data, error } = await supabase
-            //         .from("registration")
-            //         .select("fullname")
-            //         .eq("email", formData.email.trim());
+            if (Object.keys(stepErrors).length === 0) {
+                setIsCheckingEmail(true);
+                const { data, error } = await supabase
+                    .from("registration")
+                    .select("fullname")
+                    .eq("email", formData.email.trim());
+                setIsCheckingEmail(false);
+                if (data.length > 0) {
 
-            //     if (data.length > 0) {
+                    navigate("/registered", {
+                        state: {
+                            title: "You're already registered",
+                            msg: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
+                        },
+                    });
+                    window.scrollTo(0, 0);
 
-            //         localStorage.setItem("alreadyRegistered", "true");
-            //         navigate("/registered", {
-            //             state: {
-            //                 title: "You're already registered",
-            //                 msg: "Thank you for registering. Please wait for our response, we'll get back to you soon.",
-            //             },
-            //         });
-            //         window.scrollTo(0, 0);
-
-            //         return false;
-            //     }
-            // }
+                    return false;
+                }
+            }
         }
 
         if (currentStep === 2) {
@@ -175,13 +176,13 @@ function RegistrationPage() {
         //     }
 
         //     if (formData.dep1_motiv.trim().length > 1000) {
-        //         stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+        //         stepErrors.dep1_motiv = "Keep it less than 1000 characters";
         //     }
         //     if (formData.dep2_3_motiv.trim().length > 1000) {
-        //         stepErrors.dep2_3_motiv = "Keep it less than 1000 chcharacters";
+        //         stepErrors.dep2_3_motiv = "Keep it less than 1000 characters";
         //     }
         //     if (formData.goals.trim().length > 1000) {
-        //         stepErrors.dep1_motiv = "Keep it less than 1000 chcharacters";
+        //         stepErrors.dep1_motiv = "Keep it less than 1000 characters";
         //     }
         // }
 
@@ -636,10 +637,20 @@ function RegistrationPage() {
                         {currentStep < totalSteps ? (
                             <Button
                                 onClick={nextStep}
+                                disabled={isCheckingEmail}
                                 className="gradient-buttons rounded-sm text-white hover:from-space-orange-light hover:to-space-purple"
                             >
-                                Next
-                                <ArrowRight className="w-5 h-5 ml-2" />
+                                {isCheckingEmail ? (
+                                    <>
+                                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                                        Next...
+                                    </>
+                                ) : (
+                                    <>
+                                        Next
+                                        <ArrowRight className="w-5 h-5 ml-2" />
+                                    </>
+                                )}
                             </Button>
                         ) : (<Button
                             onClick={submitForm}

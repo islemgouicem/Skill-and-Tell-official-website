@@ -32,7 +32,6 @@ function EventsSection() {
   }, [])
 
   const { cardsToShow, activeCardWidth, inactiveCardWidth } = getCarouselSettings(windowWidth)
-  const cardGap = 16 // gap-4 is 16px
 
   // Get the indices of currently visible cards (no circular behavior)
   const getVisibleCardIndices = useCallback(() => {
@@ -76,15 +75,10 @@ function EventsSection() {
   // Calculate the width for each card based on its state
   const getCardWidth = (index) => {
     if (!visibleCardIndices.includes(index)) return 0
+    if(window.innerWidth <= 768){
+      return activeCardWidth;
+    }
     return index === activeIndex ? activeCardWidth : inactiveCardWidth
-  }
-
-  // Calculate total width of visible cards
-  const getTotalVisibleWidth = () => {
-    const widths = visibleCardIndices.map(index => getCardWidth(index))
-    const totalCardsWidth = widths.reduce((sum, width) => sum + width, 0)
-    const totalGapWidth = (widths.length - 1) * cardGap
-    return totalCardsWidth + totalGapWidth
   }
 
 
@@ -132,7 +126,8 @@ function EventsSection() {
             >
               {events.map((event, index) => {
                 const isVisible = visibleCardIndices.includes(index)
-                const isActive = index === activeIndex
+                const isMobile = window.innerWidth <= 768;
+                const isActive = isMobile || index === activeIndex;
                 const cardWidth = getCardWidth(index)
 
                 return (

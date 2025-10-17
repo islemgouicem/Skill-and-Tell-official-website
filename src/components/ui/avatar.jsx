@@ -25,7 +25,7 @@ const AvatarImage = forwardRef((props, ref) => {
   return (
     <Image
       ref={ref}
-      className={cn("aspect-square h-full w-full", className)}
+      className={cn("w-full h-auto object-cover", className)}
       {...rest}
     />
   );

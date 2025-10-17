@@ -1,10 +1,10 @@
 "use client"
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
-import PopUp from "../components/ui/popup.jsx"
+// import PopUp from "../components/ui/popup.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
 import { useNavigate } from "react-router-dom";
-import HeroSpline from "../components/ui/spline_3d.jsx";
+// import HeroSpline from "../components/ui/spline_3d.jsx";
 import { useState } from "react"
 
 
@@ -28,23 +28,23 @@ export default function HeroSection() {
   };
 
 
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-  const openingDate = new Date('2025-10-11T15:00:00');
-  const now = new Date();
+  // const handleOpenPopup = () => {
+  //   setIsPopupOpen(true);
+  // };
+  // const openingDate = new Date('2025-10-11T15:00:00');
+  // const now = new Date();
 
-  const isOpen = now >= openingDate;
+  // const isOpen = now >= openingDate;
 
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
+  // const handleClosePopup = () => {
+  //   setIsPopupOpen(false);
+  // };
   return (
     <section
       id="hero"
       className="relative h-screen flex items-center justify-center text-center text-space-text bg-cover bg-top bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/background.webp')",
+        backgroundImage: "url('/images/background_c.webp')",
         backgroundSize: "cover",   // makes it scale and fill the section
         backgroundPosition: "center", // keeps it centered
         backgroundRepeat: "no-repeat", // avoids tiling
@@ -84,7 +84,7 @@ export default function HeroSection() {
         </p>
 
         <Button
-          onClick={isOpen ? handleRegisterClick : handleOpenPopup}
+          onClick={handleRegisterClick}
           /*handleOpenPopup */
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 
@@ -99,8 +99,8 @@ export default function HeroSection() {
 
 
       </div>
-      <PopUp isOpen={isPopupOpen}
-        onClose={handleClosePopup} />
+      {/* <PopUp isOpen={isPopupOpen}
+        onClose={handleClosePopup} /> */}
 
 
       {/* Floating  Badges */}
@@ -118,15 +118,15 @@ export default function HeroSection() {
       >
         <div className="flex -space-x-1 md:-space-x-2 overflow-hidden">
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/managers/OuksilSayad.jpg?height=32&width=32" alt="Member 1" />
+            <AvatarImage src="/images/managers/Khefif_Abderahim.JPG?height=32&width=32" alt="Member 1" />
             <AvatarFallback>M1</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/managers/RamyGuettal.jpg?height=32&width=32" alt="Member 2" />
+            <AvatarImage src="/images/managers/salamo.jpg?height=32&width=32" alt="Member 2" />
             <AvatarFallback>M2</AvatarFallback>
           </Avatar>
           <Avatar className="w-6 h-6 md:w-8 md:h-8 border-1 border-white">
-            <AvatarImage src="/images/managers/islem_GOUICEM.jpg?height=32&width=32" alt="Member 3" />
+            <AvatarImage src="/images/managers/badri.jpg?height=32&width=32" alt="Member 3" />
             <AvatarFallback>M3</AvatarFallback>
           </Avatar>
         </div>
