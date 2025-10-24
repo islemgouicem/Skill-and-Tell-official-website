@@ -81,18 +81,11 @@ export function RegistrationProvider({ children }) {
 
             if (currentStep === 2) {
                 if (!formData.dep1_motiv.trim()) {
-                    stepErrors.dep1_motiv = "Write at least 30 characters about your first choice";
+                    stepErrors.dep1_motiv = "Please write about your first choice";
                 }
 
                 if (!formData.dep2_3_motiv.trim()) {
-                    stepErrors.dep2_3_motiv = "Write at least 30 characters about your second/third choices";
-                }
-
-                if (formData.dep1_motiv.trim().length > 1000) {
-                    stepErrors.dep1_motiv = "Keep it less than 1000 characters";
-                }
-                if (formData.dep2_3_motiv.trim().length > 1000) {
-                    stepErrors.dep2_3_motiv = "Keep it less than 1000 characters";
+                    stepErrors.dep2_3_motiv = "Please write about your second/third choices";
                 }
             }
 
@@ -131,15 +124,11 @@ export function RegistrationProvider({ children }) {
 
         if (currentStep === 4) {
             if (!formData.dep1_motiv.trim()) {
-                stepErrors.dep1_motiv = "Write at least 30 characters about your first choice";
+                stepErrors.dep1_motiv = "Please write about your first choice";
             }
             if (!formData.dep2_3_motiv.trim()) {
-                stepErrors.dep2_3_motiv = "Write at least 30 characters about your second/third choices";
+                stepErrors.dep2_3_motiv = "Please write about your second/third choices";
             }
-            if (formData.dep1_motiv.trim().length > 1000)
-                stepErrors.dep1_motiv = "Keep it less than 1000 characters";
-            if (formData.dep2_3_motiv.trim().length > 1000)
-                stepErrors.dep2_3_motiv = "Keep it less than 1000 characters";
         }
 
         setErrors(stepErrors);
