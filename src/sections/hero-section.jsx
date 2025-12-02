@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "../components/ui/button.jsx"
 import Shield from "../components/ui/shield_badge.jsx"
-// import PopUp from "../components/ui/popup.jsx"
+import PopUp from "../components/ui/popup.jsx"
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar.jsx"
 import { useNavigate } from "react-router-dom";
 // import HeroSpline from "../components/ui/spline_3d.jsx";
@@ -23,22 +23,23 @@ export default function HeroSection() {
     //     }
     //   });
     // } else {
-      navigate("/registeration");
+    navigate("/registeration");
     // }
   };
 
 
-  // const handleOpenPopup = () => {
-  //   setIsPopupOpen(true);
-  // };
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
   // const openingDate = new Date('2025-10-11T15:00:00');
   // const now = new Date();
 
   // const isOpen = now >= openingDate;
 
-  // const handleClosePopup = () => {
-  //   setIsPopupOpen(false);
-  // };
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <section
       id="hero"
@@ -99,8 +100,11 @@ export default function HeroSection() {
 
 
       </div>
-      {/* <PopUp isOpen={isPopupOpen}
-        onClose={handleClosePopup} /> */}
+      <PopUp isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        title={"Registration"}
+        subtitle={"Closed for This Season"}
+        msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we’ll be opening again with fresh opportunities next season."} />
 
 
       {/* Floating  Badges */}

@@ -1,0 +1,74 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../components/ui/accordion_eunoia"
+import faqItems from "../../data/faq.json"
+
+const Rules = () => {
+    return (
+        <section className="relative w-full overflow-hidden py-10" id="rules">
+            {/* Title */}
+            <h2 className="text-4xl md:text-6xl eunoia-title py-2 text-center">
+                Rules & Guidelines
+                <div className="w-full h-[1px] mx-auto max-w-[250px] mt-5 mb-4 bg-gradient-to-r from-gold/0 via-gold to-gold/0"></div>
+            </h2>
+
+            <div className="container mx-auto px-8 md:px-6 relative z-10">
+                <p className="text-base md:text-lg text-center max-w-2xl mx-auto text-[#999999]">
+                    Please read and follow these guidelines to ensure a fair and successful event for everyone
+                </p>
+                <div className="max-w-3xl mx-auto my-10 py-0">
+                    <Accordion type="single" collapsible className="w-full">
+                        {faqItems.map((item) => (
+                            <div key={item.value}>
+                                <AccordionItem
+                                    value={item.value}
+                                    className="pointer rounded-sm bg-transparent transition-all duration-100"
+                                >
+                                    <AccordionTrigger
+                                        className="flex items-center md:px-6 text-left text-lg md:text-xl font-semibold
+        text-neutral-200 transition-all duration-100
+        data-[state=open]:text-gold"
+                                    >
+                                        <div className="flex items-center text-sm sm:text-base md:text-lg">
+                                            {item.question}
+                                        </div>
+
+                                    </AccordionTrigger>
+                                    <AccordionContent className="px-4 pb-2 md:px-6 md:pb-4 text-neutral-200 md:text-lg">
+                                        {item.answer}
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <hr className="border-t border-gold/80 my-2" />
+                            </div>
+                        ))}
+                    </Accordion>
+                </div>
+            </div>
+
+            {/* Footer Decorative Line */}
+            <img
+                className="absolute left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px]"
+                alt="Line"
+                src="/images/down_arrow.svg"
+            />
+
+            {/* Corner Decorative Groups */}
+            <img
+                className="absolute top-2 right-3 w-20 h-auto
+            sm:top-3 sm:right-4 sm:w-24
+            md:top-4 md:right-6 md:w-32
+            lg:top-5 lg:right-8 lg:w-40"
+                alt="Group"
+                src="/images/top_right.svg"
+            />
+            <img
+                className="absolute bottom-2 left-3 w-20 h-auto
+            sm:bottom-3 sm:left-4 sm:w-24
+            md:bottom-4 md:left-6 md:w-32
+            lg:bottom-5 lg:left-8 lg:w-40"
+                alt="Group"
+                src="/images/bottom_left.svg"
+            />
+        </section>
+    )
+}
+
+export default Rules

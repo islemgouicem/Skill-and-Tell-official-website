@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-const RegistrationContext = createContext();
+const RegisterationContext = createContext();
 
-export function RegistrationProvider({ children }) {
+export function RegisterationProvider({ children }) {
     const [formData, setFormData] = useState({
         // Personal Information
         fullname: "",
@@ -150,7 +150,7 @@ export function RegistrationProvider({ children }) {
         }
     }
     return (
-        <RegistrationContext.Provider
+        <RegisterationContext.Provider
             value={{
                 formData,
                 updateFormData,
@@ -172,8 +172,8 @@ export function RegistrationProvider({ children }) {
             }}
         >
             {children}
-        </RegistrationContext.Provider>
+        </RegisterationContext.Provider>
     );
 }
 
-export const useRegistration = () => useContext(RegistrationContext);
+export const useRegistration = () => useContext(RegisterationContext);

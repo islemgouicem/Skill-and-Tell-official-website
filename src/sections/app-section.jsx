@@ -305,30 +305,10 @@ export default function AppSection() {
         </p>
 
         <button type="button" onClick={handleOpenPopup} className="botao pointer bg-accent-400 rounded-4xl">
-          <svg
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mysvg"
-          >
-            <g id="Interface / Download">
-              <path
-                d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
-                stroke="#f1f1f1"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
-          </svg>
-
-          <span className="texto flex justify-between">
+          <span className=" flex justify-between">
             <span className="mr-2">Download</span> <img src="/icons/download.svg" className="mr-2" alt="" aria-hidden="true" />
           </span>
         </button>
-
       </div>
 
       <PopUp isOpen={isPopupOpen}

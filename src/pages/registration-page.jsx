@@ -2,8 +2,8 @@
 import React, { useState, useRef } from "react"
 import { supabase } from "../lib/supabaseClient";
 import { Button } from "../components/ui/button"
-import Registered from "./department_selection"
-import NotRegistered from "./new_register"
+import Registered from "../sections/department_selection"
+import NotRegistered from "../sections/new_register"
 import { useRegistration } from "../lib/registerationData";
 import { ArrowLeft, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ import Star from "../components/ui/star"
 
 function RegistrationPage() {
     const [isCheckingEmail, setIsCheckingEmail] = useState(false);
-    const {phase1, setPhase1, formData, errors, setErrors, handleInputChange, totalSteps, setTotalSteps, isRegistered, setIsRegistered } = useRegistration();
+    const { phase1, setPhase1, formData, errors, setErrors, handleInputChange, totalSteps, setTotalSteps, isRegistered, setIsRegistered } = useRegistration();
 
     const navigate = useNavigate();
 

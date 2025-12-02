@@ -468,39 +468,11 @@
   /* overflow: hidden; */
 }
 
-.botao .mysvg {
-  display: none;
-}
 
-.botao:hover {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  transition: 0.5s linear;
-}
 
-.botao:hover .texto {
-  display: none;
-}
 
-.botao:hover .mysvg {
-  display: inline;
-}
 
-.botao:hover::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  border: 3.5px solid transparent;
-  border-top: 3.5px solid #fff;
-  border-right: 3.5px solid #fff;
-  border-radius: 50%;
-  animation: animateC 2s linear infinite;
-}
+
 
 @keyframes animateC {
   0% {
@@ -670,16 +642,74 @@ a, button,.pointer {
   }
 }
 @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
-            50% { opacity: 1; transform: scale(1.05) translateY(-10px); }
-            70% { transform: scale(0.95) translateY(5px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-          }
-          @keyframes bounceOut {
-            0% { opacity: 1; transform: scale(1) translateY(0); }
-            100% { opacity: 0; transform: scale(0.3) translateY(-50px); }
-          }
-          @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-          }
+  0% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+  70% { transform: scale(0.95) translateY(5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes bounceOut {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.3) translateY(-50px); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+@keyframes border-movement {
+  0% { 
+    /* Start the rotation */
+    transform: rotate(0deg); 
+  }
+  100% { 
+    /* Complete one full rotation */
+    transform: rotate(360deg); 
+  }
+}
+
+/* --- New Class for Moving Border Effect --- */
+.incoming-event-moving-border {
+    position: relative;
+    z-index: 10;
+    /* CRITICAL: Allows the shadow to be visible */
+    isolation: isolate; 
+    
+    /* Ensure the card's visual design (frosted-glass, rounded-md) remains */
+    border-radius: var(--radius-md, 12px); 
+    
+    /* Ensure no content (like the scrollbar/overflow) interferes with the pseudo-element */
+    overflow: hidden; 
+}
+
+/* Pseudo-element to create the actual rotating gradient that acts as the "shadow border" */
+.incoming-event-moving-border::before {
+    content: '';
+    position: absolute;
+    top: -1000%;
+    left: -1000%;
+    
+    /* Make the pseudo-element massive to ensure the gradient covers the edges */
+    width: 2100%; 
+    height: 2100%;
+    
+    /* Use the conic-gradient that rotates */
+    background: conic-gradient(
+        transparent 0%, 
+        transparent 25%, 
+        var(--color-Main-300), /* Light Violet */
+        var(--color-space-accent), /* Orange/Gold */
+        var(--color-Main-500), /* Deep Violet */
+        transparent 75%,
+        transparent 100%
+    );
+    
+    /* Apply the rotation animation */
+    animation: border-movement 4s linear infinite;
+    
+    /* Blurs the gradient to look like a shadow/glow */
+    filter: blur(20px); 
+    
+    /* Place it behind the card content */
+    z-index: -1; 
+}
+
