@@ -1,6 +1,5 @@
 import { useCallback } from "react"
 import useEmblaCarousel from "embla-carousel-react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import JudgeCard from "./eunoia_card"
 
 const judges = [
@@ -65,7 +64,7 @@ const JudgesCarousel = () => {
                 {/* Navigation arrows */}
                 <button
                     onClick={scrollPrev}
-                    className="ml-6 absolute -left-2 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gold/60 hover:text-gold transition-colors"
+                    className="ml-6 absolute -left-6 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gold/60 hover:text-gold transition-colors"
                     aria-label="Previous slide"
                 >
                     <img src="/images/left.svg" className="w-20 h-20" strokeWidth={1} />
@@ -73,7 +72,7 @@ const JudgesCarousel = () => {
 
                 <button
                     onClick={scrollNext}
-                    className="mr-6 absolute -right-2 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gold/60 hover:text-gold transition-colors"
+                    className="mr-6 absolute -right-6 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gold/60 hover:text-gold transition-colors"
                     aria-label="Next slide"
                 >
                     <img src="/images/right.svg" className="w-20 h-20" strokeWidth={1} />

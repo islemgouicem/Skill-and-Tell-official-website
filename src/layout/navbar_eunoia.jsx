@@ -15,6 +15,7 @@ function Navbar() {
         { name: "Judges", href: "#judges" },
         { name: "Agenda", href: "#agenda" },
         { name: "Rules", href: "#rules" },
+        { name: "Organize", href: "#organizers" },
     ]
 
     const handleNavLinkClick = (e, href) => {

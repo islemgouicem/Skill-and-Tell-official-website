@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Organizers = () => {
     const navigate = useNavigate();
     return (
-        <section className="relative w-full overflow-hidden py-10" id="organizers">
+        <section className="relative w-full overflow-hidden pb-10 pt-20" id="organizers">
             {/* Title */}
             <h2 className="text-4xl md:text-6xl eunoia-title py-2 text-center">
                 Be an Organizer
@@ -18,15 +18,21 @@ const Organizers = () => {
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                 </p>
                 <Button
-                    onClick={() => navigate("/eunoia/organizers")}
-                    className="w-auto btn-grad my-6 sm:mb-6 px-6 py-4 sm:px-8 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1"
+                    onClick={() => {
+                        navigate("/eunoia/organizers");
+                        window.scrollTo(0, 0);
+                    }}
+                    className="w-auto btn-grad my-6 sm:mb-6 px-6 py-4 sm:px-8 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
                 >
                     Organize now
                 </Button>
             </div>
             {/* Footer Decorative Line */}
             <img
-                className="absolute left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px]"
+                onClick={() => {
+                    document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="absolute cursor-pointer left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px]"
                 alt="Line"
                 src="/images/down_arrow.svg"
             />
@@ -47,6 +53,30 @@ const Organizers = () => {
             lg:bottom-5 lg:right-8 lg:w-40"
                 alt="Group"
                 src="/images/bottom_right.svg"
+            />
+
+            <img
+                src="/images/shadow.svg"
+                alt="Shadow"
+                className="
+                        absolute
+                        top-0 right-0
+                        translate-x-[40%] translate-y-[-40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
+            />
+
+            <img
+                src="/images/shadow.svg"
+                alt="Shadow"
+                className="
+                        absolute
+                        bottom-0 left-0
+                        translate-x-[-40%] translate-y-[40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
             />
         </section>
     )

@@ -19,108 +19,129 @@ export default function HeroSection() {
     ]
 
     return (
-        // The container height is set to allow main content to breathe on different screens
-        <section className="relative w-full h-auto overflow-hidden flex justify-center items-center" id="home">
+        <section
+            id="home"
+            className="relative w-full pt-[80px] min-h-screen overflow-hidden flex"
+        >
+            {/* Inner container that fills remaining height below navbar */}
+            <div className="flex flex-col justify-between items-center w-full min-h-[calc(100vh-80px)] relative z-20">
 
+                {/* Top decorative images (unchanged) */}
+                <img
+                    className="absolute top-10 left-[198px] w-[320px] h-[320px] hidden lg:block z-10"
+                    alt="Ellipse"
+                    src="/images/circle.svg"
+                />
+                <img
+                    className="absolute top-60 left-[460px] w-1 h-[161px] hidden lg:block"
+                    alt="Line"
+                    src="/images/vertical_line.svg"
+                />
+                <img
+                    className="absolute rotate-45 top-[300px] left-[990px] w-[116px] h-[116px] hidden lg:block"
+                    alt="Line"
+                    src="/images/vertical_line.svg"
+                />
 
-            {/* Decorative Images (Original Absolute Positioning and Fixed Dimensions - NOT MODIFIED) */}
-            <img
-                className="absolute top-[83px] left-[198px] w-[422px] h-[422px] z-10 hidden lg:block" // Hide on small screens to declutter
-                alt="Ellipse"
-                src="/images/circle.svg"
-            />
-            <img
-                className="absolute top-[398px] left-[524px] w-1 h-[161px] hidden lg:block" // Hide on small screens
-                alt="Line"
-                src="/images/vertical_line.svg"
-            />
-            <img
-                className="absolute rotate-45 top-[321px] left-[990px] w-[116px] h-[116px] hidden lg:block" // Hide on small screens
-                alt="Line"
-                src="/images/vertical_line.svg"
-            />
-
-
-            <div className="relative z-20 flex flex-col items-center gap-10 sm:gap-12 md:gap-16 max-w-6xl mx-auto pt-20 px-4 sm:px-6 md:pt-32">
-
-                <div className="flex flex-col items-center gap-8 sm:gap-10 relative w-full max-w-3xl">
-
-                    {/* Logo */}
+                {/* MAIN CONTENT */}
+                <div className="flex flex-col justify-between items-center h-[90%] sm:h-full gap-12 pt-10 px-4 max-w-6xl w-full">
                     <img
-                        className="w-[250px] sm:w-[30px] md:w-[320px] mt-12 sm:mt-4"
+                        className="w-[280px] sm:w-[300px] md:w-[320px] mt-8 mb-4"
                         alt="Logo PNG"
                         src="/images/eunoia.svg"
                     />
 
-                    {/* Title */}
-                    <h1
-                        className="eunoia-title relative font-medium text-3xl sm:text-4xl text-center"
-                    >
-                        Join us for the Eunoia Ideathon!
-                    </h1>
+                    <div className="flex flex-col items-center gap-8 w-full">
+                        {/* Logo + Title */}
+                        <h1 className="eunoia-title font-medium text-3xl sm:text-4xl text-center">
+                            Join us for the Eunoia Ideathon!
+                        </h1>
+                        {/* Register Button */}
+                        <Button
+                            onClick={() => {
+                                navigate("/eunoia/register");
+                                window.scrollTo(0, 0);
+                            }}
+                            className="btn-grad px-8 py-5 sm:px-10 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+                        >
+                            Register now
+                        </Button>
+                    </div>
+
+
+
+                    {/* Info Cards */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-10 mt-2 max-w-6xl w-full mb-20">
+                        {infoCards.map((c, i) => {
+                            const Icon = c.icon;
+                            return (
+                                <Card
+                                    key={i}
+                                    className="flex flex-col items-center justify-center px-6 py-4 sm:px-10 sm:py-5
+                         rounded-[10px] backdrop-blur-md transparency shadow-xl border border-gold mx-10
+                         animate-[swim_3s_linear_infinite]"
+                                >
+                                    <CardContent className="inline-flex items-center gap-6 p-0">
+                                        <Icon className="w-7 h-7 text-gold" />
+                                        <p className="text-white text-lg sm:text-xl tracking-widest">
+                                            {c.text}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })}
+                    </div>
                 </div>
 
-                {/* Register Button */}
-                <Button
-                    onClick={() => {navigate("/eunoia/register"); window.scrollTo(0, 0);}}
-                    className="btn-grad px-6 py-4 sm:px-8 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1"
-                >
-                    Register now
-                </Button>
+                {/* Bottom decorations */}
+                <img
+                    onClick={() => {
+                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="absolute left-[calc(50%-46px)] cursor-pointer bottom-[26px] w-[94px] h-[30px] z-10"
+                    alt="Line"
+                    src="/images/down_arrow.svg"
+                />
 
-                {/* Info Cards Container */}
-                <div
-                    className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-14 relative w-full mt-2 mb-25 max-w-4xl mx-auto"
-                >
-                    {infoCards.map((card, index) => {
-                        const IconComponent = card.icon
-                        return (
-                            <Card
-                                key={index}
-                                // MODIFIED: Responsive padding/text sizing for card
-                                className="flex flex-col items-center justify-center px-6 py-3 sm:px-10 
-                                sm:py-4 relative rounded-[10px] backdrop-blur-md transparency shadow-xl border 
-                                border-gold transition-transform hover:scale-[1.02] sm:w-auto"
-                            >
-                                <CardContent className="inline-flex items-center gap-4 sm:gap-7 relative p-0">
-                                    <IconComponent className="relative w-5 h-5 sm:w-7 sm:h-7 text-gold" />
-                                    <p
-                                        // MODIFIED: Responsive font size
-                                        className="relative w-fit font-light text-white text-base sm:text-lg md:text-xl tracking-widest leading-7 whitespace-nowrap"
-                                    >
-                                        {card.text}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        )
-                    })}
-                </div>
+                <img
+                    className="absolute top-2 left-3 w-16 rotate-180 sm:w-24 md:w-32 lg:w-40"
+                    alt="Group"
+                    src="/images/corners.svg"
+                />
+
+                <img
+                    className="absolute bottom-2 right-3 w-16 sm:w-24 md:w-32 lg:w-40"
+                    alt="Group"
+                    src="/images/corners.svg"
+                />
+
+
+                <img
+                    src="/images/shadow.svg"
+                    alt="Shadow"
+                    className="
+                        absolute
+                        top-0 right-0
+                        translate-x-[35%] translate-y-[-40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
+                />
+
+                <img
+                    src="/images/shadow.svg"
+                    alt="Shadow"
+                    className="
+                        absolute
+                        bottom-0 left-0
+                        translate-x-[-40%] translate-y-[40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
+                />
+
             </div>
-
-            {/* Line at the bottom (Original Absolute Positioning - NOT MODIFIED) */}
-            <img
-                className="absolute left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px] z-10"
-                alt="Line"
-                src="https://c.animaapp.com/minf59ew6AgY7M/img/line-3-2.svg"
-            />
-
-            {/* Corner Decorative Groups (Made them scale down slightly for mobile) */}
-            <img
-                className="absolute top-25 left-3 w-16 h-auto 
-                sm:left-4 sm:w-24 
-                md:left-6 md:w-32 
-                lg:left-8 lg:w-40 z-10" // Added z-10 for safety
-                alt="Group"
-                src="/images/top_left.svg"
-            />
-            <img
-                className="absolute bottom-2 right-3 w-16 h-auto
-                sm:bottom-3 sm:right-4 sm:w-24
-                md:bottom-4 md:right-6 md:w-32
-                lg:bottom-5 lg:right-8 lg:w-40 z-10" // Added z-10 for safety
-                alt="Group"
-                src="/images/bottom_right.svg"
-            />
         </section>
+
     )
 }

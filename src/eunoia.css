@@ -31,18 +31,7 @@
 }
 
 .btn-grad:hover {
-  box-shadow: 0 0 12px rgba(198, 131, 19, 0.8),
-    /* Inner light glow */ 0 0 25px rgba(198, 131, 19, 0.3);
-  /* Outer faint halo */
-
-  transform: scale(1.02);
-
-  background: linear-gradient(
-    90deg,
-    rgba(198, 131, 19, 0.4) 0%,
-    rgba(198, 131, 19, 1.1) 50%,
-    rgba(198, 131, 19, 0.4) 100%
-  );
+  transform: scale(1.05);
 }
 .transparency {
   background: linear-gradient(
@@ -115,4 +104,10 @@
     var(--gold) 31%);
   color: #430870;
   transform: scale(1);
+}
+
+@keyframes swim {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }

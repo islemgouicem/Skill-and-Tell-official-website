@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram} from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
 
 export default function Footer() {
     return (
@@ -34,7 +34,7 @@ export default function Footer() {
                             >
                                 <Instagram className="h-5 w-5 text-gold" alt="instagram" />
                             </a>
-                            
+
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ export default function Footer() {
                         <h3 className="text-xl font-semibold mb-6 text-white">Quick links</h3>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#hero" className="text-white/80 hover:text-white transition-colors text-base">
+                                <a href="#home" className="text-white/80 hover:text-white transition-colors text-base">
                                     Home
                                 </a>
                             </li>
@@ -53,18 +53,23 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="#team" className="text-white/80 hover:text-white transition-colors text-base">
+                                <a href="#speakers" className="text-white/80 hover:text-white transition-colors text-base">
                                     Speakers
                                 </a>
                             </li>
                             <li>
-                                <a href="#statistics" className="text-white/80 hover:text-white transition-colors text-base">
+                                <a href="#judges" className="text-white/80 hover:text-white transition-colors text-base">
                                     Judges
                                 </a>
                             </li>
                             <li>
-                                <a href="#events" className="text-white/80 hover:text-white transition-colors text-base">
+                                <a href="#agenda" className="text-white/80 hover:text-white transition-colors text-base">
                                     Agenda
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#rules" className="text-white/80 hover:text-white transition-colors text-base">
+                                    Rules
                                 </a>
                             </li>
                         </ul>

@@ -1,4 +1,3 @@
-import { Check, Sparkles } from "lucide-react"
 import { cn } from "../../lib/utils"
 
 const AgendaItem = ({ item, index }) => {
@@ -14,7 +13,7 @@ const AgendaItem = ({ item, index }) => {
                 {isLeft ? (
                     <>
                         {/* Left side: Card */}
-                        <div className="w-[45%] bg-purple-1 backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
+                        <div className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
                                     <img src="/images/coffee.svg" className="w-6" />
@@ -40,7 +39,7 @@ const AgendaItem = ({ item, index }) => {
                             <div className="w-3 h-3 rounded-full bg-gold shadow-[0_0_15px_rgba(252,211,77,0.6)]" />
                         </div>
                         {/* Right side: Card */}
-                        <div className="w-[45%] bg-purple-1 backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
+                        <div className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
                                     <img src="/images/coffee.svg" className="w-6" />
@@ -132,7 +131,7 @@ const agendaItems = [
 
 const EventAgenda = () => {
     return (
-        <section className="relative w-full overflow-hidden py-10" id="agenda">
+        <section className="relative w-full overflow-hidden py-20" id="agenda">
             {/* Title */}
             <h2 className="text-4xl md:text-6xl eunoia-title py-2 text-center">
                 Event Agenda
@@ -167,27 +166,54 @@ const EventAgenda = () => {
 
             {/* Footer Decorative Line */}
             <img
-                className="absolute left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px] hidden md:block"
+                onClick={() => {
+                    document.getElementById("rules")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="absolute cursor-pointer left-[calc(50%_-_46px)] bottom-[26px] w-[94px] h-[30px] hidden md:block"
                 alt="Line"
                 src="/images/down_arrow.svg"
             />
 
             {/* Corner Decorative Groups */}
             <img
-                className="absolute top-2 right-3 w-20 h-auto
+                className="absolute top-2 right-2 w-20 h-auto -rotate-90
             sm:top-3 sm:right-4 sm:w-24
             md:top-4 md:right-6 md:w-32
-            lg:top-5 lg:right-8 lg:w-40"
+            lg:top-5 lg:right-5 lg:w-40"
                 alt="Group"
-                src="/images/top_right.svg"
+                src="/images/corners.svg"
             />
             <img
-                className="absolute bottom-2 left-3 w-20 h-auto
+                className="absolute bottom-2 left-2 w-20 h-auto rotate-90
             sm:bottom-3 sm:left-4 sm:w-24
             md:bottom-4 md:left-6 md:w-32
-            lg:bottom-5 lg:left-8 lg:w-40"
+            lg:bottom-5 lg:left-5 lg:w-40"
                 alt="Group"
-                src="/images/bottom_left.svg"
+                src="/images/corners.svg"
+            />
+
+            <img
+                src="/images/shadow.svg"
+                alt="Shadow"
+                className="
+                        absolute
+                        top-0 right-0
+                        translate-x-[40%] translate-y-[-40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
+            />
+
+            <img
+                src="/images/shadow.svg"
+                alt="Shadow"
+                className="
+                        absolute
+                        bottom-0 left-0
+                        translate-x-[-40%] translate-y-[40%]
+                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
+                        pointer-events-none
+                    "
             />
         </section>
     )

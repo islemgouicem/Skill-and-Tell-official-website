@@ -60,19 +60,22 @@ const JudgeCard = ({
                         {/* Social icons */}
                         <div className="flex gap-3">
                             <a
-                                href={linkedIn}
-                                className="w-9 h-9 rounded-full border border-gold/60 flex items-center justify-center text-gold hover:bg-gold/20 transition-colors"
+                                href="https://www.linkedin.com/company/skill-tell-club/"
+                                className="w-9 h-9 rounded-full bg-gold/30 hover:bg-gold/60 transition-colors flex items-center justify-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="LinkedIn"
                             >
-                                <Linkedin className="w-4 h-4" />
+                                <Linkedin className="h-5 w-5 text-gold" alt="linkedin" />
                             </a>
-
                             <a
-                                href={instagram}
-                                className="w-9 h-9 rounded-full border border-gold/60 flex items-center justify-center text-gold hover:bg-gold/20 transition-colors"
+                                href="https://www.instagram.com/skillntell.club?igsh=MTFzZ3dpMTY2cGV5bg=="
+                                className="w-9 h-9 rounded-full bg-gold/30 hover:bg-gold/60 transition-colors flex items-center justify-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Instagram"
                             >
-                                <Instagram className="w-4 h-4" />
+                                <Instagram className="h-5 w-5 text-gold" alt="instagram" />
                             </a>
                         </div>
                     </div>

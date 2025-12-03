@@ -18,29 +18,25 @@ export default function Eunoia() {
     return (
         <main
             className="
-    relative w-full min-h-screen bg-[hsl(274,87%,24%)] overflow-hidden
-    bg-[url('/images/stars.svg'),url('/images/shadow.svg')]
-    bg-repeat-[repeat-y,repeat-y]
-    bg-[length:auto,auto_500px]
-    bg-[position:top_left,top_center]
-    "
+                relative w-full min-h-screen bg-[hsl(274,87%,24%)] overflow-hidden
+                bg-[url('/images/stars.svg')]
+                bg-repeat-[repeat-y]
+                bg-[length:auto]
+                bg-[position:top_left]
+            "
         >
 
+            <Navbar />
 
             {/* content */}
-            <Navbar />
             <HeroSection />
             <About />
-            <Organizers />
             <Speakers />
             <Judges />
             <EventAgenda />
             <Rules />
+            <Organizers />
 
-            {/* <AboutEunioaSection />
-            <OurSpeakersSection />
-            <OurMentorsSection />
-            <RulesAndGuidelinesSection /> */}
             <Footer />
         </main>
     )

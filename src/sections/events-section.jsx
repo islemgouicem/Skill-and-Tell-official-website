@@ -11,7 +11,19 @@ import left from "../assets/images/left.png"
 import right from "../assets/images/right.png"
 
 // --- CONSTANT FOR INCOMING EVENT (Replace with actual logic) ---
-const INCOMING_EVENT_ID = "07";
+const INCOMING_EVENT_ID = "tbd";
+    // {
+    //     "id": "07",
+    //     "title": "EUNOIA",
+    //     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quidem sequi voluptatibus dicta eligendi animialias molestias necessitatibus ab qui voluptates repellendus tempore! Aperiam dolores quo,o dicta corporis amet!",
+    //     "date": "2025-12-13",
+    //     "tags": [
+    //         "Creativity",
+    //         "ideathon",
+    //         "problem solving"
+    //     ],
+    //     "image": "/images/eunoia.jpg"
+    // },
 
 function EventsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
