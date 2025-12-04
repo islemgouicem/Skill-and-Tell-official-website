@@ -39,7 +39,7 @@ const AgendaItem = ({ item, index }) => {
                             <div className="w-3 h-3 rounded-full bg-gold shadow-[0_0_15px_rgba(252,211,77,0.6)]" />
                         </div>
                         {/* Right side: Card */}
-                        <div className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
+                        <div className="w-[45%] transparency_right backdrop-blur-[42] rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
                                     <img src="/images/coffee.svg" className="w-6" />
@@ -197,10 +197,10 @@ const EventAgenda = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        top-0 right-0
-                        translate-x-[40%] translate-y-[-40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        top-0 left-0
+                        translate-x-[-40%] translate-y-[-40%]
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
             />
 
@@ -209,10 +209,10 @@ const EventAgenda = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        bottom-0 left-0
-                        translate-x-[-40%] translate-y-[40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        bottom-0 right-0
+                        translate-x-[40%] translate-y-[40%]
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
             />
         </section>

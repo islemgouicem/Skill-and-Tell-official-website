@@ -54,10 +54,10 @@ const Speakers = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        top-0 right-0
-                        translate-x-[40%] translate-y-[-40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        top-0 left-0
+                        translate-x-[-40%] translate-y-[-40%]
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
             />
 
@@ -66,10 +66,10 @@ const Speakers = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        bottom-0 left-0
-                        translate-x-[-40%] translate-y-[40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        bottom-0 right-0
+                        translate-x-[40%] translate-y-[40%]
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
             />
         </section>

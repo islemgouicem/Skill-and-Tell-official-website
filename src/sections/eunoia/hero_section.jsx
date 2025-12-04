@@ -104,13 +104,18 @@ export default function HeroSection() {
                 />
 
                 <img
-                    className="absolute top-2 left-3 w-16 rotate-180 sm:w-24 md:w-32 lg:w-40"
+                    className="absolute top-2 left-3 w-20 h-auto rotate-180
+            sm:top-3 sm:left-4 sm:w-24
+            md:top-4 md:left-6 md:w-32
+            lg:top-5 lg:left-8 lg:w-40"
                     alt="Group"
                     src="/images/corners.svg"
                 />
-
                 <img
-                    className="absolute bottom-2 right-3 w-16 sm:w-24 md:w-32 lg:w-40"
+                    className="absolute bottom-2 right-3 w-20 h-auto
+            sm:bottom-3 sm:right-4 sm:w-24
+            md:bottom-4 md:right-6 md:w-32
+            lg:bottom-5 lg:right-8 lg:w-40"
                     alt="Group"
                     src="/images/corners.svg"
                 />
@@ -123,8 +128,8 @@ export default function HeroSection() {
                         absolute
                         top-0 right-0
                         translate-x-[35%] translate-y-[-40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
                 />
 
@@ -135,8 +140,8 @@ export default function HeroSection() {
                         absolute
                         bottom-0 left-0
                         translate-x-[-40%] translate-y-[40%]
-                        w-[400px] sm:w-[280px] md:w-[400px] lg:w-[620px]
-                        pointer-events-none
+                        w-[400px] sm:w-[450px] lg:w-[620px]
+                        pointer-events-none transform-gpu
                     "
                 />
 

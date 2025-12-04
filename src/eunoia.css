@@ -3,7 +3,7 @@
 @theme {
   --color-gold: #c68313;
   --color-purple-1: #430870;
-  --color-purple-2: #3B0562;
+  --color-purple-2: #3b0562;
   --color-space-light: #2b004d;
   --color-space-text: #e0e0e0;
   --color-space-accent: #ff8c00;
@@ -33,11 +33,19 @@
 .btn-grad:hover {
   transform: scale(1.05);
 }
+.transparency_right {
+  background: linear-gradient(
+    109.46deg,
+    rgba(196, 196, 196, 0.03) 1.57%,
+    rgba(201, 201, 201, 0.24) 100%
+  );
+}
+
 .transparency {
   background: linear-gradient(
-    72deg,
-    rgba(201, 201, 201, 0.24),
-    rgba(196, 196, 196, 0.03)
+    109.46deg,
+    rgba(201, 201, 201, 0.24) 1.57%,
+    rgba(196, 196, 196, 0.03) 100%
   );
 }
 .strokes {
@@ -73,15 +81,15 @@
 
 .wrapper {
   display: grid;
-  grid-template-areas: 'overlap';
+  grid-template-areas: "overlap";
   place-content: center;
   text-transform: uppercase;
 }
 .wrapper > div {
-  background-clip: text;  
+  background-clip: text;
   -webkit-background-clip: text;
   color: #430870;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 2em;
   grid-area: overlap;
@@ -89,25 +97,35 @@
   -webkit-text-stroke: 4px transparent;
 }
 .bg {
-  background-image: repeating-linear-gradient( 105deg, 
-    var(--gold) 0% , 
+  background-image: repeating-linear-gradient(
+    105deg,
+    var(--gold) 0%,
     var(--dark-shadow) 5%,
-    var(--gold) 12%);
+    var(--gold) 12%
+  );
   color: transparent;
   transform: scaleY(1.05);
   transform-origin: top;
 }
-.fg{
-  background-image: repeating-linear-gradient( 5deg,  
-    var(--gold) 0% , 
-    var(--light-shadow) 23%, 
-    var(--gold) 31%);
+.fg {
+  background-image: repeating-linear-gradient(
+    5deg,
+    var(--gold) 0%,
+    var(--light-shadow) 23%,
+    var(--gold) 31%
+  );
   color: #430870;
   transform: scale(1);
 }
 
 @keyframes swim {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

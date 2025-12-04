@@ -2,7 +2,6 @@
 import React, { useState, useRef } from "react"
 import { Button } from "../components/ui/button"
 import ProgressStepper from "../components/ui/progress_eunoia"
-import CosmicSelect from "../components/ui/select"
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 
@@ -471,39 +470,6 @@ function IdeathonRegistration() {
                 </div>
             </div>
         )
-    };
-
-    // Helper component to render a single step circle
-    const StepCircle = ({ stepNumber, label, isActive, isCompleted }) => {
-        const circleClasses = `
-            flex flex-col items-center space-y-2
-            transition-all duration-300 ease-in-out
-            w-1/3 text-center relative
-        `;
-        const numberClasses = `
-            w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center
-            font-bold text-sm md:text-base
-            transition-colors duration-300 ease-in-out
-            ${isActive
-                ? 'bg-white text-Main-500 ring-4 ring-Main-500/50'
-                : isCompleted
-                    ? 'bg-Main-500 text-white'
-                    : 'bg-neutral-600 text-neutral-300'
-            }
-        `;
-        const labelClasses = `
-            text-xs md:text-sm mt-1 font-semibold whitespace-nowrap
-            ${isActive ? 'text-white' : 'text-neutral-400'}
-        `;
-
-        return (
-            <div className={circleClasses}>
-                <div className={numberClasses}>
-                    {stepNumber}
-                </div>
-                <span className={labelClasses}>{label}</span>
-            </div>
-        );
     };
 
     const stepLabels = [
