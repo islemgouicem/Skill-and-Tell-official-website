@@ -26,7 +26,7 @@ function Navbar() {
 
     const startHideTimer = (delay = 5000) => {
         clearTimeout(hideTimeoutRef.current)
-        hideTimeoutRef.current = setTimeout(() => setIsVisible(false), delay)
+        // hideTimeoutRef.current = setTimeout(() => setIsVisible(false), delay)
     }
 
     const showNavbar = () => {
