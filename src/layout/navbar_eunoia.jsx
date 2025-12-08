@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import Logo from "./Logo.jsx"
+import { useNavigate } from "react-router-dom";
 import MobileNavbar from "./mobilenav_eunoia.jsx"
 import { Button } from "../components/ui/button"
 
@@ -7,6 +7,7 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [isVisible, setIsVisible] = useState(true)
     const hideTimeoutRef = useRef(null)
+    const navigate = useNavigate();
 
     const navLinks = [
         { name: "Home", href: "#home" },
@@ -14,7 +15,7 @@ function Navbar() {
         { name: "Speaker", href: "#speakers" },
         { name: "Judges", href: "#judges" },
         { name: "Agenda", href: "#agenda" },
-        { name: "Rules", href: "#rules" },
+        { name: "Q&A", href: "#rules" },
         { name: "Organize", href: "#organizers" },
     ]
 
@@ -93,6 +94,10 @@ function Navbar() {
                         ))}
                     </nav>
                     <Button
+                        onClick={() => {
+                            navigate("/eunoia/register");
+                            window.scrollTo(0, 0);
+                        }}
                         className="hidden lg:flex btn-grad px-5 py-3.5 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] justify-center items-center gap-2.5 text-purple-1"
                     >
                         Register now

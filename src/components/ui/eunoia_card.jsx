@@ -1,16 +1,16 @@
-import judgePortrait from "../../assets/badri.jpg"
 import { Linkedin, Instagram } from "lucide-react"
+import img from "/images/managers/badri.jpg"
 
 const JudgeCard = ({
     name,
     subtitle,
     description,
-    image = judgePortrait,
-    linkedIn = "#",
-    instagram = "#"
+    image = img,
+    linkedIn = "#speakers",
+    instagram = "#speakers"
 }) => {
     return (
-        <div className="relative p-3">
+        <div className="relative p-3 w-full max-w-sm h-full">
             {/* Top-left corner bracket */}
             <div className="absolute top-0 left-0 w-6 h-6">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gold" />
@@ -25,7 +25,7 @@ const JudgeCard = ({
 
             {/* Card with gradient border */}
             <div
-                className="relative rounded-sm overflow-hidden p-[2px]"
+                className="relative rounded-sm overflow-hidden p-[2px] h-full"
                 style={{
                     background:
                         "linear-gradient(-143deg, #C6831300 0%, #C68313 50%, #C6831300 100%)"
@@ -34,7 +34,7 @@ const JudgeCard = ({
                 <div className="relative bg-purple-2 rounded-sm overflow-hidden flex flex-col h-full">
 
                     {/* Image — upper 60% */}
-                    <div className="flex-[0_0_60%] w-full overflow-hidden">
+                    <div className="w-full overflow-hidden aspect-[4/3]">
                         <img
                             src={image}
                             alt={name}
@@ -43,24 +43,23 @@ const JudgeCard = ({
                     </div>
 
                     {/* Content — lower 40% */}
-                    <div className="flex-[0_0_40%] p-5 bg-purple-darker/95">
+                    <div className="p-5 bg-purple-darker/95 flex flex-col">
                         <h3 className="text-foreground font-semibold text-lg mb-1">
                             {name}
                         </h3>
 
                         <p className="text-gold text-sm mb-3">
-                            Lorem Ipsum is{" "}
-                            <span className="font-medium">simply dummy</span>
+                            {subtitle}
                         </p>
 
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
                             {description}
                         </p>
 
                         {/* Social icons */}
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 mt-auto">
                             <a
-                                href="https://www.linkedin.com/company/skill-tell-club/"
+                                href={linkedIn}
                                 className="w-9 h-9 rounded-full bg-gold/30 hover:bg-gold/60 transition-colors flex items-center justify-center"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -68,15 +67,7 @@ const JudgeCard = ({
                             >
                                 <Linkedin className="h-5 w-5 text-gold" alt="linkedin" />
                             </a>
-                            <a
-                                href="https://www.instagram.com/skillntell.club?igsh=MTFzZ3dpMTY2cGV5bg=="
-                                className="w-9 h-9 rounded-full bg-gold/30 hover:bg-gold/60 transition-colors flex items-center justify-center"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                            >
-                                <Instagram className="h-5 w-5 text-gold" alt="instagram" />
-                            </a>
+                            
                         </div>
                     </div>
                 </div>

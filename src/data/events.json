@@ -1,6 +1,17 @@
 
 [
-
+    {
+        "id": "07",
+        "title": "EUNOIA",
+        "description": "EUNOIA is a full-day innovation event centered on student well-being, featuring an ideathon, expert talks, interactive activities, a cultural village, and social/movement-based experiences. Its goal is to help students tackle real mental and physical health challenges, create meaningful solutions, and strengthen a supportive, energetic campus community.",
+        "date": "2025-12-13",
+        "tags": [
+            "ideathon",
+            "Creativity",
+            "well being"
+        ],
+        "image": "/images/eunoia.jpg"
+    },
     {
         "id": "01",
         "title": "MobAi",

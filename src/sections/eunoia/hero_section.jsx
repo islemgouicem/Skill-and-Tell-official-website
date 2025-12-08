@@ -126,22 +126,25 @@ export default function HeroSection() {
                     alt="Shadow"
                     className="
                         absolute
-                        top-0 right-0
-                        translate-x-[35%] translate-y-[-40%]
+                        -top-40 -right-40
+                        sm:-top-48 sm:-right-48
+                        lg:-top-60 lg:-right-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
                 />
 
+                {/* Bottom shadow */}
                 <img
                     src="/images/shadow.svg"
                     alt="Shadow"
                     className="
                         absolute
-                        bottom-0 left-0
-                        translate-x-[-40%] translate-y-[40%]
+                        -bottom-40 -left-40
+                        sm:-bottom-48 sm:-left-48
+                        lg:-bottom-60 lg:-left-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
                 />
 

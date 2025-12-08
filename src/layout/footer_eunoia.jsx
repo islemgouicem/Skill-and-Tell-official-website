@@ -1,6 +1,9 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Instagram, Globe } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+    const navigate = useNavigate();
+
     return (
         <footer id="contacts" className="bg-purple-2 text-white pt-12 md:pt-16 pb-4 relative overflow-hidden">
             <div className="container max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
@@ -34,6 +37,15 @@ export default function Footer() {
                             >
                                 <Instagram className="h-5 w-5 text-gold" alt="instagram" />
                             </a>
+                            <div
+                                onClick={() => {
+                                    navigate("/");
+                                    window.scroll(0, 0)
+                                }} // navigate to your route
+                                className="w-12 h-12 rounded-full bg-gold/30 hover:bg-gold/60 transition-colors flex items-center justify-center cursor-pointer"
+                            >
+                                <Globe className="h-5 w-5 text-gold" alt="globe icon" />
+                            </div>
 
                         </div>
                     </div>
@@ -69,7 +81,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a href="#rules" className="text-white/80 hover:text-white transition-colors text-base">
-                                    Rules
+                                    Q&A
                                 </a>
                             </li>
                         </ul>
@@ -88,17 +100,25 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="tel:+2137777777777"
+                                href="tel:+213561718475"
                                 className="flex items-start gap-3 text-white/80 hover:text-white transition-colors group"
                             >
                                 <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold" />
-                                <span className="text-base">+213 7777777777</span>
+                                <span className="text-base">+213 799 83 89 54</span>
+                            </a>
+                            <a
+                                href="tel:+213799838954"
+                                className="flex items-start gap-3 text-white/80 hover:text-white transition-colors group"
+                            >
+                                <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold" />
+                                <span className="text-base">+213 561 71 84 75</span>
                             </a>
 
                             <div className="flex items-start gap-3 text-white/80">
                                 <MapPin className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold" />
                                 <span className="text-base">Ensia school, sidi abdellah</span>
                             </div>
+
                         </div>
                     </div>
                 </div>

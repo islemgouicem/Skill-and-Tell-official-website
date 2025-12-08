@@ -16,11 +16,11 @@ const AgendaItem = ({ item, index }) => {
                         <div className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
-                                    <img src="/images/coffee.svg" className="w-6" />
+                                    <img src={`/images/${item.icon}.svg`} className="w-6" />
                                 </div>
                                 <p className="text-gold text-sm font-bold mb-1">{item.time}</p>
                             </div>
-                            <h3 className="text-white font-semibold text-lg mb-2">
+                            <h3 className="text-white font-semibold text-lg my-2">
                                 {item.title}
                             </h3>
                             <p className="text-[#999999] text-sm">
@@ -42,11 +42,11 @@ const AgendaItem = ({ item, index }) => {
                         <div className="w-[45%] transparency_right backdrop-blur-[42] rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
-                                    <img src="/images/coffee.svg" className="w-6" />
+                                    <img src={`/images/${item.icon}.svg`} className="w-6" />
                                 </div>
                                 <p className="text-gold text-sm font-bold mb-1">{item.time}</p>
                             </div>
-                            <h3 className="text-white font-semibold text-lg mb-2">
+                            <h3 className="text-white font-semibold text-lg my-2">
                                 {item.title}
                             </h3>
                             <p className="text-[#999999] text-sm">
@@ -70,7 +70,7 @@ const AgendaItem = ({ item, index }) => {
                 <div className="flex-1 transparency backdrop-blur-sm rounded-2xl p-4 border-1 border-gold">
                     <div className="flex items-center mb-2">
                         <div className="w-7 h-7 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
-                            <img src="/images/coffee.svg" className="w-5" />
+                            <img src={`/images/${item.icon}.svg`} className="w-5" />
                         </div>
                         <p className="text-gold text-xs font-bold">{item.time}</p>
                     </div>
@@ -90,41 +90,69 @@ const AgendaItem = ({ item, index }) => {
 
 const agendaItems = [
     {
-        time: "7:00 AM",
-        title: "Registration & Breakfast",
-        description: "Check-in, team formation, and networking",
+        time: "08:30 – 09:00",
+        title: "Check-In",
+        icon: "p1",
+        description: "Participant check-in",
         side: "left"
     },
     {
-        time: "9:00 AM",
-        title: "Opening Ceremony & Keynote",
-        description: "Welcome address and an inspiring keynote speaker on the event's theme.",
+        time: "09:00 – 09:30",
+        title: "Opening Ceremony ",
+        icon: "p2",
+        description: "Welcome remarks, Overview of event objectives & flow",
         side: "right"
     },
     {
-        time: "10:30 AM",
-        title: "Workshop Session I",
-        description: "Deep dive into front-end frameworks and state management best practices.",
+        time: "09:30 – 10:10",
+        icon: "p3",
+        title: "Well-Being Walk Activity ",
+        description: "30-minute physical activity",
+        side: "left"
+
+    },
+    {
+        time: "10:10 – 10:40",
+        title: "Picnic Break ",
+        icon: "p4",
+        description: "Light outdoor gathering (snacks / refreshments)",
+        side: "right"
+    },
+    {
+        time: "10:40 – 12:00",
+        icon: "p5",
+        title: "Well-Being talks ",
+        description: "A concise talk offering practical and innovative insights to help students improve their mental and physical well-being.",
         side: "left"
     },
     {
-        time: "1:00 PM",
-        title: "Lunch Break & Sponsor Expo",
-        description: "Catered lunch and opportunity to explore sponsor booths.",
+        time: "12:00 – 13:00",
+        title: "Lunch Break ",
+        description: "Light outdoor gathering (snacks / refreshments)",
+        icon: "p6",
         side: "right"
     },
     {
-        time: "2:30 PM",
-        title: "Hackathon Kickoff",
-        description: "Teams get their challenges and start coding.",
+        time: "13:00 – 16:00",
+        title: "Working Session ",
+        icon: "p7",
+        description: " Teams work on:Business Model Canvas, Slide presentation, Final pitch preparation.",
         side: "left"
     },
     {
-        time: "6:00 PM",
-        title: "Dinner & Project Submission",
-        description: "A quick bite before final submissions and presentation preparations.",
+        time: "16:00 – 17:00",
+        icon: "p1",
+        title: "Pitching Session ",
+        description: "  Each team presents in front of the judges.",
         side: "right"
-    }
+    },
+    {
+        time: "17:30 – 18:00",
+        icon: "p2",
+        title: "Closing Ceremony & Winners Announcement ",
+        description: "  Announcement of winning teams .",
+        side: "left"
+    },
 ];
 
 // --- Component: EventAgenda ---
@@ -197,22 +225,25 @@ const EventAgenda = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        top-0 left-0
-                        translate-x-[-40%] translate-y-[-40%]
+                        -top-40 -left-40
+                        sm:-top-48 sm:-left-48
+                        lg:-top-60 lg:-left-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
 
+            {/* Bottom shadow */}
             <img
                 src="/images/shadow.svg"
                 alt="Shadow"
                 className="
                         absolute
-                        bottom-0 right-0
-                        translate-x-[40%] translate-y-[40%]
+                        -bottom-40 -right-40
+                        sm:-bottom-48 sm:-right-48
+                        lg:-bottom-60 lg:-right-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
         </section>

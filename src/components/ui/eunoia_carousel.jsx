@@ -5,36 +5,41 @@ import JudgeCard from "./eunoia_card"
 const judges = [
     {
         id: 1,
-        name: "Adam selamnia",
+        name: "To be announced",
         subtitle: "Lorem Ipsum is simply dummy",
+        image:"/images/anony.png",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
         id: 2,
-        name: "Adam selamnia",
+        name: "To be announced",
         subtitle: "Lorem Ipsum is simply dummy",
+        image:"/images/anony.png",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
         id: 3,
-        name: "Adam selamnia",
+        name: "To be announced",
         subtitle: "Lorem Ipsum is simply dummy",
+        image:"/images/anony.png",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
         id: 4,
-        name: "Adam selamnia",
+        name: "To be announced",
         subtitle: "Lorem Ipsum is simply dummy",
+        image:"/images/anony.png",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
         id: 5,
-        name: "Adam selamnia",
+        name: "To be announced",
         subtitle: "Lorem Ipsum is simply dummy",
+        image:"/images/anony.png",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     }
@@ -89,6 +94,7 @@ const JudgesCarousel = () => {
                                 <JudgeCard
                                     name={judge.name}
                                     subtitle={judge.subtitle}
+                                    image={judge.image}
                                     description={judge.description}
                                 />
                             </div>

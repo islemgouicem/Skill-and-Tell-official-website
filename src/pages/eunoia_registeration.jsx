@@ -38,8 +38,8 @@ function IdeathonRegistration() {
 
     // Configuration for team size
     const totalSteps = 3
-    const MIN_MEMBERS_COUNT = 3; // Minimum required *additional* members (Leader + 3 = 4 total)
-    const MAX_MEMBERS_COUNT = 4; // Maximum allowed *additional* members (Leader + 4 = 5 total)
+    const MIN_MEMBERS_COUNT = 3;
+    const MAX_MEMBERS_COUNT = 4;
 
     const [formData, setFormData] = useState({
         // Team Information (teams table)
@@ -155,8 +155,6 @@ function IdeathonRegistration() {
             if (!formData.leaderEmail.trim() || !emailRegex.test(formData.leaderEmail)) stepErrors.leaderEmail = "Please enter a valid Leader Email address";
             if (!formData.leaderPhone.trim() || !phoneRegex.test(formData.leaderPhone)) stepErrors.leaderPhone = "Please enter a valid Leader Phone number (10-15 digits, no spaces)";
             if (!formData.leaderUniversity.trim()) stepErrors.leaderUniversity = "Please enter the Team's Primary University";
-            if (!formData.leaderLinkedin.trim()) stepErrors.leaderLinkedin = "LinkedIn is required";
-            if (!formData.leaderGithub.trim()) stepErrors.leaderGithub = "GitHub is required";
         }
 
         if (currentStep === 2) {
@@ -179,8 +177,6 @@ function IdeathonRegistration() {
                 if (!member.email.trim() || !emailRegex.test(member.email)) memberErr.email = "Valid email is required";
                 if (!member.university.trim()) memberErr.university = "University is required";
                 if (!member.phone.trim() || !phoneRegex.test(member.phone)) memberErr.phone = "Valid phone number is required";
-                if (!member.linkedin.trim()) memberErr.linkedin = "LinkedIn is required";
-                if (!member.github.trim()) memberErr.github = "GitHub is required";
 
                 if (Object.keys(memberErr).length > 0) {
                     memberErrors[index] = memberErr;
@@ -199,8 +195,6 @@ function IdeathonRegistration() {
                     if (!optionalMember.email.trim() || !emailRegex.test(optionalMember.email)) memberErr.email = "Valid email is required";
                     if (!optionalMember.university.trim()) memberErr.university = "University is required";
                     if (!optionalMember.phone.trim() || !phoneRegex.test(optionalMember.phone)) memberErr.phone = "Valid phone number is required";
-                    if (!optionalMember.linkedin.trim()) memberErr.linkedin = "LinkedIn is required";
-                    if (!optionalMember.github.trim()) memberErr.github = "GitHub is required";
 
                     if (Object.keys(memberErr).length > 0) {
                         memberErrors[MIN_MEMBERS_COUNT] = memberErr; // Index 3
@@ -238,7 +232,7 @@ function IdeathonRegistration() {
 
     const nextStep = async () => {
         const isValid = await validateStep();
-        if (true) {
+        if (isValid) {
             setCurrentStep((prev) => prev + 1);
             window.scrollTo(0, 0); // Scroll to top for new step
         }
@@ -438,7 +432,7 @@ function IdeathonRegistration() {
 
                         {/* LinkedIn */}
                         <div>
-                            <label className="input-label">LinkedIn <Star /></label>
+                            <label className="input-label">LinkedIn</label>
                             <input
                                 type="url"
                                 value={member.linkedin}
@@ -447,13 +441,12 @@ function IdeathonRegistration() {
                                 placeholder="Enter your linkedin"
                                 required={isRequiredMember}
                             />
-                            {errors.members && errors.members[index]?.linkedin && <p className="text-error-200 text-sm my-1">* {errors.members[index].linkedin}</p>}
 
                         </div>
 
                         {/* GitHub */}
                         <div>
-                            <label className="input-label">Github <Star /></label>
+                            <label className="input-label">Github</label>
                             <input
                                 type="url"
                                 value={member.github}
@@ -462,7 +455,6 @@ function IdeathonRegistration() {
                                 placeholder="Enter your github"
                                 required={isRequiredMember}
                             />
-                            {errors.members && errors.members[index]?.github && <p className="text-error-200 text-sm my-1">* {errors.members[index].github}</p>}
 
                         </div>
                     </div>
@@ -489,7 +481,7 @@ function IdeathonRegistration() {
             </div>
 
             {/* Form Container (Ensures responsiveness) */}
-            <div className="max-w-5xl mx-auto mb-6">
+            <div className="max-w-5xl mx-auto my-6">
                 <div className="glass rounded-2xl p-6 md:p-8">
                     {/* Step 1: Team and Leader Information */}
                     {currentStep === 1 && (
@@ -597,7 +589,7 @@ function IdeathonRegistration() {
                                     </div>
                                     {/* Leader LinkedIn */}
                                     <div>
-                                        <label className="input-label">LinkedIn <Star /></label>
+                                        <label className="input-label">LinkedIn</label>
                                         <input
                                             type="url"
                                             value={formData.leaderLinkedin}
@@ -606,12 +598,11 @@ function IdeathonRegistration() {
                                             placeholder="Enter your linkedin"
                                             required
                                         />
-                                        {errors.leaderLinkedin && <p className="text-error-200 text-sm my-1">* {errors.leaderLinkedin}</p>}
 
                                     </div>
                                     {/* Leader GitHub */}
                                     <div>
-                                        <label className="input-label">Github <Star /></label>
+                                        <label className="input-label">Github</label>
                                         <input
                                             type="url"
                                             value={formData.leaderGithub}
@@ -620,7 +611,6 @@ function IdeathonRegistration() {
                                             placeholder="Enter your github"
                                             required
                                         />
-                                        {errors.leaderGithub && <p className="text-error-200 text-sm my-1">* {errors.leaderGithub}</p>}
 
                                     </div>
                                 </div>

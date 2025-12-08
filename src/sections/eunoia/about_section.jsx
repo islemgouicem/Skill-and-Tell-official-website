@@ -11,7 +11,7 @@ const About = () => {
 
             <div className="relative max-w-[80%] mx-auto mb-12">
                 <p className="text-base md:text-md text-center max-w-xl mx-auto text-[#999999]">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                    EUNOIA is the first edition of a full-day innovation event focused on student well-being. Combining creativity, collaboration, and fun, it features an ideathon, inspiring talks by well-being experts, interactive activities, a cultural village, and opportunities for movement and social connection. The event aims to help students address real mental and physical health challenges, turn meaningful ideas into solutions, and build a supportive, energetic campus community.
                 </p>
             </div>
 
@@ -29,23 +29,27 @@ const About = () => {
                 src="/images/shadow.svg"
                 alt="Shadow"
                 className="
-                        absolute
-                        top-0 left-0
-                        translate-x-[-40%] translate-y-[-40%]
-                        w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
-                    "
+            absolute
+            -top-40 -left-40
+            sm:-top-48 sm:-left-48
+            lg:-top-60 lg:-left-60
+            w-[400px] sm:w-[450px] lg:w-[620px]
+            pointer-events-none
+        "
             />
+
+            {/* Bottom shadow */}
             <img
                 src="/images/shadow.svg"
                 alt="Shadow"
                 className="
-                        absolute
-                        bottom-0 left-0
-                        translate-x-[-40%] translate-y-[40%]
-                        w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
-                    "
+            absolute
+            -bottom-40 -left-40
+            sm:-bottom-48 sm:-left-48
+            lg:-bottom-60 lg:-left-60
+            w-[400px] sm:w-[450px] lg:w-[620px]
+            pointer-events-none
+        "
             />
 
 

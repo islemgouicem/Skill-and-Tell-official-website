@@ -12,14 +12,23 @@ const Speakers = () => {
 
 
 
-            <div className="relative flex-1 flex flex-col sm:flex-row justify-center max-w-[80%] sm:max-w-[60%] items-center gap-y-6 md:mb-10">
-                <JudgeCard name={"Adam selamnia"}
-                    subtitle={"Lorem Ipsum is simply dummy"}
-                    description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry."} />
-                <JudgeCard name={"Adam selamnia"}
-                    subtitle={"Lorem Ipsum is simply dummy"}
-                    description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry."} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-stretch">
+                <JudgeCard name={"Dr. Adam Selamnia"}
+                    subtitle={"Co-Founder & Business Development Director, NIUM (Luxembourg)"}
+                    image={"/images/adam_selmania.jpg"}
+                    description={"Explains why a founder’s physical and mental well-being is essential for decision-making, resilience, innovation, and building strong, sustainable companies."}
+                />
+
+                <JudgeCard name={"Dr. Mohamed BENAHMED"}
+                    image={"/images/behahmed.jpg"}
+                    subtitle={"Médecin, Expert en santé publique et promotion du bien-être"}
+                    description={"Promotes daily physical activity as a powerful way to prevent disease and improve quality of life, highlighting the dangers of a sedentary lifestyle."}
+                />
             </div>
+
+
+
+
             {/* Footer Decorative Line */}
             <img
                 onClick={() => {
@@ -54,22 +63,25 @@ const Speakers = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        top-0 left-0
-                        translate-x-[-40%] translate-y-[-40%]
+                        -top-40 -left-40
+                        sm:-top-48 sm:-left-48
+                        lg:-top-60 lg:-left-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
 
+            {/* Bottom shadow */}
             <img
                 src="/images/shadow.svg"
                 alt="Shadow"
                 className="
                         absolute
-                        bottom-0 right-0
-                        translate-x-[40%] translate-y-[40%]
+                        -bottom-40 -right-40
+                        sm:-bottom-48 sm:-right-48
+                        lg:-bottom-60 lg:-right-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
         </section>

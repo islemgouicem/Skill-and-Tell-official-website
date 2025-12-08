@@ -3,8 +3,11 @@ import React from "react"
 import { Menu } from "lucide-react"
 import { Button } from "../components/ui/button.jsx"
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet.jsx"
+import { useNavigate } from "react-router-dom";
 
 function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
+    const navigate = useNavigate();
+
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -39,6 +42,15 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                         </a>
                     ))}
                 </nav>
+                <Button
+                    onClick={() => {
+                        navigate("/eunoia/register");
+                        window.scrollTo(0, 0);
+                    }}
+                    className="flex btn-grad px-8 py-4 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] justify-center items-center gap-2.5 text-purple-1"
+                >
+                    Register now
+                </Button>
             </SheetContent>
         </Sheet>
     )

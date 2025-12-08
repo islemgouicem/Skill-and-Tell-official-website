@@ -1,22 +1,22 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../components/ui/accordion_eunoia"
-import faqItems from "../../data/faq.json"
+import rules from "../../data/eunoia_rules.json"
 
 const Rules = () => {
     return (
         <section className="relative w-full overflow-hidden py-20" id="rules">
             {/* Title */}
             <h2 className="text-4xl md:text-6xl eunoia-title py-2 text-center ">
-                Rules & Guidelines
+                Q&A
                 <div className="w-full h-[1px] mx-auto max-w-[250px] mt-5 mb-4 bg-gradient-to-r from-gold/0 via-gold to-gold/0"></div>
             </h2>
 
             <div className="container mx-auto px-8 md:px-6 relative z-10">
                 <p className="text-base md:text-lg text-center max-w-2xl mx-auto text-[#999999]">
-                    Please read and follow these guidelines to ensure a fair and successful event for everyone
+                    Everything you need to know about EUNOIA
                 </p>
                 <div className="max-w-3xl mx-auto my-10 py-0">
                     <Accordion type="single" collapsible className="w-full">
-                        {faqItems.map((item) => (
+                        {rules.map((item) => (
                             <div key={item.value}>
                                 <AccordionItem
                                     value={item.value}
@@ -32,7 +32,7 @@ const Rules = () => {
                                         </div>
 
                                     </AccordionTrigger>
-                                    <AccordionContent className="px-4 pb-2 md:px-6 md:pb-4 text-neutral-200 md:text-lg">
+                                    <AccordionContent className="whitespace-pre-line px-4 pb-2 md:px-6 md:pb-4 text-neutral-200 md:text-lg">
                                         {item.answer}
                                     </AccordionContent>
                                 </AccordionItem>
@@ -76,22 +76,25 @@ const Rules = () => {
                 alt="Shadow"
                 className="
                         absolute
-                        top-0 right-0
-                        translate-x-[40%] translate-y-[-40%]
+                        -top-40 -right-40
+                        sm:-top-48 sm:-right-48
+                        lg:-top-60 lg:-right-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
 
+            {/* Bottom shadow */}
             <img
                 src="/images/shadow.svg"
                 alt="Shadow"
                 className="
                         absolute
-                        bottom-0 left-0
-                        translate-x-[-40%] translate-y-[40%]
+                        -bottom-40 -left-40
+                        sm:-bottom-48 sm:-left-48
+                        lg:-bottom-60 lg:-left-60
                         w-[400px] sm:w-[450px] lg:w-[620px]
-                        pointer-events-none transform-gpu
+                        pointer-events-none
                     "
             />
         </section>
