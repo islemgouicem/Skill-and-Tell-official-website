@@ -36,6 +36,24 @@ function IdeathonRegistration() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const navigate = useNavigate();
 
+    const fieldRefs = useRef({})            // stores refs to inputs by key like "leaderEmail" or "members.0.email"
+    const [alert, setAlert] = useState(null) // { type: 'error'|'success', message: '...' }
+
+    function scrollToField(key) {
+        const el = fieldRefs.current?.[key]
+        if (el && el.scrollIntoView) {
+            // small timeout to ensure DOM updated and error messages rendered
+            setTimeout(() => {
+                try {
+                    el.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+                    if (typeof el.focus === "function") el.focus();
+                } catch (e) {
+                    // fallback
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+                }
+            }, 60);
+        }
+    }
     // Configuration for team size
     const totalSteps = 3
     const MIN_MEMBERS_COUNT = 3;
@@ -152,9 +170,9 @@ function IdeathonRegistration() {
 
             // Leader Validation (Registration 1.png)
             if (!formData.leaderName.trim()) stepErrors.leaderName = "Leader's Full Name is required";
-            if (!formData.leaderEmail.trim() || !emailRegex.test(formData.leaderEmail)) stepErrors.leaderEmail = "Please enter a valid Leader Email address";
-            if (!formData.leaderPhone.trim() || !phoneRegex.test(formData.leaderPhone)) stepErrors.leaderPhone = "Please enter a valid Leader Phone number (10-15 digits, no spaces)";
-            if (!formData.leaderUniversity.trim()) stepErrors.leaderUniversity = "Please enter the Team's Primary University";
+            if (!formData.leaderEmail.trim() || !emailRegex.test(formData.leaderEmail)) stepErrors.leaderEmail = "Please enter a valid Email address";
+            if (!formData.leaderPhone.trim() || !phoneRegex.test(formData.leaderPhone)) stepErrors.leaderPhone = "Please enter a valid Phone number";
+            if (!formData.leaderUniversity.trim()) stepErrors.leaderUniversity = "Please enter your University";
         }
 
         if (currentStep === 2) {
@@ -217,6 +235,7 @@ function IdeathonRegistration() {
             const uniqueEmails = new Set(allEmails);
 
             if (allEmails.length !== uniqueEmails.size) {
+                window.alert("duplicate emails");
                 stepErrors.duplicateEmails = "A team member's email cannot be the same as the leader's or another member's.";
             }
         }
@@ -227,6 +246,21 @@ function IdeathonRegistration() {
         }
 
         setErrors(stepErrors);
+
+        // attempt to scroll to first invalid field so users notice what's missing
+        if (Object.keys(stepErrors).length > 0) {
+            // members errors are nested as stepErrors.members = { index: { field: msg } }
+            if (stepErrors.members) {
+                const firstMemberIndex = Math.min(...Object.keys(stepErrors.members).map(k => Number(k)));
+                const firstMemberField = Object.keys(stepErrors.members[firstMemberIndex])[0];
+                scrollToField(`members.${firstMemberIndex}.${firstMemberField}`);
+            } else {
+                // pick first top-level error key (e.g. leaderEmail, teamName, teamMotivation)
+                const firstKey = Object.keys(stepErrors)[0];
+                scrollToField(firstKey);
+            }
+        }
+
         return Object.keys(stepErrors).length === 0;
     };
 
@@ -322,7 +356,22 @@ function IdeathonRegistration() {
                 window.scrollTo(0, 0);
             } catch (error) {
                 console.error("Error submitting form:", error)
-                alert(`There was an error submitting your registration. Please check if the leader email or any member email is already in use. Error: ${error.message}`)
+
+                // Attempt to detect unique-constraint / duplicate email database error
+                const isDuplicate = (
+                    (error?.code === "23505") || // postgres unique violation
+                    (error?.message && /duplicate|unique|already exists/i.test(error.message))
+                );
+
+                if (isDuplicate) {
+                    window.alert("Hey! Don't leave the page!");
+
+                    setAlert({ type: "error", message: "One of the emails is already registered. Please use a different email." });
+                    // scroll to leader email as a reasonable default (or keep scanning for the offending field if your error contains column info)
+                    scrollToField("leaderEmail");
+                } else {
+                    setAlert({ type: "error", message: `There was an error submitting your registration. ${error?.message || ""}` });
+                }
             } finally {
                 setIsSubmitting(false)
             }
@@ -376,6 +425,7 @@ function IdeathonRegistration() {
                             <input
                                 type="text"
                                 value={member.fullName}
+                                ref={el => fieldRefs.current[`members.${index}.fullName`] = el}
                                 onChange={(e) => handleMemberChange(index, "fullName", e.target.value)}
                                 className="input-style"
                                 placeholder="Enter your full name"
@@ -391,6 +441,7 @@ function IdeathonRegistration() {
                             <input
                                 type="email"
                                 value={member.email}
+                                ref={el => fieldRefs.current[`members.${index}.email`] = el}
                                 onChange={(e) => handleMemberChange(index, "email", e.target.value)}
                                 className="input-style border-gold"
                                 placeholder="Enter your email"
@@ -406,6 +457,7 @@ function IdeathonRegistration() {
                             <input
                                 type="tel"
                                 value={member.phone}
+                                ref={el => fieldRefs.current[`members.${index}.phone`] = el}
                                 onChange={(e) => handleMemberChange(index, "phone", e.target.value)}
                                 className="input-style"
                                 placeholder="Enter your phone number"
@@ -421,6 +473,7 @@ function IdeathonRegistration() {
                             <input
                                 type="text"
                                 value={member.university}
+                                ref={el => fieldRefs.current[`members.${index}.university`] = el}
                                 onChange={(e) => handleMemberChange(index, "university", e.target.value)}
                                 className="input-style"
                                 placeholder="Select your university"
@@ -479,7 +532,7 @@ function IdeathonRegistration() {
             <div className="max-w-6xl mx-auto py-4">
                 <ProgressStepper currentStep={currentStep} steps={stepLabels} />
             </div>
-
+            
             {/* Form Container (Ensures responsiveness) */}
             <div className="max-w-5xl mx-auto my-6">
                 <div className="glass rounded-2xl p-6 md:p-8">
@@ -517,6 +570,7 @@ function IdeathonRegistration() {
                                             value={formData.teamName}
                                             onChange={(e) => handleInputChange("teamName", e.target.value)}
                                             className="input-style"
+                                            ref={el => fieldRefs.current["teamName"] = el}
                                             placeholder="Enter your team name"
                                             required
                                         />
@@ -541,6 +595,7 @@ function IdeathonRegistration() {
                                             className="input-style"
                                             placeholder="Enter your full name"
                                             required
+                                            ref={el => fieldRefs.current["leaderName"] = el}
                                         />
                                         {errors.leaderName && <p className="text-error-200 text-sm my-1">* {errors.leaderName}</p>}
 
@@ -685,6 +740,7 @@ function IdeathonRegistration() {
                                 <label className="input-label">Team Motivation (Why participate?) <Star /></label>
                                 <textarea
                                     value={formData.teamMotivation}
+                                    ref={el => fieldRefs.current["teamMotivation"] = el}
                                     onChange={(e) => {
                                         handleInputChange("teamMotivation", e.target.value)
                                         e.target.style.height = "auto";
