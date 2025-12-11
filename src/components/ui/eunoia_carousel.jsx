@@ -14,10 +14,10 @@ const judges = [
     {
         id: 5,
         name: "Toualbia Selsabil",
-        subtitle: "Lorem Ipsum is simply dummy",
+        subtitle: "Banker and Marketer - Bank of Algeria, CNEP",
         image: "/images/juries/photo_toualbia.jpg",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            "Specialized in the banking sector, her experiences at CNEP, ABC Bank, and CPA Bank will help guide the business aspect of EUNOIA’s solutions."
     },
     {
         id: 6,
@@ -30,18 +30,18 @@ const judges = [
     {
         id: 2,
         name: "Boughaleb Sadek el Amine",
-        subtitle: "Lorem Ipsum is simply dummy",
+        subtitle: "Professor at ENSTA",
         image: "/images/juries/photo_boughaleb.jpg",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            "Former mission chief and researcher, Mr. Boughaleb is a seasoned lecturer at ENSTA. His expertise in project planning and financial analysis will be at the service of EUNOIA this Saturday."
     },
     {
         id: 4,
         name: "Hadache Ihsene",
-        subtitle: "Lorem Ipsum is simply dummy",
+        subtitle: "Co-founder and CEO, Oziri",
         image: "/images/juries/photo_ihcene.jpg",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            "Business and product consultant, with experience as a business developer in the UK and the Netherlands, she recently founded Oziri, an AI tool to assist students."
     },
     {
         id: 7,
