@@ -345,8 +345,6 @@ function IdeathonRegistration() {
                     if (memberError) throw memberError;
                 }
 
-                localStorage.setItem("teamRegistered", "true");
-
                 navigate("/registered", {
                     state: {
                         title: "Registration Complete!",

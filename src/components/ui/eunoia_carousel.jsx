@@ -5,44 +5,76 @@ import JudgeCard from "./eunoia_card"
 const judges = [
     {
         id: 1,
-        name: "To be announced",
+        name: "Bakhti Dalila",
+        subtitle: "Pharmacienne Biologiste",
+        image: "/images/juries/dalila.jpeg",
+        description:
+            "Biologist pharmacist focused on health and well-being. Brings expertise from Laboratoire Dalila Bakhti to guide wellness projects."
+    },
+    {
+        id: 5,
+        name: "Toualbia Selsabil",
         subtitle: "Lorem Ipsum is simply dummy",
-        image:"/images/anony.png",
+        image: "/images/juries/photo_toualbia.jpg",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+        id: 6,
+        name: "Boumenir	Yasmine",
+        subtitle: "Consultante en Neurosciences & Innovation",
+        image: "/images/juries/yasmine.jpeg",
+        description:
+            "Neuroscience and innovation consultant focused on mental well-being. Brings expertise from Cognesens to support cutting-edge wellness projects."
     },
     {
         id: 2,
-        name: "To be announced",
+        name: "Boughaleb Sadek el Amine",
         subtitle: "Lorem Ipsum is simply dummy",
-        image:"/images/anony.png",
-        description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-        id: 3,
-        name: "To be announced",
-        subtitle: "Lorem Ipsum is simply dummy",
-        image:"/images/anony.png",
+        image: "/images/juries/photo_boughaleb.jpg",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
         id: 4,
-        name: "To be announced",
+        name: "Hadache Ihsene",
         subtitle: "Lorem Ipsum is simply dummy",
-        image:"/images/anony.png",
+        image: "/images/juries/photo_ihcene.jpg",
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
-        id: 5,
-        name: "To be announced",
-        subtitle: "Lorem Ipsum is simply dummy",
-        image:"/images/anony.png",
+        id: 7,
+        name: "Benahmed Mohamed",
+        subtitle: "Médecin, Expert en santé publique et promotion du bien-être",
+        image: "/images/behahmed.jpg",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    }
+            "Public health doctor focused on well-being. Advocates daily activity to prevent disease and boost quality of life."
+    },
+    {
+        id: 8,
+        name: "Adam Selamnia",
+        subtitle: "Co-Founder & Business Development Director, NIUM (Luxembourg)",
+        image: "/images/adam_selmania.jpg",
+        description:
+            "Co-Founder & Business Development Director at NIUM. Highlights how founders’ well-being drives better decisions, resilience, and sustainable innovation."
+    },
+    {
+        id: 9,
+        name: "Droueche Hocine",
+        subtitle: "CEO of Ibticar A.I.",
+        image: "/images/anony.png",
+        description:
+            "CEO of Ibticar A.I., driving innovative business solutions. Guides projects with a focus on technology and well-being impact."
+    },
+    {
+        id: 3,
+        name: "Ibersiene Rachid",
+        subtitle: "Manager of Fromagerie FAFI",
+        image: "/images/juries/fafo.jpg",
+        description:
+            "Manager of Fromagerie FAFI with a focus on business growth. Supports projects that combine entrepreneurship and well-being."
+    },
 ]
 
 const JudgesCarousel = () => {
@@ -62,7 +94,7 @@ const JudgesCarousel = () => {
 
     return (
         <section className="gradient-purple-bg px-4 md:px-8 flex flex-col items-center justify-center mb-10">
-            
+
 
             {/* Carousel container */}
             <div className="relative w-full max-w-6xl">

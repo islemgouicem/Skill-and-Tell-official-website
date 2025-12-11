@@ -13,7 +13,7 @@ const AgendaItem = ({ item, index }) => {
                 {isLeft ? (
                     <>
                         {/* Left side: Card */}
-                        <div className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
+                        <div dir="rtl" className="w-[45%] transparency backdrop-blur-sm rounded-2xl p-6 relative border-1 border-gold">
                             <div className="flex items-center">
                                 <div className="w-8 h-8 mr-2 rounded-full bg-gold/30 flex items-center justify-center">
                                     <img src={`/images/${item.icon}.svg`} className="w-6" />
