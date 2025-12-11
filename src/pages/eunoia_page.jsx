@@ -35,7 +35,7 @@ export default function Eunoia() {
             <Judges />
             <EventAgenda />
             <Rules />
-            <Organizers />
+            {/* <Organizers /> */}
 
             <Footer />
         </main>

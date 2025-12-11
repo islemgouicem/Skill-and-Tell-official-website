@@ -24,8 +24,8 @@ function Root() {
 
                 <Route path="/registered" element={<Registered />} />
                 <Route path="/eunoia" element={<Eunoia />} />
-                <Route path="/eunoia/register" element={<EunoiaRegisteration />} />
-                <Route path="/eunoia/organizers" element={<OrganizerRegistration />} />
+                {/* <Route path="/eunoia/register" element={<EunoiaRegisteration />} /> */}
+                {/* <Route path="/eunoia/organizers" element={<OrganizerRegistration />} /> */}
             </Routes>
         </Router>
     );

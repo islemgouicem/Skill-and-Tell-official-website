@@ -42,7 +42,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                         </a>
                     ))}
                 </nav>
-                <Button
+                {/* <Button
                     onClick={() => {
                         navigate("/eunoia/register");
                         window.scrollTo(0, 0);
@@ -50,7 +50,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                     className="flex btn-grad px-8 py-4 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] justify-center items-center gap-2.5 text-purple-1"
                 >
                     Register now
-                </Button>
+                </Button> */}
             </SheetContent>
         </Sheet>
     )

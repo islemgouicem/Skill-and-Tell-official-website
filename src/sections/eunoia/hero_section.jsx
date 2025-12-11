@@ -1,12 +1,21 @@
 import { CalendarIcon, MapPinIcon } from "lucide-react"
 import { Button } from "../../components/ui/button"
+import PopUp from "../../components/ui/popup.jsx"
+import { useState } from "react"
 import { Card, CardContent } from "../../components/ui/card_eunoia"
 import { useNavigate } from "react-router-dom";
 
 
 export default function HeroSection() {
     const navigate = useNavigate();
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
     const infoCards = [
         {
             icon: CalendarIcon,
@@ -58,10 +67,11 @@ export default function HeroSection() {
                         </h1>
                         {/* Register Button */}
                         <Button
-                            onClick={() => {
-                                navigate("/eunoia/register");
-                                window.scrollTo(0, 0);
-                            }}
+                            onClick={handleOpenPopup}
+                            // {() => {
+                            //     navigate("/eunoia/register");
+                            //     window.scrollTo(0, 0);
+                            // }}
                             className="btn-grad px-8 py-5 sm:px-10 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
                         >
                             Register now
@@ -92,7 +102,11 @@ export default function HeroSection() {
                         })}
                     </div>
                 </div>
-
+                <PopUp isOpen={isPopupOpen}
+                    onClose={handleClosePopup}
+                    title={"Registration"}
+                    subtitle={"Closed for This Season"}
+                    msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we’ll be opening again with fresh opportunities next season."} />
                 {/* Bottom decorations */}
                 <img
                     onClick={() => {

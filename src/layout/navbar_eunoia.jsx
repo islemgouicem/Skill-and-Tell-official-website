@@ -16,7 +16,7 @@ function Navbar() {
         { name: "Judges", href: "#judges" },
         { name: "Agenda", href: "#agenda" },
         { name: "Q&A", href: "#rules" },
-        { name: "Organize", href: "#organizers" },
+        // { name: "Organize", href: "#organizers" },
     ]
 
     const handleNavLinkClick = (e, href) => {
@@ -93,7 +93,7 @@ function Navbar() {
                             </a>
                         ))}
                     </nav>
-                    <Button
+                    {/* <Button
                         onClick={() => {
                             navigate("/eunoia/register");
                             window.scrollTo(0, 0);
@@ -101,7 +101,7 @@ function Navbar() {
                         className="hidden lg:flex btn-grad px-5 py-3.5 rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] justify-center items-center gap-2.5 text-purple-1"
                     >
                         Register now
-                    </Button>
+                    </Button> */}
                     <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold/0 via-gold to-gold/0" />
