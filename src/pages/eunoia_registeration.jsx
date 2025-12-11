@@ -698,18 +698,7 @@ function IdeathonRegistration() {
                             </fieldset>
 
                             {/* ADD OPTIONAL MEMBER BUTTON */}
-                            {formData.members.length < MAX_MEMBERS_COUNT && (
-                                <div className="flex justify-center mt-6">
-                                    <Button
-                                        onClick={addMember}
-                                        className="text-space-accent hover:text-white border border-space-accent hover:bg-space-light/20 transition-colors duration-200"
-                                        variant="ghost"
-                                    >
-                                        <Plus className="w-5 h-5 mr-2" />
-                                        Add 4th Member
-                                    </Button>
-                                </div>
-                            )}
+                            
                         </div>
                     )}
 
