@@ -1,13 +1,13 @@
 [
   {
-    "id": 24,
-    "email": "tarek.iouanoughene@ensia.edu.dz",
-    "name": "Tarek Iouanoughene",
-    "image": "/images/managers/tarek.webp",
-    "role": "Media Manger",
+    "id": 26,
+    "email": "javascript:void(0)",
+    "name": "Sami Kadi",
+    "image": "/images/managers/sami_kadi.jpg",
+    "role": "Communication Co-manger",
     "instagram": "javascript:void(0)",
     "linkedin": "javascript:void(0)",
-    "description": "Tarek is the Media Manager at Skill&Tell, bringing creativity, dedication, and a passion for empowering others."
+    "description": "Sami is the Communication Co-Manager at Skill&Tell, connecting teams and audiences with clarity and creativity."
   },
   {
     "id": 1,
@@ -18,16 +18,6 @@
     "instagram": "https://www.instagram.com/_.akram._gavix_?igsh=MXZ1d25uejdnaWNvMA==",
     "linkedin": "javascript:void(0)",
     "description": "Benrabah akram is a dedicated and passionate member of Skill&Tell, currently serving as the Production Co-manager. He works with creativity commitment, and a drive to empower others."
-  },
-  {
-    "id": 2,
-    "email": "wassim.taleb@ensia.edu.dz",
-    "name": "Taleb Wassim",
-    "image": "/images/managers/TalebWassim.jpg",
-    "role": "Production Co-manager",
-    "instagram": "https://www.instagram.com/yoitswassim?igsh=MWdsMm8zeDhjaGJ2Yg==",
-    "linkedin": "www.linkedin.com/in/wassim-student-taleb-597058379",
-    "description": "I'm a 3rd year student, also a video editor and i enjoy working on teams."
   },
   {
     "email": "ouksil.sayad@ensia.edu.dz",
@@ -79,16 +69,7 @@
     "linkedin": "",
     "description": "People tell me I’m friendly, outgoing and intense in whatever I do. I love learning new things and feel content when doing meaningful stuff."
   },
-  {
-    "id": 8,
-    "email": "mohamed.ramy.guettal@ensia.edu.dz",
-    "name": "Mohamed Ramy Guettal",
-    "image": "/images/managers/RamyGuettal.jpg",
-    "role": "Marketing Lead",
-    "instagram": "https://www.instagram.com/ramyguettal?igsh=Y2ppdzRoNjNwc256",
-    "linkedin": "www.linkedin.com/in/mohamed-ramy-guettal",
-    "description": "Third-year AI student and Marketing Manager at Skill&Tell, passionate about AI, technology, and production, with a strong drive for innovation and leadership"
-  },
+
   {
     "id": 9,
     "email": "yasmine.kihal@ensia.edu.dz",
@@ -179,16 +160,7 @@
     "linkedin": "https://www.linkedin.com/in/achraf-baha-eddine-bennacer-5a91012a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     "description": "Achraf is a dedicated and passionate manager, currently serving as the Dev co-manager. With a strong background in web and mobile development, he leads with creativity, commitment, and a drive to empower others."
   },
-  {
-    "id": 18,
-    "email": "malekkdjr@gmail.com",
-    "name": "DJAARAOUI ABDELMALEK",
-    "image": "/images/managers/Malek.jpg",
-    "role": "Design lead",
-    "instagram": "https://www.instagram.com/malekkdjr?igsh=MTQzMW80a3owbXRxcA==",
-    "linkedin": "https://www.linkedin.com/in/abdelmalek-djaaraoui-69805728a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "description": "I'm Abdelmalek, a passionate designer and technology enthusiast, always exploring creativity and innovation.\nI love building digital solutions that make a real impact."
-  },
+
   {
     "id": 19,
     "email": "Bmlydia64@gmail.com",
@@ -248,15 +220,5 @@
     "instagram": "javascript:void(0)",
     "linkedin": "javascript:void(0)",
     "description": "Salamo is the Opportunities Manager at Skill&Tell, responsible for identifying and managing new opportunities for our growth."
-  },
-  {
-    "id": 26,
-    "email": "javascript:void(0)",
-    "name": "Sami Kadi",
-    "image": "/images/managers/sami_kadi.jpg",
-    "role": "Communication Co-manger",
-    "instagram": "javascript:void(0)",
-    "linkedin": "javascript:void(0)",
-    "description": "Sami is the Communication Co-Manager at Skill&Tell, connecting teams and audiences with clarity and creativity."
   }
 ]

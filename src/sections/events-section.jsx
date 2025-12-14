@@ -171,7 +171,12 @@ function EventsSection() {
                     >
                       <div className="relative w-full h-[45%] rounded-lg overflow-hidden group">
                         <button
-                          onClick={() => { navigate("/eunoia"); window.scrollTo(0, 0); }}
+                          onClick={() => {
+                            if (isIncomingEvent && isActive) {
+                              navigate("/eunoia");
+                              window.scrollTo(0, 0);
+                            }
+                          }}
                           className="w-full h-full flex items-center justify-center p-0 border-none bg-transparent cursor-pointer"
                         >
                           <img
@@ -183,7 +188,7 @@ function EventsSection() {
 
                           {/* --- NEW: Click to Register Overlay Text --- */}
                           {/* Only show if isActive (card is expanded) */}
-                          {isActive && (
+                          {(isActive && isIncomingEvent) && (
                             <div className="absolute inset-0 bg-opacity-30 flex items-center justify-center text-white 
                                                             text-lg font-bold opacity-90 transition-opacity duration-300">
                               CLICK TO DISCOVER

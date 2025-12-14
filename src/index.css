@@ -433,7 +433,6 @@
 .frosted-glass {
   background: linear-gradient(177.16deg, rgba(255, 255, 255, 0.3) 0.01%, rgba(255, 255, 255, 0) 99.6%);
   backdrop-filter: blur(30px);
-  -webkit-backdrop-filter:  blur(30px);
 }
 
 /* Scroll reveal animation */
@@ -492,7 +491,6 @@
 .heads-card {
   background: linear-gradient(208.43deg, rgba(26, 1, 50, 0.36) 2.67%, rgba(215, 174, 255, 0.16) 96.85%);
   backdrop-filter: blur(30px);
-  -webkit-backdrop-filter:  blur(30px);
 }
 
 .gradient-buttons {
@@ -524,13 +522,13 @@
   }
 }
 
-
+/* there's problem with ios devices */
 .glass {
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid #7B2CBF;
   box-shadow: inset 2px 2px 25px rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  -webkit-backdrop-filter:  blur(15px);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
@@ -550,13 +548,11 @@
 .badges {
   background: linear-gradient(94.54deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
   backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
 }
 
 .navbar-bg {
   background: linear-gradient(208.43deg, rgba(26, 1, 50, 0.16) 2.67%, rgba(215, 174, 255, 0.16) 96.85%);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 }
 .mob-navbar-bg {
   background: linear-gradient(
@@ -565,16 +561,11 @@
     rgba(180, 100, 255, 0.25) 96.85% /* light violet */
   );
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 }
 a, button,.pointer {
   cursor: url("/src/assets/images/pointer.png") 4 4, pointer;
 }
-@supports (-webkit-backdrop-filter: none) {
-    .glass {
-        background: #430870;
-    }
-}
+
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<   loading page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */

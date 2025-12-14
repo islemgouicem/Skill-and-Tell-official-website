@@ -16,6 +16,7 @@ function Navbar() {
         { name: "Judges", href: "#judges" },
         { name: "Agenda", href: "#agenda" },
         { name: "Q&A", href: "#rules" },
+        { name: "Contacts", href: "#contacts" },
         // { name: "Organize", href: "#organizers" },
     ]
 
@@ -57,7 +58,7 @@ function Navbar() {
     return (
         <>
             <div
-                className="fixed top-0 left-0 w-full h-20 z-40 pointer-events-none navbarB"
+                className="fixed top-0 left-0 w-full h-20 pointer-events-none navbarB"
                 onMouseEnter={showNavbar}
             />
 
