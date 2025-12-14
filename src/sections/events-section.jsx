@@ -147,7 +147,7 @@ function EventsSection() {
                       <div className="absolute top-0 right-0 z-20 overflow-hidden w-28 h-28 pointer-events-none">
                         <div className="absolute top-5 -right-8 w-40 transform rotate-45 bg-[#FF6D00]
                                       text-center text-white text-xs font-bold py-1 shadow-lg animate-fade-in-down">
-                          UPCOMING
+                          Latest
                         </div>
                       </div>
                     )}

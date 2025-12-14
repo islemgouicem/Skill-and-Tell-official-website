@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 
+//##########################################################
+// all rights reserved to Techartist -- @VoXelo from codepen
+// codepen link: https://codepen.io/VoXelo/pen/wBKvJxd
+//##########################################################
+
 const BlackHole = () => {
     const mountRef = useRef(null)
     const sceneRef = useRef(null)
