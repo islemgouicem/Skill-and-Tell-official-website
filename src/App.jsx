@@ -6,6 +6,7 @@ import MouseSparkles from "./components/effects/mouse-sparkles.jsx";
 import Footer from "./layout/footer.jsx";
 import AboutSection from "./sections/about-section.jsx";
 import TeamSection from "./sections/team-section.jsx";
+import DepartmentTestSection from "./sections/dep_test.jsx";
 import StatisticsSection from "./sections/statistics-section.jsx";
 import EventsSection from "./sections/events-section.jsx";
 import AppSection from "./sections/app-section.jsx";
@@ -35,6 +36,7 @@ function App() {
           <StatisticsSection />
           <EventsSection />
           <AppSection />
+          <DepartmentTestSection />
           <FQ />
         </Suspense>
       </main>
