@@ -40,14 +40,14 @@
     "description": "Mohamed is a dedicated and passionate member of Skill&Tell, currently serving as the head of production department . With a strong background in editing ,he leads with creativity, commitment, and a drive to empower others."
   },
   {
-    "id": 5,
-    "email": "hala.boutaya@ensia.edu.dz",
-    "name": "Hala BOUTAYA",
-    "role": "Events Lead",
-    "image": "/images/managers/boutaya_hala.jpg",
-    "instagram": "https://www.instagram.com/halla.btv?igsh=bWloa2l0bzJyNmZn",
-    "linkedin": "https://www.linkedin.com/in/halla-boutaya-92991a2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "description": "I am Boutaya Hala, leader of the Events Department, passionate about organizing impactful and creative events. With strong planning and coordination skills."
+    "id": 6,
+    "email": "chiraz.kaddour@ensia.edu.dz",
+    "name": "Chiraz Kaddour",
+    "image": "/images/managers/chiraz.jpg",
+    "role": "Planing manager",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "As a Planning Manager, I am responsible for ensuring the smooth organization and execution of events, from initial planning to final coordination. I enjoy organizing activities, managing details, and creating a well-structured environment that gives participants a seamless and enjoyable experience"
   },
   {
     "id": 6,
@@ -60,6 +60,16 @@
     "description": "As Logistics Manager of Skill & Tell, Sanaa brings creativity and great experience to event organization. Honest and hardworking, she is passionate about making every project impactful and well-structured."
   },
   {
+    "id": 5,
+    "email": "hala.boutaya@ensia.edu.dz",
+    "name": "Hala BOUTAYA",
+    "role": "Events Lead",
+    "image": "/images/managers/boutaya_hala.jpg",
+    "instagram": "https://www.instagram.com/halla.btv?igsh=bWloa2l0bzJyNmZn",
+    "linkedin": "https://www.linkedin.com/in/halla-boutaya-92991a2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "description": "I am Boutaya Hala, leader of the Events Department, passionate about organizing impactful and creative events. With strong planning and coordination skills."
+  },
+  {
     "id": 7,
     "email": "nour.tliba@ensia.edu.dz",
     "name": "Nour TLIBA",
@@ -67,9 +77,8 @@
     "role": "Relex Lead",
     "instagram": "https://www.instagram.com/nourtliba?igsh=MXN4bXduNTQ0bW83bw%3D%3D&utm_source=qr",
     "linkedin": "",
-    "description": "People tell me I’m friendly, outgoing and intense in whatever I do. I love learning new things and feel content when doing meaningful stuff."
+    "description": "People tell me I'm friendly, outgoing and intense in whatever I do. I love learning new things and feel content when doing meaningful stuff."
   },
-
   {
     "id": 9,
     "email": "yasmine.kihal@ensia.edu.dz",
@@ -160,26 +169,25 @@
     "linkedin": "https://www.linkedin.com/in/achraf-baha-eddine-bennacer-5a91012a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     "description": "Achraf is a dedicated and passionate manager, currently serving as the Dev co-manager. With a strong background in web and mobile development, he leads with creativity, commitment, and a drive to empower others."
   },
-
-  {
-    "id": 19,
-    "email": "Bmlydia64@gmail.com",
-    "name": "Mokhtar Lydia",
-    "image": "/images/managers/lydia.jpg",
-    "role": "Graphic Design Manager",
-    "instagram": "https://www.instagram.com/_.lyschxia._?igsh=cGZzc3NsMnRhcHI=",
-    "linkedin": "javascript:void(0)",
-    "description": "An enthusiastic girl with multiple abilities and a lot of passion"
-  },
   {
     "id": 20,
     "email": "ahlem.toubrinet@ensia.edu.dz",
     "name": "Ahlem Toubrinet",
     "image": "/images/managers/Ahlem_Toubrinet.jpg",
-    "role": "UI/UX manager",
+    "role": "Design Lead",
     "instagram": "javascript:void(0)",
     "linkedin": "https://www.linkedin.com/in/ahlem-toubrinet/",
-    "description": "Passionate about design and proud to shape user experiences as UI/UX Manager at Skill&Tell."
+    "description": "Passionate about design and proud to shape user experiences as Design Lead at Skill&Tell."
+  },
+  {
+    "id": 19,
+    "email": "m.lazazi@enscs.edu.dz",
+    "name": "Meriem Lazazi",
+    "image": "/images/managers/meriem.jpg",
+    "role": "Graphic Design Manager",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "I'm Meriem, Design Manager at Skill&Tell. I love turning ideas into visuals that tell a story and bring energy to projects. I enjoy working with creative teams, exploring new design trends, and creating designs that feel both meaningful and fun. Always curious, always learning, and always excited to create something impactful"
   },
   {
     "id": 21,
