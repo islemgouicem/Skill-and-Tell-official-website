@@ -1,8 +1,8 @@
 import React from "react"
-import {Root, Overlay, Trigger, Close, Portal, Content, Title, Description} from "@radix-ui/react-dialog"
+import { Root, Overlay, Trigger, Close, Portal, Content, Title, Description } from "@radix-ui/react-dialog"
 import { cva } from "class-variance-authority"
 import { X } from "lucide-react"
-import { cn } from "../../lib/utils" // Adjusted import path
+import { cn } from "../../lib/utils/utils" // Adjusted import path
 
 const Sheet = Root
 

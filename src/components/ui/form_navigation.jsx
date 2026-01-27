@@ -1,14 +1,14 @@
 import { ArrowLeft, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "./button";
 import { useNavigate } from "react-router-dom";
-import { useRegistration } from "../../lib/registerationData";
+import { useRegistration } from "../../lib/hooks/useRegistration";
 import { useState } from "react";
-import { supabase } from "../../lib/supabaseClient";
+import { supabase } from "../../lib/services/supabase";
 
 
 const FormNavigation = () => {
     const navigate = useNavigate();
-    const {formData, currentStep, nextStep, prevStep, totalSteps, setPhase1, validateStep, isRegistered, setIsRegistered} = useRegistration();
+    const { formData, currentStep, nextStep, prevStep, totalSteps, setPhase1, validateStep, isRegistered, setIsRegistered } = useRegistration();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const submitForm = async () => {

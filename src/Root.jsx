@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainApp from "./App.jsx";
-import RegisterationPage from "./pages/registration-page.jsx";
-import Registered from "./pages/registered.jsx";
-import Eunoia from "./pages/eunoia_page.jsx";
-import EunoiaRegisteration from "./pages/eunoia_registeration.jsx";
-import OrganizerRegistration from "./pages/organizers_registration.jsx";
-import { RegisterationProvider } from "./lib/registerationData.jsx";
+import MainApp from "./apps/skillntell/SkillnTellApp.jsx";
+import RegisterationPage from "./apps/skillntell/pages/RegistrationPage.jsx";
+import Registered from "./apps/skillntell/pages/RegisteredPage.jsx";
+import Eunoia from "./apps/eunoia/pages/EunoiaPage.jsx";
+import MobAI from "./apps/mobai/pages/MobaiPage.jsx";
+import EunoiaRegisteration from "./apps/eunoia/pages/RegistrationPage.jsx";
+import OrganizerRegistration from "./apps/eunoia/pages/OrganizersPage.jsx";
+import { RegisterationProvider } from "./lib/hooks/useRegistration.jsx";
 
 function Root() {
     return (
@@ -24,6 +25,7 @@ function Root() {
 
                 <Route path="/registered" element={<Registered />} />
                 <Route path="/eunoia" element={<Eunoia />} />
+                <Route path="/mobai" element={<MobAI />} />
                 {/* <Route path="/eunoia/register" element={<EunoiaRegisteration />} /> */}
                 {/* <Route path="/eunoia/organizers" element={<OrganizerRegistration />} /> */}
             </Routes>

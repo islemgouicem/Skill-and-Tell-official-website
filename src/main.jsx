@@ -1,7 +1,7 @@
 import React from "react";
-import {createRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import Root from "./Root.jsx"; // The new Router component
-import "./index.css";
+import "./styles/index.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,6 +1,6 @@
 import React from "react"
 import { Item, Header, Trigger, Content, Root } from "@radix-ui/react-accordion"
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils/utils"
 import { ChevronDown } from "lucide-react"
 
 // Root Accordion

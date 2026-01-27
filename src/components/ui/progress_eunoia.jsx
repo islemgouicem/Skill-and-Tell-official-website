@@ -1,4 +1,4 @@
-import { cn } from "../../lib/utils"
+import { cn } from "../../lib/utils/utils"
 
 const ProgressStepper = ({ currentStep, steps }) => {
     const getStepStatus = index => {
@@ -16,7 +16,7 @@ const ProgressStepper = ({ currentStep, steps }) => {
     return (
         <div className="w-full max-w-3xl mx-auto">
             <div className="relative flex items-center justify-between w-full">
-                
+
                 {processedSteps.map((step, index) => (
                     <div
                         key={step.id}
@@ -28,7 +28,7 @@ const ProgressStepper = ({ currentStep, steps }) => {
                     >
                         {/* Vertical Column */}
                         <div className="flex flex-col items-center">
-                            
+
                             {/* Circle */}
                             <div
                                 className={cn(

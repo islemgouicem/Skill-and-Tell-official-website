@@ -1,6 +1,6 @@
 import React from "react"
 import { Item, Header, Trigger, Content, Root } from "@radix-ui/react-accordion"
-import { cn } from "../../lib/utils" // Adjusted import path
+import { cn } from "../../lib/utils/utils" // Adjusted import path
 
 const Accordion = Root
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { forwardRef } from "react";
-import {Root, Image, Fallback} from "@radix-ui/react-avatar";
-import { cn } from "../../lib/utils";
+import { Root, Image, Fallback } from "@radix-ui/react-avatar";
+import { cn } from "../../lib/utils/utils";
 
 const Avatar = forwardRef((props, ref) => {
   const { className, ...rest } = props;

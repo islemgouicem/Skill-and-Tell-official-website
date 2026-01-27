@@ -1,0 +1,78 @@
+[
+    {
+        "id": "01",
+        "title": "MobAi",
+        "description": "MobAI is a 3-day hackathon that brings together mobile development, AI, and UI/UX in one exciting event. Participants engage in hands-on workshops to learn the skills they need to tackle the challenges",
+        "date": "2026-02-12",
+        "tags": [
+            "Mobile dev",
+            "AI",
+            "UI/UX",
+            "Hackathon"
+        ],
+        "image": "/images/Mobai.jpg",
+        "path": "/mobai"
+    },
+    {
+        "id": "07",
+        "title": "EUNOIA",
+        "description": "EUNOIA is a full-day innovation event centered on student well-being, featuring an ideathon, expert talks, interactive activities, a cultural village, and social/movement-based experiences. Its goal is to help students tackle real mental and physical health challenges, create meaningful solutions, and strengthen a supportive, energetic campus community.",
+        "date": "2025-12-13",
+        "tags": [
+            "ideathon",
+            "Creativity",
+            "well being"
+        ],
+        "image": "/images/eunoia_event.jpg",
+        "path": "/eunoia"
+    },
+    {
+        "id": "02",
+        "title": "Arcade",
+        "description": "Arcade is the inaugural event of Skill&Tell, featuring a full day packed with fun and challenging activities! Teams compete in various challenges, including math puzzles, programming tasks, the famous scavenger hunt, and other exciting games.",
+        "date": "2025-03-10",
+        "tags": [
+            "Math puzzles",
+            "Programming tasks",
+            "Scavenger hunt",
+            "Games"
+        ],
+        "image": "/images/Arcade.jpg"
+    },
+    {
+        "id": "03",
+        "title": "ElectroHub",
+        "description": "Electro Hub is an exciting electronics day designed for beginners to dive into the world of Arduino. During this event, participants get hands-on experience learning how to use Arduino and its applications.",
+        "date": "2025-04-15",
+        "tags": [
+            "Arduino basics",
+            "Hands-on workshops",
+            "Electronics for beginners"
+        ],
+        "image": "/images/electrohub.webp"
+    },
+    {
+        "id": "04",
+        "title": "IndabaX",
+        "description": "IndabaX is a series of community-driven AI and machine learning events across Africa, empowering local innovators to tackle regional challenges. It fosters collaboration, skill-building, and growth of AI talent within the continent.",
+        "date": "2025-05-20",
+        "tags": [
+            "Machine learning",
+            "Research Papers",
+            "AI"
+        ],
+        "image": "/images/indabax.jpg"
+    },
+    {
+        "id": "05",
+        "title": "AgriChallenge",
+        "description": "Agri Challenge is Algeria’s premier hackathon where students and innovators develop AI-driven solutions to real agricultural problems. It fosters creativity, collaboration, and cutting-edge technology for a smarter agriculture future.",
+        "date": "2025-05-22",
+        "tags": [
+            "AI in agriculture",
+            "data-driven solutions",
+            "plant recognition"
+        ],
+        "image": "/images/agri.jpg"
+    }
+]
