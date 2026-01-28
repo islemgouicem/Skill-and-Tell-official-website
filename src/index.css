@@ -267,7 +267,7 @@
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
     cursor:
-      url("/src/assets/images/cursor.png") 4 4,
+      url("/src/assets/images/shared/cursor.png") 4 4,
       auto;
   }
 

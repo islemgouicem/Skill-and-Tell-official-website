@@ -13,45 +13,21 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks: (id) => {
-            // Vendor chunks - split by library
             if (id.includes('node_modules')) {
-              // React core
-              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-                return 'vendor-react';
-              }
-              // Radix UI components
-              if (id.includes('@radix-ui')) {
-                return 'vendor-radix';
-              }
-              // Framer motion
-              if (id.includes('framer-motion')) {
-                return 'vendor-motion';
-              }
-              // Supabase (likely large)
+              // Only split large, independent libraries
+              // Supabase (large library)
               if (id.includes('@supabase')) {
                 return 'vendor-supabase';
               }
-              // Three.js (3D library - can be large)
+              // Three.js (3D library - large and independent)
               if (id.includes('three')) {
                 return 'vendor-three';
               }
-              // Lucide icons
-              if (id.includes('lucide-react')) {
-                return 'vendor-icons';
-              }
-              // Embla carousel
-              if (id.includes('embla-carousel')) {
-                return 'vendor-carousel';
-              }
-              // Utility libraries (small, can be grouped)
-              if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
-                return 'vendor-utils';
-              }
-              // Other vendors (should be minimal now)
-              return 'vendor-other';
+              // Everything else stays together to avoid React dependency issues
+              return 'vendor';
             }
 
-            // App-specific chunks - split by route/app
+            // App-specific chunks - split by route
             if (id.includes('src/apps/skillntell')) {
               return 'app-skillntell';
             }
@@ -64,7 +40,7 @@ export default defineConfig(() => {
           },
         },
       },
-      chunkSizeWarningLimit: 600, // Increase limit slightly to 600 KB
+      chunkSizeWarningLimit: 800,
     },
   }
 })
