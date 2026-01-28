@@ -142,7 +142,7 @@ function EventsSection() {
                     {/* --- Upcoming Badge --- */}
                     {(event.path == "/mobai" && isActive) && (
                       <div className="absolute top-0 right-0 z-20 overflow-hidden w-28 h-28 pointer-events-none">
-                        <div className="absolute top-5 -right-12 w-40 transform rotate-45 bg-[#FF6D00]
+                        <div className="absolute top-5 -right-12 w-40 transform rotate-45 bg-[#ff0000]
                                       text-center text-white text-xs font-bold py-1 shadow-lg animate-fade-in-down">
                           Upcoming
                         </div>
@@ -185,7 +185,7 @@ function EventsSection() {
 
                           {/* Click to Discover Overlay - Shows for all events with paths */}
                           {(isActive && hasPath) && (
-                            <div className="absolute inset-0 bg-opacity-30 flex items-center justify-center text-white/60 
+                            <div className="absolute inset-0 bg-opacity-30 flex items-center justify-center text-white/60 hover:text-white 
                                                             text-lg font-bold opacity-90 transition-opacity duration-300">
                               CLICK TO DISCOVER
                             </div>

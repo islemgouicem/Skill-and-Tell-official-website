@@ -90,7 +90,7 @@ export default function HeroSection() {
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 
             hover:from-[#FF6D00] hover:to-[rgba(255,109,0,0)] 
-            text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-md transition-color duration-1800
+            text-xl px-5 py-5 sm:px-6 sm:py-6 rounded-[12px] transition-color duration-1800
             border border-Main-300/50 pointer
             animate-grow"
         >

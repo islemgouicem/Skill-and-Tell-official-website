@@ -9,7 +9,9 @@ export default function HeroSection() {
             id="home"
             className="relative w-full pt-[80px] min-h-screen overflow-hidden flex"
         >
-            <p>MOB AY AY</p>
+            <div className="flex flex-col justify-between items-center w-full min-h-[calc(100vh-80px)] relative z-20">
+                <p>MOB AY AY</p>
+            </div>
         </section>
 
     )

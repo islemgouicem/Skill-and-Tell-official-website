@@ -4,6 +4,7 @@ import { Menu } from "lucide-react"
 import { Button } from "../../../components/ui/button.jsx"
 import { Sheet, SheetContent, SheetTrigger } from "../../../components/ui/sheet.jsx"
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/images/mobai/snt_logo.png"
 
 function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
     const navigate = useNavigate();
@@ -18,11 +19,11 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
             </SheetTrigger>
             <SheetContent
                 side="right"
-                className="border-Main-400 w-[250px] text-space-text bg-purple-2"
+                className="border-Main-400 w-[250px] text-space-text bg-[#2d045360]"
             >
                 <a href="#hero" aria-label="logo" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                     <img
-                        src="/images/eunoia.svg"
+                        src={logo}
                         width={100}
                         height={100}
                         alt="EUNOIA Logo"

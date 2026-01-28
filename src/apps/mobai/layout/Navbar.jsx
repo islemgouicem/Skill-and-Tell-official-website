@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom";
 import MobileNavbar from "./MobileNav.jsx"
+import logo from "../../../assets/images/mobai/snt_logo.png"
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -11,11 +12,10 @@ function Navbar() {
     const navLinks = [
         { name: "Home", href: "#home" },
         { name: "About", href: "#about" },
-        { name: "Speaker", href: "#speakers" },
-        { name: "Judges", href: "#judges" },
         { name: "Agenda", href: "#agenda" },
-        { name: "Q&A", href: "#rules" },
-        { name: "Contacts", href: "#contacts" },
+        { name: "Sponsors", href: "#sponsors" },
+        { name: "Mentors", href: "#mentors" },
+        { name: "", href: "#" },
         // { name: "Organize", href: "#organizers" },
     ]
 
@@ -63,16 +63,16 @@ function Navbar() {
 
             <header
                 className={`fixed w-full z-50 transition-all duration-500 ease-in-out backdrop-blur-sm shadow-lg ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-                    } bg-purple-2`}
+                    }`}
                 onMouseEnter={showNavbar}
                 onMouseLeave={() => !isOpen && startHideTimer(2000)}
             >
                 <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-                    <a href="#hero" aria-label="logo" className="flex items-center gap-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                    <a href="#hero" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                         <img
-                            src={"/images/eunoia.svg"}
-                            width={100}
-                            height={100}
+                            src={logo}
+                            width={140}
+                            height={140}
                             alt="eunoia Logo"
                             className="transition-transform duration-300"
                             fetchPriority="low"
@@ -85,11 +85,11 @@ function Navbar() {
                             <a
                                 key={name}
                                 href={href}
-                                className="text-white/75 text-lg font-medium hover:text-gold transition-colors relative group px-2 py-1 rounded-md"
+                                className="text-white/75 text-xl font-medium hover:text-main-red transition-colors relative group px-2 py-1 rounded-md"
                                 onClick={(e) => handleNavLinkClick(e, href)}
                             >
                                 {name}
-                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-main-red transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         ))}
                     </nav>
@@ -104,7 +104,6 @@ function Navbar() {
                     </Button> */}
                     <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
                 </div>
-                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold/0 via-gold to-gold/0" />
             </header>
         </>
     )

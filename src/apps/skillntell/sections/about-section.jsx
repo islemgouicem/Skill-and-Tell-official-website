@@ -109,7 +109,7 @@ function AboutSection() {
                                     src={aboutus1}
 
                                     alt="Group photo 1"
-                                    className="rounded-md object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
+                                    className="rounded-[12px] object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
                                 />
                             </div>
 
@@ -118,7 +118,7 @@ function AboutSection() {
                                 <img
                                     src={aboutus2}
                                     alt="Group photo 2"
-                                    className="rounded-md object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
+                                    className="rounded-[12px] object-cover w-1/2 sm:w-1/2 md:w-1/2 h-auto flex-shrink-0"
                                 />
                                 <div
                                     ref={card3Ref}
@@ -167,7 +167,7 @@ function AboutSection() {
                             {/* About Us Card (top-left) */}
                             <div
                                 ref={card1Ref}
-                                className={`about-cont p-3 sm:p-4 rounded-md shadow-lg transition-all duration-700 ${card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                className={`about-cont p-3 sm:p-4 rounded-[12px] shadow-lg transition-all duration-700 ${card1InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                                     }`}
                             >
                                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -197,11 +197,11 @@ function AboutSection() {
                                     src={aboutus1}
 
                                     alt="Group photo 1"
-                                    className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
+                                    className="rounded-[12px] object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                                 />
                                 <div
                                     ref={card2Ref}
-                                    className={`bg-Main-600 p-3 sm:p-4 rounded-md shadow-lg flex-1 transition-all duration-700 delay-200 ${card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                    className={`bg-Main-600 p-3 sm:p-4 rounded-[12px] shadow-lg flex-1 transition-all duration-700 delay-200 ${card2InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                                         }`}
                                 >
                                     <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -237,7 +237,7 @@ function AboutSection() {
                             <div className="flex items-stretch gap-2 sm:gap-3">
                                 <div
                                     ref={card3Ref}
-                                    className={`bg-Main-600 p-3 sm:p-4 rounded-md shadow-lg flex-1 transition-all duration-700 ${card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                    className={`bg-Main-600 p-3 sm:p-4 rounded-[12px] shadow-lg flex-1 transition-all duration-700 ${card3InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                                         }`}
                                 >
                                     <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -257,14 +257,14 @@ function AboutSection() {
                                 <img
                                     src={aboutus2}
                                     alt="Group photo 2"
-                                    className="rounded-md object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
+                                    className="rounded-[12px] object-cover w-16 sm:w-20 md:w-24 lg:w-20 xl:w-24 h-full flex-shrink-0"
                                 />
                             </div>
 
                             {/* Our Achievements Card (bottom-right) */}
                             <div
                                 ref={card4Ref}
-                                className={`about-cont p-3 sm:p-4 rounded-md shadow-lg transition-all duration-700 delay-200 ${card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                className={`about-cont p-3 sm:p-4 rounded-[12px] shadow-lg transition-all duration-700 delay-200 ${card4InView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                                     }`}
                             >
                                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

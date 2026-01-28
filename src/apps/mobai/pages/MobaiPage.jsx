@@ -1,26 +1,30 @@
 
 import "../../../styles/mobai.css"
-import HeroSection from "../sections/hero_section"
 import Navbar from "../layout/Navbar"
+import HeroSection from "../sections/hero_section"
+import About from "../sections/about_section"
+import Agenda from "../sections/agenda_section"
+import Mentors from "../sections/mentors_sections"
+import Sponsors from "../sections/sponsors_sections"
 import Footer from "../layout/Footer"
+import sectionsBg from "../../../assets/images/mobai/sections.svg"
+
+
 export default function MobAI() {
     return (
         <main
-            className="
-                relative w-full min-h-screen bg-[hsl(274,87%,24%)] overflow-hidden
-                bg-[url('/images/stars.svg')]
-                bg-repeat-[repeat-y]
-                bg-[length:auto]
-                bg-[position:top_left]
-            "
+            className="mobai-app relative w-full min-h-screen overflow-hidden bg-no-repeat bg-cover bg-top"
+            style={{ backgroundImage: `url(${sectionsBg})` }}
         >
-
             <Navbar />
 
             {/* content */}
             <HeroSection />
+            <About />
+            <Agenda />
+            <Sponsors />
+            <Mentors />
 
-            {/* <Organizers /> */}
 
             <Footer />
         </main>
