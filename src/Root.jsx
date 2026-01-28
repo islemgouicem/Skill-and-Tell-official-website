@@ -1,34 +1,44 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainApp from "./apps/skillntell/SkillnTellApp.jsx";
-import RegisterationPage from "./apps/skillntell/pages/RegistrationPage.jsx";
-import Registered from "./apps/skillntell/pages/RegisteredPage.jsx";
-import Eunoia from "./apps/eunoia/pages/EunoiaPage.jsx";
-import MobAI from "./apps/mobai/pages/MobaiPage.jsx";
-import EunoiaRegisteration from "./apps/eunoia/pages/RegistrationPage.jsx";
-import OrganizerRegistration from "./apps/eunoia/pages/OrganizersPage.jsx";
+import { lazy, Suspense } from "react";
 import { RegisterationProvider } from "./lib/hooks/useRegistration.jsx";
+
+// Lazy load route components
+const MainApp = lazy(() => import("./apps/skillntell/SkillnTellApp.jsx"));
+const RegisterationPage = lazy(() => import("./apps/skillntell/pages/RegistrationPage.jsx"));
+const Registered = lazy(() => import("./apps/skillntell/pages/RegisteredPage.jsx"));
+const Eunoia = lazy(() => import("./apps/eunoia/pages/EunoiaPage.jsx"));
+const MobAI = lazy(() => import("./apps/mobai/pages/MobaiPage.jsx"));
+
+// Loading component
+const Loading = () => (
+    <div className="flex items-center justify-center min-h-screen bg-background">
+        <div className="text-foreground">Loading...</div>
+    </div>
+);
 
 function Root() {
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<MainApp />} />
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    <Route path="/" element={<MainApp />} />
 
-                <Route
-                    path="/registeration"
-                    element={
-                        <RegisterationProvider>
-                            <RegisterationPage />
-                        </RegisterationProvider>
-                    }
-                />
+                    <Route
+                        path="/registeration"
+                        element={
+                            <RegisterationProvider>
+                                <RegisterationPage />
+                            </RegisterationProvider>
+                        }
+                    />
 
-                <Route path="/registered" element={<Registered />} />
-                <Route path="/eunoia" element={<Eunoia />} />
-                <Route path="/mobai" element={<MobAI />} />
-                {/* <Route path="/eunoia/register" element={<EunoiaRegisteration />} /> */}
-                {/* <Route path="/eunoia/organizers" element={<OrganizerRegistration />} /> */}
-            </Routes>
+                    <Route path="/registered" element={<Registered />} />
+                    <Route path="/eunoia" element={<Eunoia />} />
+                    <Route path="/mobai" element={<MobAI />} />
+                    {/* <Route path="/eunoia/register" element={<EunoiaRegisteration />} /> */}
+                    {/* <Route path="/eunoia/organizers" element={<OrganizerRegistration />} /> */}
+                </Routes>
+            </Suspense>
         </Router>
     );
 }
