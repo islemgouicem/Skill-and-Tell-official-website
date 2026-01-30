@@ -117,12 +117,12 @@ const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fie
                     error={errors?.linkedin_url}
                 />
                 <CyberInput
-                    id={id("discord_username")}
-                    label="Discord Username"
-                    placeholder="username"
-                    value={member.discord_username ?? ""}
-                    onChange={e => handleChange("discord_username", e.target.value)}
-                    error={errors?.discord_username}
+                    id={id("github")}
+                    label="GitHub link"
+                    placeholder="https://github.com/username"
+                    value={member.github ?? ""}
+                    onChange={e => handleChange("github", e.target.value)}
+                    error={errors?.github}
                 />
                 <CyberSelect
                     id={id("responsibility")}

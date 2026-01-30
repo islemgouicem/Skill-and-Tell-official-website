@@ -21,7 +21,7 @@ const EMPTY_MEMBER = {
     phone_telegram: "",
     email: "",
     linkedin_url: "",
-    discord_username: "",
+    github: "",
     responsibility: "",
     intent: "",
     is_leader: false
@@ -129,10 +129,12 @@ const RegistrationForm = () => {
         if (currentStep === -1) {
             setRotation(prev => prev + 180)
             setTimeout(() => setCurrentStep(0), 250)
+            window.scrollTo(0, 0);
             return
         }
         if (!validateStep(currentStep)) return
         if (currentStep >= totalSteps - 1) return
+        window.scrollTo(0, 0);
         setRotation(prev => prev + 180)
         setTimeout(() => setCurrentStep(prev => prev + 1), 250)
     }
@@ -145,10 +147,10 @@ const RegistrationForm = () => {
         setTimeout(() => {
             setCurrentStep(prev => (prev > -1 ? prev - 1 : -1))
             if (currentStep === -1) {
-                navigate("/mobai")
-                window.scrollTo(0, 0)
+                navigate("/mobai");
             }
         }, 250)
+        window.scrollTo(0, 0);
     }
 
     const handleSubmit = async () => {

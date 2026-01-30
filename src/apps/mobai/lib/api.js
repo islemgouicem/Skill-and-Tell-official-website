@@ -52,7 +52,7 @@ export async function submitMobaiRegistration(formData) {
         phone_telegram: (m.phone_telegram ?? "").trim().slice(0, 20),
         email: (m.email ?? "").trim().slice(0, 120),
         linkedin_url: (m.linkedin_url ?? "").trim() || null,
-        discord_username: (m.discord_username ?? "").trim().slice(0, 50) || null,
+        github: (m.github ?? "").trim().slice(0, 255) || null,
         responsibility: m.responsibility,
         intent: i === 0 ? m.intent : leaderIntent,
         is_leader: i === 0

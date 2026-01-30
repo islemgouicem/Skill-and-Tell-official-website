@@ -7,7 +7,11 @@ import Agenda from "../sections/agenda_section"
 import Mentors from "../sections/mentors_sections"
 import Sponsors from "../sections/sponsors_sections"
 import Footer from "../layout/Footer"
+import Organizers from "../sections/organizers_section"
+import FQ from "../sections/fq_section"
 import sectionsBg from "../../../assets/images/mobai/sections.svg"
+
+
 
 
 export default function MobAI() {
@@ -24,6 +28,8 @@ export default function MobAI() {
             <Agenda />
             <Sponsors />
             <Mentors />
+            <FQ />
+            <Organizers />
 
 
             <Footer />

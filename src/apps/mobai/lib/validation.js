@@ -12,17 +12,17 @@ function isValidEmail(value) {
  */
 export function validateMember(member, index) {
     const err = {}
-    if (!member.full_name?.trim()) err.full_name = "Required"
-    if (!member.school_or_uni?.trim()) err.school_or_uni = "Required"
-    if (!member.field_of_study?.trim()) err.field_of_study = "Required"
+    if (!member.full_name?.trim()) err.full_name = "Full name is required"
+    if (!member.school_or_uni?.trim()) err.school_or_uni = "School or university is required"
+    if (!member.field_of_study?.trim()) err.field_of_study = "Field of study is required"
     const year = member.year_of_study
-    if (year === "" || year === undefined || year === null) err.year_of_study = "Required"
-    else if (!Number.isInteger(Number(year)) || Number(year) < 1) err.year_of_study = "Must be 1 or more"
-    if (!member.phone_telegram?.trim()) err.phone_telegram = "Required"
-    if (!member.email?.trim()) err.email = "Required"
-    else if (!isValidEmail(member.email)) err.email = "Invalid email format"
-    if (!member.responsibility) err.responsibility = "Required"
-    if (index === 0 && !member.intent) err.intent = "Required"
+    if (year === "" || year === undefined || year === null) err.year_of_study = "Year of study is required"
+    else if (!Number.isInteger(Number(year)) || Number(year) < 1) err.year_of_study = "Year must be 1 or more"
+    if (!member.phone_telegram?.trim()) err.phone_telegram = "Telegram phone number is required"
+    if (!member.email?.trim()) err.email = "Email is required"
+    else if (!isValidEmail(member.email)) err.email = "Please enter a valid email address"
+    if (!member.responsibility) err.responsibility = "Please select a responsibility"
+    if (index === 0 && !member.intent) err.intent = "Please select an intent"
     return err
 }
 
@@ -31,9 +31,9 @@ export function validateMember(member, index) {
  */
 export function validateTeamName(teamName) {
     const t = teamName?.trim() ?? ""
-    if (!t) return "Required"
-    if (t.length < 3) return "Min 3 characters"
-    if (t.length > 100) return "Max 100 characters"
+    if (!t) return "Team name is required"
+    if (t.length < 3) return "Team name must be at least 3 characters"
+    if (t.length > 100) return "Team name must be at most 100 characters"
     return null
 }
 
@@ -72,11 +72,11 @@ export function validateMobaiForm(form) {
         if (hasMemberErrors) errors.members = memberErrors
     }
 
-    if (!form.worked_together_before) errors.worked_together_before = "Required"
+    if (!form.worked_together_before) errors.worked_together_before = "Please select whether you worked together before"
     const quality = (form.team_quality_opinion ?? "").trim()
-    if (quality.length < 30) errors.team_quality_opinion = "Min 30 characters"
+    if (quality.length < 30) errors.team_quality_opinion = "Team quality answer must be at least 30 characters"
     const prize = (form.prize_not_wanted ?? "").trim()
-    if (prize.length < 10) errors.prize_not_wanted = "Min 10 characters"
+    if (prize.length < 10) errors.prize_not_wanted = "Prize not wanted must be at least 10 characters"
 
     if (!isResponsibilityCoverageValid(form.members)) {
         if (!errors.members) errors.members = Array(6).fill(null).map(() => ({}))
