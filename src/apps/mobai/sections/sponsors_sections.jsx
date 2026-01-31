@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AlgerieTelecom from "../../../assets/images/mobai/Logo_Algérie_Telecom.png";
+import AlgerieTelecom from "../../../assets/images/mobai/Logo_Algérie_Télécom.png";
 import AlgeriePoste from "../../../assets/images/mobai/logo_AlgeriePoste.png";
 import Djezzy from "../../../assets/images/mobai/Logo_Djezzy_2015.png";
 import Mobilis from "../../../assets/images/mobai/logo_mobilis.png";
@@ -17,16 +17,16 @@ export default function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative w-full pt-[80px] min-h-screen overflow-hidden flex"
+      className="relative w-full pt-[80px] min-h-screen flex flex-col items-center justify-center"
     >
       {/* Title */}
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-title tracking-wider mb-12">
+      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-title tracking-wider mb-12 mb-[55px]">
         OUR SPONSORS
       </h2>
 
       {/* Logos Row */}
 
-      <div className="flex flex-wrap justify-center items-center gap-8 w-full max-w-6xl">
+      <div className="flex flex-wrap justify-center sm:justify-evenly items-center w-full max-w-6xl gap-16 my-[50px]">
         {sponsors.map((sponsor, index) => (
           <a
             key={index}
