@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-import { useNavigate } from "react-router-dom";
 import MobileNavbar from "./MobileNav.jsx"
 import logo from "../../../assets/images/mobai/snt_logo.png"
 
@@ -7,7 +6,6 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [isVisible, setIsVisible] = useState(true)
     const hideTimeoutRef = useRef(null)
-    const navigate = useNavigate();
 
     const navLinks = [
         { name: "Home", href: "#home" },
@@ -15,6 +13,8 @@ function Navbar() {
         { name: "Agenda", href: "#agenda" },
         { name: "Sponsors", href: "#sponsors" },
         { name: "Mentors", href: "#mentors" },
+        { name: "FQ", href: "#fq" },
+        { name: "Organize", href: "#organizers" },
         { name: "", href: "#" },
         // { name: "Organize", href: "#organizers" },
     ]
@@ -67,7 +67,7 @@ function Navbar() {
                 onMouseEnter={showNavbar}
                 onMouseLeave={() => !isOpen && startHideTimer(2000)}
             >
-                <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+                <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
                     <a href="#hero" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                         <img
                             src={logo}
