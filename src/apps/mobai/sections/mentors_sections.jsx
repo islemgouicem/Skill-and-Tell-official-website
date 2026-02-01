@@ -1,6 +1,3 @@
-// I have cloned from achraf branch
-// the thing I didn't know how to do is to change the font of the pragraphs in the cards
-import { useState } from "react"
 import CyberCard from "../components/cyberCard"
 
 export default function Mentors() {
@@ -14,9 +11,9 @@ export default function Mentors() {
 
   // Array of mentor image paths , I have created an extra image to use it here 
   const mentorImgs = [
-    "/src/assets/images/mobai/anon.png",
-    "/src/assets/images/mobai/anon.png",
-    "/src/assets/images/mobai/anon.png"
+    "/images/anon.png",
+    "/images/anon.png",
+    "/images/anon.png",
   ]
 
   // Array of mentor description texts

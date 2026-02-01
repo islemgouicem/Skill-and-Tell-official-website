@@ -11,6 +11,9 @@ const agendaData = [
             { time: "11:00 - 12:00 PM", description: "TBD" },
             { time: "12:00 - 01:00 PM", description: "TBD" },
             { time: "01:00 - 02:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
         ]
     },
     {
@@ -22,6 +25,8 @@ const agendaData = [
             { time: "11:00 - 12:00 PM", description: "TBD" },
             { time: "12:00 - 01:00 PM", description: "TBD" },
             { time: "01:00 - 02:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
         ]
     },
     {
@@ -30,6 +35,9 @@ const agendaData = [
             { time: "08:00 - 09:00 AM", description: "TBD" },
             { time: "09:00 - 10:00 AM", description: "TBD" },
             { time: "10:00 - 11:00 AM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
             { time: "11:00 - 12:00 PM", description: "TBD" },
         ]
     }
@@ -61,7 +69,7 @@ export default function Agenda() {
                 {/* Left Arrow */}
                 <button
                     onClick={prevDay}
-                    className="absolute left-[-40px] sm:left-[-60px] md:left-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
+                    className="absolute left-[-35px] sm:left-[-60px] md:left-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
                     aria-label="Previous day"
                 >
                     <img src={leftArrow} alt="Previous" className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
@@ -83,10 +91,10 @@ export default function Agenda() {
                         <div className="space-y-3 sm:space-y-3 md:space-y-4 lg:space-y-4">
                             {agendaData[currentDay].events.map((event, index) => (
                                 <div key={index} className="w-full flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-                                    <span className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-right">
+                                    <span className="text-white/90 text-2xl lg:text-3xl font-light text-right">
                                         {event.time}
                                     </span>
-                                    <span className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl whitespace-pre-line text-left">
+                                    <span className="text-white/80 text-2xl lg:text-3xl whitespace-pre-line font-light text-left">
                                         {event.description}
                                     </span>
                                 </div>
@@ -98,7 +106,7 @@ export default function Agenda() {
                 {/* Right Arrow */}
                 <button
                     onClick={nextDay}
-                    className="absolute right-[-40px] sm:right-[-60px] md:right-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
+                    className="absolute right-[-35px] sm:right-[-60px] md:right-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
                     aria-label="Next day"
                 >
                     <img src={rightArrow} alt="Next" className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
