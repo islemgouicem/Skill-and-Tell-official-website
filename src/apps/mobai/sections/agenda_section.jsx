@@ -1,7 +1,7 @@
 import { useState } from "react"
-import agendaFrame from "../../../assets/images/mobai/agenda.svg"
 import leftArrow from "../../../assets/images/mobai/left arrow.svg"
 import rightArrow from "../../../assets/images/mobai/right arrow.svg"
+import CyberCard from "../components/cyberCard"
 
 const agendaData = [
     {
@@ -47,29 +47,21 @@ export default function Agenda() {
             </h2>
 
             {/* Agenda Card Container */}
-            <div className="relative w-full max-w-[450px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto px-4 flex items-center justify-center">
+            <div className="relative w-full max-w-[450px] sm:max-w-xl md:max-w-xl lg:max-w-2xl mx-auto px-4 flex items-center justify-center">
                 {/* Left Arrow */}
                 <button
                     onClick={prevDay}
-                    className="absolute left-[-20px] sm:left-[-40px] md:left-[-80px] z-10 p-2 hover:opacity-80 transition-opacity"
+                    className="absolute left-[-40px] sm:left-[-60px] md:left-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
                     aria-label="Previous day"
                 >
-                    <img src={leftArrow} alt="Previous" className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24" />
+                    <img src={leftArrow} alt="Previous" className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
                 </button>
 
-                {/* Card with SVG background */}
-                <div className="relative w-full">
-                    {/* SVG Frame as background */}
-                    <img 
-                        src={agendaFrame} 
-                        alt="" 
-                        className="w-full h-auto"
-                    />
-                    
-                    {/* Card content overlay */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-[12%] sm:pb-[10%] p-4 sm:p-6 md:p-10 lg:p-12">
+                {/* Card with CyberCard component */}
+                <CyberCard className="w-full">
+                    <div className="flex flex-col items-center justify-center py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8">
                         {/* Day Header */}
-                        <div className="flex items-center justify-center mb-4 sm:mb-6 md:mb-10 w-full max-w-lg">
+                        <div className="flex items-center justify-center mb-6 sm:mb-8 md:mb-10 w-full max-w-lg">
                             <div className="flex-1 h-[2px] bg-gradient-to-r from-transparent via-white/60 to-white/60"></div>
                             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white px-3 md:px-6 tracking-widest">
                                 DAY {String(agendaData[currentDay].day).padStart(2, '0')}:
@@ -91,15 +83,15 @@ export default function Agenda() {
                             ))}
                         </div>
                     </div>
-                </div>
+                </CyberCard>
 
                 {/* Right Arrow */}
                 <button
                     onClick={nextDay}
-                    className="absolute right-[-30px] sm:right-[-40px] md:right-[-80px] z-10 p-2 hover:opacity-80 transition-opacity"
+                    className="absolute right-[-40px] sm:right-[-60px] md:right-[-100px] z-10 p-2 hover:opacity-80 transition-opacity"
                     aria-label="Next day"
                 >
-                    <img src={rightArrow} alt="Next" className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24" />
+                    <img src={rightArrow} alt="Next" className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" />
                 </button>
             </div>
         </section>
