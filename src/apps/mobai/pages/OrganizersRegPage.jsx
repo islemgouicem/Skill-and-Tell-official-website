@@ -242,8 +242,8 @@ const OrganizersRegPage = () => {
 
     const renderWelcome = () => (
         <div className="space-y-6 text-white">
-            <div className="text-center space-y-2 pb-4 border-b-2 border-[#6B33A1]/30">
-                <h1 className="text-3xl font-bold text-[#6B33A1] uppercase tracking-wider">
+            <div className="text-center space-y-2 pb-4 border-b-2 border-white/30">
+                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">
                     Organizer Registration
                 </h1>
                 <p className="text-sm text-gray-300">
@@ -271,7 +271,7 @@ const OrganizersRegPage = () => {
 
                 <div className="space-y-3 pl-3 text-sm">
                     <div className="border-l-2 border-[#663380] pl-3 py-1">
-                        <h3 className="font-bold text-[#6B33A1] mb-1 uppercase text-xs tracking-wide">
+                        <h3 className="font-bold text-white mb-1 uppercase text-xs tracking-wide">
                             Event Dates
                         </h3>
                         <p className="text-gray-300">
@@ -280,7 +280,7 @@ const OrganizersRegPage = () => {
                     </div>
 
                     <div className="border-l-2 border-[#663380] pl-3 py-1">
-                        <h3 className="font-bold text-[#6B33A1] mb-2 uppercase text-xs tracking-wide">
+                        <h3 className="font-bold text-white mb-2 uppercase text-xs tracking-wide">
                             Shifts Available
                         </h3>
                         <div className="space-y-1 ml-3">

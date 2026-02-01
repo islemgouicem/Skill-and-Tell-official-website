@@ -7,16 +7,16 @@ export default function Mentors() {
 
   // Array of mentor names (same name repeated for now)
   const mentorsNames = [
-    "Dr. Imed Bouchrika",
-    "Dr. Imed Bouchrika",
-    "Dr. Imed Bouchrika"
+    "TBD",
+    "TBD",
+    "TBD",
   ]
 
   // Array of mentor image paths , I have created an extra image to use it here 
   const mentorImgs = [
-    "/src/assets/images/mobai/mentor.png",
-    "/src/assets/images/mobai/mentor.png",
-    "/src/assets/images/mobai/mentor.png"
+    "/src/assets/images/mobai/anon.png",
+    "/src/assets/images/mobai/anon.png",
+    "/src/assets/images/mobai/anon.png"
   ]
 
   // Array of mentor description texts
@@ -67,7 +67,7 @@ export default function Mentors() {
     // Main mentors section
     <section
       id="mentors"
-      className="relative w-full pt-[80px] min-h-screen overflow-hidden flex flex-col items-center"
+      className="relative w-full py-4 min-h-screen overflow-hidden flex flex-col items-center"
     >
 
       {/* Section title */}
@@ -76,7 +76,7 @@ export default function Mentors() {
       </h2>
 
       {/* Cards container (column on mobile, row on medium screens+) */}
-      <div className="md:flex-row mx-[10%] md:gap-[5%] flex flex-col gap-[3rem]">
+      <div className="md:flex-row mx-[10%] md:gap-[5%] flex flex-col gap-[3rem] pb-20">
         {mentorCards}
       </div>
 

@@ -7,14 +7,14 @@ const Organizers = () => {
     return (
         <section
             id="organizers"
-            className="relative py-10 w-full overflow-hidden"
+            className="relative pt-16 pb-10 w-full overflow-hidden"
         >
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
                     {/* Title: JOIN OUR TEAM - large bold uppercase red with glow */}
                     <h2
-                        className="text-4xl sm:text-5xl text-red-main-500 lg:text-6xl font-bold uppercase tracking-widest mb-3"
+                        className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-main-500 uppercase tracking-wider mb-12"
                     >
                         JOIN OUR TEAM
                     </h2>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import snt from "/images/logo.png"
 import AlgerieTelecom from "../../../assets/images/mobai/Logo_Algérie_Télécom.png";
 import AlgeriePoste from "../../../assets/images/mobai/logo_AlgeriePoste.png";
 import Djezzy from "../../../assets/images/mobai/Logo_Djezzy_2015.png";
@@ -7,26 +8,26 @@ import Ooredoo from "../../../assets/images/mobai/logo_ooredoo.png";
 
 export default function Sponsors() {
   const sponsors = [
-    { logo: AlgerieTelecom, link: "https://www.algerietelecom.dz" },
-    { logo: Mobilis, link: "https://www.mobilis.dz" },
-    { logo: AlgeriePoste, link: "https://www.poste.dz" },
-    { logo: Djezzy, link: "https://www.djezzy.dz" },
-    { logo: Ooredoo, link: "https://www.ooredoo.dz" },
+    { logo: snt, link: "#" },
+    { logo: snt, link: "#" },
+    { logo: snt, link: "#" },
+    // { logo: Djezzy, link: "https://www.djezzy.dz" },
+    // { logo: Ooredoo, link: "https://www.ooredoo.dz" },
   ];
 
   return (
     <section
       id="sponsors"
-      className="relative w-full pt-[80px] min-h-screen flex flex-col items-center justify-center"
+      className="relative w-full my-20 flex flex-col items-center justify-center"
     >
       {/* Title */}
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-title tracking-wider mb-12 mb-[55px]">
+      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-main-500 tracking-wider mb-12">
         OUR SPONSORS
       </h2>
 
       {/* Logos Row */}
 
-      <div className="flex flex-wrap justify-center sm:justify-evenly items-center w-full max-w-6xl gap-16 my-[50px]">
+      <div className="flex flex-wrap justify-center sm:justify-evenly items-center w-full max-w-6xl gap-16">
         {sponsors.map((sponsor, index) => (
           <a
             key={index}

@@ -25,17 +25,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full pt-[80px] min-h-screen overflow-hidden flex"
+      className="relative w-full pt-10 lg:max-h-screen overflow-hidden flex"
     >
-      <div className="flex flex-col justify-center items-center w-full min-h-[calc(100vh-80px)] relative z-20 px-4 md:px-8 lg:px-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-[1400px] mx-auto gap-8 lg:gap-16 py-8 md:py-12">
-          <div className="w-full lg:w-1/2 flex justify-center items-center order-2 lg:order-1">
+      <div className="flex flex-col justify-center items-center w-full relative z-20 px-4 md:px-8 lg:px-16">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full max-w-[1400px] mx-auto gap-8 lg:gap-16 py-8 md:py-12">
+          <div className="w-full lg:w-[50%] flex justify-center lg:justify-start items-center order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative w-full max-w-[400px] lg:max-w-[500px]"
+              className="relative w-[60%]"
             >
               <motion.img
                 src={aboutImage}
@@ -62,7 +62,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-col justify-center items-center w-full lg:w-1/2 space-y-4 md:space-y-9 order-1 lg:order-2"
+            className="flex flex-col justify-center items-center w-full lg:w-1/2 space-y-4 md:space-y-4 order-1 lg:order-2"
           >
             <motion.div variants={itemVariants} className="space-y-2">
               <h2
@@ -75,21 +75,14 @@ export default function About() {
 
             <motion.h3
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-semibold text-white text-center"
+              className="text-2xl md:text-3xl font-semibold text-white text-center tracking-widest mb-4"
             >
               What is mobai?
             </motion.h3>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed text-center max-w-[600px]">
-                Mobai is a hackathon organized by skill&tell, where innovators and
-                tech enthusiasts come together to build AI-powered mobile
-                applications.
-                <br />
-                <br />
-                Participants will compete to create amazing apps that push the
-                boundaries of what's possible with artificial intelligence and
-                mobile UX.
+              <p className="text-base md:text-lg text-white/90 leading-relaxed text-center max-w-[600px] font-futura">
+                Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps
               </p>
             </motion.div>
           </motion.div>

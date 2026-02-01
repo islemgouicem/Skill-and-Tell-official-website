@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import pic1 from "../../../assets/images/mobai/pic1.png";
+import pic1 from "../../../assets/images/mobai/pic3.png";
 import background from "../../../assets/images/mobai/background.svg";
-import smallBackground from "../../../assets/images/mobai/small_background.png";
 import mobaiLogo from "../../../assets/images/mobai/mobai_logo.png";
 import { Calendar, MapPin } from "lucide-react";
+import CyberCard from "../components/cyberCard"
+import CyberButton from "../components/CyberButton"
 
 const RollingNumber = ({ value }) => {
   return (
@@ -47,44 +48,38 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="home" className="relative w-full pt-[80px] overflow-hidden flex">
+    <section
+      id="home"
+      className="relative w-full pt-[64px] overflow-hidden flex"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${background})`, height: "calc(100% - 100px)", top: 0 }}
       />
-
-      <div className="flex flex-col justify-between items-center w-full min-h-[calc(100vh-80px)] relative z-20 px-4 md:px-8 lg:pl-16 lg:pr-0">
-        <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-[1400px] mx-auto gap-8 flex-1 py-8 md:py-12">
+      <div className="w-full relative px-4 md:px-8">
+        <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-[1400px] mx-auto gap-8 flex-1 py-4">
           <motion.div
             initial={{ opacity: 0, x: -100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="flex flex-col justify-center items-center w-full lg:w-1/2 -mt-32"
+            className="flex flex-col justify-center items-center w-full lg:w-1/2"
           >
-            <motion.div
-              className="w-full max-w-[600px]"
-              animate={{
-                filter: [
-                  "drop-shadow(0px 0px 5px rgba(229,41,40,0))",
-                  "drop-shadow(0px 0px 20px rgba(229,41,40,0.6))",
-                  "drop-shadow(0px 0px 5px rgba(229,41,40,0))",
-                ],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+            <div
+              className="w-[80%] max-w-[600px] my-4"
             >
               <img
                 src={mobaiLogo}
                 alt="MOBAI Logo"
                 className="w-full h-auto"
-                style={{ filter: "drop-shadow(5px 5px 12px rgba(0,0,0,1))" }}
+                style={{ filter: 'drop-shadow(13px 10px 4px rgba(0, 0, 0, 0.6))' }}
               />
-            </motion.div>
+            </div>
 
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="text-2xl md:text-3xl lg:text-4xl text-white uppercase mb-4 -mt-40 text-center"
+              className="text-2xl md:text-3xl lg:text-4xl text-white uppercase mb-4 text-center"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               Build the next generation of AI mobile apps!
@@ -94,35 +89,22 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
-              className="text-lg text-white/90 max-w-[550px] mb-6 text-center"
+              className="text-lg text-white/90 max-w-[550px] mb-4 text-center"
             >
-              Mobai is a hackathon organized by Skill&Tell where innovators build AI-powered mobile apps.
+              Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps.
             </motion.p>
 
-            <motion.button
-              onClick={() => {
-                navigate("/mobai/register");
-                window.scrollTo(0, 0);
-              }}
-              whileHover={{ scale: 1.05, y: -4 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 0 0px rgba(255,0,6,0)",
-                  "0 0 25px rgba(255,0,6,0.6)",
-                  "0 0 0px rgba(255,0,6,0)",
-                ],
-              }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-              className="bg-[#FF0006] text-white px-12 py-4 rounded-lg uppercase mb-6"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            <CyberButton
+              variant="primary"
+              onClick={() => navigate("/mobai/register")}
+              className="uppercase font-bold px-10 py-2 text-xl my-4"
             >
-              Register Now!
-            </motion.button>
+              REGISTER NOW!
+            </CyberButton>
 
-            <div className="flex gap-6 text-white/90">
+            <div className="flex gap-10 text-white/90">
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />12 February
+                <Calendar className="w-5 h-5" />TBD
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />ENSIA School
@@ -130,15 +112,15 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          <motion.div style={{ y: yCharacters }} className="w-full lg:w-1/2 flex justify-end">
-            <motion.img
+
+          <div style={{ y: yCharacters }} className="hidden md:flex w-[40%] -mr-8">
+            <img
               src={pic1}
               alt="Mobai Heroes"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity }}
-              className="w-full max-w-[800px]"
             />
-          </motion.div>
+          </div>
         </div>
 
         <motion.div
@@ -146,20 +128,9 @@ export default function HeroSection() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="w-full max-w-[1200px] mx-auto mb-12 px-4"
+          className="w-full flex justify-center md:-mt-10"
         >
-          <motion.div
-            className="relative rounded-2xl p-8 bg-cover bg-center overflow-hidden"
-            style={{ backgroundImage: `url(${smallBackground})` }}
-            animate={{
-              boxShadow: [
-                "0 0 10px rgba(138,43,226,0.3)",
-                "0 0 30px rgba(138,43,226,0.7)",
-                "0 0 10px rgba(138,43,226,0.3)",
-              ],
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          >
+          <CyberCard className="w-[96%]">
             <motion.div
               initial={{ x: "-100%" }}
               whileInView={{ x: "100%" }}
@@ -168,13 +139,13 @@ export default function HeroSection() {
             />
 
             <div className="text-center mb-6 flex justify-center gap-1">
-              {"COMING SOON".split("").map((char, i) => (
+              {"COMING  SOON".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ y: -40, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05, duration: 0.6 }}
-                  className="text-4xl lg:text-5xl text-[#E52928] uppercase tracking-widest"
+                  className="text-4xl lg:text-5xl text-red-main-500 uppercase"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >
                   {char}
@@ -220,7 +191,7 @@ export default function HeroSection() {
                 <div className="uppercase text-white/80">Secs</div>
               </div>
             </div>
-          </motion.div>
+          </CyberCard>
         </motion.div>
       </div>
     </section>

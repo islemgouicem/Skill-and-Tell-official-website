@@ -7,20 +7,30 @@ const agendaData = [
     {
         day: 1,
         events: [
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor sit" },
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor sit,\nLorem ipsum dolor sit" },
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor" },
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor sit,\nLorem ipsum dolor sit" },
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor" },
-            { time: "08:00 - 09:00 AM", description: "Lorem ipsum dolor sit,\nLorem ipsum dolor sit" },
+            { time: "10:00 - 11:00 AM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
+            { time: "12:00 - 01:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
         ]
     },
     {
         day: 2,
         events: [
-            { time: "09:00 - 10:00 AM", description: "Day 2 Event 1" },
-            { time: "10:00 - 11:00 AM", description: "Day 2 Event 2" },
-            { time: "11:00 - 12:00 PM", description: "Day 2 Event 3" },
+            { time: "08:00 - 09:00 AM", description: "TBD" },
+            { time: "09:00 - 10:00 AM", description: "TBD" },
+            { time: "10:00 - 11:00 AM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
+            { time: "12:00 - 01:00 PM", description: "TBD" },
+            { time: "01:00 - 02:00 PM", description: "TBD" },
+        ]
+    },
+    {
+        day: 3,
+        events: [
+            { time: "08:00 - 09:00 AM", description: "TBD" },
+            { time: "09:00 - 10:00 AM", description: "TBD" },
+            { time: "10:00 - 11:00 AM", description: "TBD" },
+            { time: "11:00 - 12:00 PM", description: "TBD" },
         ]
     }
 ]
@@ -39,15 +49,15 @@ export default function Agenda() {
     return (
         <section
             id="agenda"
-            className="relative w-full py-20 min-h-screen overflow-hidden flex flex-col items-center justify-center"
+            className="relative w-full pb-20  flex flex-col items-center justify-center"
         >
             {/* Title */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-title tracking-wider mb-12">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-main-500 tracking-wider mb-12">
                 AGENDA
             </h2>
 
             {/* Agenda Card Container */}
-            <div className="relative w-full max-w-[450px] sm:max-w-xl md:max-w-xl lg:max-w-2xl mx-auto px-4 flex items-center justify-center">
+            <div className="relative w-full max-w-[380px] sm:max-w-lg md:max-w-lg lg:max-w-xl mx-auto px-4 flex items-center justify-center">
                 {/* Left Arrow */}
                 <button
                     onClick={prevDay}
@@ -58,25 +68,25 @@ export default function Agenda() {
                 </button>
 
                 {/* Card with CyberCard component */}
-                <CyberCard className="w-full">
-                    <div className="flex flex-col items-center justify-center py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8">
+                <CyberCard className="w-full shadow-none">
+                    <div className="flex flex-col items-center justify-center py-3 sm:py-4 md:py-4 lg:py-5 px-3 sm:px-4 md:px-5">
                         {/* Day Header */}
-                        <div className="flex items-center justify-center mb-6 sm:mb-8 md:mb-10 w-full max-w-lg">
+                        <div className="flex items-center justify-center mb-4 sm:mb-5 md:mb-6 w-full max-w-lg">
                             <div className="flex-1 h-[2px] bg-gradient-to-r from-transparent via-white/60 to-white/60"></div>
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white px-3 md:px-6 tracking-widest">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white px-2 md:px-4 tracking-widest">
                                 DAY {String(agendaData[currentDay].day).padStart(2, '0')}:
                             </h3>
                             <div className="flex-1 h-[2px] bg-gradient-to-l from-transparent via-white/60 to-white/60"></div>
                         </div>
 
                         {/* Events List */}
-                        <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-7">
+                        <div className="space-y-3 sm:space-y-3 md:space-y-4 lg:space-y-4">
                             {agendaData[currentDay].events.map((event, index) => (
-                                <div key={index} className="flex flex-row items-start justify-center gap-5 sm:gap-6 md:gap-10 lg:gap-14">
-                                    <span className="text-white/90 text-base sm:text-xl md:text-2xl lg:text-3xl font-medium min-w-[100px] sm:min-w-[140px] md:min-w-[200px] text-right">
+                                <div key={index} className="w-full flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+                                    <span className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-right">
                                         {event.time}
                                     </span>
-                                    <span className="text-white/80 text-base sm:text-xl md:text-2xl lg:text-3xl whitespace-pre-line min-w-[120px] sm:min-w-[160px] md:min-w-[220px] text-left">
+                                    <span className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl whitespace-pre-line text-left">
                                         {event.description}
                                     </span>
                                 </div>

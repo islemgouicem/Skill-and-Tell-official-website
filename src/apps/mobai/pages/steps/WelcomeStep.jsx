@@ -2,8 +2,8 @@ const WelcomeStep = () => {
     return (
         <div className="space-y-6 text-white">
             {/* Hero Title */}
-            <div className="text-center space-y-2 pb-4 border-b-2 border-[#6B33A1]/30">
-                <h1 className="text-3xl font-bold text-[#6B33A1] uppercase tracking-wider">
+            <div className="text-center space-y-2 pb-4 border-b-2 border-white/30">
+                <h1 className="text-3xl font-bold text-white uppercase tracking-wider">
                     Team Registration Guidelines
                 </h1>
                 <p className="text-sm text-gray-300">
@@ -18,7 +18,7 @@ const WelcomeStep = () => {
                 </h2>
                 <div className="pl-3 text-gray-300 text-sm leading-relaxed">
                     <p>
-                        <span className="text-[#6B33A1] font-semibold">6 members.</span>{" "}
+                        <span className="text-white font-semibold">6 members.</span>{" "}
                         <span className="text-red-main-500 font-semibold">3 responsibilities.</span>{" "}
                         <span className="text-white font-semibold">1 mission.</span>
                     </p>
@@ -37,7 +37,7 @@ const WelcomeStep = () => {
                 <div className="space-y-3 pl-3 text-sm">
                     {/* Requirement 1 */}
                     <div className="border-l-2 border-[#663380] pl-3 py-1">
-                        <h3 className="font-bold text-[#6B33A1] mb-1 uppercase text-xs tracking-wide">
+                        <h3 className="font-bold text-white mb-1 uppercase text-xs tracking-wide">
                             1. Team Composition
                         </h3>
                         <p className="text-gray-300">
@@ -47,7 +47,7 @@ const WelcomeStep = () => {
 
                     {/* Requirement 2 */}
                     <div className="border-l-2 border-[#663380] pl-3 py-1">
-                        <h3 className="font-bold text-[#6B33A1] mb-2 uppercase text-xs tracking-wide">
+                        <h3 className="font-bold text-white mb-2 uppercase text-xs tracking-wide">
                             2. Role Distribution
                         </h3>
                         <div className="space-y-2">
@@ -83,7 +83,7 @@ const WelcomeStep = () => {
 
                     {/* Requirement 3 */}
                     <div className="border-l-2 border-[#663380] pl-3 py-1">
-                        <h3 className="font-bold text-[#6B33A1] mb-1 uppercase text-xs tracking-wide">
+                        <h3 className="font-bold text-white mb-1 uppercase text-xs tracking-wide">
                             3. Mandatory Policy
                         </h3>
                         <p className="text-gray-300">
@@ -94,7 +94,7 @@ const WelcomeStep = () => {
             </section>
 
             {/* Registration Philosophy */}
-            <section className="space-y-2 pt-3 border-t-2 border-[#6B33A1]/30">
+            <section className="space-y-2 pt-3 border-t-2 border-white/30">
                 <h2 className="text-xl font-bold text-red-main-500 uppercase tracking-wide border-l-4 border-red-main-500 pl-3">
                     About Registration
                 </h2>
@@ -112,7 +112,7 @@ const WelcomeStep = () => {
                     Ready to Begin?
                 </p>
                 <p className="text-xs text-gray-400">
-                    Click <span className="text-[#6B33A1] font-bold">NEXT</span> to proceed with registration
+                    Click <span className="text-white font-bold">NEXT</span> to proceed with registration
                 </p>
             </div>
         </div>
