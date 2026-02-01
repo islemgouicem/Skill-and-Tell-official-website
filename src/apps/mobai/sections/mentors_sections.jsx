@@ -1,7 +1,6 @@
-// Import useState from React (currently not used, but may be for future interactivity)
+// I have cloned from achraf branch
+// the thing I didn't know how to do is to change the font of the pragraphs in the cards
 import { useState } from "react"
-
-// Import the reusable CyberCard component
 import CyberCard from "../components/cyberCard"
 
 export default function Mentors() {
@@ -13,7 +12,7 @@ export default function Mentors() {
     "Dr. Imed Bouchrika"
   ]
 
-  // Array of mentor image paths
+  // Array of mentor image paths , I have created an extra image to use it here 
   const mentorImgs = [
     "/src/assets/images/mobai/mentor.png",
     "/src/assets/images/mobai/mentor.png",
