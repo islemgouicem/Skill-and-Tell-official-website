@@ -115,7 +115,7 @@ const MentorsCarousel = () => {
                                         </h3>
                                     </div>
 
-                                    <p className="text-center font-[100] text-sm sm:text-base text-gold">
+                                    <p className="text-center font-[100] text-sm sm:text-base text-subtitle">
                                         {judge.subtitle}
                                     </p>
 
