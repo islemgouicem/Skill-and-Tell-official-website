@@ -16,7 +16,6 @@ const Judges = () => {
             <div className="relative flex-1  flex justify-center items-center">
                 <JudgesCarousel />
             </div>
-            {/* Foo
 
             {/* Footer Decorative Line */}
             <img

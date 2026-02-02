@@ -16,32 +16,24 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
                     {/* Contact Us */}
                     <div className="order-1 md:order-3">
-                        <h3 className="text-xl font-semibold mb-6 text-white tracking-widest">Contact Us</h3>
+                        <h3 className="text-2xl mb-6 text-white bebas">Contact Us</h3>
                         <div className="space-y-5">
                             <a
                                 href="mailto:skill.and.tell@ensia.edu.dz"
-                                className="flex items-start gap-3 text-white/80 hover:text-[#E52928] transition-colors group"
+                                className="flex items-start gap-3 text-white/80  transition-colors group"
                             >
                                 <Mail className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary-white" />
                                 <span className="text-base">skill.and.tell@ensia.edu.dz</span>
                             </a>
-
-                            <a
-                                href="tel:+213561718475"
-                                className="flex items-start gap-3 text-white/80 hover:text-[#E52928] transition-colors group"
-                            >
-                                <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary-white" />
-                                <span className="text-base">+213 799 83 89 54</span>
-                            </a>
                             <a
                                 href="tel:+213799838954"
-                                className="flex items-start gap-3 text-white/80 hover:text-[#E52928] transition-colors group"
+                                className="flex items-start gap-3 text-white/80  transition-colors group"
                             >
                                 <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary-white" />
                                 <span className="text-base">+213 561 71 84 75</span>
                             </a>
 
-                            <div className="flex items-start gap-3 text-white/80 hover:text-[#E52928]">
+                            <div className="flex items-start gap-3 text-white/80 ">
                                 <MapPin className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary-white" />
                                 <span className="text-base">Ensia school, sidi abdellah</span>
                             </div>
@@ -50,7 +42,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="md:pl-8 lg:pl-16 order-2 md:order-2">
-                        <h3 className="text-2xl font-semibold mb-6 text-white tracking-widest">Quick links</h3>
+                        <h3 className="text-2xl mb-6 text-white bebas">Quick links</h3>
                         <ul className="space-y-3">
                             <li>
                                 <a href="#home" className="text-white/80 hover:text-[#E52928] transition-colors text-lg">
@@ -86,7 +78,7 @@ export default function Footer() {
                             <img src={logo_1} width={180} height={60} alt="Eunoia by Skill & Tell Logo" className="w-[180px]" />
                         </a>
                         <p className="text-white/80 text-base leading-relaxed max-w-sm">
-                            Eunoia by Skill & Tell presents an innovative ideathon focused on well-being. Join us in creating beautiful solutions for a better tomorrow.
+                            Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai
                         </p>
                         {/* Social Icons */}
                         <div className="flex gap-4 pt-2">

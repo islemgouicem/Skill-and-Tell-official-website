@@ -45,13 +45,27 @@ const agendaData = [
 
 export default function Agenda() {
     const [currentDay, setCurrentDay] = useState(0)
+    const [direction, setDirection] = useState(null)
+    const [isAnimating, setIsAnimating] = useState(false)
 
     const nextDay = () => {
-        setCurrentDay((prev) => (prev + 1) % agendaData.length)
+        if (isAnimating) return
+        setDirection('right')
+        setIsAnimating(true)
+        setTimeout(() => {
+            setCurrentDay((prev) => (prev + 1) % agendaData.length)
+            setIsAnimating(false)
+        }, 300)
     }
 
     const prevDay = () => {
-        setCurrentDay((prev) => (prev - 1 + agendaData.length) % agendaData.length)
+        if (isAnimating) return
+        setDirection('left')
+        setIsAnimating(true)
+        setTimeout(() => {
+            setCurrentDay((prev) => (prev - 1 + agendaData.length) % agendaData.length)
+            setIsAnimating(false)
+        }, 300)
     }
 
     return (
@@ -60,7 +74,7 @@ export default function Agenda() {
             className="relative w-full pb-20  flex flex-col items-center justify-center"
         >
             {/* Title */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-main-500 tracking-wider mb-12">
+            <h2 className="title">
                 AGENDA
             </h2>
 
@@ -76,8 +90,15 @@ export default function Agenda() {
                 </button>
 
                 {/* Card with CyberCard component */}
-                <CyberCard className="w-full shadow-none">
-                    <div className="flex flex-col items-center justify-center py-3 sm:py-4 md:py-4 lg:py-5 px-3 sm:px-4 md:px-5">
+                <CyberCard className="w-full shadow-none overflow-hidden">
+                    <div
+                        className={`flex flex-col items-center justify-center py-3 sm:py-4 md:py-4 lg:py-5 px-3 sm:px-4 md:px-5 transition-all duration-300 ease-in-out ${isAnimating
+                            ? direction === 'right'
+                                ? 'opacity-0 translate-x-8'
+                                : 'opacity-0 -translate-x-8'
+                            : 'opacity-100 translate-x-0'
+                            }`}
+                    >
                         {/* Day Header */}
                         <div className="flex items-center justify-center mb-4 sm:mb-5 md:mb-6 w-full max-w-lg">
                             <div className="flex-1 h-[2px] bg-gradient-to-r from-transparent via-white/60 to-white/60"></div>
@@ -91,10 +112,10 @@ export default function Agenda() {
                         <div className="space-y-3 sm:space-y-3 md:space-y-4 lg:space-y-4">
                             {agendaData[currentDay].events.map((event, index) => (
                                 <div key={index} className="w-full flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-                                    <span className="text-white/90 text-2xl lg:text-3xl font-light text-right">
+                                    <span className="text-mwhite text-md lg:text-xl font-light text-right">
                                         {event.time}
                                     </span>
-                                    <span className="text-white/80 text-2xl lg:text-3xl whitespace-pre-line font-light text-left">
+                                    <span className="text-subtitle text-md lg:text-xl whitespace-pre-line font-light text-left">
                                         {event.description}
                                     </span>
                                 </div>

@@ -1,7 +1,7 @@
 import cardBg from "../../../assets/images/mobai/cardbg.svg"
 import { useEffect, useState } from "react"
 
-const CyberCard = ({ children, className = "" }) => {
+const CyberCard = ({ children, className = "", shadow = true, mentors= ""}) => {
     const getPolygonShape = (width = 1024) => {
         const innerCorner = width <= 640 ? "20% 0%, 25% 2%, 30% 0%" : "20% 0%, 23% 3%, 26% 0%"
         return `polygon(
@@ -28,7 +28,7 @@ const CyberCard = ({ children, className = "" }) => {
     }, [])
 
     return (
-        <div className={`relative ${className}`}>
+        <div className={`relative ${className} h-full`}>
             {/* Lens flare - Top Right Corner */}
             <div
                 className="absolute top-25 -right-4 pointer-events-none z-30"
@@ -53,10 +53,10 @@ const CyberCard = ({ children, className = "" }) => {
                 }}
             />
 
-            {/* Outer card wrapper with shadow */}
+                        {/* Outer card wrapper with shadow */}
             <div
                 style={{
-                    filter: "drop-shadow(0 0 20px rgba(88, 34, 94, 1)) drop-shadow(0 15px 50px rgba(0, 0, 0, 0.9))"
+                    filter: shadow ? "drop-shadow(0 0 20px rgba(88, 34, 94, 1)) drop-shadow(0 15px 50px rgba(0, 0, 0, 0.9))" : "none"
                 }}
             >
                 {/* Outer card - acts as border */}
@@ -89,7 +89,7 @@ const CyberCard = ({ children, className = "" }) => {
 
 
                             {/* Content */}
-                            <div className="relative z-10 p-8">{children}</div>
+                            <div className={`relative z-10 p-5 sm:p-6 md:p-8 ${mentors}`}>{children}</div>
                         </div>
                     </div>
                 </div>

@@ -44,7 +44,7 @@ const LevelAndSkillsStep = ({ formData, setFormData, errors }) => {
                 />
 
                 <CyberInput
-                    label="Github link (optional)"
+                    label="Github/portfolio link (optional)"
                     placeholder="Enter your phone number"
                     value={formData.githubLink}
                     onChange={e => handleChange("githubLink", e.target.value)}

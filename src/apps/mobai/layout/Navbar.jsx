@@ -89,7 +89,6 @@ function Navbar() {
                                 onClick={(e) => handleNavLinkClick(e, href)}
                             >
                                 {name}
-                                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-main-red transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         ))}
                     </nav>

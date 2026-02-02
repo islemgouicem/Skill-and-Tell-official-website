@@ -4,10 +4,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import pic1 from "../../../assets/images/mobai/pic3.png";
 import background from "../../../assets/images/mobai/background.svg";
 import mobaiLogo from "../../../assets/images/mobai/mobai_logo.png";
-import { Calendar, MapPin } from "lucide-react";
+import Calendar from "../../../assets/images/mobai/calendar.svg"
+import Map from "../../../assets/images/mobai/map.svg"
 import CyberCard from "../components/cyberCard"
 import CyberButton from "../components/CyberButton"
-
 const RollingNumber = ({ value }) => {
   return (
     <motion.span
@@ -57,15 +57,15 @@ export default function HeroSection() {
         style={{ backgroundImage: `url(${background})`, height: "calc(100% - 100px)", top: 0 }}
       />
       <div className="w-full relative px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-[1400px] mx-auto gap-8 flex-1 py-4">
+        <div className="flex flex-col px-8 lg-px-2 lg:flex-row items-center lg:items-start justify-between w-full max-w-[1400px] mx-auto gap-8 flex-1 py-4">
           <motion.div
             initial={{ opacity: 0, x: -100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="flex flex-col justify-center items-center w-full lg:w-1/2"
+            className="flex flex-col justify-center items-center lg:items-start w-full lg:w-1/2"
           >
             <div
-              className="w-[80%] max-w-[600px] my-4"
+              className="w-[60%] lg:w-[70%] max-w-[600px] my-4"
             >
               <img
                 src={mobaiLogo}
@@ -79,8 +79,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="text-2xl md:text-3xl lg:text-4xl text-white uppercase mb-4 text-center"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              className="text-xl md:text-2xl lg:text-3xl text-center lg:text-left text-mwhite uppercase mb-4 bebas "
             >
               Build the next generation of AI mobile apps!
             </motion.h2>
@@ -89,7 +88,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
-              className="text-lg text-white/90 max-w-[550px] mb-4 text-center"
+              className="text-sm md:text-base lg:text-lg text-center lg:text-left text-subtitle max-w-[550px] mb-4 font-futura_lt_bt"
             >
               Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps.
             </motion.p>
@@ -97,23 +96,23 @@ export default function HeroSection() {
             <CyberButton
               variant="primary"
               onClick={() => navigate("/mobai/register")}
-              className="uppercase font-bold px-10 py-2 text-xl my-4"
+              className="uppercase px-6 md:px-10 py-2 text-lg md:text-xl my-4 bebas tracking-widest"
             >
               REGISTER NOW!
             </CyberButton>
 
-            <div className="flex gap-10 text-white/90">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />TBD
+            <div className="flex gap-4 md:gap-10 text-sm md:text-base text-white/90">
+              <div className="flex items-center gap-2 bebas">
+                <img src={Calendar} className="w-4 h-4 md:w-5 md:h-5" /> TBD
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" />ENSIA School
+              <div className="flex items-center gap-2 bebas">
+                <img src={Map} className="w-4 h-4 md:w-5 md:h-5" />ENSIA School
               </div>
             </div>
           </motion.div>
 
 
-          <div style={{ y: yCharacters }} className="hidden md:flex w-[40%] -mr-8">
+          <div style={{ y: yCharacters }} className="hidden lg:flex w-[40%] -mr-8">
             <img
               src={pic1}
               alt="Mobai Heroes"
@@ -130,7 +129,7 @@ export default function HeroSection() {
           transition={{ duration: 1 }}
           className="w-full flex justify-center md:-mt-10"
         >
-          <CyberCard className="w-[96%]">
+          <CyberCard className="w-full lg:w-[96%]">
             <motion.div
               initial={{ x: "-100%" }}
               whileInView={{ x: "100%" }}
@@ -138,15 +137,14 @@ export default function HeroSection() {
               className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"
             />
 
-            <div className="text-center mb-6 flex justify-center gap-1">
+            <div className="text-center mb-4 md:mb-6 flex justify-center gap-0.5 md:gap-1">
               {"COMING  SOON".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ y: -40, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05, duration: 0.6 }}
-                  className="text-4xl lg:text-5xl text-red-main-500 uppercase"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  className="text-2xl md:text-4xl lg:text-5xl text-red-main-500 uppercase bebas"
                 >
                   {char}
                 </motion.span>
@@ -154,41 +152,40 @@ export default function HeroSection() {
             </div>
 
             <div
-              className="flex justify-center items-center gap-4 md:gap-8 text-white"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              className="flex justify-center items-center gap-2 md:gap-4 lg:gap-8 text-white"
             >
               <div className="flex flex-col items-center">
-                <div className="text-5xl">
+                <div className="text-3xl md:text-4xl lg:text-5xl">
                   <RollingNumber value={timeLeft.days} />
                 </div>
-                <div className="uppercase text-white/80">Days</div>
+                <div className="uppercase text-white font-bold text-xs md:text-sm lg:text-base">Days</div>
               </div>
 
-              <div className="text-4xl text-white/40">:</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">:</div>
 
               <div className="flex flex-col items-center">
-                <div className="text-5xl">
+                <div className="text-3xl md:text-4xl lg:text-5xl">
                   <RollingNumber value={timeLeft.hours} />
                 </div>
-                <div className="uppercase text-white/80">Hours</div>
+                <div className="uppercase text-white font-bold text-xs md:text-sm lg:text-base">Hours</div>
               </div>
 
-              <div className="text-4xl text-white/40">:</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">:</div>
 
               <div className="flex flex-col items-center">
-                <div className="text-5xl">
+                <div className="text-3xl md:text-4xl lg:text-5xl">
                   <RollingNumber value={timeLeft.minutes} />
                 </div>
-                <div className="uppercase text-white/80">Mins</div>
+                <div className="uppercase text-white font-bold text-xs md:text-sm lg:text-base">Mins</div>
               </div>
 
-              <div className="text-4xl text-white/40">:</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">:</div>
 
               <div className="flex flex-col items-center">
-                <div className="text-5xl">
+                <div className="text-3xl md:text-4xl lg:text-5xl">
                   <RollingNumber value={timeLeft.seconds} />
                 </div>
-                <div className="uppercase text-white/80">Secs</div>
+                <div className="uppercase text-white font-bold text-xs md:text-sm lg:text-base">Secs</div>
               </div>
             </div>
           </CyberCard>

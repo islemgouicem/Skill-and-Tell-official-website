@@ -21,7 +21,7 @@ export default function Sponsors() {
       className="relative w-full my-20 flex flex-col items-center justify-center"
     >
       {/* Title */}
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-red-main-500 tracking-wider mb-12">
+      <h2 className="title">
         OUR SPONSORS
       </h2>
 

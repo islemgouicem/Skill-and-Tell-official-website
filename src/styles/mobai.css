@@ -3,30 +3,25 @@
 
 @theme {
   /* ========== Fonts ========== */
-    --font-sans:
+  --font-bebas:
     "Bebas Neue", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* ========== Original Colors ========== */
-    --color-red-main-500: #ff0006;
-    --color-card-title: #f7f0ff;
-    --color-main-red: #e52928;
-    --color-primary-white: #ffffffbf;
-    --color-error: #FF6E6E; 
-
+  --color-red-main-500: #ff0006;
+  --color-card-title: #f7f0ff;
+  --color-main-red: #e52928;
+  --color-mwhite: #FDFDFD;
+  --color-error: #ff6e6e;
+  --color-subtitle: #FDFDFDCC;
 
   /* ========== Border Radius ========== */
-    --radius: 0.5rem;
-
+  --radius: 0.5rem;
 }
-
 @layer components {
-    .mobai-app,
-    .mobai-app * {
-        font-family:
-        "Bebas Neue",
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        sans-serif !important;
-    }
+  .bebas {
+    @apply font-bebas tracking-widest;
+  }
+  .title{
+    @apply text-5xl md:text-6xl lg:text-7xl text-red-main-500 font-bebas tracking-widest mb-12;
+  }
 }

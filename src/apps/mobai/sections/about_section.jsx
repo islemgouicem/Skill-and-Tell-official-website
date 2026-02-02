@@ -66,7 +66,7 @@ export default function About() {
           >
             <motion.div variants={itemVariants} className="space-y-2">
               <h2
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#E52928] uppercase tracking-wider text-center"
+                className="title text-center mb-0"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
                 About Mobai
@@ -75,13 +75,13 @@ export default function About() {
 
             <motion.h3
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-semibold text-white text-center tracking-widest mb-4"
+              className="text-2xl md:text-3xl font-semibold text-white text-center tracking-widest mb-6"
             >
               What is mobai?
             </motion.h3>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed text-center max-w-[600px] font-futura">
+              <p className="text-base md:text-lg text-subtitle leading-relaxed text-center max-w-[600px] font-futura_md_bt">
                 Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai powered mobile applications. Participants will compete to create amazing apps
               </p>
             </motion.div>

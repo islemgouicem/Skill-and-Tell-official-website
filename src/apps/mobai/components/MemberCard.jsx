@@ -21,7 +21,6 @@ const YEAR_OPTIONS = [
     { value: "3", label: "3" },
     { value: "4", label: "4" },
     { value: "5", label: "5" },
-    { value: "6", label: "6" }
 ]
 
 const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fieldIdPrefix }) => {
@@ -37,7 +36,7 @@ const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fie
                     title={isLeader ? `Leader (Member 1)` : `Member ${memberIndex + 1}`}
                     icon={icon}
                 />
-                {isLeader && (
+                {/* {isLeader && (
                     <span
                         className="text-xs font-bold uppercase tracking-wide px-2 py-1 rounded"
                         style={{
@@ -48,7 +47,7 @@ const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fie
                     >
                         Leader
                     </span>
-                )}
+                )} */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -118,7 +117,7 @@ const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fie
                 />
                 <CyberInput
                     id={id("github")}
-                    label="GitHub link"
+                    label="GitHub/portfolio link"
                     placeholder="https://github.com/username"
                     value={member.github ?? ""}
                     onChange={e => handleChange("github", e.target.value)}

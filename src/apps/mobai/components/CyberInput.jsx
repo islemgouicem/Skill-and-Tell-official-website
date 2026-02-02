@@ -15,7 +15,7 @@ const CyberInput = ({
             </label>
             <input
                 className={`
-                    w-full px-4 py-2.5 rounded-sm
+                    w-full p-[12px] pl-[20px] rounded-[3px]
                     bg-transparent border border-red-main-500
                     text-white placeholder-white/50
                     focus:outline-none focus:shadow-red-main-500

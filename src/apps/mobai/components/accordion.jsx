@@ -21,13 +21,13 @@ const AccordionTrigger = React.memo(
       <Trigger
         ref={ref}
         className={cn(
-          "flex flex-1 items-center justify-between py-1 md:py-2 font-medium transition-all hover:text-gold [&[data-state=open]>svg]:rotate-180",
+          "flex flex-1 items-center justify-between py-1 md:py-2 font-medium transition-all [&[data-state=open]>svg]:rotate-180",
           className
         )}
         {...props}
       >
         {children}
-        <ChevronDown className="h-4 w-4 shrink-0 text-gold transition-transform duration-200 mr-2" />
+        <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 mr-2" />
       </Trigger>
     </Header>
   ))

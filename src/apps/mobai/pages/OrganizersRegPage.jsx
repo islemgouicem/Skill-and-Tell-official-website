@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { supabase } from "../../../lib/services/supabase"
 import "../../../styles/mobai.css"
 import regBg from "../../../assets/images/mobai/reg_bg.svg"
-import { User, School, Users, Calendar, Briefcase, Clock, Phone, GraduationCap } from "lucide-react"
+import { User, Users, Calendar, Briefcase } from "lucide-react"
 
 const SHIFT_OPTIONS = [
     { value: "10-17", label: "10:00 AM - 5:00 PM" },
@@ -27,6 +27,7 @@ const YEAR_OPTIONS = [
 
 const INITIAL_FORM_DATA = {
     full_name: "",
+    email: "",
     phone_number: "",
     school_or_uni: "",
     year_of_study: "",
@@ -35,9 +36,9 @@ const INITIAL_FORM_DATA = {
     available_day1: false,
     available_day2: false,
     available_day3: false,
-    shift_day1: "",
-    shift_day2: "",
-    shift_day3: "",
+    shift_day1: [],
+    shift_day2: [],
+    shift_day3: [],
     has_previous_experience: null,
     previous_experience_description: ""
 }
@@ -134,6 +135,12 @@ const OrganizersRegPage = () => {
             newErrors.full_name = "Name must be at least 3 characters"
         }
 
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required"
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+            newErrors.email = "Please enter a valid email"
+        }
+
         if (!formData.phone_number.trim()) {
             newErrors.phone_number = "Phone number is required"
         } else if (formData.phone_number.trim().length < 10) {
@@ -161,13 +168,13 @@ const OrganizersRegPage = () => {
         }
 
         // Validate shift selection for each selected day
-        if (formData.available_day1 && !formData.shift_day1) {
+        if (formData.available_day1 && formData.shift_day1.length === 0) {
             newErrors.shift_day1 = "Please select a shift for February 12"
         }
-        if (formData.available_day2 && !formData.shift_day2) {
+        if (formData.available_day2 && formData.shift_day2.length === 0) {
             newErrors.shift_day2 = "Please select a shift for February 13"
         }
-        if (formData.available_day3 && !formData.shift_day3) {
+        if (formData.available_day3 && formData.shift_day3.length === 0) {
             newErrors.shift_day3 = "Please select a shift for February 14"
         }
 
@@ -181,6 +188,19 @@ const OrganizersRegPage = () => {
 
         setErrors(newErrors)
         return Object.keys(newErrors).length === 0
+    }
+
+    const handleShiftChange = (field, shift, checked) => {
+        setFormData(prev => {
+            const current = prev[field] || []
+            const filtered = current.filter(item => item !== shift)
+            const updated = checked ? [...filtered, shift] : filtered
+            return { ...prev, [field]: updated }
+        })
+
+        if (errors[field]) {
+            setErrors(prev => ({ ...prev, [field]: null }))
+        }
     }
 
     const handleStart = () => {
@@ -212,6 +232,7 @@ const OrganizersRegPage = () => {
         try {
             const { error } = await supabase.from("mobai_organizers").insert({
                 full_name: formData.full_name.trim(),
+                email: formData.email.trim(),
                 phone_number: formData.phone_number.trim(),
                 school_or_uni: formData.school_or_uni.trim(),
                 year_of_study: parseInt(formData.year_of_study),
@@ -220,9 +241,9 @@ const OrganizersRegPage = () => {
                 available_day1: formData.available_day1 ? "yes" : "no",
                 available_day2: formData.available_day2 ? "yes" : "no",
                 available_day3: formData.available_day3 ? "yes" : "no",
-                shift_day1: formData.available_day1 ? formData.shift_day1 : null,
-                shift_day2: formData.available_day2 ? formData.shift_day2 : null,
-                shift_day3: formData.available_day3 ? formData.shift_day3 : null,
+                shifts_day1: formData.available_day1 ? formData.shift_day1.join(",") : null,
+                shifts_day2: formData.available_day2 ? formData.shift_day2.join(",") : null,
+                shifts_day3: formData.available_day3 ? formData.shift_day3.join(",") : null,
                 has_previous_experience: formData.has_previous_experience ? "yes" : "no",
                 previous_experience_description: formData.has_previous_experience ? formData.previous_experience_description.trim() : null
             })
@@ -326,6 +347,17 @@ const OrganizersRegPage = () => {
                     />
 
                     <CyberInput
+                        id="organizer-email"
+                        label="Email"
+                        required
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={(e) => updateField("email", e.target.value)}
+                        error={errors.email}
+                    />
+
+                    <CyberInput
                         id="organizer-phone"
                         label="Phone Number"
                         required
@@ -422,7 +454,7 @@ const OrganizersRegPage = () => {
                         <label className="text-white text-sm font-medium">
                             Which days are you available and which shift? <span className="text-red-main-500">*</span>
                         </label>
-                        
+
                         {/* February 12 */}
                         <div className="border-l-2 border-[#663380] pl-4 py-2 space-y-3">
                             <CyberCheckbox
@@ -430,21 +462,25 @@ const OrganizersRegPage = () => {
                                 checked={formData.available_day1}
                                 onChange={(checked) => {
                                     updateField("available_day1", checked)
-                                    if (!checked) updateField("shift_day1", "")
+                                    if (!checked) updateField("shift_day1", [])
                                 }}
                             />
                             {formData.available_day1 && (
-                                <div className="ml-8">
-                                    <CyberSelect
-                                        id="organizer-shift-1"
-                                        label="Preferred shift for Feb 12"
-                                        required
-                                        options={SHIFT_OPTIONS}
-                                        placeholder="Select shift..."
-                                        value={formData.shift_day1}
-                                        onChange={(e) => updateField("shift_day1", e.target.value)}
-                                        error={errors.shift_day1}
-                                    />
+                                <div className="ml-8 space-y-2">
+                                    <p className="text-white text-xs">Select all shifts you can cover</p>
+                                    <div className="space-y-2">
+                                        {SHIFT_OPTIONS.map(option => (
+                                            <CyberCheckbox
+                                                key={`shift-day1-${option.value}`}
+                                                label={option.label}
+                                                checked={formData.shift_day1.includes(option.value)}
+                                                onChange={(checked) => handleShiftChange("shift_day1", option.value, checked)}
+                                            />
+                                        ))}
+                                    </div>
+                                    {errors.shift_day1 && (
+                                        <span className="text-[#FF6E6E] text-xs">* {errors.shift_day1}</span>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -456,21 +492,25 @@ const OrganizersRegPage = () => {
                                 checked={formData.available_day2}
                                 onChange={(checked) => {
                                     updateField("available_day2", checked)
-                                    if (!checked) updateField("shift_day2", "")
+                                    if (!checked) updateField("shift_day2", [])
                                 }}
                             />
                             {formData.available_day2 && (
-                                <div className="ml-8">
-                                    <CyberSelect
-                                        id="organizer-shift-2"
-                                        label="Preferred shift for Feb 13"
-                                        required
-                                        options={SHIFT_OPTIONS}
-                                        placeholder="Select shift..."
-                                        value={formData.shift_day2}
-                                        onChange={(e) => updateField("shift_day2", e.target.value)}
-                                        error={errors.shift_day2}
-                                    />
+                                <div className="ml-8 space-y-2">
+                                    <p className="text-white text-xs">Select all shifts you can cover</p>
+                                    <div className="space-y-2">
+                                        {SHIFT_OPTIONS.map(option => (
+                                            <CyberCheckbox
+                                                key={`shift-day2-${option.value}`}
+                                                label={option.label}
+                                                checked={formData.shift_day2.includes(option.value)}
+                                                onChange={(checked) => handleShiftChange("shift_day2", option.value, checked)}
+                                            />
+                                        ))}
+                                    </div>
+                                    {errors.shift_day2 && (
+                                        <span className="text-[#FF6E6E] text-xs">* {errors.shift_day2}</span>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -482,21 +522,25 @@ const OrganizersRegPage = () => {
                                 checked={formData.available_day3}
                                 onChange={(checked) => {
                                     updateField("available_day3", checked)
-                                    if (!checked) updateField("shift_day3", "")
+                                    if (!checked) updateField("shift_day3", [])
                                 }}
                             />
                             {formData.available_day3 && (
-                                <div className="ml-8">
-                                    <CyberSelect
-                                        id="organizer-shift-3"
-                                        label="Preferred shift for Feb 14"
-                                        required
-                                        options={SHIFT_OPTIONS}
-                                        placeholder="Select shift..."
-                                        value={formData.shift_day3}
-                                        onChange={(e) => updateField("shift_day3", e.target.value)}
-                                        error={errors.shift_day3}
-                                    />
+                                <div className="ml-8 space-y-2">
+                                    <p className="text-white text-xs">Select all shifts you can cover</p>
+                                    <div className="space-y-2">
+                                        {SHIFT_OPTIONS.map(option => (
+                                            <CyberCheckbox
+                                                key={`shift-day3-${option.value}`}
+                                                label={option.label}
+                                                checked={formData.shift_day3.includes(option.value)}
+                                                onChange={(checked) => handleShiftChange("shift_day3", option.value, checked)}
+                                            />
+                                        ))}
+                                    </div>
+                                    {errors.shift_day3 && (
+                                        <span className="text-[#FF6E6E] text-xs">* {errors.shift_day3}</span>
+                                    )}
                                 </div>
                             )}
                         </div>
