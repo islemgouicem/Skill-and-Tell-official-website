@@ -11,10 +11,15 @@ import "../../../styles/mobai.css"
 import regBg from "../../../assets/images/mobai/reg_bg.svg"
 import { User, Users, Calendar, Briefcase } from "lucide-react"
 
-const SHIFT_OPTIONS = [
+const SHIFT_OPTIONS_DAY1_2 = [
     { value: "10-17", label: "10:00 AM - 5:00 PM" },
     { value: "17-00", label: "5:00 PM - 12:00 AM" },
     { value: "00-10", label: "12:00 AM - 10:00 AM" }
+]
+
+const SHIFT_OPTIONS_DAY3 = [
+    { value: "10-16", label: "10:00 AM - 4:00 PM" },
+    { value: "16-19", label: "4:00 PM - 7:00 PM" }
 ]
 
 const YEAR_OPTIONS = [
@@ -304,18 +309,14 @@ const OrganizersRegPage = () => {
                         <h3 className="font-bold text-white mb-2 uppercase text-xs tracking-wide">
                             Shifts Available
                         </h3>
-                        <div className="space-y-1 ml-3">
+                        <div className="space-y-2 ml-3">
                             <div className="flex items-start gap-2">
                                 <span className="text-red-main-500 font-bold">›</span>
-                                <span className="text-gray-300">Morning: 10:00 AM - 5:00 PM</span>
+                                <span className="text-gray-300">Day 1 & 2: 10:00 AM - 5:00 PM, 5:00 PM - 12:00 AM, 12:00 AM - 10:00 AM</span>
                             </div>
                             <div className="flex items-start gap-2">
                                 <span className="text-red-main-500 font-bold">›</span>
-                                <span className="text-gray-300">Evening: 5:00 PM - 12:00 AM</span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                                <span className="text-red-main-500 font-bold">›</span>
-                                <span className="text-gray-300">Night: 12:00 AM - 10:00 AM</span>
+                                <span className="text-gray-300">Day 3: 10:00 AM - 4:00 PM, 4:00 PM - 7:00 PM</span>
                             </div>
                         </div>
                     </div>
@@ -469,7 +470,7 @@ const OrganizersRegPage = () => {
                                 <div className="ml-8 space-y-2">
                                     <p className="text-white text-xs">Select all shifts you can cover</p>
                                     <div className="space-y-2">
-                                        {SHIFT_OPTIONS.map(option => (
+                                        {SHIFT_OPTIONS_DAY1_2.map(option => (
                                             <CyberCheckbox
                                                 key={`shift-day1-${option.value}`}
                                                 label={option.label}
@@ -499,7 +500,7 @@ const OrganizersRegPage = () => {
                                 <div className="ml-8 space-y-2">
                                     <p className="text-white text-xs">Select all shifts you can cover</p>
                                     <div className="space-y-2">
-                                        {SHIFT_OPTIONS.map(option => (
+                                        {SHIFT_OPTIONS_DAY1_2.map(option => (
                                             <CyberCheckbox
                                                 key={`shift-day2-${option.value}`}
                                                 label={option.label}
@@ -529,7 +530,7 @@ const OrganizersRegPage = () => {
                                 <div className="ml-8 space-y-2">
                                     <p className="text-white text-xs">Select all shifts you can cover</p>
                                     <div className="space-y-2">
-                                        {SHIFT_OPTIONS.map(option => (
+                                        {SHIFT_OPTIONS_DAY3.map(option => (
                                             <CyberCheckbox
                                                 key={`shift-day3-${option.value}`}
                                                 label={option.label}

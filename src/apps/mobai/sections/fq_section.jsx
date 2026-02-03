@@ -6,7 +6,7 @@ function FQ() {
     return (
         <section
             id="fq"
-            className="relative w-full overflow-hidden"
+            className="relative w-full overflow-hidden mb-20"
         >
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">

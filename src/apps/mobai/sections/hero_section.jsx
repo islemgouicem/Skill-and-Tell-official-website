@@ -27,7 +27,7 @@ export default function HeroSection() {
   const { scrollY } = useScroll();
   const yCharacters = useTransform(scrollY, [0, 1000], [0, -100]);
 
-  const eventDate = new Date("2026-02-12T09:00:00");
+  const eventDate = new Date("2026-02-12T15:00:00");
 
   const getTimeRemaining = () => {
     const total = eventDate - new Date();
@@ -103,7 +103,7 @@ export default function HeroSection() {
 
             <div className="flex gap-4 md:gap-10 text-sm md:text-base text-white/90">
               <div className="flex items-center gap-2 bebas">
-                <img src={Calendar} className="w-4 h-4 md:w-5 md:h-5" /> TBD
+                <img src={Calendar} className="w-4 h-4 md:w-5 md:h-5" /> 12 feb
               </div>
               <div className="flex items-center gap-2 bebas">
                 <img src={Map} className="w-4 h-4 md:w-5 md:h-5" />ENSIA School

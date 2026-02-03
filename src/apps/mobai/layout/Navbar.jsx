@@ -14,7 +14,7 @@ function Navbar() {
         { name: "Sponsors", href: "#sponsors" },
         { name: "Mentors", href: "#mentors" },
         { name: "FQ", href: "#fq" },
-        { name: "Organize", href: "#organizers" },
+        // { name: "Organize", href: "#organizers" },
         { name: "", href: "#" },
         // { name: "Organize", href: "#organizers" },
     ]
