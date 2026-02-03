@@ -21,6 +21,7 @@ export function validateMember(member, index) {
     if (!member.phone_telegram?.trim()) err.phone_telegram = "Telegram phone number is required"
     if (!member.email?.trim()) err.email = "Email is required"
     else if (!isValidEmail(member.email)) err.email = "Please enter a valid email address"
+    if (!member.github?.trim()) err.github = "GitHub or portfolio link is required"
     if (!member.responsibility) err.responsibility = "Please select a responsibility"
     if (index === 0 && !member.intent) err.intent = "Please select an intent"
     return err

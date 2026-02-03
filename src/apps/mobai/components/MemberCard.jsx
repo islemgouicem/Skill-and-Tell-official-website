@@ -118,6 +118,7 @@ const MemberCard = ({ memberIndex, member, errors, onChange, isLeader, icon, fie
                 <CyberInput
                     id={id("github")}
                     label="GitHub/portfolio link"
+                    required
                     placeholder="https://github.com/username"
                     value={member.github ?? ""}
                     onChange={e => handleChange("github", e.target.value)}
