@@ -9,7 +9,7 @@ import Sponsors from "../sections/sponsors_sections"
 import Footer from "../layout/Footer"
 import Organizers from "../sections/organizers_section"
 import FQ from "../sections/fq_section"
-import sectionsBg from "../../../assets/images/mobai/sections.svg"
+import sectionsBg from "../../../assets/images/mobai/sections.webp"
 
 
 

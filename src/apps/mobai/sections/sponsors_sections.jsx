@@ -1,16 +1,8 @@
-import { useState } from "react";
-import snt from "/images/logo.png"
-import AlgerieTelecom from "../../../assets/images/mobai/Logo_Algérie_Télécom.png";
-import AlgeriePoste from "../../../assets/images/mobai/logo_AlgeriePoste.png";
-import Djezzy from "../../../assets/images/mobai/Logo_Djezzy_2015.png";
-import Mobilis from "../../../assets/images/mobai/logo_mobilis.png";
-import Ooredoo from "../../../assets/images/mobai/logo_ooredoo.png";
 
 export default function Sponsors() {
   const sponsors = [
-    { logo: snt, link: "#" },
-    { logo: snt, link: "#" },
-    { logo: snt, link: "#" },
+    { logo: "/images/mobai/ensia.png", link: "#" },
+    { logo: "/images/mobai/bms.png", link: "#" },
     // { logo: Djezzy, link: "https://www.djezzy.dz" },
     // { logo: Ooredoo, link: "https://www.ooredoo.dz" },
   ];

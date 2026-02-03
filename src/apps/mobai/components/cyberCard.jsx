@@ -1,4 +1,4 @@
-import cardBg from "../../../assets/images/mobai/cardbg.svg"
+import cardBg from "/images/mobai/cardbg.webp"
 import { useEffect, useState } from "react"
 
 const CyberCard = ({ children, className = "", shadow = true, mentors= ""}) => {

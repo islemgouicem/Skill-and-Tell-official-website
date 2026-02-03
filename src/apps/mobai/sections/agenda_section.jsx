@@ -1,6 +1,6 @@
 import { useState } from "react"
-import leftArrow from "../../../assets/images/mobai/left arrow.svg"
-import rightArrow from "../../../assets/images/mobai/right arrow.svg"
+import leftArrow from "/images/mobai/left arrow.svg"
+import rightArrow from "/images/mobai/right arrow.svg"
 import CyberCard from "../components/cyberCard"
 
 const agendaData = [

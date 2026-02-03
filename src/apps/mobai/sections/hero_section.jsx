@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import pic1 from "../../../assets/images/mobai/pic3.png";
-import background from "../../../assets/images/mobai/background.svg";
-import mobaiLogo from "../../../assets/images/mobai/mobai_logo.png";
-import Calendar from "../../../assets/images/mobai/calendar.svg"
-import Map from "../../../assets/images/mobai/map.svg"
+import pic1 from "/images/mobai/pic3.png";
+import background from "/images/mobai/background.svg";
+import mobaiLogo from "/images/mobai/mobai_logo_1.png";
+import Calendar from "/images/mobai/calendar.svg"
+import Map from "/images/mobai/map.svg"
 import CyberCard from "../components/cyberCard"
 import CyberButton from "../components/CyberButton"
 const RollingNumber = ({ value }) => {

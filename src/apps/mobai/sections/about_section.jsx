@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutImage from "../../../assets/images/mobai/about.png";
+import aboutImage from "/images/mobai/about.png";
 
 export default function About() {
   const containerVariants = {
