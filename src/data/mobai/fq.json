@@ -1,22 +1,27 @@
 [
     {
-        "value": "item-1",
-        "question": "Lorem ipsum dolor sit amet consectetur. Sed metus ornare consectetur inte volutpat arcu ?",
-        "answer": "Lorem ipsum dolor sit amet consectetur. Sapien ullamcorper suspendisse eget quisque at ac placerat consequat tempus. Nulla at tellus congue a. Non et dui semper at consectetur. Blandit augue nec ullamcorper at egestas urna in ipper at egestas urna in ipsum sapien."
+        "value": "01",
+        "question": "What’s the bigger vision behind this event?",
+        "answer": "MobAI was created to bridge the gap between learning and doing. Its vision is to push students to step out of theory and face real, meaningful problems using technology. Beyond building projects, MobAI aims to foster innovation, collaboration, and a problem-solving mindset —the kind needed in real-world tech environments."
     },
     {
-        "value": "item-2",
-        "question": "Lorem ipsum dolor sit amet consectetur. Sed metus ornare consectetur inte volutpat arcu ?",
-        "answer": "Lorem ipsum dolor sit amet consectetur. Sapien ullamcorper suspendisse eget quisque at ac placerat consequat tempus. Nulla at tellus congue a. Non et dui semper at consectetur. Blandit augue nec ullamcorper at egestas urna in ipper at egestas urna in ipsum sapien."
+        "value": "02",
+        "question": "Is MobAI open to students from all backgrounds?",
+        "answer": "MobAI is a technical hackathon designed for students passionate about AI, mobile development, and digital product design. While participants don’t need to be experts, they should have a genuine interest in building tech-driven solutions and exploring how technology can solve real problems."
     },
     {
-        "value": "item-3",
-        "question": "Lorem ipsum dolor sit amet consectetur. Sed metus ornare consectetur inte volutpat arcu ?",
-        "answer": "Lorem ipsum dolor sit amet consectetur. Sapien ullamcorper suspendisse eget quisque at ac placerat consequat tempus. Nulla at tellus congue a. Non et dui semper at consectetur. Blandit augue nec ullamcorper at egestas urna in ipper at egestas urna in ipsum sapien."
+        "value": "03",
+        "question": "What kind of experience will participants gain during the event?",
+        "answer": "Participants will experience what it’s like to build under real constraints: limited time, real challenges, and teamwork. MobAI offers hands-on technical practice through coding, designing, and brainstorming, while sharpening problem-solving and time management skills in an environment full of collaboration, learning, networking, and fun."
     },
     {
-        "value": "item-4",
-        "question": "Lorem ipsum dolor sit amet consectetur. Sed metus ornare consectetur inte volutpat arcu ?",
-        "answer": "Lorem ipsum dolor sit amet consectetur. Sapien ullamcorper suspendisse eget quisque at ac placerat consequat tempus. Nulla at tellus congue a. Non et dui semper at consectetur. Blandit augue nec ullamcorper at egestas urna in ipper at egestas urna in ipsum sapien."
+        "value": "04",
+        "question": "How can MobAI help me level up my skills?",
+        "answer": "MobAI places you in real situations where you learn by doing. You’ll face challenges that push you to think critically, adapt quickly, and turn ideas into working solutions. By the end of the event, you won’t just have new technical skills — you’ll gain confidence, experience, and a clearer understanding of how real tech projects come to life."
+    },
+    {
+        "value": "05",
+        "question": "What is expected from participants throughout MobAI?",
+        "answer": "Participants are expected to be active, curious, and engaged. MobAI values creativity, teamwork, and bold thinking. Whether a solution is innovative, unconventional, or ambitious, what matters most is the willingness to contribute, collaborate, and push ideas as far as possible."
     }
 ]

@@ -5,40 +5,110 @@ import CyberCard from "../components/cyberCard"
 
 const agendaData = [
     {
-        day: 1,
-        events: [
-            { time: "10:00 - 11:00 AM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
-            { time: "12:00 - 01:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
+        "day": 1,
+        "events": [
+            {
+                "time": "14:00 - 15:00",
+                "description": "Check-in"
+            },
+            {
+                "time": "15:00 - 15:30",
+                "description": "Opening Ceremony"
+            },
+            {
+                "time": "15:30 - 16:00",
+                "description": "Coffee Break"
+            },
+            {
+                "time": "16:00 - 20:00",
+                "description": "Teamwork"
+            },
+            {
+                "time": "20:00 - 21:00",
+                "description": "Dinner Break"
+            },
+            {
+                "time": "21:00 - 01:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "01:00 - 01:30",
+                "description": "Coffee Break"
+            }
         ]
     },
     {
-        day: 2,
-        events: [
-            { time: "08:00 - 09:00 AM", description: "TBD" },
-            { time: "09:00 - 10:00 AM", description: "TBD" },
-            { time: "10:00 - 11:00 AM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
-            { time: "12:00 - 01:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
-            { time: "01:00 - 02:00 PM", description: "TBD" },
+        "day": 2,
+        "events": [
+            {
+                "time": "08:00 - 09:00",
+                "description": "Breakfast"
+            },
+            {
+                "time": "09:00 - 12:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "12:30 - 14:30",
+                "description": "Lunch Break & Salat Al-Jomou3a"
+            },
+            {
+                "time": "13:00 - 17:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "17:00 - 17:30",
+                "description": "Coffee Break"
+            },
+            {
+                "time": "17:30 - 20:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "20:00 - 21:00",
+                "description": "Dinner Break"
+            },
+            {
+                "time": "21:00 - 01:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "01:00 - 01:30",
+                "description": "Coffee Break"
+            }
         ]
     },
     {
-        day: 3,
-        events: [
-            { time: "08:00 - 09:00 AM", description: "TBD" },
-            { time: "09:00 - 10:00 AM", description: "TBD" },
-            { time: "10:00 - 11:00 AM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
-            { time: "11:00 - 12:00 PM", description: "TBD" },
+        "day": 3,
+        "events": [
+            {
+                "time": "08:00 - 09:00",
+                "description": "Breakfast"
+            },
+            {
+                "time": "09:00 - 12:00",
+                "description": "Teamwork Continuation"
+            },
+            {
+                "time": "---- 12:00 ----",
+                "description": "Work Submission"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "description": "Lunch Break"
+            },
+            {
+                "time": "13:00 - 15:30",
+                "description": "Demos"
+            },
+            {
+                "time": "15:30 - 16:30",
+                "description": "Coffee Break"
+            },
+            {
+                "time": "16:30 - 17:00",
+                "description": "Closing Ceremony and Awards"
+            }
         ]
     }
 ]
@@ -109,13 +179,13 @@ export default function Agenda() {
                         </div>
 
                         {/* Events List */}
-                        <div className="space-y-3 sm:space-y-3 md:space-y-4 lg:space-y-4">
+                        <div className="space-y-3 sm:space-y-3 md:space-y-4 lg:space-y-4 w-full max-w-2xl mx-auto">
                             {agendaData[currentDay].events.map((event, index) => (
-                                <div key={index} className="w-full flex flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-                                    <span className="text-mwhite text-md lg:text-xl font-light text-right">
+                                <div key={index} className="w-full grid grid-cols-[auto_1fr] items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-items-center">
+                                    <span className="text-mwhite text-md lg:text-xl font-light text-center whitespace-nowrap">
                                         {event.time}
                                     </span>
-                                    <span className="text-subtitle text-md lg:text-xl whitespace-pre-line font-light text-left">
+                                    <span className="text-subtitle text-md lg:text-xl whitespace-pre-line font-light text-center">
                                         {event.description}
                                     </span>
                                 </div>
