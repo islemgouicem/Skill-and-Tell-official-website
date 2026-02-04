@@ -31,9 +31,9 @@ const TeamQuestionsStep = ({ formData, setFormData, errors }) => {
             </div>
             <CyberTextarea
                 id="mobai-team_quality_opinion"
-                label="Team quality question"
+                label="Team quality"
                 required
-                placeholder="Min 30 characters"
+                placeholder="In your opinion, how can a team be good enough to come up with valuable solutions?"
                 value={formData.team_quality_opinion ?? ""}
                 onChange={e => handleChange("team_quality_opinion", e.target.value)}
                 error={errors?.team_quality_opinion}
@@ -41,9 +41,9 @@ const TeamQuestionsStep = ({ formData, setFormData, errors }) => {
             />
             <CyberTextarea
                 id="mobai-prize_not_wanted"
-                label="Prize not wanted"
+                label="A prize you don't want?"
                 required
-                placeholder="Min 10 characters"
+                placeholder="what are the prizes that you wouldn't like"
                 value={formData.prize_not_wanted ?? ""}
                 onChange={e => handleChange("prize_not_wanted", e.target.value)}
                 error={errors?.prize_not_wanted}
