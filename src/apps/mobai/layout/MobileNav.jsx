@@ -19,7 +19,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
             </SheetTrigger>
             <SheetContent
                 side="right"
-                className="border-Main-400 w-[250px] text-space-text bg-[#2d045360]"
+                className="border-red-main-500 w-[250px] text-space-text bg-[#2d0453d2]"
             >
                 <a href="#hero" aria-label="logo" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
                     <img

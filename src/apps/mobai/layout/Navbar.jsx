@@ -12,7 +12,7 @@ function Navbar() {
         { name: "About", href: "#about" },
         { name: "Agenda", href: "#agenda" },
         { name: "Sponsors", href: "#sponsors" },
-        { name: "Mentors", href: "#mentors" },
+        { name: "Juries", href: "#juries" },
         { name: "FQ", href: "#fq" },
         { name: "Organize", href: "#organizers" },
         { name: "", href: "#" },

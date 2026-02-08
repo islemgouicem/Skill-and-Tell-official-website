@@ -72,10 +72,10 @@ const MentorsCarousel = () => {
 
     return (
         <section className="gradient-purple-bg px-2 sm:px-4 md:px-8 flex flex-col items-center justify-center mb-10 py-8">
-            <div className="relative w-full max-w-6xl">
+            <div className="relative w-full max-w-4xl">
                 <button
                     onClick={scrollPrev}
-                    className="ml-6 absolute -left-6 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-15 h-15 flex items-center justify-center"
+                    className="ml-4 lg:ml-2 absolute -left-6 md:-left-12 top-1/2 -translate-y-1/2 z-10 w-15 h-15 flex items-center justify-center"
                     aria-label="Previous slide"
                 >
                     <img src={leftArrow} className="w-full h-full" alt="Previous" />
@@ -83,7 +83,7 @@ const MentorsCarousel = () => {
 
                 <button
                     onClick={scrollNext}
-                    className="mr-6 absolute -right-6 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-15 h-15 flex items-center justify-center"
+                    className="mr-4 lg:mr-2 absolute -right-6 md:-right-12 top-1/2 -translate-y-1/2 z-10 w-15 h-15 flex items-center justify-center"
                     aria-label="Next slide"
                 >
                     <img src={rightArrow} className="w-full h-full" alt="Next" />
@@ -94,18 +94,18 @@ const MentorsCarousel = () => {
                         {mentors.map(judge => (
                             <div
                                 key={judge.id}
-                                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2"
+                                className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33%] px-4 sm:px-8"
                             >
-                                <CyberCard className="h-full w-full sm:max-w-sm mx-auto" shadow={false} mentors="min-h-[calc(50vh)] lg:min-h-[calc(40vh)]  flex flex-col items-center justify-around">
-                                    <div className="relative mb-4">
+                                <CyberCard className="h-full w-full sm:max-w-xs mx-auto" shadow={false} mentors="min-h-[calc(40vh)] lg:min-h-[calc(35vh)]  flex flex-col items-center justify-around">
+                                    <div className="relative mb-3">
                                         <img
                                             src={judge.image}
                                             alt={judge.name}
-                                            className="w-full h-48 sm:h-56 md:h-58 object-contain rounded-md"
+                                            className="w-full h-32 sm:h-40 md:h-44 object-contain rounded-md"
                                         />
 
                                         <h3
-                                            className="font-[100] text-[#F7F0FF] text-center text-3xl lg:text-4xl uppercase -mt-6 sm:-mt-7"
+                                            className="font-[100] text-[#F7F0FF] text-center text-2xl lg:text-3xl uppercase -mt-4 sm:-mt-5"
                                             style={{
                                                 textShadow:
                                                     "0px 10px 30px #9045d5ff,0px -10px 30px #9045d5ff"
@@ -115,7 +115,7 @@ const MentorsCarousel = () => {
                                         </h3>
                                     </div>
 
-                                    <p className="text-center font-[100] text-sm sm:text-base text-subtitle">
+                                    <p className="text-center font-[100] text-xs sm:text-sm text-subtitle line-clamp-4">
                                         {judge.subtitle}
                                     </p>
 
