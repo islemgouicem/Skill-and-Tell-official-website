@@ -3,8 +3,10 @@ import { X, AlertCircle } from "lucide-react"
 
 const BouncingPopup = ({ isOpen, onClose,
     title = "Registration",
-    subtitle= "Comming soon",
-    msg = "Registration isn't open just yet, Stay tuned for an amazing experience!" }) => {
+    subtitle = "Comming soon",
+    msg = "Registration isn't open just yet, Stay tuned for an amazing experience!",
+    color = "bg-accent-400",
+}) => {
     const [isVisible, setIsVisible] = useState(false)
     const [isAnimatingOut, setIsAnimatingOut] = useState(false)
 
@@ -96,7 +98,7 @@ const BouncingPopup = ({ isOpen, onClose,
                             (e.currentTarget.style.backgroundColor = "rgba(250,60%,18%,0.5)")
                         }
                     >
-                        <X size={20} color="hsl(25,100%,60%)" />
+                        <X size={20} color={`${color == null ? "hsl(25,100%,60%)": "#ff0006"}`} />
                     </button>
 
                     {/* Icon */}
@@ -120,7 +122,7 @@ const BouncingPopup = ({ isOpen, onClose,
                                 }}
                             />
                             <div
-                                className="bg-accent-500"
+                                className={`${color == null ? "bg-accent-500": color}`}
 
                                 style={{
                                     position: "relative",
@@ -146,7 +148,7 @@ const BouncingPopup = ({ isOpen, onClose,
                         }}
                     >
                         {title}
-                        <span className="block text-accent-400">
+                        <span className={`block ${color == null ? "text-accent-500": "text-red-main-500"}`}>
                             {subtitle}
                         </span>
                     </h2>
@@ -173,7 +175,7 @@ const BouncingPopup = ({ isOpen, onClose,
                         }}
                     >
                         <div
-                            className="bg-accent-300"
+                            className={`${color == null ? "bg-accent-500": color}`}
                             style={{
                                 width: "0.5rem",
                                 height: "0.5rem",
@@ -182,7 +184,7 @@ const BouncingPopup = ({ isOpen, onClose,
                             }}
                         />
                         <div
-                            className="bg-accent-400"
+                            className={color}
                             style={{
                                 width: "0.5rem",
                                 height: "0.5rem",
@@ -193,7 +195,7 @@ const BouncingPopup = ({ isOpen, onClose,
                             }}
                         />
                         <div
-                            className="bg-accent-500"
+                            className={`${color == null ? "bg-accent-500": color}`}
 
                             style={{
                                 width: "0.5rem",
@@ -209,7 +211,7 @@ const BouncingPopup = ({ isOpen, onClose,
                     {/* Action button */}
                     <button
                         onClick={handleClose}
-                        className="text-white bg-accent-400"
+                        className="text-white bg-red-main-500"
                         style={{
                             width: "100%",
                             padding: "0.75rem 1.5rem",

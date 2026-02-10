@@ -37,8 +37,8 @@ function Root() {
                     <Route path="/registered" element={<Registered />} />
                     <Route path="/eunoia" element={<Eunoia />} />
                     <Route path="/mobai" element={<MobAI />} />
-                    <Route path="/mobai/register" element={<MobaiRegistration />} />
-                    <Route path="/mobai/organizers" element={<MobaiOrganizersReg />} />
+                    {/* <Route path="/mobai/register" element={<MobaiRegistration />} /> */}
+                    {/* <Route path="/mobai/organizers" element={<MobaiOrganizersReg />} /> */}
                     {/* <Route path="/eunoia/register" element={<EunoiaRegisteration />} /> */}
                     {/* <Route path="/eunoia/organizers" element={<OrganizerRegistration />} /> */}
                 </Routes>

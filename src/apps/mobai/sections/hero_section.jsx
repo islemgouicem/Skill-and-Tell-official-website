@@ -8,6 +8,8 @@ import Calendar from "/images/mobai/calendar.svg"
 import Map from "/images/mobai/map.svg"
 import CyberCard from "../components/cyberCard"
 import CyberButton from "../components/CyberButton"
+import PopUp from "../../../components/ui/popup.jsx"
+
 const RollingNumber = ({ value }) => {
   return (
     <motion.span
@@ -26,7 +28,14 @@ export default function HeroSection() {
   const navigate = useNavigate();
   const { scrollY } = useScroll();
   const yCharacters = useTransform(scrollY, [0, 1000], [0, -100]);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
   const eventDate = new Date("2026-02-12T15:00:00");
 
   const getTimeRemaining = () => {
@@ -95,7 +104,7 @@ export default function HeroSection() {
 
             <CyberButton
               variant="primary"
-              onClick={() => navigate("/mobai/register")}
+              onClick={handleOpenPopup}//() => navigate("/mobai/register")
               className="uppercase px-6 md:px-10 py-2 text-lg md:text-xl my-4 bebas tracking-widest"
             >
               REGISTER NOW!
@@ -191,6 +200,12 @@ export default function HeroSection() {
           </CyberCard>
         </motion.div>
       </div>
+      <PopUp isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        color={"bg-red-main-500"}
+        title={"Registration"}
+        subtitle={"Closed for This Season"}
+        msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we’ll be opening again with fresh opportunities next season."} />
     </section>
   );
 }

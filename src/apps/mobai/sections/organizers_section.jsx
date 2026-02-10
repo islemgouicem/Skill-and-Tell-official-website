@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom"
 import CyberButton from "../components/CyberButton"
+import PopUp from "../../../components/ui/popup.jsx"
+import { useState } from "react";
 
 const Organizers = () => {
     const navigate = useNavigate()
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
     return (
         <section
             id="organizers"
@@ -32,7 +41,7 @@ const Organizers = () => {
                     {/* APPLY NOW! button */}
                     <CyberButton
                         variant="primary"
-                        onClick={() => navigate("/mobai/organizers")}
+                        onClick={handleOpenPopup} //() => navigate("/mobai/organizers")
                         className="uppercase font-bold px-10 py-2 text-xl tracking-widest"
                     >
                         APPLY NOW!
@@ -44,6 +53,12 @@ const Organizers = () => {
                     </p>
                 </div>
             </div>
+            <PopUp isOpen={isPopupOpen}
+                onClose={handleClosePopup}
+                color={"bg-red-main-500"}
+                title={"Registration"}
+                subtitle={"Closed for This Season"}
+                msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we’ll be opening again with fresh opportunities next season."} />
         </section>
     )
 }
