@@ -89,7 +89,7 @@ const CyberCard = ({ children, className = "", shadow = true, mentors= ""}) => {
 
 
                             {/* Content */}
-                            <div className={`relative z-10 p-5 sm:p-6 md:p-8 ${mentors}`}>{children}</div>
+                            <div className={`relative z-10 p-5 sm:p-6 ${mentors}`}>{children}</div>
                         </div>
                     </div>
                 </div>
