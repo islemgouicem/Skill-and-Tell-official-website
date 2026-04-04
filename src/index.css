@@ -18,6 +18,7 @@
   --font-futura_lt_bt: futura_lt_bt, sans-serif;
   --font-futura_md_bt: futura_md_bt, sans-serif;
   --font-futura_bold: futura_bold, sans-serif;
+  --font-compacta: compacta, sans-serif;
 
   /* ========== Border Radius ========== */
   --radius-lg: 16px;
@@ -376,6 +377,13 @@
   src: url("./assets/fonts/FuturaBoldBT.woff2") format("woff2");
   font-display: swap;
   font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "compacta";
+  src: url("./assets/fonts/Compacta Std Regular.otf") format("opentype");
+  font-display: swap;
   font-style: normal;
 }
 
