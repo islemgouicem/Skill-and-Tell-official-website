@@ -1,34 +1,118 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ArcadeButton from "../components/ArcadeButton";
 import ArcadeCard from "../components/ArcadeCard";
 import ArcadeInput from "../components/ArcadeInput";
 import ArcadeTextarea from "../components/ArcadeTextarea";
+import ArcadeYearSelect from "../components/ArcadeYearSelect";
 import InfoIcon from "../components/InfoIcon";
 import MemberIcon from "../components/MemberIcon";
 import StepIndicator from "../components/StepIndicator";
+import { submitArcadeRegistration } from "../lib/api";
 import slashHand from "/images/arcade/reg_2.png";
 import reg3 from "/images/arcade/reg_3.png";
 import registrationHand from "/images/arcade/registeration_1.png";
 
 const STEPS = ["Team Info", "Members info", "Motivation"];
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const algerianPhonePattern = /^0[5-7]\d{8}$/;
+
+const isValidStudyYear = (value) => {
+  const year = Number(value);
+  return Number.isInteger(year) && year >= 1 && year <= 5;
+};
+
 const emptyMember = () => ({ name: "", email: "", number: "", year: "" });
+
+const createInitialFormData = () => ({
+  teamName: "",
+  leaderName: "",
+  leaderEmail: "",
+  leaderNumber: "",
+  leaderYear: "",
+  members: [emptyMember(), emptyMember(), emptyMember(), emptyMember()],
+  pastParticipation: null,
+  motivation: "",
+});
+
+const memberErrorKey = (index, field) => `member_${index}_${field}`;
+
+const validateArcadeStep = (stepIndex, data) => {
+  const nextErrors = {};
+
+  if (stepIndex === 0) {
+    if (!data.teamName.trim()) nextErrors.teamName = "Team name is required";
+    if (!data.leaderName.trim()) nextErrors.leaderName = "Leader name is required";
+    if (!data.leaderEmail.trim()) {
+      nextErrors.leaderEmail = "Leader email is required.";
+    } else if (!emailPattern.test(data.leaderEmail.trim())) {
+      nextErrors.leaderEmail = "Please enter a valid email address";
+    }
+    if (!data.leaderNumber.trim()) {
+      nextErrors.leaderNumber = "Leader number is required.";
+    } else if (!algerianPhonePattern.test(data.leaderNumber.trim())) {
+      nextErrors.leaderNumber = "Please enter a valid number";
+    }
+    if (!data.leaderYear.trim()) {
+      nextErrors.leaderYear = "Leader year is required.";
+    } else if (!isValidStudyYear(data.leaderYear.trim())) {
+      nextErrors.leaderYear = "Year must be between 1 and 5";
+    }
+  }
+
+  if (stepIndex === 1) {
+    data.members.forEach((member, index) => {
+      if (!member.name.trim()) nextErrors[memberErrorKey(index, "name")] = "Member name is required";
+      if (!member.email.trim()) {
+        nextErrors[memberErrorKey(index, "email")] = "Member email is required";
+      } else if (!emailPattern.test(member.email.trim())) {
+        nextErrors[memberErrorKey(index, "email")] = "Please enter a valid email address";
+      }
+      if (!member.number.trim()) {
+        nextErrors[memberErrorKey(index, "number")] = "Member number is required";
+      } else if (!algerianPhonePattern.test(member.number.trim())) {
+        nextErrors[memberErrorKey(index, "number")] = "Please enter a valid number";
+      }
+      if (!member.year.trim()) {
+        nextErrors[memberErrorKey(index, "year")] = "Member year is required.";
+      } else if (!isValidStudyYear(member.year.trim())) {
+        nextErrors[memberErrorKey(index, "year")] = "Year must be between 1 and 5.";
+      }
+    });
+  }
+
+  if (stepIndex === 2) {
+    if (data.pastParticipation === null) {
+      nextErrors.pastParticipation = "Please choose Yes or No.";
+    }
+    if (!data.motivation.trim()) {
+      nextErrors.motivation = "Motivation is required.";
+    }
+  }
+
+  return nextErrors;
+};
 
 const RegistrationPage = () => {
   const [step, setStep] = useState(0);
-  const [formData, setFormData] = useState({
-    teamName: "",
-    leaderName: "",
-    leaderEmail: "",
-    leaderNumber: "",
-    leaderYear: "",
-    members: [emptyMember(), emptyMember(), emptyMember(), emptyMember()],
-    pastParticipation: null,
-    motivation: "",
-  });
+  const [formData, setFormData] = useState(createInitialFormData);
+  const [errors, setErrors] = useState({});
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submittedSummary, setSubmittedSummary] = useState(null);
+  const navigate = useNavigate();
 
   const updateField = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+    setSubmitError("");
   };
 
   const updateMember = (index, field, value) => {
@@ -37,12 +121,67 @@ const RegistrationPage = () => {
       members[index] = { ...members[index], [field]: value };
       return { ...prev, members };
     });
+
+    const key = memberErrorKey(index, field);
+    setErrors((prev) => {
+      if (!prev[key]) return prev;
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+    setSubmitError("");
   };
 
-  const handleNext = () => setStep((s) => Math.min(s + 1, 2));
+  const handleNext = () => {
+    const nextErrors = validateArcadeStep(step, formData);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      return;
+    }
+
+    setErrors({});
+    setSubmitError("");
+    setStep((s) => Math.min(s + 1, 2));
+  };
+
   const handlePrev = () => setStep((s) => Math.max(s - 1, 0));
-  const handleRegister = () => {
-    console.log("Registration submitted:", formData);
+
+  const handleHome = () => {
+    navigate("/arcade");
+    window.scrollTo(0, 0);
+  };
+
+  const handleRegister = async () => {
+    const nextErrors = validateArcadeStep(2, formData);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await submitArcadeRegistration(formData);
+      setSubmittedSummary({
+        teamName: formData.teamName.trim(),
+        leaderName: formData.leaderName.trim(),
+        leaderEmail: formData.leaderEmail.trim(),
+        leaderYear: formData.leaderYear.trim(),
+        membersCount: formData.members.length,
+        pastParticipation: formData.pastParticipation === true ? "Yes" : "No",
+      });
+      setSubmitSuccess(true);
+      setFormData(createInitialFormData());
+      setErrors({});
+      setStep(0);
+    } catch (error) {
+      setSubmitError(error?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const memberLabels = ["First", "Second", "Third", "Fourth"];
@@ -112,6 +251,48 @@ const RegistrationPage = () => {
           margin-right: auto;
         }
 
+        .arcade-success-back-btn > span {
+          font-size: clamp(22px, 2.4vw, 28px) !important;
+          line-height: clamp(22px, 2.4vw, 28px) !important;
+          height: auto !important;
+          width: 100% !important;
+          justify-content: center !important;
+          gap: 0 !important;
+          transform: translateY(0) !important;
+        }
+
+        .arcade-success-decor-reg1-a,
+        .arcade-success-decor-reg1-b,
+        .arcade-success-decor-reg2-a,
+        .arcade-success-decor-reg2-b {
+          opacity: 0.62;
+          pointer-events: none;
+          user-select: none;
+          filter: blur(3.6px) drop-shadow(0 0 18px rgba(255, 7, 7, 0.34));
+        }
+
+        .arcade-success-inner {
+          min-height: 100%;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .arcade-success-content {
+          position: relative;
+          z-index: 10;
+          width: 100%;
+          min-height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          gap: 12px;
+        }
+
         @media (max-width: 639px) {
           .arcade-mobile-top-line {
             width: 80px;
@@ -176,6 +357,77 @@ const RegistrationPage = () => {
           .arcade-motivation-textarea {
             min-height: 371px !important;
           }
+
+          .arcade-success-inner {
+            min-height: 100% !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            text-align: center !important;
+          }
+
+          .arcade-success-content {
+            min-height: 100% !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 14px !important;
+          }
+
+          .arcade-success-copy {
+            width: 100% !important;
+            max-width: 88% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+
+          .arcade-success-card {
+            width: 92% !important;
+            height: min(500px, calc(100vh - 120px)) !important;
+            min-height: min(500px, calc(100vh - 120px)) !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+
+          .arcade-success-decor-reg1-a,
+          .arcade-success-decor-reg1-b {
+            width: clamp(136px, 26vw, 190px) !important;
+            left: 0 !important;
+            right: auto !important;
+            transform: translate(-42%, -34%) !important;
+          }
+
+          .arcade-success-decor-reg1-a {
+            top: 16% !important;
+          }
+
+          .arcade-success-decor-reg1-b {
+            top: 34% !important;
+          }
+
+          .arcade-success-decor-reg2-a,
+          .arcade-success-decor-reg2-b {
+            width: clamp(126px, 24vw, 176px) !important;
+            right: 0 !important;
+            left: auto !important;
+            transform: translate(36%, 8%) !important;
+          }
+
+          .arcade-success-decor-reg2-a {
+            bottom: 28% !important;
+          }
+
+          .arcade-success-decor-reg2-b {
+            bottom: 12% !important;
+            transform: translate(36%, 18%) !important;
+          }
         }
 
         @media (min-width: 768px) {
@@ -189,13 +441,38 @@ const RegistrationPage = () => {
         className="arcade-registration-page overflow-hidden"
         style={{ background: "#080000" }}
       >
-      <div className="arcade-registration-content relative z-10 py-8 sm:py-12 pt-20">
+      <div className={`arcade-registration-content relative z-10 ${submitSuccess ? "min-h-screen flex flex-col justify-center py-0" : "py-8 sm:py-12 pt-20"}`}>
         {/* Title */}
-        <div className="text-center mb-4 sm:mb-6">
-          <div className="arcade-mobile-top-line sm:hidden" />
-          <div className="flex flex-row flex-nowrap items-end justify-center gap-2 sm:gap-[17px]">
-            <span
-              className="arcade-title-main whitespace-nowrap font-compacta text-white"
+        {!submitSuccess && (
+          <div className="text-center mb-4 sm:mb-6">
+            <div className="arcade-mobile-top-line sm:hidden" />
+            <div className="flex flex-row flex-nowrap items-end justify-center gap-2 sm:gap-[17px]">
+              <span
+                className="arcade-title-main whitespace-nowrap font-compacta text-white"
+                style={{
+                  fontSize: "clamp(36px, 4.2vw, 56px)",
+                  fontWeight: 400,
+                  letterSpacing: "0.1em",
+                  lineHeight: 1,
+                }}
+              >
+                Welcome to
+              </span>
+              <span
+                className="arcade-title-arcade whitespace-nowrap font-futura"
+                style={{
+                  color: "#FF0707",
+                  fontSize: "clamp(52px, 5.8vw, 76px)",
+                  fontWeight: 400,
+                  lineHeight: 1.1,
+                  textShadow: "0px 0px 12px #FF0707",
+                }}
+              >
+                Arcade
+              </span>
+            </div>
+            <h1
+              className="arcade-title-main font-compacta text-white leading-tight"
               style={{
                 fontSize: "clamp(36px, 4.2vw, 56px)",
                 fontWeight: 400,
@@ -203,62 +480,119 @@ const RegistrationPage = () => {
                 lineHeight: 1,
               }}
             >
-              Welcome to
-            </span>
-            <span
-              className="arcade-title-arcade whitespace-nowrap font-futura"
+              Registrations
+            </h1>
+            <div
+              className="arcade-title-line mx-auto mt-3 sm:mt-4"
               style={{
-                color: "#FF0707",
-                fontSize: "clamp(52px, 5.8vw, 76px)",
-                fontWeight: 400,
-                lineHeight: 1.1,
-                textShadow: "0px 0px 12px #FF0707",
+                width: "100%",
+                maxWidth: "1120px",
+                height: "0px",
+                border: "1px solid #FFFFFF",
               }}
-            >
-              Arcade
-            </span>
-          </div>
-          <h1
-            className="arcade-title-main font-compacta text-white leading-tight"
-            style={{
-              fontSize: "clamp(36px, 4.2vw, 56px)",
-              fontWeight: 400,
-              letterSpacing: "0.1em",
-              lineHeight: 1,
-            }}
-          >
-            Registrations
-          </h1>
-          <div
-            className="arcade-title-line mx-auto mt-3 sm:mt-4"
-            style={{
-              width: "100%",
-              maxWidth: "1120px",
-              height: "0px",
-              border: "1px solid #FFFFFF",
-            }}
-          />
-        </div>
-
-        {/* Step Indicator */}
-        <div className="arcade-steps-wrap">
-          <StepIndicator currentStep={step} steps={STEPS} />
-        </div>
-
-        {/* Step Content */}
-        <div className="flex flex-col gap-14 sm:gap-16 lg:gap-20 mt-6 sm:mt-8">
-          {step === 0 && <StepTeamInfo formData={formData} updateField={updateField} onNext={handleNext} />}
-          {step === 1 && (
-            <StepMembersInfo
-              members={formData.members}
-              updateMember={updateMember}
-              memberLabels={memberLabels}
-              onPrev={handlePrev}
-              onNext={handleNext}
             />
-          )}
-          {step === 2 && <StepMotivation formData={formData} updateField={updateField} onPrev={handlePrev} onRegister={handleRegister} />}
-        </div>
+          </div>
+        )}
+
+        {submitSuccess ? (
+          <ArcadeCard
+            size="lg"
+            cardHeight="min(440px, calc(100vh - 170px))"
+            contentPadding="px-4 sm:px-6 py-2 sm:py-4"
+            className="arcade-success-card mt-0 mx-auto w-[92%] sm:w-[78%] lg:w-[66%]"
+          >
+            <div className="arcade-success-inner relative flex flex-1 w-full flex-col text-center sm:gap-5">
+              <img
+                src={registrationHand}
+                alt=""
+                aria-hidden="true"
+                className="arcade-success-decor-reg1-a absolute left-[12%] top-[12%] -translate-x-1/2 -translate-y-1/2"
+                style={{ width: "clamp(124px, 11vw, 162px)" }}
+              />
+              <img
+                src={registrationHand}
+                alt=""
+                aria-hidden="true"
+                className="arcade-success-decor-reg1-b absolute left-[18%] top-[26%] -translate-x-1/2 -translate-y-1/2"
+                style={{ width: "clamp(114px, 10vw, 150px)" }}
+              />
+              <img
+                src={slashHand}
+                alt=""
+                aria-hidden="true"
+                className="arcade-success-decor-reg2-a absolute right-[16%] bottom-[24%] translate-x-1/2 translate-y-1/2"
+                style={{ width: "clamp(110px, 10vw, 146px)" }}
+              />
+              <img
+                src={slashHand}
+                alt=""
+                aria-hidden="true"
+                className="arcade-success-decor-reg2-b absolute right-[10%] bottom-[10%] translate-x-1/2 translate-y-1/2"
+                style={{ width: "clamp(104px, 10vw, 140px)" }}
+              />
+
+              <div className="arcade-success-content">
+                <div className="arcade-success-copy mx-auto w-full max-w-2xl space-y-2 sm:space-y-3">
+                  <h2 className="font-compacta text-[clamp(28px,3.4vw,48px)] uppercase tracking-[0.08em] text-white">
+                    Registration Complete
+                  </h2>
+                  <p className="mx-auto max-w-xl font-futura text-[clamp(14px,1.4vw,18px)] leading-relaxed text-white/85">
+                    Your Arcade registration has been submitted successfully. The Umbra Lab is reviewing your profile… await their verdict.
+                    and stay alert
+                  </p>
+                </div>
+
+                <div className="arcade-success-actions flex flex-col items-center gap-3 sm:flex-row">
+                  <div style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+                    <ArcadeButton
+                      variant="register"
+                      className="arcade-success-back-btn"
+                      onClick={() => {
+                        navigate("/arcade");
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Back to Arcade
+                    </ArcadeButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ArcadeCard>
+        ) : (
+          <>
+            {/* Step Indicator */}
+            <div className="arcade-steps-wrap">
+              <StepIndicator currentStep={step} steps={STEPS} />
+            </div>
+
+            {/* Step Content */}
+            <div className="flex flex-col gap-14 sm:gap-16 lg:gap-20 mt-6 sm:mt-8">
+              {step === 0 && <StepTeamInfo formData={formData} updateField={updateField} onNext={handleNext} onHome={handleHome} errors={errors} />}
+              {step === 1 && (
+                <StepMembersInfo
+                  members={formData.members}
+                  updateMember={updateMember}
+                  memberLabels={memberLabels}
+                  onPrev={handlePrev}
+                  onNext={handleNext}
+                  errors={errors}
+                />
+              )}
+              {step === 2 && (
+                <StepMotivation
+                  formData={formData}
+                  updateField={updateField}
+                  onPrev={handlePrev}
+                  onRegister={handleRegister}
+                  errors={errors}
+                  submitError={submitError}
+                  isSubmitting={isSubmitting}
+                />
+              )}
+            </div>
+          </>
+        )}
       </div>
       </div>
     </>
@@ -266,7 +600,7 @@ const RegistrationPage = () => {
 };
 
 /* ─── Step 1: Team Info ─── */
-const StepTeamInfo = ({ formData, updateField, onNext }) => (
+const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (
   <div className="relative isolate">
     <img
       src={reg3}
@@ -295,6 +629,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
               placeholder="Enter The Team Name"
               value={formData.teamName}
               onChange={(e) => updateField("teamName", e.target.value)}
+              error={errors.teamName}
             />
           </div>
         </div>
@@ -337,6 +672,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
               placeholder="Enter your full Name"
               value={formData.leaderName}
               onChange={(e) => updateField("leaderName", e.target.value)}
+              error={errors.leaderName}
             />
           </div>
           <div className="relative z-10">
@@ -345,6 +681,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
               placeholder="Enter Your Email"
               value={formData.leaderEmail}
               onChange={(e) => updateField("leaderEmail", e.target.value)}
+              error={errors.leaderEmail}
             />
           </div>
           <div className="relative z-10">
@@ -353,14 +690,15 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
               placeholder="Enter your phone Number"
               value={formData.leaderNumber}
               onChange={(e) => updateField("leaderNumber", e.target.value)}
+              error={errors.leaderNumber}
             />
           </div>
           <div className="relative z-10">
-            <ArcadeInput
+            <ArcadeYearSelect
               label="Year of studying"
-              placeholder="Enter your year"
               value={formData.leaderYear}
-              onChange={(e) => updateField("leaderYear", e.target.value)}
+              onValueChange={(value) => updateField("leaderYear", value)}
+              error={errors.leaderYear}
             />
           </div>
         </div>
@@ -368,7 +706,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
 
         <div className="relative z-10 mt-12 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
           <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
-            <ArcadeButton variant="previous" disabled className="order-2 sm:order-1">
+            <ArcadeButton variant="previous" onClick={onHome} className="order-2 sm:order-1">
               Previous
             </ArcadeButton>
           </div>
@@ -386,7 +724,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
 );
 
 /* ─── Step 2: Members Info ─── */
-const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }) => (
+const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, errors }) => (
   <div className="relative isolate">
     <div className="pointer-events-none absolute inset-0 z-0 select-none">
       <img
@@ -502,24 +840,27 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
             placeholder="Enter your full Name"
             value={member.name}
             onChange={(e) => updateMember(i, "name", e.target.value)}
+            error={errors[memberErrorKey(i, "name")]}
           />
           <ArcadeInput
             label="Member Email"
             placeholder="Enter Your Email"
             value={member.email}
             onChange={(e) => updateMember(i, "email", e.target.value)}
+            error={errors[memberErrorKey(i, "email")]}
           />
           <ArcadeInput
             label="Member Number"
             placeholder="Enter your phone Number"
             value={member.number}
             onChange={(e) => updateMember(i, "number", e.target.value)}
+            error={errors[memberErrorKey(i, "number")]}
           />
-          <ArcadeInput
+          <ArcadeYearSelect
             label="Year of studying"
-            placeholder="Enter your year"
             value={member.year}
-            onChange={(e) => updateMember(i, "year", e.target.value)}
+            onValueChange={(value) => updateMember(i, "year", value)}
+            error={errors[memberErrorKey(i, "year")]}
           />
         </div>
 
@@ -545,7 +886,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
 );
 
 /* ─── Step 3: Motivation ─── */
-const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
+const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, submitError, isSubmitting }) => (
   <div className="relative isolate">
     <div className="pointer-events-none absolute inset-0 z-0 select-none">
       <img
@@ -668,6 +1009,11 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
             No
           </label>
         </div>
+            {errors.pastParticipation && (
+              <p className="mt-2 text-center font-futura text-sm text-[#ff9b9b]" style={{ lineHeight: 1.2 }}>
+                {errors.pastParticipation}
+              </p>
+            )}
       </div>
     </ArcadeCard>
 
@@ -695,6 +1041,7 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
             placeholder="Write your message here ...."
             value={formData.motivation}
             onChange={(e) => updateField("motivation", e.target.value)}
+            error={errors.motivation}
           />
         </div>
 
@@ -705,11 +1052,17 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
             </ArcadeButton>
           </div>
           <div className="order-1 sm:order-2" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
-            <ArcadeButton variant="register" onClick={onRegister} className="order-1 sm:order-2">
-              Register
+            <ArcadeButton variant="register" onClick={onRegister} className="order-1 sm:order-2" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Register"}
             </ArcadeButton>
           </div>
         </div>
+
+        {submitError && (
+          <p className="mt-4 text-center font-futura text-sm text-[#ff9b9b]" style={{ lineHeight: 1.2 }}>
+            {submitError}
+          </p>
+        )}
       </div>
     </ArcadeCard>
     </div>
