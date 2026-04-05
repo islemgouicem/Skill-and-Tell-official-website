@@ -104,17 +104,98 @@ const RegistrationPage = () => {
           background-color: #080000;
           min-height: 100vh;
         }
+
+        .arcade-registration-content {
+          width: 85vw;
+          max-width: 1203px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        @media (max-width: 639px) {
+          .arcade-mobile-top-line {
+            width: 80px;
+            height: 1px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.85);
+          }
+
+          .arcade-title-main {
+            font-size: 32px !important;
+          }
+
+          .arcade-title-arcade {
+            font-size: 36px !important;
+          }
+
+          .arcade-title-line {
+            width: 70% !important;
+            max-width: none !important;
+          }
+
+          .arcade-steps-wrap {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .arcade-decor-reg1 {
+            width: clamp(170px, 30vw, 240px) !important;
+          }
+
+          .arcade-decor-reg2 {
+            width: clamp(145px, 26vw, 210px) !important;
+          }
+
+          .arcade-decor-reg3 {
+            width: clamp(160px, 28vw, 230px) !important;
+          }
+
+          .arcade-past-wrap {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 40px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+          }
+
+          .arcade-past-question {
+            text-align: center;
+            max-width: 92%;
+          }
+
+          .arcade-past-toggle {
+            width: 210px !important;
+            height: 46px !important;
+            padding: 8px 30px !important;
+            margin: 0 auto;
+            justify-content: center;
+          }
+
+          .arcade-motivation-textarea {
+            min-height: 371px !important;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .arcade-registration-content {
+            width: 86.68vw;
+            max-width: 1203px;
+          }
+        }
       `}</style>
       <div
-        className="arcade-registration-page"
+        className="arcade-registration-page overflow-hidden"
         style={{ background: "#080000" }}
       >
-      <div className="relative z-10 max-w-[1203px] mx-auto px-4 sm:px-8 py-8 sm:py-12 pb-20">
+      <div className="arcade-registration-content relative z-10 py-8 sm:py-12 pt-20">
         {/* Title */}
         <div className="text-center mb-4 sm:mb-6">
-          <div className="flex flex-col items-center justify-center gap-0 sm:flex-row sm:items-end sm:gap-[17px]">
+          <div className="arcade-mobile-top-line sm:hidden" />
+          <div className="flex flex-row flex-nowrap items-end justify-center gap-2 sm:gap-[17px]">
             <span
-              className="font-compacta text-white"
+              className="arcade-title-main whitespace-nowrap font-compacta text-white"
               style={{
                 fontSize: "clamp(36px, 4.2vw, 56px)",
                 fontWeight: 400,
@@ -125,7 +206,7 @@ const RegistrationPage = () => {
               Welcome to
             </span>
             <span
-              className="font-futura"
+              className="arcade-title-arcade whitespace-nowrap font-futura"
               style={{
                 color: "#FF0707",
                 fontSize: "clamp(52px, 5.8vw, 76px)",
@@ -138,7 +219,7 @@ const RegistrationPage = () => {
             </span>
           </div>
           <h1
-            className="font-compacta text-white leading-tight"
+            className="arcade-title-main font-compacta text-white leading-tight"
             style={{
               fontSize: "clamp(36px, 4.2vw, 56px)",
               fontWeight: 400,
@@ -149,7 +230,7 @@ const RegistrationPage = () => {
             Registrations
           </h1>
           <div
-            className="mx-auto mt-3 sm:mt-4"
+            className="arcade-title-line mx-auto mt-3 sm:mt-4"
             style={{
               width: "100%",
               maxWidth: "1120px",
@@ -160,7 +241,9 @@ const RegistrationPage = () => {
         </div>
 
         {/* Step Indicator */}
-        <StepIndicator currentStep={step} steps={STEPS} />
+        <div className="arcade-steps-wrap">
+          <StepIndicator currentStep={step} steps={STEPS} />
+        </div>
 
         {/* Step Content */}
         <div className="flex flex-col gap-14 sm:gap-16 lg:gap-20 mt-6 sm:mt-8">
@@ -189,7 +272,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
       src={reg3}
       alt=""
       aria-hidden="true"
-      className="pointer-events-none absolute right-0 top-[clamp(214px,20vw,330px)] z-0 select-none"
+      className="arcade-decor-reg3 pointer-events-none absolute right-0 top-[clamp(214px,20vw,330px)] z-0 select-none"
       style={{
         width: "clamp(220px, 22vw, 360px)",
         transform: "translate(4%, -55%)",
@@ -199,7 +282,12 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
     />
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">
-      <ArcadeCard size="sm" title="Team Information" icon={<MemberIcon />}>
+      <ArcadeCard
+        size="sm"
+        title="Team Information"
+        icon={<MemberIcon />}
+        cardHeight="clamp(226px, 52vw, 254px)"
+      >
         <div className="flex h-full flex-col justify-center items-center sm:items-start sm:-mt-1">
           <div className="w-full" style={{ maxWidth: "clamp(320px, 52vw, 467px)" }}>
             <ArcadeInput
@@ -217,7 +305,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
           src={registrationHand}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-0 bottom-0 z-0 select-none"
+          className="arcade-decor-reg1 pointer-events-none absolute left-0 bottom-0 z-0 select-none"
           style={{
             width: "clamp(270px, 24vw, 390px)",
             transform: "translate(-24%, 48%)",
@@ -229,7 +317,7 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
           src={slashHand}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-0 bottom-0 z-0 select-none"
+          className="arcade-decor-reg2 pointer-events-none absolute right-0 bottom-0 z-0 select-none"
           style={{
             width: "clamp(225px, 20vw, 330px)",
             transform: "translate(38%, 44%)",
@@ -240,8 +328,8 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
 
       <ArcadeCard size="lg" title="Leader Information" icon={<InfoIcon />}>
         <div className="relative flex h-full flex-col">
-          <div className="flex flex-1 items-start pt-2 sm:pt-4">
-          <div className="relative grid w-full content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-2 sm:gap-y-10 pb-3 sm:pb-4">
+          <div className="flex flex-1 items-start pt-5 sm:pt-4">
+          <div className="relative grid w-full content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-10 sm:gap-y-10 pb-3 sm:pb-4">
 
           <div className="relative z-10">
             <ArcadeInput
@@ -278,13 +366,17 @@ const StepTeamInfo = ({ formData, updateField, onNext }) => (
         </div>
         </div>
 
-        <div className="relative z-10 mt-auto flex items-center justify-between pt-5 sm:pt-6 pb-1">
-          <ArcadeButton variant="previous" disabled>
-            Previous
-          </ArcadeButton>
-          <ArcadeButton variant="next" onClick={onNext}>
-            Next
-          </ArcadeButton>
+        <div className="relative z-10 mt-12 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+          <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+            <ArcadeButton variant="previous" disabled className="order-2 sm:order-1">
+              Previous
+            </ArcadeButton>
+          </div>
+          <div className="order-1 sm:order-2" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+            <ArcadeButton variant="next" onClick={onNext} className="order-1 sm:order-2">
+              Next
+            </ArcadeButton>
+          </div>
         </div>
         </div>
       </ArcadeCard>
@@ -301,7 +393,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={registrationHand}
         alt=""
         aria-hidden="true"
-        className="absolute left-0 top-[clamp(28px,4vw,52px)]"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(28px,4vw,52px)]"
         style={{
           width: "clamp(285px, 24vw, 410px)",
           transform: "translate(-42%, -34%)",
@@ -313,7 +405,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={slashHand}
         alt=""
         aria-hidden="true"
-        className="absolute right-0 top-[clamp(320px,27vw,470px)]"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(320px,27vw,470px)]"
         style={{
           width: "clamp(235px, 20vw, 340px)",
           transform: "translate(36%, -6%)",
@@ -325,7 +417,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={registrationHand}
         alt=""
         aria-hidden="true"
-        className="absolute left-0 top-[clamp(580px,50vw,860px)]"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(580px,50vw,860px)]"
         style={{
           width: "clamp(285px, 24vw, 410px)",
           transform: "translate(-42%, -18%)",
@@ -337,7 +429,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={slashHand}
         alt=""
         aria-hidden="true"
-        className="absolute right-0 top-[clamp(980px,82vw,1440px)]"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(980px,82vw,1440px)]"
         style={{
           width: "clamp(235px, 20vw, 340px)",
           transform: "translate(36%, 8%)",
@@ -349,7 +441,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={registrationHand}
         alt=""
         aria-hidden="true"
-        className="absolute left-0 top-[clamp(1220px,102vw,1760px)]"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(1220px,102vw,1760px)]"
         style={{
           width: "clamp(285px, 24vw, 410px)",
           transform: "translate(-42%, -12%)",
@@ -361,12 +453,36 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         src={slashHand}
         alt=""
         aria-hidden="true"
-        className="absolute right-0 top-[clamp(1560px,130vw,2240px)]"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(1560px,130vw,2240px)]"
         style={{
           width: "clamp(235px, 20vw, 340px)",
           transform: "translate(36%, 14%)",
           opacity: 0.88,
           filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.29))",
+        }}
+      />
+      <img
+        src={registrationHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(1880px,154vw,2620px)] sm:hidden"
+        style={{
+          width: "clamp(285px, 24vw, 410px)",
+          transform: "translate(-42%, -10%)",
+          opacity: 0.86,
+          filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.28))",
+        }}
+      />
+      <img
+        src={slashHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(2140px,176vw,2980px)] sm:hidden"
+        style={{
+          width: "clamp(235px, 20vw, 340px)",
+          transform: "translate(36%, 16%)",
+          opacity: 0.84,
+          filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.26))",
         }}
       />
     </div>
@@ -380,7 +496,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
           icon={<InfoIcon />}
         >
         <div className={i === members.length - 1 ? "relative flex h-full flex-col" : "relative flex h-full flex-col justify-center sm:-mt-1"}>
-          <div className={i === members.length - 1 ? "relative z-10 grid content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-2 sm:gap-y-10 pt-2 sm:pt-3" : "relative z-10 grid content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-2 sm:gap-y-8"}>
+          <div className={i === members.length - 1 ? "relative z-10 grid content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-10 sm:gap-y-10 pt-5 sm:pt-3" : "relative z-10 grid content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-10 sm:gap-y-8 pt-5 sm:pt-0"}>
           <ArcadeInput
             label="Member Name"
             placeholder="Enter your full Name"
@@ -408,13 +524,17 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext }
         </div>
 
         {i === members.length - 1 && (
-          <div className="mt-auto flex items-center justify-between pt-5 sm:pt-6 pb-1">
-            <ArcadeButton variant="previous" onClick={onPrev}>
-              Previous
-            </ArcadeButton>
-            <ArcadeButton variant="next" onClick={onNext}>
-              Next
-            </ArcadeButton>
+          <div className="mt-12 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+            <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+              <ArcadeButton variant="previous" onClick={onPrev} className="order-2 sm:order-1">
+                Previous
+              </ArcadeButton>
+            </div>
+            <div className="order-1 sm:order-2" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+              <ArcadeButton variant="next" onClick={onNext} className="order-1 sm:order-2">
+                Next
+              </ArcadeButton>
+            </div>
           </div>
         )}
         </div>
@@ -432,7 +552,7 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
         src={registrationHand}
         alt=""
         aria-hidden="true"
-        className="absolute left-0 top-[clamp(10px,2vw,20px)]"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(10px,2vw,20px)]"
         style={{
           width: "clamp(235px, 20vw, 340px)",
           transform: "translate(-42%, -30%)",
@@ -444,12 +564,36 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
         src={slashHand}
         alt=""
         aria-hidden="true"
-        className="absolute right-0 top-[clamp(260px,22vw,380px)]"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(260px,22vw,380px)]"
         style={{
           width: "clamp(235px, 20vw, 340px)",
           transform: "translate(36%, -4%)",
           opacity: 0.9,
           filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.3))",
+        }}
+      />
+      <img
+        src={registrationHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(560px,96vw,980px)] sm:hidden"
+        style={{
+          width: "clamp(235px, 20vw, 340px)",
+          transform: "translate(-42%, -6%)",
+          opacity: 0.86,
+          filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.28))",
+        }}
+      />
+      <img
+        src={slashHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(840px,145vw,1460px)] sm:hidden"
+        style={{
+          width: "clamp(235px, 20vw, 340px)",
+          transform: "translate(36%, 18%)",
+          opacity: 0.82,
+          filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.24))",
         }}
       />
     </div>
@@ -458,21 +602,22 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
     {/* Past Participation */}
     <ArcadeCard
       size="sm"
-      cardHeight="148px"
-      contentPadding="px-6 sm:px-10 py-4 sm:py-4"
+      cardHeight="280px"
+      contentPadding="px-6 sm:px-10 py-8 sm:py-6"
       topRightCorner="/images/arcade/top_right_sm.png"
       bottomLeftCorner="/images/arcade/bottom_left_sm.png"
     >
-      <div className="relative flex h-full flex-col justify-center gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+      <div className="arcade-past-wrap relative flex h-full flex-col justify-center gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
 
         <p
-          className="relative z-10 font-futura text-white"
-          style={{ fontSize: "clamp(14px, 2vw, 18px)" }}
+          className="arcade-past-question relative z-10 font-futura text-white"
+          style={{ fontSize: "20px" }}
         >
-          Did any of your team members participated in past versions ?
+          Did any of your team members participated in past versions{" "}
+          <span style={{ fontFamily: "Arial, system-ui, sans-serif" }}>?</span>
         </p>
         <div
-          className="relative z-10 flex items-center gap-6"
+          className="arcade-past-toggle relative z-10 flex items-center gap-6"
           style={{
             width: "229px",
             height: "61px",
@@ -527,18 +672,24 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
     </ArcadeCard>
 
     {/* Motivation */}
-    <ArcadeCard size="md" cardHeight="580px" title="Team Motivation" icon={<MemberIcon />}>
+    <ArcadeCard
+      size="md"
+      cardHeight="580px"
+      contentPadding="px-10 sm:px-14 lg:px-16 py-12 sm:py-10 lg:py-12"
+      title="Team Motivation"
+      icon={<MemberIcon />}
+    >
       <div className="relative flex h-full flex-col">
-        <div className="relative flex-1 pt-2 sm:pt-3">
+        <div className="relative flex-1 pt-5 sm:pt-3">
 
           <ArcadeTextarea
-            className="relative z-10"
+            className="arcade-motivation-textarea relative z-10"
             textareaStyle={{
               padding: "18px 43px 147px 43px",
               background: "rgba(255, 255, 255, 0.1)",
               border: "1px solid rgba(255, 255, 255, 0.6)",
               borderRadius: "40px",
-              minHeight: "189px",
+              minHeight: "205px",
             }}
             label="Show your energy !"
             placeholder="Write your message here ...."
@@ -547,13 +698,17 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister }) => (
           />
         </div>
 
-        <div className="mt-auto flex items-center justify-between pt-5 sm:pt-6 pb-1">
-          <ArcadeButton variant="previous" onClick={onPrev}>
-            Previous
-          </ArcadeButton>
-          <ArcadeButton variant="register" onClick={onRegister}>
-            Register
-          </ArcadeButton>
+        <div className="mt-1 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+          <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+            <ArcadeButton variant="previous" onClick={onPrev} className="order-2 sm:order-1">
+              Previous
+            </ArcadeButton>
+          </div>
+          <div className="order-1 sm:order-2" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
+            <ArcadeButton variant="register" onClick={onRegister} className="order-1 sm:order-2">
+              Register
+            </ArcadeButton>
+          </div>
         </div>
       </div>
     </ArcadeCard>

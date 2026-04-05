@@ -5,6 +5,25 @@ const targetImage = "/images/arcade/target.png";
 const StepIndicator = ({ currentStep, steps }) => {
   return (
     <div className="w-full max-w-[760px] mx-auto py-6 sm:py-8">
+      <style>{`
+        @media (max-width: 767px) {
+          .arcade-step-line {
+            width: 50px !important;
+            margin-top: -20px;
+            margin-left: -24px;
+            margin-right: -24px;
+          }
+
+          .arcade-step-target {
+            width: 42px !important;
+            height: 42px !important;
+          }
+
+          .arcade-step-label {
+            font-size: 10px !important;
+          }
+        }
+      `}</style>
       <div className="flex items-start justify-center">
         {steps.map((label, index) => {
           const isActive = index === currentStep;
@@ -29,7 +48,7 @@ const StepIndicator = ({ currentStep, steps }) => {
                 <img
                   src={targetImage}
                   alt=""
-                  className="relative z-10 h-[46px] w-[46px] sm:h-[84px] sm:w-[84px]"
+                  className="arcade-step-target relative z-10 h-[46px] w-[46px] sm:h-[84px] sm:w-[84px]"
                   style={{
                     opacity: isActiveOrCompleted ? 1 : 0.45,
                     filter: isActiveOrCompleted
@@ -40,7 +59,7 @@ const StepIndicator = ({ currentStep, steps }) => {
 
                 <span
                   className={cn(
-                    "mt-2 font-futura font-normal text-[16px] sm:text-[20px] leading-[1.3]",
+                    "arcade-step-label mt-2 font-futura font-normal text-[16px] sm:text-[20px] leading-[1.3] whitespace-nowrap",
                     isActiveOrCompleted ? "text-white" : "text-white/70"
                   )}
                 >
@@ -49,7 +68,7 @@ const StepIndicator = ({ currentStep, steps }) => {
               </div>
 
               {index < steps.length - 1 && (
-                <div className="relative mx-1 sm:mx-2 -mt-6 h-px w-[90px] sm:w-[166px]">
+                <div className="arcade-step-line relative mx-1 sm:mx-2 -mt-6 h-px w-[90px] sm:w-[166px]">
                   <div
                     className="absolute inset-0"
                     style={{

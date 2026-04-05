@@ -5,7 +5,7 @@ const ArcadeTextarea = ({ label, className, textareaStyle, ...props }) => {
     <div className="flex flex-col gap-3 w-full">
       <label
         className="font-futura text-white font-medium"
-        style={{ fontSize: "clamp(16px, 2.5vw, 24px)", lineHeight: "1.3" }}
+        style={{ fontSize: "clamp(15px, 1.8vw, 24px)", lineHeight: "1.3" }}
       >
         {label}
       </label>
@@ -15,11 +15,11 @@ const ArcadeTextarea = ({ label, className, textareaStyle, ...props }) => {
           className
         )}
         style={{
-          padding: "16px 27px",
+          padding: "16px clamp(18px, 2.2vw, 27px)",
           background: "rgba(255, 255, 255, 0.05)",
           border: "2px solid rgba(255, 255, 255, 0.4)",
           borderRadius: "25px",
-          fontSize: "clamp(14px, 2vw, 18px)",
+          fontSize: "clamp(15px, 1.6vw, 18px)",
           lineHeight: "23px",
           color: "#B3B3B3",
           minHeight: "140px",

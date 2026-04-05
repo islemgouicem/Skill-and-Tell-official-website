@@ -5,7 +5,7 @@ const MemberIcon = () => (
     aria-hidden="true"
     width="44"
     height="44"
-    style={{ width: "44px", height: "44px", display: "block" }}
+    style={{ width: "clamp(26px, 3.2vw, 44px)", height: "clamp(26px, 3.2vw, 44px)", display: "block" }}
   />
 );
 

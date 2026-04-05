@@ -27,12 +27,12 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
     <button
       className={cn(base, className)}
       style={{
-        width: "197px",
-        minWidth: "197px",
-        maxWidth: "197px",
-        height: "58px",
-        minHeight: "58px",
-        maxHeight: "58px",
+        width: "clamp(157px, 22vw, 197px)",
+        minWidth: "clamp(157px, 22vw, 197px)",
+        maxWidth: "clamp(157px, 22vw, 197px)",
+        height: "clamp(50px, 6vw, 58px)",
+        minHeight: "clamp(50px, 6vw, 58px)",
+        maxHeight: "clamp(50px, 6vw, 58px)",
         padding: 0,
         display: "grid",
         placeItems: "center",
@@ -68,23 +68,23 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
         className="inline-flex items-center justify-center gap-3"
         style={{
           fontFamily: "compacta, sans-serif",
-          fontSize: "36px",
-          lineHeight: "35px",
+          fontSize: "clamp(28px, 3.3vw, 36px)",
+          lineHeight: "clamp(28px, 3.2vw, 35px)",
           letterSpacing: "0.06em",
           whiteSpace: "nowrap",
-          height: "35px",
+          height: "clamp(28px, 3.2vw, 35px)",
           transform: "translateY(2px)",
         }}
       >
         {variant === "previous" && selected.arrowSrc ? (
           <>
-            <img src={selected.arrowSrc} alt="" aria-hidden="true" style={{ width: "23px", height: "auto" }} />
+            <img src={selected.arrowSrc} alt="" aria-hidden="true" style={{ width: "clamp(17px, 2.2vw, 23px)", height: "auto" }} />
             <span style={{ fontFamily: "compacta, sans-serif" }}>{children}</span>
           </>
         ) : selected.arrowSrc ? (
           <>
             <span style={{ fontFamily: "compacta, sans-serif" }}>{children}</span>
-            <img src={selected.arrowSrc} alt="" aria-hidden="true" style={{ width: "23px", height: "auto" }} />
+            <img src={selected.arrowSrc} alt="" aria-hidden="true" style={{ width: "clamp(17px, 2.2vw, 23px)", height: "auto" }} />
           </>
         ) : (
           <span style={{ fontFamily: "compacta, sans-serif" }}>{children}</span>
