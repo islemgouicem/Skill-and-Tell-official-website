@@ -14,16 +14,19 @@ import Organizers from "../sections/organizers_section"
 export default function Arcade() {
     return (
         <main
-            className="mobai-app relative w-full min-h-screen overflow-hidden bg-no-repeat bg-cover bg-top"
-        >
+            className="mobai-app relative w-full min-h-screen overflow-hidden bg-no-repeat bg-cover bg-top flex flex-col items-center"
+        > 
             <Navbar />
 
             {/* content */}
             <HeroSection />
-            <About />
-            <Agenda />
-            <Sponsors />
-            <Organizers />
+            <div className="bg-gradient-to-b from-[#1a0202] via-[#0a0000] to-[#0B0101] w-full">
+                <About />
+                <Agenda />
+                <Sponsors />
+                <Organizers />
+            </div>
+
 
             <Footer />
         </main>
