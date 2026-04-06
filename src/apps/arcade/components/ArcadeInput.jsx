@@ -12,7 +12,7 @@ const ArcadeInput = ({ label, className, error, ...props }) => {
       <input
         aria-invalid={Boolean(error)}
         className={cn(
-          "w-full font-futura transition-colors focus:outline-none",
+          "w-full font-futura transition-colors focus:outline-none placeholder:text-white/70",
           className
         )}
         style={{
@@ -22,7 +22,7 @@ const ArcadeInput = ({ label, className, error, ...props }) => {
           borderRadius: "25px",
           fontSize: "clamp(15px, 1.6vw, 18px)",
           lineHeight: "23px",
-          color: "#B3B3B3",
+          color: "#FFFFFF",
           boxShadow: error ? "0 0 0 1px rgba(255, 107, 107, 0.22)" : "none",
         }}
         {...props}

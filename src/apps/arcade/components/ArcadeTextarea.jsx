@@ -12,7 +12,7 @@ const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) =>
       <textarea
         aria-invalid={Boolean(error)}
         className={cn(
-          "w-full font-futura transition-colors focus:outline-none resize-none",
+          "w-full font-futura transition-colors focus:outline-none resize-none placeholder:text-white/70",
           className
         )}
         style={{
@@ -21,7 +21,7 @@ const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) =>
           borderRadius: "25px",
           fontSize: "clamp(15px, 1.6vw, 18px)",
           lineHeight: "23px",
-          color: "#B3B3B3",
+          color: "#FFFFFF",
           minHeight: "140px",
           ...textareaStyle,
           border: error ? "2px solid rgba(255, 107, 107, 0.9)" : (textareaStyle?.border ?? "2px solid rgba(255, 255, 255, 0.4)"),

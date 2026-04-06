@@ -248,7 +248,7 @@ body.arcade-active::-webkit-scrollbar-thumb:hover {
 
 @media (min-width: 768px) {
     .arcade-registration-content {
-        width: 86.68vw;
+        width: 80vw;
         max-width: 1203px;
     }
 }
