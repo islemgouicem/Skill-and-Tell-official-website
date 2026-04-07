@@ -37,7 +37,7 @@ const schedule = [
             <img src="images\arcade\agenda.png" alt="" className="w-[80%] sm:w-[70%] md:w-[60%]  lg:w-[40%] " />
             <div className="w-full flex justify-between mt-[3rem]">
                 <img src="images\arcade\agenda_zombie.png" className=" hidden md:block  md:w-[12rem] lg:w-[16rem] 2xl:w-[20rem]"/>
-                <div  class=" w-full  md:w-[60%] lg:w-[50%] 2xl:w-[40%]  py-[2rem] px-[1.5rem]  flex flex-col justify-between
+                <div  class=" w-full  md:w-[60%] lg:w-[50%] 2xl:w-[40%]   py-[2rem] px-[1.5rem]  flex flex-col justify-between gap-[1rem]
                     bg-[#FF0000]/[0.05] 
                     backdrop-blur-[30px] 
                     border border-[#8C1414] 
