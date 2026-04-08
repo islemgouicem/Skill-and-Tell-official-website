@@ -59,3 +59,31 @@ export async function submitArcadeRegistration(formData) {
 
   return data;
 }
+
+export async function submitArcadeOrganizerRegistration(formData) {
+  const payload = {
+    name: (formData.name ?? "").trim(),
+    school: (formData.school ?? "").trim(),
+    email: (formData.email ?? "").trim(),
+    phone: (formData.phone ?? "").trim(),
+    is_member: Boolean(formData.isMember),
+    available_days: formData.availableDays ?? [],
+    available_pre_meet: Boolean(formData.availablePreMeet),
+    has_experience: Boolean(formData.hasExperience),
+    experience_description: (formData.experienceDescription ?? "").trim(),
+    role: (formData.role ?? "").trim(),
+    preferred_shifts: formData.preferredShifts ?? [],
+  };
+
+  const { data, error } = await supabase
+    .from("arcade_organizer_registrations")
+    .insert(payload)
+    .select("id")
+    .single();
+
+  if (error) {
+    throw new Error(messageFromDbError(error));
+  }
+
+  return data;
+}
