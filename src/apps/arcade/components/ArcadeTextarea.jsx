@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils/utils";
 
-const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) => {
+const ArcadeTextarea = ({ label, className, textareaStyle, error, showErrorState = true, ...props }) => {
+  const shouldShowErrorState = Boolean(error) && showErrorState;
   return (
     <div className="arcade-field-container flex flex-col gap-3 w-full">
       <label
         className="arcade-form-label font-futura text-white font-medium"
-        style={{ fontSize: "clamp(15px, 1.8vw, 24px)", lineHeight: "1.3" }}
+        style={{ fontSize: "clamp(13px, 1.2vw, 17px)", lineHeight: "1.25" }}
       >
         {label}
       </label>
@@ -24,8 +25,8 @@ const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) =>
           color: "#FFFFFF",
           minHeight: "140px",
           ...textareaStyle,
-          border: error ? "2px solid rgba(255, 107, 107, 0.9)" : (textareaStyle?.border ?? "2px solid rgba(255, 255, 255, 0.4)"),
-          boxShadow: error ? "0 0 0 1px rgba(255, 107, 107, 0.22)" : (textareaStyle?.boxShadow ?? "none"),
+          border: shouldShowErrorState ? "2px solid rgba(255, 107, 107, 0.9)" : (textareaStyle?.border ?? "2px solid rgba(255, 255, 255, 0.4)"),
+          boxShadow: shouldShowErrorState ? "0 0 0 1px rgba(255, 107, 107, 0.22)" : (textareaStyle?.boxShadow ?? "none"),
         }}
         {...props}
       />

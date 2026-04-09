@@ -28,7 +28,7 @@ const ArcadeYearSelect = ({ label, value, onValueChange, error, placeholder = "S
     <div className={cn("arcade-field-container flex w-full flex-col gap-3", className)}>
       <label
         className="arcade-form-label font-futura text-white font-medium"
-        style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}
+        style={{ fontSize: "clamp(13px, 1.2vw, 17px)", lineHeight: "1.25" }}
       >
         {label}
       </label>

@@ -112,6 +112,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, 
       {members.map((member, i) => (
         <ArcadeCard
           key={i}
+          className={i === members.length - 1 ? undefined : "arcade-mobile-no-button-card"}
           size={i === members.length - 1 ? "lg" : "md"}
           title={`${memberLabels[i]} Member Information`}
           icon={<InfoIcon />}

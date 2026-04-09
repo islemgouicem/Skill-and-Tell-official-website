@@ -1,4 +1,3 @@
-import React from 'react';
 import { Check } from "lucide-react";
 
 const ArcadeCheckboxGroup = ({ label, options, selected, onChange, error }) => {
@@ -25,9 +24,9 @@ const ArcadeCheckboxGroup = ({ label, options, selected, onChange, error }) => {
           width: "100%",
           minHeight: "61px",
           background: "rgba(255, 255, 255, 0.05)",
-          border: error ? "2px solid rgba(255, 107, 107, 0.9)" : "1px solid rgba(255, 255, 255, 0.6)",
-          borderRadius: "30px",
-          padding: "10px 30px",
+          border: error ? "2px solid rgba(255, 107, 107, 0.9)" : "2px solid rgba(255, 255, 255, 0.4)",
+          borderRadius: "25px",
+          padding: "11px clamp(18px, 2.2vw, 27px)",
           boxShadow: error ? "0 0 0 1px rgba(255, 107, 107, 0.22)" : "none",
         }}
       >
@@ -52,7 +51,7 @@ const ArcadeCheckboxGroup = ({ label, options, selected, onChange, error }) => {
                   borderRadius: "2px",
                   border: "1px solid rgba(255, 255, 255, 0.6)", // Faded white outline when not checked
                   background: isSelected ? 'transparent' : "transparent",
-                  borderColor: isSelected ? '#00C853' : 'rgba(255, 255, 255, 0.6)' // Green outline when checked
+                  borderColor: 'rgba(255, 255, 255, 0.6)' // Keep white outline for checked and unchecked states
                 }}
               >
                  {isSelected && <Check className="w-3 h-3 text-[#00C853]" strokeWidth={3} />}

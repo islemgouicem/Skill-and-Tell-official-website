@@ -79,10 +79,10 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, sub
             style={{
               width: "229px",
               height: "61px",
-              background: "rgba(255, 255, 255, 0.11)",
-              border: "1px solid rgba(255, 255, 255, 0.6)",
-              borderRadius: "30px",
-              padding: "18px 60px 17px 47px",
+              background: "rgba(255, 255, 255, 0.05)",
+              border: "2px solid rgba(255, 255, 255, 0.4)",
+              borderRadius: "25px",
+              padding: "11px clamp(18px, 2.2vw, 27px)",
             }}
           >
             <label className="flex items-center gap-2 cursor-pointer font-futura text-white" style={{ fontSize: "16px" }}>
@@ -146,10 +146,10 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, sub
             <ArcadeTextarea
               className="arcade-motivation-textarea relative z-10"
               textareaStyle={{
-                padding: "18px 43px 147px 43px",
-                background: "rgba(255, 255, 255, 0.1)",
-                border: "1px solid rgba(255, 255, 255, 0.6)",
-                borderRadius: "40px",
+                padding: "16px clamp(18px, 2.2vw, 27px)",
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "2px solid rgba(255, 255, 255, 0.4)",
+                borderRadius: "25px",
                 minHeight: "205px",
               }}
               label="Show your energy !"

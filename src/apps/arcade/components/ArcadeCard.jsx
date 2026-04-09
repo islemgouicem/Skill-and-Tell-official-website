@@ -126,8 +126,12 @@ const ArcadeCard = ({
             padding-bottom: 38px !important;
           }
 
+          .arcade-mobile-no-button-card .arcade-card-content {
+            padding-bottom: clamp(58px, 10vw, 84px) !important;
+          }
+
           .arcade-card-title-text {
-            font-size: 34px !important;
+            font-size: 26px !important;
             line-height: 0.98 !important;
           }
 
