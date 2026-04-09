@@ -88,6 +88,11 @@ const OrganizersRegPage = () => {
     setSubmitError("");
   };
 
+  const handleHome = () => {
+    navigate("/arcade");
+    window.scrollTo(0, 0);
+  };
+
   const handleRegister = async () => {
     const nextErrors = validateForm(formData);
 
@@ -736,8 +741,21 @@ const OrganizersRegPage = () => {
                     </div>
                   </div>
 
-                  <div className="org-register-wrap mt-12 flex justify-center mb-4">
+                  <div className="org-register-wrap mt-12 flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 mb-4">
                     <div
+                      className="order-2 sm:order-1"
+                      style={{
+                        filter:
+                          "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))",
+                        borderRadius: "40px",
+                      }}
+                    >
+                      <ArcadeButton variant="previous" onClick={handleHome}>
+                        Previous
+                      </ArcadeButton>
+                    </div>
+                    <div
+                      className="order-1 sm:order-2"
                       style={{
                         filter:
                           "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))",
