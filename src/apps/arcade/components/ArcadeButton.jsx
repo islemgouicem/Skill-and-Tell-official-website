@@ -24,8 +24,19 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
   const selected = styles[variant] ?? styles.next;
 
   return (
-    <button
-      className={cn(base, className)}
+    <>
+      <style>{`
+        .arcade-action-button,
+        .arcade-action-button:focus,
+        .arcade-action-button:focus-visible,
+        .arcade-action-button:active {
+          outline: none !important;
+          box-shadow: none !important;
+          -webkit-tap-highlight-color: transparent !important;
+        }
+      `}</style>
+      <button
+      className={cn(base, "arcade-action-button", className)}
       style={{
         width: "clamp(157px, 22vw, 197px)",
         minWidth: "clamp(157px, 22vw, 197px)",
@@ -46,6 +57,7 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
         appearance: "none",
         WebkitAppearance: "none",
         outline: "none",
+        WebkitTapHighlightColor: "transparent",
         overflow: "hidden",
         color: selected.color,
         boxShadow: "none",
@@ -57,6 +69,7 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
         position: "relative",
         zIndex: 30,
         isolation: "isolate",
+        transform: "translateZ(0)",
         fontFamily: "compacta, sans-serif",
         fontStyle: "normal",
         fontWeight: 400,
@@ -90,7 +103,8 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
           <span style={{ fontFamily: "compacta, sans-serif" }}>{children}</span>
         )}
       </span>
-    </button>
+      </button>
+    </>
   );
 };
 

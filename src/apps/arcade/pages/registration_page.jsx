@@ -113,7 +113,7 @@ const RegistrationPage = () => {
   return (
     <>
       <div
-        className="arcade-registration-page overflow-hidden"
+        className="overflow-hidden arcade-registration-page"
         style={{ background: "#080000" }}
       >
       <div className={`arcade-registration-content relative z-10 ${submitSuccess ? "min-h-screen flex flex-col justify-center py-0" : "py-8 sm:py-12 pt-20"}`}>

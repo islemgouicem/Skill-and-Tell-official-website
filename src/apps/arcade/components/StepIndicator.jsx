@@ -15,12 +15,13 @@ const StepIndicator = ({ currentStep, steps }) => {
           }
 
           .arcade-step-target {
-            width: 42px !important;
-            height: 42px !important;
+            width: 54px !important;
+            height: 54px !important;
           }
 
           .arcade-step-label {
-            font-size: 10px !important;
+            font-size: 12px !important;
+            line-height: 1.25 !important;
           }
         }
       `}</style>

@@ -106,12 +106,37 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, 
           filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.26))",
         }}
       />
+      <img
+        src={registrationHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg1 absolute left-0 top-[clamp(2460px,202vw,3400px)] sm:hidden"
+        style={{
+          width: "clamp(285px, 24vw, 410px)",
+          transform: "translate(-42%, -8%)",
+          opacity: 0.82,
+          filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.25))",
+        }}
+      />
+      <img
+        src={slashHand}
+        alt=""
+        aria-hidden="true"
+        className="arcade-decor-reg2 absolute right-0 top-[clamp(2720px,222vw,3740px)] sm:hidden"
+        style={{
+          width: "clamp(235px, 20vw, 340px)",
+          transform: "translate(36%, 18%)",
+          opacity: 0.8,
+          filter: "drop-shadow(0 0 14px rgba(255, 7, 7, 0.24))",
+        }}
+      />
     </div>
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">
       {members.map((member, i) => (
         <ArcadeCard
           key={i}
+          className={i === members.length - 1 ? undefined : "arcade-mobile-no-button-card"}
           size={i === members.length - 1 ? "lg" : "md"}
           title={`${memberLabels[i]} Member Information`}
           icon={<InfoIcon />}

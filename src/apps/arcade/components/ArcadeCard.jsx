@@ -101,14 +101,38 @@ const ArcadeCard = ({
         }
 
         @media (max-width: 767px) {
+          [data-arcade-card-size="sm"] {
+            min-height: 275px !important;
+            height:  !important;
+          }
+
           [data-arcade-card-size="md"] {
-            min-height: 532px !important;
+            min-height: 568px !important;
             height: auto !important;
           }
 
           [data-arcade-card-size="lg"] {
             min-height: 710px !important;
             height: auto !important;
+          }
+
+          [data-arcade-card-size="sm"] .arcade-card-content {
+            padding-top: 34px !important;
+            padding-bottom: 34px !important;
+          }
+
+          [data-arcade-card-size="md"] .arcade-card-content {
+            padding-top: 38px !important;
+            padding-bottom: 38px !important;
+          }
+
+          .arcade-mobile-no-button-card .arcade-card-content {
+            padding-bottom: clamp(58px, 10vw, 84px) !important;
+          }
+
+          .arcade-card-title-text {
+            font-size: 26px !important;
+            line-height: 0.98 !important;
           }
 
           .arcade-card-title-line {
@@ -203,14 +227,14 @@ const ArcadeCard = ({
       />
 
       {/* Inner content wrapper */}
-      <div className={cn("relative z-10 flex h-full flex-col", resolvedContentPadding)}>
+      <div className={cn("arcade-card-content relative z-10 flex h-full flex-col", resolvedContentPadding)}>
         {/* Header */}
         {title && (
           <div className="mb-6 sm:mb-10">
             <div className="mb-1 flex items-center gap-2 sm:gap-3">
               {icon && <span className={cn("flex shrink-0 -translate-y-[3px] items-center justify-center text-white", variant.iconClass)}>{icon}</span>}
               <h3
-                className="font-compacta leading-none text-white tracking-[0.06em]"
+                className="arcade-card-title-text font-compacta leading-none text-white tracking-[0.06em]"
                 style={{ fontSize: variant.titleSize, lineHeight: 0.95 }}
               >
                 {title}

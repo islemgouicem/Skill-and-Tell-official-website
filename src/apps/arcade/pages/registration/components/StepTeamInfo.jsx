@@ -25,6 +25,7 @@ const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">
       <ArcadeCard
+        className="arcade-mobile-no-button-card"
         size="sm"
         title="Team Information"
         icon={<MemberIcon />}
