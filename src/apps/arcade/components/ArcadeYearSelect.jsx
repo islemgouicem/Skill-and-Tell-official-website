@@ -25,9 +25,9 @@ const ArcadeYearSelect = ({ label, value, onValueChange, error, placeholder = "S
   }, []);
 
   return (
-    <div className={cn("flex w-full flex-col gap-3", className)}>
+    <div className={cn("arcade-field-container flex w-full flex-col gap-3", className)}>
       <label
-        className="font-futura text-white font-medium"
+        className="arcade-form-label font-futura text-white font-medium"
         style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}
       >
         {label}
@@ -37,7 +37,7 @@ const ArcadeYearSelect = ({ label, value, onValueChange, error, placeholder = "S
         <Select.Trigger
           aria-label={label}
           aria-invalid={Boolean(error)}
-          className="group relative inline-flex w-full items-center justify-between gap-3 font-futura transition-colors focus:outline-none"
+          className="arcade-form-select-trigger group relative inline-flex w-full items-center justify-between gap-3 font-futura transition-colors focus:outline-none"
           style={{
             padding: "11px clamp(18px, 2.2vw, 27px)",
             background: "rgba(255, 255, 255, 0.05)",

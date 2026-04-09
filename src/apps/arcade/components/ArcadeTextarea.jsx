@@ -2,9 +2,9 @@ import { cn } from "@/lib/utils/utils";
 
 const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) => {
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="arcade-field-container flex flex-col gap-3 w-full">
       <label
-        className="font-futura text-white font-medium"
+        className="arcade-form-label font-futura text-white font-medium"
         style={{ fontSize: "clamp(15px, 1.8vw, 24px)", lineHeight: "1.3" }}
       >
         {label}
@@ -12,7 +12,7 @@ const ArcadeTextarea = ({ label, className, textareaStyle, error, ...props }) =>
       <textarea
         aria-invalid={Boolean(error)}
         className={cn(
-          "w-full font-futura transition-colors focus:outline-none resize-none placeholder:text-white/70",
+          "arcade-form-textarea w-full font-futura transition-colors focus:outline-none resize-none placeholder:text-white/70",
           className
         )}
         style={{
