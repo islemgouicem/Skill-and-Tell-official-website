@@ -23,6 +23,7 @@ const createInitialFormData = () => ({
   school: "",
   email: "",
   phone: "",
+  schoolYear: "",
   isMember: null,
   availableDays: [],
   availablePreMeet: null,
@@ -48,15 +49,21 @@ const validateForm = (data) => {
   } else if (!algerianPhonePattern.test(data.phone.trim())) {
     errors.phone = "Please enter a valid number.";
   }
+  if (!data.schoolYear.trim()) errors.schoolYear = "School year is required.";
 
   // Organizers Registration
   if (data.isMember === null) errors.isMember = "Please select Yes or No.";
-  if (data.availableDays.length === 0) errors.availableDays = "Please select at least one available day.";
-  if (data.availablePreMeet === null) errors.availablePreMeet = "Please select Yes or No.";
-  if (data.hasExperience === null) errors.hasExperience = "Please select Yes or No.";
-  if (data.hasExperience && !data.experienceDescription.trim()) errors.experienceDescription = "Please describe your experience.";
+  if (data.availableDays.length === 0)
+    errors.availableDays = "Please select at least one available day.";
+  if (data.availablePreMeet === null)
+    errors.availablePreMeet = "Please select Yes or No.";
+  if (data.hasExperience === null)
+    errors.hasExperience = "Please select Yes or No.";
+  if (data.hasExperience && !data.experienceDescription.trim())
+    errors.experienceDescription = "Please describe your experience.";
   if (data.role === null) errors.role = "Please select a role.";
-  if (data.preferredShifts.length === 0) errors.preferredShifts = "Please select at least one preferred shift.";
+  if (data.preferredShifts.length === 0)
+    errors.preferredShifts = "Please select at least one preferred shift.";
 
   return errors;
 };
@@ -86,7 +93,7 @@ const OrganizersRegPage = () => {
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
       // Scroll to the first error roughly
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
@@ -94,13 +101,15 @@ const OrganizersRegPage = () => {
     setSubmitError("");
 
     try {
-      await submitArcadeOrganizerRegistration(formData);
+      //await submitArcadeOrganizerRegistration(formData);
       setSubmitSuccess(true);
       setFormData(createInitialFormData());
       setErrors({});
       window.scrollTo(0, 0);
     } catch (error) {
-      setSubmitError(error?.message || "Something went wrong. Please try again.");
+      setSubmitError(
+        error?.message || "Something went wrong. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -120,27 +129,26 @@ const OrganizersRegPage = () => {
     };
   }, []);
 
-
   const yesNoOptions = [
     { value: true, label: "Yes" },
-    { value: false, label: "No" }
+    { value: false, label: "No" },
   ];
 
   const roleOptions = [
     { value: "Logistics", label: "Logistics" },
-    { value: "Media", label: "Media" }
+    { value: "Media", label: "Media" },
   ];
 
   const daysOptions = [
     { value: "25 Avril", label: "25 Avril" },
-    { value: "26 Avril", label: "26 Avril" }
+    { value: "26 Avril", label: "26 Avril" },
   ];
 
   const shiftOptions = [
     { value: "24 April morning", label: "24 April morning" },
     { value: "24 April afternoon", label: "24 April afternoon" },
     { value: "25 April morning", label: "25 April morning" },
-    { value: "25 April afternoon", label: "25 April afternoon" }
+    { value: "25 April afternoon", label: "25 April afternoon" },
   ];
 
   return (
@@ -148,10 +156,12 @@ const OrganizersRegPage = () => {
       className="arcade-registration-page overflow-hidden"
       style={{ background: "#080000", minHeight: "100vh" }}
     >
-      <div className={`arcade-registration-content relative z-10 ${submitSuccess ? "min-h-[100dvh] flex flex-col justify-center py-0" : "py-8 sm:py-12 pt-20"}`}>
+      <div
+        className={`arcade-registration-content relative z-10 ${submitSuccess ? "min-h-[100dvh] flex flex-col justify-center py-0" : "py-8 sm:py-12 pt-20"}`}
+      >
         {/* Title */}
         {!submitSuccess && (
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-24 sm:mb-32">
             <div className="arcade-mobile-top-line sm:hidden" />
             <div className="flex flex-row flex-nowrap items-end justify-center gap-2 sm:gap-[17px]">
               <span
@@ -218,13 +228,18 @@ const OrganizersRegPage = () => {
                 aria-hidden="true"
                 className="arcade-decor-slashes pointer-events-none absolute left-0 top-0 z-0 select-none"
                 style={{
-                  width: "clamp(300px, 30vw, 450px)",
-                  transform: "translate(-35%, -20%) rotate(-10deg)",
+                  width: "clamp(320px, 32vw, 440px)",
+                  transform: "translate(-30%, -20%) rotate(-5deg)",
                   filter: "drop-shadow(0 0 35px rgba(255, 7, 7, 0.45))",
                   opacity: 0.9,
                 }}
               />
-              <ArcadeCard size="md" title="Personal Information" icon={<InfoIcon />}>
+              <ArcadeCard
+                size="md"
+                title="Personal Information"
+                icon={<InfoIcon />}
+                cardHeight="auto"
+              >
                 <div className="relative flex h-full flex-col">
                   <div className="flex flex-1 items-start pt-5 sm:pt-4">
                     <div className="relative z-10 grid w-full content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-10 sm:gap-y-10 pb-3 sm:pb-4">
@@ -256,6 +271,15 @@ const OrganizersRegPage = () => {
                         onChange={(e) => updateField("phone", e.target.value)}
                         error={errors.phone}
                       />
+                      <ArcadeInput
+                        label="Year of studying"
+                        placeholder="Enter your year of studying"
+                        value={formData.schoolYear}
+                        onChange={(e) =>
+                          updateField("schoolYear", e.target.value)
+                        }
+                        error={errors.schoolYear}
+                      />
                     </div>
                   </div>
                 </div>
@@ -270,10 +294,10 @@ const OrganizersRegPage = () => {
                   src={reg3} // This is reg_3.png (bony hand)
                   alt=""
                   aria-hidden="true"
-                  className="arcade-decor-hand1 absolute right-[-8%] top-[10%]"
+                  className="arcade-decor-hand1 absolute right-[-8%] top-[-12%]"
                   style={{
-                    width: "clamp(260px, 26vw, 380px)",
-                    transform: "rotate(15deg)",
+                    width: "clamp(80px, 22vw, 100px)",
+                    transform: "translateX(-100px) rotate(-30deg)",
                     opacity: 0.9,
                     filter: "drop-shadow(0 0 30px rgba(255, 7, 7, 0.4))",
                   }}
@@ -284,10 +308,10 @@ const OrganizersRegPage = () => {
                   aria-hidden="true"
                   className="arcade-decor-hand2 absolute right-[-5%] bottom-[-5%]"
                   style={{
-                    width: "clamp(320px, 32vw, 420px)",
-                    transform: "rotate(-15deg) translate(15%, 15%)",
+                    width: "clamp(440px, 44vw, 600px)",
+                    transform: "rotate(-10deg) translate(20%, -5  %)",
                     opacity: 0.9,
-                    filter: "drop-shadow(0 0 30px rgba(255, 7, 7, 0.45))",
+                    filter: "drop-shadow(0 0 35px rgba(255, 7, 7, 0.45))",
                   }}
                 />
               </div>
@@ -302,116 +326,167 @@ const OrganizersRegPage = () => {
               >
                 <div className="relative flex h-full flex-col z-10 pt-5 sm:pt-4">
                   <div className="flex flex-col gap-8 sm:gap-10">
-
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                       <label className="font-futura text-white font-medium" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Are you a member ?
-                       </label>
-                       <div className="md:w-[300px]">
-                         <ArcadeRadioToggle
-                            name="isMember"
-                            options={yesNoOptions}
-                            value={formData.isMember}
-                            onChange={(val) => updateField("isMember", val)}
-                            error={errors.isMember}
-                         />
-                       </div>
+                      <label
+                        className="font-futura text-white font-medium"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Are you a member ?
+                      </label>
+                      <div className="md:w-[300px]">
+                        <ArcadeRadioToggle
+                          name="isMember"
+                          options={yesNoOptions}
+                          value={formData.isMember}
+                          onChange={(val) => updateField("isMember", val)}
+                          error={errors.isMember}
+                        />
+                      </div>
                     </div>
 
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                       <label className="font-futura text-white font-medium" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Are you available in the days of the event ?
-                       </label>
-                       <div className="md:w-auto">
-                         <ArcadeCheckboxGroup
-                            options={daysOptions}
-                            selected={formData.availableDays}
-                            onChange={(val) => updateField("availableDays", val)}
-                            error={errors.availableDays}
-                         />
-                       </div>
+                      <label
+                        className="font-futura text-white font-medium"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Are you available in the days of the event ?
+                      </label>
+                      <div className="md:w-auto">
+                        <ArcadeCheckboxGroup
+                          options={daysOptions}
+                          selected={formData.availableDays}
+                          onChange={(val) => updateField("availableDays", val)}
+                          error={errors.availableDays}
+                        />
+                      </div>
                     </div>
 
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                       <label className="font-futura text-white font-medium" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Are you available for the pre organization meet ?
-                       </label>
-                       <div className="md:w-[300px]">
-                          <ArcadeRadioToggle
-                            name="availablePreMeet"
-                            options={yesNoOptions}
-                            value={formData.availablePreMeet}
-                            onChange={(val) => updateField("availablePreMeet", val)}
-                            error={errors.availablePreMeet}
-                         />
-                       </div>
+                      <label
+                        className="font-futura text-white font-medium"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Are you available for the pre organization meet ?
+                      </label>
+                      <div className="md:w-[300px]">
+                        <ArcadeRadioToggle
+                          name="availablePreMeet"
+                          options={yesNoOptions}
+                          value={formData.availablePreMeet}
+                          onChange={(val) =>
+                            updateField("availablePreMeet", val)
+                          }
+                          error={errors.availablePreMeet}
+                        />
+                      </div>
                     </div>
 
-                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                       <label className="font-futura text-white font-medium" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Do you have previous experience ?
-                       </label>
-                       <div className="md:w-[300px]">
-                         <ArcadeRadioToggle
-                            name="hasExperience"
-                            options={yesNoOptions}
-                            value={formData.hasExperience}
-                            onChange={(val) => updateField("hasExperience", val)}
-                            error={errors.hasExperience}
-                         />
-                       </div>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                      <label
+                        className="font-futura text-white font-medium"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Do you have previous experience ?
+                      </label>
+                      <div className="md:w-[300px]">
+                        <ArcadeRadioToggle
+                          name="hasExperience"
+                          options={yesNoOptions}
+                          value={formData.hasExperience}
+                          onChange={(val) => updateField("hasExperience", val)}
+                          error={errors.hasExperience}
+                        />
+                      </div>
                     </div>
 
                     <div className="w-full mt-2">
-                       <ArcadeTextarea
-                          label="Describe your experience :"
-                          placeholder="Write here .."
-                          value={formData.experienceDescription}
-                          onChange={(e) => updateField("experienceDescription", e.target.value)}
-                          error={errors.experienceDescription}
-                          textareaStyle={{ minHeight: "120px" }}
-                       />
+                      <ArcadeTextarea
+                        label="Describe your experience :"
+                        placeholder="Write here .."
+                        value={formData.experienceDescription}
+                        onChange={(e) =>
+                          updateField("experienceDescription", e.target.value)
+                        }
+                        error={errors.experienceDescription}
+                        textareaStyle={{ minHeight: "120px" }}
+                      />
                     </div>
 
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-2">
-                       <label className="font-futura text-white font-medium" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Select your role :
-                       </label>
-                       <div className="md:w-[300px]">
-                         <ArcadeRadioToggle
-                            name="role"
-                            options={roleOptions}
-                            value={formData.role}
-                            onChange={(val) => updateField("role", val)}
-                            error={errors.role}
-                         />
-                       </div>
+                      <label
+                        className="font-futura text-white font-medium"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Select your role :
+                      </label>
+                      <div className="md:w-[300px]">
+                        <ArcadeRadioToggle
+                          name="role"
+                          options={roleOptions}
+                          value={formData.role}
+                          onChange={(val) => updateField("role", val)}
+                          error={errors.role}
+                        />
+                      </div>
                     </div>
 
                     <div className="w-full mt-2 flex flex-col gap-3">
-                       <label className="font-futura text-white font-medium mb-1" style={{ fontSize: "clamp(15px, 1.5vw, 20px)", lineHeight: "1.3" }}>
-                         Which shift suits you best ?
-                       </label>
-                       <ArcadeCheckboxGroup
-                          options={shiftOptions}
-                          selected={formData.preferredShifts}
-                          onChange={(val) => updateField("preferredShifts", val)}
-                          error={errors.preferredShifts}
-                       />
+                      <label
+                        className="font-futura text-white font-medium mb-1"
+                        style={{
+                          fontSize: "clamp(15px, 1.5vw, 20px)",
+                          lineHeight: "1.3",
+                        }}
+                      >
+                        Which shift suits you best ?
+                      </label>
+                      <ArcadeCheckboxGroup
+                        options={shiftOptions}
+                        selected={formData.preferredShifts}
+                        onChange={(val) => updateField("preferredShifts", val)}
+                        error={errors.preferredShifts}
+                      />
                     </div>
-
                   </div>
 
                   <div className="mt-12 flex justify-center mb-4">
-                     <div style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
-                        <ArcadeButton variant="register" onClick={handleRegister} disabled={isSubmitting}>
-                          {isSubmitting ? "Submitting..." : "Register"}
-                        </ArcadeButton>
-                      </div>
+                    <div
+                      style={{
+                        filter:
+                          "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))",
+                        borderRadius: "40px",
+                      }}
+                    >
+                      <ArcadeButton
+                        variant="register"
+                        onClick={handleRegister}
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Submitting..." : "Register"}
+                      </ArcadeButton>
+                    </div>
                   </div>
 
                   {submitError && (
-                    <p className="mt-4 text-center font-futura text-sm text-[#ff9b9b]" style={{ lineHeight: 1.2 }}>
+                    <p
+                      className="mt-4 text-center font-futura text-sm text-[#ff9b9b]"
+                      style={{ lineHeight: 1.2 }}
+                    >
                       {submitError}
                     </p>
                   )}

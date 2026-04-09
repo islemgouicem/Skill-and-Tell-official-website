@@ -9,11 +9,17 @@ function messageFromDbError(error) {
   if (code === "23505") {
     const lowerMessage = message.toLowerCase();
 
-    if (lowerMessage.includes("team_name") || lowerMessage.includes("team name")) {
+    if (
+      lowerMessage.includes("team_name") ||
+      lowerMessage.includes("team name")
+    ) {
       return "A registration with this team name already exists.";
     }
 
-    if (lowerMessage.includes("leader_email") || lowerMessage.includes("email")) {
+    if (
+      lowerMessage.includes("leader_email") ||
+      lowerMessage.includes("email")
+    ) {
       return "A registration with this leader email already exists.";
     }
 
@@ -66,6 +72,7 @@ export async function submitArcadeOrganizerRegistration(formData) {
     school: (formData.school ?? "").trim(),
     email: (formData.email ?? "").trim(),
     phone: (formData.phone ?? "").trim(),
+    school_year: (formData.schoolYear ?? "").trim(),
     is_member: Boolean(formData.isMember),
     available_days: formData.availableDays ?? [],
     available_pre_meet: Boolean(formData.availablePreMeet),
