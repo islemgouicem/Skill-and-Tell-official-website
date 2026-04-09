@@ -131,7 +131,7 @@ function EventsSection() {
                     className={`pointer relative frosted-glass rounded-md shadow-xl border-1 border-Main-300/60 cursor-pointer no-scrollbar
                       transition-all duration-500 ease-in-out flex-shrink-0 h-full
                       ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none absolute'}
-                      ${event.path == "/mobai" ? 'incoming-event-moving-border' : ''}
+                      ${event.path == "/arcade" ? 'incoming-event-moving-border' : ''}
                       `}
                     style={{
                       width: `${cardWidth}px`,
@@ -140,7 +140,7 @@ function EventsSection() {
                     }}
                   >
                     {/* --- Upcoming Badge --- */}
-                    {(event.path == "/mobai" && isActive) && (
+                    {(event.path == "/arcade" && isActive) && (
                       <div className="absolute top-0 right-0 z-20 overflow-hidden w-28 h-28 pointer-events-none">
                         <div className="absolute top-5 -right-12 w-40 transform rotate-45 bg-[#ff0000]
                                       text-center text-white text-xs font-bold py-1 shadow-lg animate-fade-in-down">

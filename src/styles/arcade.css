@@ -15,35 +15,6 @@ body.arcade-active {
     background: #080000 !important;
 }
 
-html.arcade-active,
-body.arcade-active {
-    scrollbar-color: #ff0707 #080000;
-}
-
-html.arcade-active::-webkit-scrollbar,
-body.arcade-active::-webkit-scrollbar {
-    width: 14px;
-}
-
-html.arcade-active::-webkit-scrollbar-track,
-body.arcade-active::-webkit-scrollbar-track {
-    background: #080000;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
-}
-
-html.arcade-active::-webkit-scrollbar-thumb,
-body.arcade-active::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff0707 0%, #8b0000 50%, #ff0707 100%);
-    border-radius: 10px;
-    border: 2px solid #080000;
-    box-shadow: 0 0 6px rgba(255, 7, 7, 0.6);
-}
-
-html.arcade-active::-webkit-scrollbar-thumb:hover,
-body.arcade-active::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #ff3333 0%, #cc0000 50%, #ff3333 100%);
-    box-shadow: 0 0 10px rgba(255, 7, 7, 1);
-}
 
 .arcade-registration-page {
     background-attachment: fixed;
