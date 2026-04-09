@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
 import { RegisterationProvider } from "./lib/hooks/useRegistration.jsx";
 
 // Lazy load route components
@@ -23,9 +23,23 @@ const Loading = () => (
     </div>
 );
 
+const ScrollbarThemeManager = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const isArcadeRoute = pathname.startsWith("/arcade");
+
+        document.documentElement.classList.toggle("arcade-active", isArcadeRoute);
+        document.body.classList.toggle("arcade-active", isArcadeRoute);
+    }, [pathname]);
+
+    return null;
+};
+
 function Root() {
     return (
         <Router>
+            <ScrollbarThemeManager />
             <Suspense fallback={<Loading />}>
                 <Routes>
                     <Route path="/" element={<MainApp />} />

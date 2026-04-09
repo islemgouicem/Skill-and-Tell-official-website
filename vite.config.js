@@ -1,10 +1,16 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react-swc"
 import tailwindcss from "@tailwindcss/vite"
+import react from "@vitejs/plugin-react-swc"
+import { fileURLToPath, URL } from "node:url"
+import { defineConfig } from "vite"
 
 export default defineConfig(() => {
   return {
     base: "/",
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    },
     plugins: [tailwindcss(), react()],
     optimizeDeps: {
       include: ["lucide-react"], // make sure icons are optimized properly
