@@ -8,39 +8,39 @@ const Agenda = () => {
       events: [
         {
           time: "08:00 - 09:00",
-          description: "Breakfast"
+          description: "Lorem ipsum"
         },
         {
           time: "09:00 - 12:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "12:30 - 14:30",
-          description: "Lunch Break & Salat Al-Jomou3a"
+          description: "Lorem ipsum"
         },
         {
           time: "13:00 - 17:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "17:00 - 17:30",
-          description: "Coffee Break"
+          description: "Lorem ipsum"
         },
         {
           time: "17:30 - 20:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "20:00 - 21:00",
-          description: "Dinner Break"
+          description: "Lorem ipsum"
         },
         {
           time: "21:00 - 01:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "01:00 - 01:30",
-          description: "Coffee Break"
+          description: "Lorem ipsum"
         }
       ]
     },
@@ -49,39 +49,39 @@ const Agenda = () => {
       events: [
         {
           time: "08:00 - 09:00",
-          description: "Breakfast"
+          description: "Lorem ipsum"
         },
         {
           time: "09:00 - 12:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "12:30 - 14:30",
-          description: "Lunch Break & Salat Al-Jomou3a"
+          description: "Lorem ipsum"
         },
         {
           time: "13:00 - 17:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "17:00 - 17:30",
-          description: "Coffee Break"
+          description: "Lorem ipsum"
         },
         {
           time: "17:30 - 20:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "20:00 - 21:00",
-          description: "Dinner Break"
+          description: "Lorem ipsum"
         },
         {
           time: "21:00 - 01:00",
-          description: "Teamwork Continuation"
+          description: "Lorem ipsum"
         },
         {
           time: "01:00 - 01:30",
-          description: "Coffee Break"
+          description: "Lorem ipsum"
         }
       ]
     }
@@ -118,8 +118,8 @@ const Agenda = () => {
       <img src="/images/arcade/agenda.png" alt="" className="w-45 md:w-50 lg:w-65 mb-8" />
 
       <div className="w-[90%] sm:w-[85%] md:w-[82%] lg:w-[80%] xl:w-[78%] max-w-[1100px] flex items-center justify-between">
-        <img src="/images/arcade/agenda_zombie.png" className="z-10 hidden md:block md:w-[10rem] lg:w-[14rem] xl:w-[16rem]" />
-        <div className="relative w-full md:w-[58%] lg:w-[46%] xl:w-[44%]">
+        <img src="/images/arcade/agenda_zombie.png" className="z-10 hidden md:block md:w-[10rem] lg:w-[14rem] xl:w-[18rem]" />
+        <div className="relative w-full md:w-[58%] lg:w-[50%] xl:w-[50%]">
           <button
             type="button"
             onClick={goToPrevious}
@@ -149,11 +149,11 @@ const Agenda = () => {
 
             <div className={`min-h-0 flex-1 overflow-y-auto lg:overflow-y-visible pr-1 lg:pr-0 flex flex-col gap-2.5 sm:gap-3 md:gap-3 lg:gap-3 justify-center`}>
               {currentDay.events.map((item, index) => (
-                <div key={index} className="w-full grid grid-cols-[auto_1fr] items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 justify-items-center">
-                  <span className="text-mwhite text-sm lg:text-base font-light leading-tight text-center whitespace-nowrap">
+                <div key={index} className="w-full flex px-5 items-center justify-between mb-2">
+                  <span className="text-white text-sm lg:text-base font-bold leading-tight text-center whitespace-nowrap">
                     {item.time}
                   </span>
-                  <span className="text-subtitle text-sm lg:text-base whitespace-pre-line font-light leading-tight text-center">
+                  <span className="text-subtitle text-sm lg:text-base whitespace-pre-line font-extralight leading-tight text-center">
                     {item.description}
                   </span>
                 </div>
