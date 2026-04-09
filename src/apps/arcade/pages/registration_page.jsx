@@ -108,10 +108,6 @@ const RegistrationPage = () => {
     document.documentElement.classList.add("arcade-active");
     document.body.classList.add("arcade-active");
 
-    return () => {
-      document.documentElement.classList.remove("arcade-active");
-      document.body.classList.remove("arcade-active");
-    };
   }, []);
 
   return (

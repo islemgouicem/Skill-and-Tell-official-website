@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import MobileNavbar from "./MobNavbar.jsx"
 import logo from "/images/arcade/snt_logo.png"
+import RedButton from "../components/TheRedButton.jsx"
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -58,38 +59,61 @@ function Navbar() {
             />
 
             <header
-                className={`fixed w-full z-50 transition-all duration-500 ease-in-out shadow-lg ${
-                    isOpen ? "bg-black" : "backdrop-blur-sm"
-                } ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+                className={`fixed w-full z-50 transition-all duration-500 ease-in-out shadow-lg ${isOpen ? "bg-black" : "backdrop-blur-sm"
+                    } ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
                     }`}
                 onMouseEnter={showNavbar}
                 onMouseLeave={() => !isOpen && startHideTimer(2000)}
             >
                 <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6 ">
-                    <a href="#hero" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#hero")}>
-                        <img
-                            src={logo}
-                            width={70}
-                            height={70}
-                            alt="Arcade Logo"
-                            className="transition-transform duration-300"
-                            fetchPriority="low"
-                        />
-                    </a>
+
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-6 ">
+                        <a href="#hero" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                            <img
+                                src={logo}
+                                width={70}
+                                height={70}
+                                alt="Arcade Logo"
+                                className="transition-transform duration-300"
+                                fetchPriority="low"
+                            />
+                        </a>
                         {navLinks.map(({ name, href }) => (
                             <a
                                 key={name}
                                 href={href}
-                                className="text-white/75 text-xl font-medium hover:text-main-red transition-colors relative group px-2 py-1 rounded-md"
+                                className="text-main-text text-xl font-futura_md_bt hover:text-red-900 transition-colors relative group px-2 py-1 rounded-md"
                                 onClick={(e) => handleNavLinkClick(e, href)}
                             >
                                 {name}
                             </a>
                         ))}
                     </nav>
+
+                    <a
+                        href="#hero"
+                        aria-label="mobile logo"
+                        className="lg:hidden flex items-center"
+                        onClick={(e) => handleNavLinkClick(e, "#hero")}
+                    >
+                        <img
+                            src={logo}
+                            width={60}
+                            height={60}
+                            alt="SNT Logo"
+                            className="transition-transform duration-300"
+                            fetchPriority="low"
+                        />
+                    </a>
+
+                    <RedButton
+                        textContent={"Join The Fight"}
+                        pageName={"register"}
+                        className="hidden lg:flex scale-[0.82] origin-center"
+                        textClassName="text-2xl"
+                    />
 
                     <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
                 </div>
