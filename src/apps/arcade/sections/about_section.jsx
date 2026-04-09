@@ -9,7 +9,7 @@ const About = () => {
                     <div className=" flex flex-col gap-[0.5rem]">
                         <img src="/images/arcade/about_arcade.png" className="w-[80%] sm:w-[70%] md:w-[60%]  lg:w-[40%]" />
 
-                        <h3 class="font-compacta text-4xl leading-[100%] tracking-[0.06em] text-[#CB7822]">
+                        <h3 className="font-compacta text-4xl leading-[100%] tracking-[0.06em] text-[#CB7822]">
                             What is ARCADE ?
                         </h3>
                         <p className="font-futura_md_bt text-xl text-main-text hidden sm:block md:w-[60%] tracking-wide leading-8"

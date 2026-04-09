@@ -1,5 +1,18 @@
 import TheRedButton from "../components/TheRedButton"
+import { useNavigate } from "react-router-dom";
+import PopUp from "../components/popup.jsx"
+import { useState } from "react"
+
 const Organizers = () => {
+    const navigate = useNavigate();
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
     return (
         <section className="relative  w-full overflow-visible mb-10" id="organizers">
 
@@ -16,7 +29,7 @@ const Organizers = () => {
                         </p>
                         <TheRedButton
                             textContent={"APPLY NOW"}
-                            pageName={"organizers"}
+                            pageName={handleOpenPopup}//() => { navigate("/arcade/organizers") }
                             className="scale-[0.82] sm:scale-100 origin-left"
                             textClassName="text-[1.8rem] sm:text-4xl"
                         />
@@ -35,6 +48,12 @@ const Organizers = () => {
             <div className="pointer-events-none hidden sm:block absolute -right-42 top-[-18rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(255,7,7,0.28)_0%,rgba(255,7,7,0.12)_35%,rgba(255,7,7,0)_72%)] blur-3xl" />
 
             <div className="pointer-events-none sm:hidden absolute right-0 bottom-20 h-[100rem] w-[100rem] translate-x-1/2 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,7,7,0.12)_0%,rgba(255,7,7,0.04)_35%,rgba(255,7,7,0)_72%)] blur-5xl" />
+            <PopUp isOpen={isPopupOpen}
+                onClose={handleClosePopup}
+                color={"bg-red-main-500"}
+                title={"Registration"}
+                subtitle={"Quarantine Lockdown"}
+                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon."} />
 
         </section>
     )

@@ -15,7 +15,7 @@ const ArcadeButton = ({ variant = "next", children, className, ...props }) => {
       arrowSrc: "/images/arcade/arrow_prev.svg",
     },
     register: {
-      bg: "/images/arcade/Red_button.png",
+      bg: "/images/arcade/redbtn.png",
       color: "#FFFFFF",
       arrowSrc: null,
     },

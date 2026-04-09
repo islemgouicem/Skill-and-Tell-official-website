@@ -2,11 +2,22 @@ import React, { useState, useEffect, useRef } from "react"
 import MobileNavbar from "./MobNavbar.jsx"
 import logo from "/images/arcade/snt_logo.png"
 import RedButton from "../components/TheRedButton.jsx"
+import { useNavigate } from "react-router-dom";
+import PopUp from "../components/popup.jsx"
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [isVisible, setIsVisible] = useState(true)
     const hideTimeoutRef = useRef(null)
+    const navigate = useNavigate();
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
 
     const navLinks = [
         { name: "Home", href: "#home" },
@@ -110,14 +121,21 @@ function Navbar() {
 
                     <RedButton
                         textContent={"Join The Fight"}
-                        pageName={"register"}
-                        className="hidden lg:flex scale-[0.82] origin-center"
-                        textClassName="text-2xl"
+                        pageName={handleOpenPopup}//() => { navigate("/arcade/register") }
+                        className="hidden lg:flex scale-[0.75] origin-center"
+                        textClassName="text-4xl"
                     />
 
                     <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
                 </div>
             </header>
+            <PopUp isOpen={isPopupOpen}
+                onClose={handleClosePopup}
+                color={"bg-red-main-500"}
+                title={"Registration"}
+                subtitle={"Quarantine Lockdown"}
+                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon."} />
+
         </>
     )
 }

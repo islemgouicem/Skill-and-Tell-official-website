@@ -1,10 +1,18 @@
 import { CalendarIcon, MapPinIcon } from "lucide-react"
 import RedButton from "../components/TheRedButton.jsx"
 import background from "/images/arcade/hero.png";
-
+import PopUp from "../components/popup.jsx"
+import { useState } from "react"
 
 export default function HeroSection() {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
 
     return (
         <section
@@ -30,9 +38,9 @@ export default function HeroSection() {
 
                 <RedButton
                     textContent={"Join The Fight"}
-                    pageName={"/arcade/register"}
+                    pageName={handleOpenPopup}// ()=>{navigate("/arcade/register")}
                     className="scale-[0.84] sm:scale-100"
-                    textClassName="text-[2.05rem] sm:text-4xl"
+                    textClassName="text-[2.05rem] sm:text-[2.5rem]"
                 />
                 <div className="pt-4 flex flex-row gap-18 sm:gap-8 p-1 justify-center items-center text-[#77867F] text-xl md:text-2xl leading-[100%] tracking-[0.08em] align-bottom whitespace-nowrap">
                     <div className="flex items-center gap-1 sm:gap-2" >
@@ -53,6 +61,12 @@ export default function HeroSection() {
                 className="pointer-events-none absolute bottom-3 left-3 z-20 w-[5rem] sm:hidden"
                 alt=""
             />
+            <PopUp isOpen={isPopupOpen}
+                onClose={handleClosePopup}
+                color={"bg-red-main-500"}
+                title={"Registration"}
+                subtitle={"Quarantine Lockdown"}
+                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon."} />
 
         </section>
     )
