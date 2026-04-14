@@ -146,15 +146,15 @@ const OrganizersRegPage = () => {
   ];
 
   const daysOptions = [
+    { value: "24 Avril", label: "24 Avril" },
     { value: "25 Avril", label: "25 Avril" },
-    { value: "26 Avril", label: "26 Avril" },
   ];
 
   const shiftOptions = [
-    { value: "24 April morning", label: "24 April morning" },
-    { value: "24 April afternoon", label: "24 April afternoon" },
-    { value: "25 April morning", label: "25 April morning" },
-    { value: "25 April afternoon", label: "25 April afternoon" },
+    { value: "24 April 10 to 15", label: "24 April 10 to 15" },
+    { value: "24 April 15 to 22", label: "24 April 15 to 22" },
+    { value: "25 April 8 to 13", label: "25 April 8 to 13" },
+    { value: "25 April 13 to 19", label: "25 April 13 to 19" },
   ];
 
   return (

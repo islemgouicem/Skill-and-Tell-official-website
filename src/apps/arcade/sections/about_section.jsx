@@ -4,7 +4,7 @@ const About = () => {
         <section className="relative w-full flex flex-col justify-center sm:justify-between items-center overflow-hidden"
             id="about">
 
-            <div className="w-full flex flex-1 flex-col justify-center items-start px-6 md:px-8 lg:px-16 py-8">
+            <div className="w-[95%] sm:w-[85%] md:w-[82%] lg:w-[90%] flex flex-1 flex-col justify-center items-start px-6 md:px-8 lg:px-16 py-8">
                 <div className="w-full flex flex-row justify-between  mb-[2rem] items-center">
                     <div className=" flex flex-col gap-[0.5rem]">
                         <img src="/images/arcade/about_arcade.png" className="w-[80%] sm:w-[70%] md:w-[60%]  lg:w-[40%]" />
@@ -12,7 +12,7 @@ const About = () => {
                         <h3 className="font-compacta text-4xl leading-[100%] tracking-[0.06em] text-[#CB7822]">
                             What is ARCADE ?
                         </h3>
-                        <p className="font-futura_md_bt text-xl text-main-text hidden sm:block md:w-[60%] tracking-wide leading-8"
+                        <p className="z-20 font-futura_md_lt text-xl text-main-text hidden sm:block md:w-[80%] tracking-wide leading-8"
                         >ARCADE is a unique event organized by Skill&Tell,
                             bringing together teams and individuals to take on a variety of  game-based
                             challenges that combine both individual and group activities. Participants are immersed in realistic,

@@ -142,7 +142,7 @@ const Agenda = () => {
                     rounded-[50px]
                 `}>
             <div className="mb-4 sm:mb-5 flex items-center justify-center shrink-0">
-              <span className="font-compacta text-[#CB7822] text-2xl tracking-[0.08em]">
+              <span className="font-compacta text-[#CB7822] text-3xl tracking-[0.08em]">
                 DAY {String(currentDay.day).padStart(2, "0")}
               </span>
             </div>

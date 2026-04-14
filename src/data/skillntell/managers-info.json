@@ -1,15 +1,5 @@
 [
   {
-    "id": 26,
-    "email": "javascript:void(0)",
-    "name": "Sami Kadi",
-    "image": "/images/managers/sami_kadi.jpg",
-    "role": "Communication Co-manger",
-    "instagram": "javascript:void(0)",
-    "linkedin": "javascript:void(0)",
-    "description": "Sami is the Communication Co-Manager at Skill&Tell, connecting teams and audiences with clarity and creativity."
-  },
-  {
     "id": 1,
     "email": "akrambenrabah7@gmail.com",
     "name": "Benrabah akram taher",
@@ -21,7 +11,7 @@
   },
   {
     "email": "ouksil.sayad@ensia.edu.dz",
-    "id": 3,
+    "id": 2,
     "name": "Sayad ouksil",
     "image": "/images/managers/OuksilSayad.jpg",
     "role": "Production co-manager",
@@ -31,7 +21,7 @@
   },
   {
     "email": "mohamedmerah362@gmail.com",
-    "id": 4,
+    "id": 3,
     "name": "Merah Mohammed El Amine",
     "image": "",
     "role": "Production lead",
@@ -40,7 +30,7 @@
     "description": "Mohamed is a dedicated and passionate member of Skill&Tell, currently serving as the head of production department . With a strong background in editing ,he leads with creativity, commitment, and a drive to empower others."
   },
   {
-    "id": 6,
+    "id": 4,
     "email": "chiraz.kaddour@ensia.edu.dz",
     "name": "Chiraz Kaddour",
     "image": "/images/managers/chiraz.jpg",
@@ -50,7 +40,17 @@
     "description": "As a Planning Manager, I am responsible for ensuring the smooth organization and execution of events, from initial planning to final coordination. I enjoy organizing activities, managing details, and creating a well-structured environment that gives participants a seamless and enjoyable experience"
   },
   {
-    "id": 6,
+    "id": 5,
+    "email": "alaa.sadchemloul@ensia.edu.dz",
+    "name": "Sad Chemloul Alaa",
+    "image": "/images/managers/alaa.jpg",
+    "role": "logistics Co-Manager",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "Hi I am Alaa, a naturally curious person who enjoys learning, trying new ideas, and gaining new experiences. I value progress, smart risk-taking, and continuous improvement, and I approach my work with energy and discipline—without forgetting to enjoy the process."
+  },
+  {
+    "id": 5,
     "email": "sanaa.toutah@ensia.edu.dz",
     "name": "Sanaa TOUTAH",
     "image": "/images/managers/Sanaa_TOUTAH.webp",
@@ -60,7 +60,7 @@
     "description": "As Logistics Manager of Skill & Tell, Sanaa brings creativity and great experience to event organization. Honest and hardworking, she is passionate about making every project impactful and well-structured."
   },
   {
-    "id": 5,
+    "id": 6,
     "email": "hala.boutaya@ensia.edu.dz",
     "name": "Hala BOUTAYA",
     "role": "Events Lead",
@@ -68,6 +68,16 @@
     "instagram": "https://www.instagram.com/halla.btv?igsh=bWloa2l0bzJyNmZn",
     "linkedin": "https://www.linkedin.com/in/halla-boutaya-92991a2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "description": "I am Boutaya Hala, leader of the Events Department, passionate about organizing impactful and creative events. With strong planning and coordination skills."
+  },
+  {
+    "id": 7,
+    "email": "yacinebennouar@gmail.com",
+    "name": "Bennouar Yacine",
+    "image": "/images/managers/yacine.jpg",
+    "role": "Relex Lead",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "urious by nature and passionate about exploring new fields and connecting with people, sometimes I turn those connections into strong partnerships that support our vision, and help our events succeed !"
   },
   {
     "id": 7,
@@ -80,7 +90,7 @@
     "description": "People tell me I'm friendly, outgoing and intense in whatever I do. I love learning new things and feel content when doing meaningful stuff."
   },
   {
-    "id": 9,
+    "id": 8,
     "email": "yasmine.kihal@ensia.edu.dz",
     "name": "Yasmine KIHAL",
     "role": "HR co-manager",
@@ -90,7 +100,7 @@
     "description": "This is Jass! A lifelong learner and AI fan, part of the SkillnTell fam since day one. I love reading (and occasionally writing) and aim to inspire young people in academia while making a small difference wherever I go. Fun fact: I sometimes forget my real name's Yasmine because everyone calls me Jass."
   },
   {
-    "id": 10,
+    "id": 9,
     "email": "badri.amouri@ensia.edu.dz",
     "name": "Badri Amouri",
     "image": "/images/managers/badri.jpg",
@@ -100,7 +110,7 @@
     "description": "I am Badri, HR lead of Skill&Tell. I am a motivated and curious person with strong communication and teamwork skills. I’m passionate about technology, startups, and community work, and I enjoy learning new things while contributing to meaningful projects"
   },
   {
-    "id": 11,
+    "id": 10,
     "email": "maissa.alioua@ensia.edu.dz",
     "name": "Maissa Alioua",
     "image": "/images/managers/AliouaMaissa.webp",
@@ -110,7 +120,7 @@
     "description": "Maissa is the Vice President of Skill & Tell, dedicated and passionate about empowering others. With strong soft skills in leadership, communication, and teamwork, she strives to create impact through creativity and dedication."
   },
   {
-    "id": 12,
+    "id": 11,
     "email": "moussa.boussekine@ensia.edu.dz",
     "name": "Moussa Boussekine",
     "image": "/images/managers/moussa.PNG",
@@ -120,7 +130,7 @@
     "description": "I love exploring new ideas, working on startup projects, and bringing people together to learn, grow, and enjoy the journey as a community"
   },
   {
-    "id": 13,
+    "id": 12,
     "email": "abderahim.khefif@ensia.edu.dz",
     "name": "Khefif Abderahim",
     "image": "/images/managers/Khefif_Abderahim.JPG",
@@ -130,7 +140,7 @@
     "description": "Ambitious and creative improving myself day by day in my way to become a better version to become what i wanna be"
   },
   {
-    "id": 14,
+    "id": 13,
     "email": "islem.gouicem@ensia.edu.dz",
     "name": "Islem GOUICEM",
     "image": "/images/managers/islem_GOUICEM.jpg",
@@ -140,7 +150,7 @@
     "description": "Passionate about tech and entrepreneurship, leads the IT department to create impactful projects, empower members with hands-on skills, and transform ideas into reality."
   },
   {
-    "id": 15,
+    "id": 14,
     "email": "houda.rahmani@ensia.edu.dz",
     "name": "Rahmani Houda",
     "image": "/images/managers/maya_2.JPG",
@@ -158,16 +168,6 @@
     "instagram": "https://www.instagram.com/imene.djelili?igsh=MXZ1bHhxMTd1MnU5ZQ==",
     "linkedin": "https://www.linkedin.com/in/imene-djelili-741373319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "description": "I'm Imene, an Algerian student who loves programming, problem-solving, and exploring new tech ideas."
-  },
-  {
-    "id": 17,
-    "email": "achraf.baha.eddine.bennacer@ensia.edu.dz",
-    "name": "Achraf baha eddine bennacer",
-    "image": "/images/managers/Achraf-bennacer.jpg",
-    "role": "Dev co manager",
-    "instagram": "https://www.instagram.com/ax666raf?igsh=ZXE5Z2VqaXg4Ymk0",
-    "linkedin": "https://www.linkedin.com/in/achraf-baha-eddine-bennacer-5a91012a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    "description": "Achraf is a dedicated and passionate manager, currently serving as the Dev co-manager. With a strong background in web and mobile development, he leads with creativity, commitment, and a drive to empower others."
   },
   {
     "id": 20,
@@ -190,14 +190,14 @@
     "description": "I'm Meriem, Design Manager at Skill&Tell. I love turning ideas into visuals that tell a story and bring energy to projects. I enjoy working with creative teams, exploring new design trends, and creating designs that feel both meaningful and fun. Always curious, always learning, and always excited to create something impactful"
   },
   {
-    "id": 21,
-    "email": "nour.zamiche@ensia.edu.dz",
-    "name": "Nour Zamiche",
-    "role": "Workshops manager",
-    "image": "/images/managers/NourZamiche.webp",
-    "instagram": "https://www.instagram.com/nourzamiche?igsh=MXRlN3ZlbGN5YmF0cA==",
-    "linkedin": "https://www.linkedin.com/in/nour-zamiche-37a69128b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "description": "Nour Zamiche is a dedicated and passionate member of Skill&Tell, currently serving as the workshops manager. With a strong background in events planning and management, she leads with creativity, commitment, and a drive to empower others."
+    "id": 20,
+    "email": "amina-yasmine.aitlarbi@ensia.edu.dz",
+    "name": "Amina Yasmine Ait Larbi",
+    "image": "/images/managers/amina.jpg",
+    "role": "Graphic Design Manager",
+    "instagram": "javascript:void(0)",
+    "linkedin": "javascript:void(0)",
+    "description": "Amina is a soul inspired by art and driven by creativity currently working as a designer in skill & tell club. Tries her absolute best to convert ideas into enjoyable work."
   },
   {
     "id": 22,

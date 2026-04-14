@@ -19,7 +19,7 @@ function TeamSection() {
 
   useEffect(() => {
     if (sectionInView && !hasRun) {
-      const half = Math.floor(teamMembers.length / 2);
+      const half = Math.floor(teamMembers.length / 2 + 1 );
       for (let i = 0; i < half; i++) {
         nextMember(); // run your procedure
       }

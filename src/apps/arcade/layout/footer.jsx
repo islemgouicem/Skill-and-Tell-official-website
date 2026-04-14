@@ -4,7 +4,7 @@ export default function Footer() {
     const navigate = useNavigate();
 
     return (
-        <footer id="contacts" className=" text-[#77867FBF]  pb-4 relative overflow-hidden font-compacta bg-black">
+        <footer id="contacts" className=" text-main-text  pb-4 relative overflow-hidden font-compacta bg-black">
             <div className="w-full mb-4 h-[2px] bg-gradient-to-r from-[rgba(255,7,7,0.05)] via-[#990404] to-[rgba(255,7,7,0.05)] rounded-full blur-[0.5px]"></div>
 
             <div className="container max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 pt-12 md:pt-4">
@@ -115,7 +115,7 @@ export default function Footer() {
             <div className="relative tracking-widest z-10 mt-4 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center gap-4 text-sm text-white/70">
 
 
-                <p className="text-[#77867FBF] ">© 2026 Arcade by Skill & Tell</p>
+                <p className="text-main-text ">© 2026 Arcade by Skill & Tell</p>
             </div>
 
         </footer>

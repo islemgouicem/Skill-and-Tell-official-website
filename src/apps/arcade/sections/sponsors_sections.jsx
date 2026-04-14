@@ -1,8 +1,4 @@
 export default function Sponsors() {
-    const sponsors = [
-        { logo: "/images/mobai/ensia.png", link: "#" },
-        { logo: "/images/mobai/bms.png", link: "#" },
-    ];
 
     return (
         <section
@@ -12,19 +8,12 @@ export default function Sponsors() {
 
             <img src="/images/arcade/our_sponsor.png" className="w-45 md:w-50 lg:w-70 mb-8 sm:mb-4" />
 
-            <div className="w-full flex items-center justify-between sm:gap-20">
+            <div className="w-full flex items-center justify-center sm:gap-20">
 
                 <img
-                    src="/images/arcade/mobilis_logo.png"
-                    alt="Mobilis"
-                    className="w-[150px] h-auto object-contain md:w-[300px]"
-                />
-
-
-                <img
-                    src="/images/arcade/ooredoo_logo.png"
-                    alt="Ooredoo"
-                    className="w-[150px] h-auto object-contain md:w-[300px]"
+                    src="/images/arcade/logo-netbeopen-red.png"
+                    alt="netbeopen"
+                    className="w-[280px] h-auto object-contain md:w-[400px] mt-2"
                 />
             </div>
         </section>

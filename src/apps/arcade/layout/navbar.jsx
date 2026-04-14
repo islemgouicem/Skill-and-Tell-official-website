@@ -11,6 +11,7 @@ function Navbar() {
     const hideTimeoutRef = useRef(null)
     const navigate = useNavigate();
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home")
 
     const handleClosePopup = () => {
         setIsPopupOpen(false);
@@ -62,6 +63,32 @@ function Navbar() {
         }
     }, [])
 
+    // Track active section
+    useEffect(() => {
+        const options = {
+            root: null,
+            rootMargin: "-50% 0px -50% 0px",
+            threshold: 0
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id)
+                }
+            })
+        }, options)
+
+        navLinks.forEach(({ href }) => {
+            const element = document.getElementById(href.slice(1))
+            if (element) {
+                observer.observe(element)
+            }
+        })
+
+        return () => observer.disconnect()
+    }, [])
+
     return (
         <>
             <div
@@ -81,7 +108,7 @@ function Navbar() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-6 ">
-                        <a href="#hero" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                        <a href="#home" aria-label="logo" className="flex items-center gap-2 ml-4" onClick={(e) => handleNavLinkClick(e, "#home")}>
                             <img
                                 src={logo}
                                 width={70}
@@ -95,7 +122,10 @@ function Navbar() {
                             <a
                                 key={name}
                                 href={href}
-                                className="text-main-text text-xl font-futura_md_bt hover:text-red-900 transition-colors relative group px-2 py-1 rounded-md"
+                                className={`text-xl font-futura_md_bt transition-colors relative group px-2 py-1 rounded-md ${activeSection === href.slice(1)
+                                        ? "text-red-700 font-bold"
+                                        : "text-white/75 hover:text-red-900"
+                                    }`}
                                 onClick={(e) => handleNavLinkClick(e, href)}
                             >
                                 {name}
@@ -104,10 +134,10 @@ function Navbar() {
                     </nav>
 
                     <a
-                        href="#hero"
+                        href="#home"
                         aria-label="mobile logo"
                         className="lg:hidden flex items-center"
-                        onClick={(e) => handleNavLinkClick(e, "#hero")}
+                        onClick={(e) => handleNavLinkClick(e, "#home")}
                     >
                         <img
                             src={logo}
@@ -122,11 +152,11 @@ function Navbar() {
                     <RedButton
                         textContent={"Join The Fight"}
                         pageName={handleOpenPopup}//() => { navigate("/arcade/register") }
-                        className="hidden lg:flex scale-[0.75] origin-center"
+                        className="hidden lg:flex scale-[0.75] origin-center hover:scale-[0.8] "
                         textClassName="text-4xl"
                     />
 
-                    <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} />
+                    <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} handleNavLinkClick={handleNavLinkClick} activeSection={activeSection} />
                 </div>
             </header>
             <PopUp isOpen={isPopupOpen}

@@ -14,16 +14,16 @@ const Organizers = () => {
         setIsPopupOpen(true);
     };
     return (
-        <section className="relative  w-full overflow-visible mb-10" id="organizers">
+        <section className="relative  w-full overflow-visible mb-10 flex flex-col justify-center items-center" id="organizers">
 
-            <div className="w-full  flex gap-[0.5rem] flex-col justify-center items-start px-4 md:px-8 lg:px-16">
+            <div className="w-[95%] sm:w-[85%] md:w-[82%] lg:w-[90%] flex gap-[0.5rem] flex-col justify-center items-start px-4 md:px-8 lg:px-16">
                 <div className="relative w-full flex justify-between items-start sm:items-center">
                     <div className="flex flex-col justify-between items-start w-full sm:w-auto">
                         <img src=" /images/arcade/join_our_team.png" className="w-[60%]  lg:w-[40%]" />
                         <h3 className="mt-[0.5rem] w-[80%] sm:w-[70%] md:w-[60%]  lg:w-[40%] text-[#CB7822] font-compacta text-3xl sm:text-4xl font-normal leading-[100%] tracking-[0.06em] align-bottom mb-[1.6rem] sm:mb-[2rem]">
                             Register as an organizer
                         </h3>
-                        <p className="z-20 w-[70%] md:w-[60%] text-[#77867F] font-futura text-[16px] font-normal leading-[1.5rem] tracking-[0.1em] align-bottom mb-4">
+                        <p className="z-20 w-[70%] md:w-[60%] text-main-text font-futura text-[16px] font-normal leading-[1.5rem] tracking-[0.1em] align-bottom mb-4">
                             Join the ARCADE organizing team and help us create an epic experience for all participants.
                             Your skills and passion will make a difference!
                         </p>

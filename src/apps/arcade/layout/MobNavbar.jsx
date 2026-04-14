@@ -5,7 +5,7 @@ import { Button } from "../../../components/ui/button.jsx"
 import { Sheet, SheetContent, SheetTrigger } from "../../../components/ui/sheet.jsx"
 import logo from "/images/arcade/snt_logo.png"
 
-function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
+function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick, activeSection }) {
 
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -23,7 +23,7 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                 side="right"
                 className="border-l border-[#CB7822]/35 w-[250px] text-[#BFCBC5] bg-[linear-gradient(180deg,rgba(8,0,0,0.96)_0%,rgba(51,0,1,0.96)_65%,rgba(8,0,0,0.98)_100%)]"
             >
-                <a href="#hero" aria-label="logo" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#hero")}>
+                <a href="#home" aria-label="logo" className="flex items-center gap-2 mb-2" onClick={(e) => handleNavLinkClick(e, "#home")}>
                     <img
                         src={logo}
                         width={100}
@@ -38,7 +38,10 @@ function MobileNavbar({ isOpen, setIsOpen, navLinks, handleNavLinkClick }) {
                         <a
                             key={name}
                             href={href}
-                            className="flex w-full items-center py-2 text-4xl font-compacta tracking-normal text-[#77867F] hover:text-[#CB7822] transition-colors"
+                            className={`flex w-full items-center py-2 text-3xl font-compacta tracking-normal transition-colors ${activeSection === href.slice(1)
+                                    ? "text-red-700"
+                                    : "text-white/75 hover:text-[#CB7822]"
+                                }`}
                             onClick={(e) => handleNavLinkClick(e, href)}
                         >
                             {name}

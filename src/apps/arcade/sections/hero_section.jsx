@@ -39,13 +39,13 @@ export default function HeroSection() {
                 <RedButton
                     textContent={"Join The Fight"}
                     pageName={handleOpenPopup}// ()=>{navigate("/arcade/register")}
-                    className="scale-[0.84] sm:scale-100"
+                    className="scale-[0.84] sm:scale-100 hover:scale-110"
                     textClassName="text-[2.05rem] sm:text-[2.5rem]"
                 />
-                <div className="pt-4 flex flex-row gap-18 sm:gap-8 p-1 justify-center items-center text-[#77867F] text-xl md:text-2xl leading-[100%] tracking-[0.08em] align-bottom whitespace-nowrap">
+                <div className="pt-4 flex flex-row gap-18 sm:gap-8 p-1 justify-center items-center text-main-text text-xl md:text-2xl leading-[100%] tracking-[0.08em] align-bottom whitespace-nowrap">
                     <div className="flex items-center gap-1 sm:gap-2" >
                         <CalendarIcon className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-                        <p className="font-compacta">24 April 2026</p>
+                        <p className="font-compacta">24/04/2026</p>
 
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2">
