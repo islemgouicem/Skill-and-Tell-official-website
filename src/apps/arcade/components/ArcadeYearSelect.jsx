@@ -11,7 +11,15 @@ const YEAR_OPTIONS = [
   { value: "5", label: "5th Year" },
 ];
 
-const ArcadeYearSelect = ({ label, value, onValueChange, error, placeholder = "Select year", className }) => {
+const ArcadeYearSelect = ({
+  label,
+  value,
+  onValueChange,
+  error,
+  placeholder = "Select year",
+  className,
+  options = YEAR_OPTIONS,
+}) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -71,7 +79,7 @@ const ArcadeYearSelect = ({ label, value, onValueChange, error, placeholder = "S
             </Select.ScrollUpButton>
 
             <Select.Viewport className="p-2">
-              {YEAR_OPTIONS.map((option) => (
+              {options.map((option) => (
                 <Select.Item
                   key={option.value}
                   value={option.value}

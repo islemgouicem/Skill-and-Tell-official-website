@@ -4,7 +4,6 @@ import "../../../styles/arcade.css";
 import StepIndicator from "../components/StepIndicator";
 import { submitArcadeRegistration } from "../lib/api";
 import StepMembersInfo from "./registration/components/StepMembersInfo";
-import StepMotivation from "./registration/components/StepMotivation";
 import StepTeamInfo from "./registration/components/StepTeamInfo";
 import SuccessState from "./registration/components/SuccessState";
 import { STEPS, createInitialFormData, memberErrorKey, memberLabels } from "./registration/config";
@@ -17,7 +16,6 @@ const RegistrationPage = () => {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submittedSummary, setSubmittedSummary] = useState(null);
   const navigate = useNavigate();
 
   const updateField = (field, value) => {
@@ -58,7 +56,7 @@ const RegistrationPage = () => {
 
     setErrors({});
     setSubmitError("");
-    setStep((s) => Math.min(s + 1, 2));
+    setStep(1);
   };
 
   const handlePrev = () => setStep((s) => Math.max(s - 1, 0));
@@ -69,7 +67,7 @@ const RegistrationPage = () => {
   };
 
   const handleRegister = async () => {
-    const nextErrors = validateArcadeStep(2, formData);
+    const nextErrors = validateArcadeStep(1, formData);
 
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
@@ -81,14 +79,6 @@ const RegistrationPage = () => {
 
     try {
       await submitArcadeRegistration(formData);
-      setSubmittedSummary({
-        teamName: formData.teamName.trim(),
-        leaderName: formData.leaderName.trim(),
-        leaderEmail: formData.leaderEmail.trim(),
-        leaderYear: formData.leaderYear.trim(),
-        membersCount: formData.members.length,
-        pastParticipation: formData.pastParticipation === true ? "Yes" : "No",
-      });
       setSubmitSuccess(true);
       setFormData(createInitialFormData());
       setErrors({});
@@ -178,6 +168,33 @@ const RegistrationPage = () => {
           />
         ) : (
           <>
+            <div className="mx-auto mt-2 w-[92%] max-w-[760px] text-center sm:mt-4">
+              <div
+                className="rounded-[16px] border px-4 py-3 sm:px-6 sm:py-4"
+                style={{
+                  borderColor: "rgba(255, 255, 255, 0.28)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  boxShadow: "inset 0 0 0 1px rgba(255, 7, 7, 0.2), 0 0 18px rgba(255, 7, 7, 0.14)",
+                }}
+              >
+                <p
+                  className="font-compacta uppercase tracking-[0.12em] text-[#FF8C8C]"
+                  style={{ fontSize: "clamp(20px, 2vw, 15px)", lineHeight: 1 }}
+                >
+                  Fair Play Notice
+                </p>
+                <p
+                  className="mt-2 font-futura text-white/90"
+                  style={{
+                    fontSize: "clamp(12px, 1.3vw, 15px)",
+                    lineHeight: 1.45,
+                  }}
+                >
+                  If we detect false participation history for any team member, the entire team will be excluded
+                </p>
+              </div>
+            </div>
+
             {/* Step Indicator */}
             <div className="arcade-steps-wrap">
               <StepIndicator currentStep={step} steps={STEPS} />
@@ -191,15 +208,6 @@ const RegistrationPage = () => {
                   members={formData.members}
                   updateMember={updateMember}
                   memberLabels={memberLabels}
-                  onPrev={handlePrev}
-                  onNext={handleNext}
-                  errors={errors}
-                />
-              )}
-              {step === 2 && (
-                <StepMotivation
-                  formData={formData}
-                  updateField={updateField}
                   onPrev={handlePrev}
                   onRegister={handleRegister}
                   errors={errors}
