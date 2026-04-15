@@ -73,7 +73,7 @@ export default function HeroSection() {
                 color={"bg-red-main-500"}
                 title={"Registration"}
                 subtitle={"Quarantine Lockdown"}
-                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon."} />
+                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon..."} />
 
         </section>
     )
