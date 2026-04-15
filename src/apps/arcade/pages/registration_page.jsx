@@ -91,6 +91,23 @@ const RegistrationPage = () => {
   };
 
   useEffect(() => {
+    if (submitSuccess || Object.keys(errors).length === 0) return;
+
+    const scrollToFirstInvalidField = () => {
+      const firstInvalidField = document.querySelector('.arcade-registration-page [aria-invalid="true"]');
+      if (!firstInvalidField) return;
+
+      firstInvalidField.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (typeof firstInvalidField.focus === "function") {
+        firstInvalidField.focus({ preventScroll: true });
+      }
+    };
+
+    const rafId = window.requestAnimationFrame(scrollToFirstInvalidField);
+    return () => window.cancelAnimationFrame(rafId);
+  }, [errors, submitSuccess]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
 

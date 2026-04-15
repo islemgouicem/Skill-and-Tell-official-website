@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils/utils";
 
-const ArcadeTextarea = ({ label, className, textareaStyle, error, showErrorState = true, ...props }) => {
+const ArcadeTextarea = ({ label, className, textareaStyle, error, showErrorState = true, required = true, ...props }) => {
   const shouldShowErrorState = Boolean(error) && showErrorState;
   return (
     <div className="arcade-field-container flex flex-col gap-3 w-full">
@@ -9,6 +9,7 @@ const ArcadeTextarea = ({ label, className, textareaStyle, error, showErrorState
         style={{ fontSize: "clamp(13px, 1.2vw, 17px)", lineHeight: "1.25" }}
       >
         {label}
+        {required && <span style={{ color: "#FF6E6E" }}> *</span>}
       </label>
       <textarea
         aria-invalid={Boolean(error)}

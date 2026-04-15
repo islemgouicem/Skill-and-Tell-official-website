@@ -16,6 +16,7 @@ const ArcadeYearSelect = ({
   value,
   onValueChange,
   error,
+  required = true,
   placeholder = "Select year",
   className,
   options = YEAR_OPTIONS,
@@ -39,6 +40,7 @@ const ArcadeYearSelect = ({
         style={{ fontSize: "clamp(13px, 1.2vw, 17px)", lineHeight: "1.25" }}
       >
         {label}
+        {required && <span style={{ color: "#FF6E6E" }}> *</span>}
       </label>
 
       <Select.Root value={value} onValueChange={onValueChange}>

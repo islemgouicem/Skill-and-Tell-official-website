@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils/utils";
 
-const ArcadeInput = ({ label, className, error, ...props }) => {
+const ArcadeInput = ({ label, className, error, required = true, ...props }) => {
   return (
     <div className="arcade-field-container flex flex-col gap-3 w-full">
       <style>{`
@@ -23,6 +23,7 @@ const ArcadeInput = ({ label, className, error, ...props }) => {
         style={{ fontSize: "clamp(13px, 1.2vw, 17px)", lineHeight: "1.25" }}
       >
         {label}
+        {required && <span style={{ color: "#FF6E6E" }}> *</span>}
       </label>
       <input
         aria-invalid={Boolean(error)}

@@ -1,6 +1,7 @@
 import { memberErrorKey } from "./config";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const duplicateEmailMessage = "This email is already used by another team member.";
 
 const isValidStudyYear = (value) => {
   const year = Number(value);
@@ -50,6 +51,41 @@ export const validateArcadeStep = (stepIndex, data) => {
       if (!member.participation) {
         nextErrors[memberErrorKey(index, "participation")] = "Please select how many times this member previously participated.";
       }
+    });
+
+    // Enforce unique emails across the full team: leader + 5 members.
+    const emailOwners = new Map();
+    const leaderEmail = data.leaderEmail.trim().toLowerCase();
+
+    if (leaderEmail) {
+      emailOwners.set(leaderEmail, [{ type: "leader" }]);
+    }
+
+    data.members.forEach((member, index) => {
+      const normalizedMemberEmail = member.email.trim().toLowerCase();
+      if (!normalizedMemberEmail) return;
+
+      const owners = emailOwners.get(normalizedMemberEmail) ?? [];
+      owners.push({ type: "member", index });
+      emailOwners.set(normalizedMemberEmail, owners);
+    });
+
+    emailOwners.forEach((owners) => {
+      if (owners.length < 2) return;
+
+      owners.forEach((owner) => {
+        if (owner.type === "leader") {
+          if (!nextErrors.leaderEmail) {
+            nextErrors.leaderEmail = duplicateEmailMessage;
+          }
+          return;
+        }
+
+        const key = memberErrorKey(owner.index, "email");
+        if (!nextErrors[key]) {
+          nextErrors[key] = duplicateEmailMessage;
+        }
+      });
     });
   }
 

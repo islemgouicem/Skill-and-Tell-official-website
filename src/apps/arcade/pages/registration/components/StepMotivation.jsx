@@ -73,6 +73,7 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, sub
           >
             Did any of your team members participated in past versions{" "}
             <span style={{ fontFamily: "Arial, system-ui, sans-serif" }}>?</span>
+            <span style={{ color: "#FF6E6E" }}> *</span>
           </p>
           <div
             className="arcade-past-toggle relative z-10 flex items-center gap-6"
