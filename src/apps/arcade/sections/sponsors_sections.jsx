@@ -13,7 +13,7 @@ export default function Sponsors() {
                 <img
                     src="/images/arcade/logo-netbeopen-red.png"
                     alt="netbeopen"
-                    className="w-[280px] h-auto object-contain md:w-[400px] mt-2"
+                    className="w-[280px] h-auto object-contain md:w-[380px] mt-2"
                 />
             </div>
         </section>

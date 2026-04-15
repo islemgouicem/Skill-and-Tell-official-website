@@ -15,7 +15,7 @@ export default function Footer() {
                             <img src="/images/arcade/arcade_logo.png" alt="Arcade by Skill & Tell Logo" className="w-[180px]" />
                         </a>
                         <p className="text-base leading-relaxed max-w-sm">
-                            ARCADE by Skill & Tell presents an innovative ideathon focused on well-being. Join us in creating beautiful solutions for a better tomorrow.
+                            ARCADE by Skill & Tell is a game-based challenge event where teams tackle scenario-driven tasks to develop and apply diverse skills.
                         </p>
                         {/* Social Icons */}
                         <div className="flex gap-4 pt-2 text-[#F68F1E]">
