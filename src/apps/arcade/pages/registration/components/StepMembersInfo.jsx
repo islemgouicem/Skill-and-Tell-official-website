@@ -3,11 +3,11 @@ import ArcadeCard from "../../../components/ArcadeCard";
 import ArcadeInput from "../../../components/ArcadeInput";
 import ArcadeYearSelect from "../../../components/ArcadeYearSelect";
 import InfoIcon from "../../../components/InfoIcon";
-import { memberErrorKey } from "../config";
+import { memberErrorKey, participationOptions } from "../config";
 import slashHand from "/images/arcade/reg_2.png";
 import registrationHand from "/images/arcade/registeration_1.png";
 
-const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, errors }) => (
+const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onRegister, errors, submitError, isSubmitting }) => (
   <div className="relative isolate">
     <div className="pointer-events-none absolute inset-0 z-0 select-none">
       <img
@@ -170,6 +170,21 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, 
                 onValueChange={(value) => updateMember(i, "year", value)}
                 error={errors[memberErrorKey(i, "year")]}
               />
+              <ArcadeYearSelect
+                className="mt-2 mb-4"
+                label={
+                  <>
+                    How many times did you previously participate in Arcade
+                    {" "}
+                    <span style={{ fontFamily: "Arial, system-ui, sans-serif" }}>?</span>
+                  </>
+                }
+                placeholder="Select number"
+                value={member.participation}
+                onValueChange={(value) => updateMember(i, "participation", value)}
+                error={errors[memberErrorKey(i, "participation")]}
+                options={participationOptions}
+              />
             </div>
 
             {i === members.length - 1 && (
@@ -180,8 +195,8 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, 
                   </ArcadeButton>
                 </div>
                 <div className="order-1 sm:order-2" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
-                  <ArcadeButton variant="next" onClick={onNext} className="order-1 sm:order-2">
-                    Next
+                  <ArcadeButton variant="register" onClick={onRegister} className="order-1 sm:order-2" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Register"}
                   </ArcadeButton>
                 </div>
               </div>
@@ -189,6 +204,12 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onNext, 
           </div>
         </ArcadeCard>
       ))}
+
+      {submitError && (
+        <p className="mt-4 text-center font-futura text-sm text-[#ff9b9b]" style={{ lineHeight: 1.2 }}>
+          {submitError}
+        </p>
+      )}
     </div>
   </div>
 );

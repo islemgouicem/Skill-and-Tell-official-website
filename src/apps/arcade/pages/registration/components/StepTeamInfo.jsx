@@ -4,6 +4,7 @@ import ArcadeInput from "../../../components/ArcadeInput";
 import ArcadeYearSelect from "../../../components/ArcadeYearSelect";
 import InfoIcon from "../../../components/InfoIcon";
 import MemberIcon from "../../../components/MemberIcon";
+import { participationOptions } from "../config";
 import slashHand from "/images/arcade/reg_2.png";
 import reg3 from "/images/arcade/reg_3.png";
 import registrationHand from "/images/arcade/registeration_1.png";
@@ -107,6 +108,22 @@ const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (
                     value={formData.leaderYear}
                     onValueChange={(value) => updateField("leaderYear", value)}
                     error={errors.leaderYear}
+                  />
+                </div>
+                <div className="relative z-10 mt-2 mb-4">
+                  <ArcadeYearSelect
+                    label={
+                      <>
+                        How many times did you previously participate in Arcade
+                        {" "}
+                        <span style={{ fontFamily: "Arial, system-ui, sans-serif" }}>?</span>
+                      </>
+                    }
+                    placeholder="Select number"
+                    value={formData.leaderParticipation}
+                    onValueChange={(value) => updateField("leaderParticipation", value)}
+                    error={errors.leaderParticipation}
+                    options={participationOptions}
                   />
                 </div>
               </div>

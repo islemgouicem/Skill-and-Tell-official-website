@@ -29,6 +29,9 @@ export const validateArcadeStep = (stepIndex, data) => {
     } else if (!isValidStudyYear(data.leaderYear.trim())) {
       nextErrors.leaderYear = "Year must be between 1 and 5";
     }
+    if (!data.leaderParticipation) {
+      nextErrors.leaderParticipation = "Please select how many times you previously participated.";
+    }
   }
 
   if (stepIndex === 1) {
@@ -49,16 +52,10 @@ export const validateArcadeStep = (stepIndex, data) => {
       } else if (!isValidStudyYear(member.year.trim())) {
         nextErrors[memberErrorKey(index, "year")] = "Year must be between 1 and 5.";
       }
+      if (!member.participation) {
+        nextErrors[memberErrorKey(index, "participation")] = "Please select how many times this member previously participated.";
+      }
     });
-  }
-
-  if (stepIndex === 2) {
-    if (data.pastParticipation === null) {
-      nextErrors.pastParticipation = "Please choose Yes or No.";
-    }
-    if (!data.motivation.trim()) {
-      nextErrors.motivation = "Motivation is required.";
-    }
   }
 
   return nextErrors;

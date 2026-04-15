@@ -38,6 +38,7 @@ function normalizeMember(member) {
     email: (member?.email ?? "").trim(),
     number: (member?.number ?? "").trim(),
     year: (member?.year ?? "").trim(),
+    participation: Number(member?.participation ?? 0),
   };
 }
 
@@ -48,9 +49,8 @@ export async function submitArcadeRegistration(formData) {
     leader_email: (formData.leaderEmail ?? "").trim(),
     leader_number: (formData.leaderNumber ?? "").trim(),
     leader_year: (formData.leaderYear ?? "").trim(),
+    leader_participation: Number(formData.leaderParticipation ?? 0),
     members: (formData.members ?? []).map(normalizeMember),
-    past_participation: Boolean(formData.pastParticipation),
-    motivation: (formData.motivation ?? "").trim(),
   };
 
   const { data, error } = await supabase
