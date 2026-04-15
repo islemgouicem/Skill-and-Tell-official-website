@@ -138,6 +138,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onRegist
           key={i}
           className={i === members.length - 1 ? undefined : "arcade-mobile-no-button-card"}
           size={i === members.length - 1 ? "lg" : "md"}
+          cardHeight={i === members.length - 1 ? "clamp(700px, 62vw, 790px)" : undefined}
           title={`${memberLabels[i]} Member Information`}
           icon={<InfoIcon />}
         >
@@ -188,7 +189,7 @@ const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onRegist
             </div>
 
             {i === members.length - 1 && (
-              <div className="mt-12 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+              <div className="mt-10 sm:mt-auto flex flex-col items-center gap-1.5 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-6 sm:pb-8 lg:pb-10">
                 <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
                   <ArcadeButton variant="previous" onClick={onPrev} className="order-2 sm:order-1">
                     Previous

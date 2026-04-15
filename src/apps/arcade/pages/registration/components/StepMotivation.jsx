@@ -136,7 +136,7 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, sub
 
       <ArcadeCard
         size="md"
-        cardHeight="580px"
+        cardHeight="clamp(620px, 56vw, 700px)"
         contentPadding="px-10 sm:px-14 lg:px-16 py-12 sm:py-10 lg:py-12"
         title="Team Motivation"
         icon={<MemberIcon />}
@@ -160,7 +160,7 @@ const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, sub
             />
           </div>
 
-          <div className="mt-1 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+          <div className="mt-6 sm:mt-auto flex flex-col items-center gap-1.5 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-6 sm:pb-8 lg:pb-10">
             <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
               <ArcadeButton variant="previous" onClick={onPrev} className="order-2 sm:order-1">
                 Previous

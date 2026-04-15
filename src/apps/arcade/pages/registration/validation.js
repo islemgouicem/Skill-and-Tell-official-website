@@ -1,7 +1,6 @@
 import { memberErrorKey } from "./config";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const algerianPhonePattern = /^0[5-7]\d{8}$/;
 
 const isValidStudyYear = (value) => {
   const year = Number(value);
@@ -21,8 +20,6 @@ export const validateArcadeStep = (stepIndex, data) => {
     }
     if (!data.leaderNumber.trim()) {
       nextErrors.leaderNumber = "Leader number is required.";
-    } else if (!algerianPhonePattern.test(data.leaderNumber.trim())) {
-      nextErrors.leaderNumber = "Please enter a valid number";
     }
     if (!data.leaderYear.trim()) {
       nextErrors.leaderYear = "Leader year is required.";
@@ -44,8 +41,6 @@ export const validateArcadeStep = (stepIndex, data) => {
       }
       if (!member.number.trim()) {
         nextErrors[memberErrorKey(index, "number")] = "Member number is required";
-      } else if (!algerianPhonePattern.test(member.number.trim())) {
-        nextErrors[memberErrorKey(index, "number")] = "Please enter a valid number";
       }
       if (!member.year.trim()) {
         nextErrors[memberErrorKey(index, "year")] = "Member year is required.";
