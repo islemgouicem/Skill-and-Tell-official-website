@@ -71,7 +71,7 @@ const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (
           }}
         />
 
-        <ArcadeCard size="lg" title="Leader Information" icon={<InfoIcon />}>
+        <ArcadeCard size="lg" cardHeight="clamp(640px, 56vw, 720px)" title="Leader Information" icon={<InfoIcon />}>
           <div className="relative flex h-full flex-col">
             <div className="flex flex-1 items-start pt-5 sm:pt-4">
               <div className="relative grid w-full content-start auto-rows-min grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-[130px] gap-y-10 sm:gap-y-10 pb-3 sm:pb-4">
@@ -129,7 +129,7 @@ const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (
               </div>
             </div>
 
-            <div className="relative z-10 mt-12 sm:mt-auto flex flex-col items-center gap-1 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-1">
+            <div className="relative z-10 mt-10 sm:mt-auto flex flex-col items-center gap-1.5 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6 pb-6 sm:pb-8 lg:pb-10">
               <div className="order-2 sm:order-1" style={{ filter: "drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.25))", borderRadius: "40px" }}>
                 <ArcadeButton variant="previous" onClick={onHome} className="order-2 sm:order-1">
                   Previous
