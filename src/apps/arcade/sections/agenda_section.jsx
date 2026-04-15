@@ -7,40 +7,52 @@ const Agenda = () => {
       day: 1,
       events: [
         {
-          time: "08:00 - 09:00",
-          description: "Lorem ipsum"
+          time: "15:00 - 15:30",
+          description: "Check-in"
         },
         {
-          time: "09:00 - 12:00",
-          description: "Lorem ipsum"
+          time: "15:30 - 16:00",
+          description: "Opening Ceremony"
         },
         {
-          time: "12:30 - 14:30",
-          description: "Lorem ipsum"
+          time: "16:00 - 21:00",
+          description: "Treasure Hunt"
         },
         {
-          time: "13:00 - 17:00",
-          description: "Lorem ipsum"
+          time: "16:15 - 16:45",
+          description: "Laser Maze"
         },
         {
-          time: "17:00 - 17:30",
-          description: "Lorem ipsum"
+          time: "16:20 - 16:40",
+          description: "Zombie Chase"
         },
         {
-          time: "17:30 - 20:00",
-          description: "Lorem ipsum"
+          time: "17:00 - 18:00",
+          description: "Memory Game"
         },
         {
-          time: "20:00 - 21:00",
-          description: "Lorem ipsum"
+          time: "17:05 - 17:45",
+          description: "4 in a Row"
         },
         {
-          time: "21:00 - 01:00",
-          description: "Lorem ipsum"
+          time: "18:00 - 18:30",
+          description: "Coffee Break"
         },
         {
-          time: "01:00 - 01:30",
-          description: "Lorem ipsum"
+          time: "18:35 - 18:50",
+          description: "Faces Game"
+        },
+        {
+          time: "18:40 - 19:00",
+          description: "Numbers Game"
+        },
+        {
+          time: "19:00 - 19:40",
+          description: "Guess the Color"
+        },
+        {
+          time: "19:45 - 20:30",
+          description: "Catch Me if you can"
         }
       ]
     },
@@ -48,40 +60,60 @@ const Agenda = () => {
       day: 2,
       events: [
         {
-          time: "08:00 - 09:00",
-          description: "Lorem ipsum"
+          time: "09:30 - 17:00",
+          description: "Treasure Hunt"
         },
         {
-          time: "09:00 - 12:00",
-          description: "Lorem ipsum"
+          time: "10:00 - 14:00",
+          description: "Video Game"
         },
         {
-          time: "12:30 - 14:30",
-          description: "Lorem ipsum"
+          time: "10:00 - 10:45",
+          description: "Chess"
         },
         {
-          time: "13:00 - 17:00",
-          description: "Lorem ipsum"
+          time: "10:05 - 10:15",
+          description: "Letters Game"
+        },
+        {
+          time: "10:30 - 11:30",
+          description: "Invisible Maze"
+        },
+        {
+          time: "11:00 - 11:10",
+          description: "Pixels"
+        },
+        {
+          time: "11:30 - 11:45",
+          description: "Cross Sums"
+        },
+        {
+          time: "11:45 - 13:00",
+          description: "Colored Cups"
+        },
+        {
+          time: "13:00 - 14:00",
+          description: "Lunch Break"
+        },
+        {
+          time: "14:00 - 15:00",
+          description: "Triple Balance Game"
+        },
+        {
+          time: "15:00 - 16:00",
+          description: "Number Rush"
+        },
+        {
+          time: "15:00 - 16:00",
+          description: "Password"
+        },
+        {
+          time: "16:30 - 17:00",
+          description: "Coffee break"
         },
         {
           time: "17:00 - 17:30",
-          description: "Lorem ipsum"
-        },
-        {
-          time: "17:30 - 20:00",
-          description: "Lorem ipsum"
-        },
-        {
-          time: "20:00 - 21:00",
-          description: "Lorem ipsum"
-        },
-        {
-          time: "21:00 - 01:00",
-          description: "Lorem ipsum"
-        },
-        {
-          time: "01:00 - 01:30",
-          description: "Lorem ipsum"
+          description: "Closing ceremony"
         }
       ]
     }
@@ -129,7 +161,7 @@ const Agenda = () => {
             <img src="/images/arcade/left.svg" alt="" className="h-8 w-8 sm:h-10 sm:w-10 md:h-11 md:w-11" />
           </button>
 
-          <div className={`relative h-[26rem] sm:h-[30rem] md:h-[30rem] py-[1.5rem] sm:py-[2rem] px-[1.25rem] sm:px-[2rem] flex flex-col transition-all duration-200 ease-out ${isAnimating
+          <div className={`relative h-[38rem] md:h-[40rem] py-[1.5rem] sm:py-[2rem] px-[1.25rem] sm:px-[2rem] flex flex-col transition-all duration-200 ease-out ${isAnimating
             ? direction === "right"
               ? "opacity-0 translate-x-6"
               : "opacity-0 -translate-x-6"
