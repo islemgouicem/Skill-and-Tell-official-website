@@ -383,7 +383,7 @@
 
 @font-face {
   font-family: "compacta";
-  src: url("./assets/fonts/unicode.compacta.ttf") format("truetype");
+  src: url("./assets/fonts/Compacta Std Regular.otf") format("opentype");
   font-display: swap;
   font-style: normal;
 }
@@ -414,13 +414,6 @@
   src: url("./assets/fonts/FuturaBoldBT.woff2") format("woff2");
   font-display: swap;
   font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "compacta";
-  src: url("./assets/fonts/Compacta Std Regular.otf") format("opentype");
-  font-display: swap;
   font-style: normal;
 }
 

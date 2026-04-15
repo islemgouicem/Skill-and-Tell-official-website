@@ -151,10 +151,10 @@ const OrganizersRegPage = () => {
   ];
 
   const shiftOptions = [
-    { value: "24 April 10 to 15", label: "24 April 10 to 15" },
-    { value: "24 April 15 to 22", label: "24 April 15 to 22" },
-    { value: "25 April 8 to 13", label: "25 April 8 to 13" },
-    { value: "25 April 13 to 19", label: "25 April 13 to 19" },
+    { value: "24 April 10AM - 3PM", label: "24 April 10AM - 3PM" },
+    { value: "24 April 3PM - 10PM", label: "24 April 3PM - 10PM" },
+    { value: "25 April 8AM - 1PM", label: "25 April 8AM - 1PM" },
+    { value: "25 April 1PM - 7PM", label: "25 April 1PM - 7PM" },
   ];
 
   return (

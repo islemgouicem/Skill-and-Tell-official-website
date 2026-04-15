@@ -21,10 +21,15 @@ export default function HeroSection() {
             id="home"
             className="relative w-full px-4 sm:px-8 md:px-[5%] lg:px-[10%] pt-[84px] pb-12 md:pb-0 md:min-h-screen overflow-hidden flex flex-col items-center md:justify-center sm:bg-cover" >
 
-            <div
-                className="absolute inset-0 bg-cover bg-[58%_center] sm:bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${background})`, height: "calc(100% )", top: 0 }}
+            <img
+                src={background}
+                alt=""
+                aria-hidden="true"
+                fetchPriority="high"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center"
             />
+            <div className="absolute inset-0 bg-black/18" />
 
             {/* Inner container that fills remaining height below navbar */}
             <div
