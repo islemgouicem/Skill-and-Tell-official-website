@@ -3,9 +3,11 @@ import RedButton from "../components/TheRedButton.jsx"
 import background from "/images/arcade/hero.png";
 import PopUp from "../components/popup.jsx"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleClosePopup = () => {
         setIsPopupOpen(false);
@@ -38,7 +40,7 @@ export default function HeroSection() {
 
                 <RedButton
                     textContent={"Join The Fight"}
-                    pageName={handleOpenPopup}// ()=>{navigate("/arcade/register")}
+                    pageName={() => { navigate("/arcade/register") }}// 
                     className="scale-[0.84] sm:scale-100 hover:scale-110"
                     textClassName="text-[2.05rem] sm:text-[2.5rem]"
                 />

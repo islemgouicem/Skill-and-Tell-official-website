@@ -29,7 +29,7 @@ const Organizers = () => {
                         </p>
                         <TheRedButton
                             textContent={"APPLY NOW"}
-                            pageName={handleOpenPopup}//() => { navigate("/arcade/organizers") }
+                            pageName={() => { navigate("/arcade/organizers") }}//
                             className="scale-[0.82] sm:scale-100 origin-left"
                             textClassName="text-[1.8rem] sm:text-4xl"
                         />

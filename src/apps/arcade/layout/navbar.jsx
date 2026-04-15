@@ -151,7 +151,7 @@ function Navbar() {
 
                     <RedButton
                         textContent={"Join The Fight"}
-                        pageName={handleOpenPopup}//() => { navigate("/arcade/register") }
+                        pageName={() => { navigate("/arcade/register") }}//
                         className="hidden lg:flex scale-[0.75] origin-center hover:scale-[0.8] "
                         textClassName="text-4xl"
                     />
