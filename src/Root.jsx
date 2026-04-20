@@ -10,8 +10,8 @@ const Eunoia = lazy(() => import("./apps/eunoia/pages/EunoiaPage.jsx"));
 const MobAI = lazy(() => import("./apps/mobai/pages/MobaiPage.jsx"));
 const Arcade = lazy(() => import("./apps/arcade/pages/arcade_page.jsx"));
 
-const ArcadeRegistration = lazy(() => import("./apps/arcade/pages/registration_page.jsx"));
-const ArcadeOrganizersReg = lazy(() => import("./apps/arcade/pages/organizers_reg.jsx"));
+// const ArcadeRegistration = lazy(() => import("./apps/arcade/pages/registration_page.jsx"));
+// const ArcadeOrganizersReg = lazy(() => import("./apps/arcade/pages/organizers_reg.jsx"));
 
 // const MobaiRegistration = lazy(() => import("./apps/mobai/pages/RegistrationPage.jsx"));
 // const MobaiOrganizersReg = lazy(() => import("./apps/mobai/pages/OrganizersRegPage.jsx"));
@@ -58,8 +58,8 @@ function Root() {
                     <Route path="/mobai" element={<MobAI />} />
                     <Route path="/arcade" element={<Arcade />} />
 
-                    <Route path="/arcade/register" element={<ArcadeRegistration />} />
-                    <Route path="/arcade/organizers" element={<ArcadeOrganizersReg />} />
+                    {/* <Route path="/arcade/register" element={<ArcadeRegistration />} /> */}
+                    {/* <Route path="/arcade/organizers" element={<ArcadeOrganizersReg />} /> */}
 
                     {/* <Route path="/mobai/register" element={<MobaiRegistration />} /> */}
                     {/* <Route path="/mobai/organizers" element={<MobaiOrganizersReg />} /> */}

@@ -123,8 +123,8 @@ function Navbar() {
                                 key={name}
                                 href={href}
                                 className={`text-xl font-futura_md_bt transition-colors relative group px-2 py-1 rounded-md ${activeSection === href.slice(1)
-                                        ? "text-red-700 font-bold"
-                                        : "text-white/75 hover:text-red-900"
+                                    ? "text-red-700 font-bold"
+                                    : "text-white/75 hover:text-red-900"
                                     }`}
                                 onClick={(e) => handleNavLinkClick(e, href)}
                             >
@@ -151,7 +151,7 @@ function Navbar() {
 
                     <RedButton
                         textContent={"Join The Fight"}
-                        pageName={() => { navigate("/arcade/register") }}//
+                        pageName={handleOpenPopup}//
                         className="hidden lg:flex scale-[0.75] origin-center hover:scale-[0.8] "
                         textClassName="text-4xl"
                     />
@@ -162,9 +162,9 @@ function Navbar() {
             <PopUp isOpen={isPopupOpen}
                 onClose={handleClosePopup}
                 color={"bg-red-main-500"}
-                title={"Registration"}
-                subtitle={"Quarantine Lockdown"}
-                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon."} />
+                title={"Registration Closed"}
+                subtitle={"Season Status: Lockdown"}
+                msg={"The gates are sealed for this season and survivor intake is now closed. You fought hard to get here; we will see you next year when the sirens sound again."} />
 
         </>
     )

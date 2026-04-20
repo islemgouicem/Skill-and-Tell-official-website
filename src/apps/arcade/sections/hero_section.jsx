@@ -45,7 +45,7 @@ export default function HeroSection() {
 
                 <RedButton
                     textContent={"Join The Fight"}
-                    pageName={() => { navigate("/arcade/register") }}// 
+                    pageName={handleOpenPopup}// 
                     className="scale-[0.84] sm:scale-100 hover:scale-110"
                     textClassName="text-[2.05rem] sm:text-[2.5rem]"
                 />
@@ -71,9 +71,9 @@ export default function HeroSection() {
             <PopUp isOpen={isPopupOpen}
                 onClose={handleClosePopup}
                 color={"bg-red-main-500"}
-                title={"Registration"}
-                subtitle={"Quarantine Lockdown"}
-                msg={"The gates are sealed and the outbreak protocol is still active. Registration has not opened yet. Stay alert, survivor, the signal to deploy will be announced soon..."} />
+                title={"Registration Closed"}
+                subtitle={"Season Status: Lockdown"}
+                msg={"The gates are sealed for this season and survivor intake is now closed. You fought hard to get here; we will see you next year when the sirens sound again."} />
 
         </section>
     )
