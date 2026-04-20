@@ -12,7 +12,7 @@ const Arcade = lazy(() => import("./apps/arcade/pages/arcade_page.jsx"));
 
 // const ArcadeRegistration = lazy(() => import("./apps/arcade/pages/registration_page.jsx"));
 // const ArcadeOrganizersReg = lazy(() => import("./apps/arcade/pages/organizers_reg.jsx"));
-
+// WOOOOOOOOOOOOOOOOOOOOORK
 // const MobaiRegistration = lazy(() => import("./apps/mobai/pages/RegistrationPage.jsx"));
 // const MobaiOrganizersReg = lazy(() => import("./apps/mobai/pages/OrganizersRegPage.jsx"));
 
