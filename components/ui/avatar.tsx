@@ -1,0 +1,52 @@
+"use client";
+
+import { forwardRef } from "react";
+import { Root, Image, Fallback } from "@radix-ui/react-avatar";
+import { cn } from "../../lib/utils/utils";
+
+const Avatar = forwardRef((props, ref) => {
+  const { className, ...rest } = props;
+  return (
+    <Root
+      ref={ref}
+      className={cn(
+        "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
+        className
+      )}
+      {...rest}
+    />
+  );
+});
+
+Avatar.displayName = "Avatar";
+
+const AvatarImage = forwardRef((props, ref) => {
+  const { className, ...rest } = props;
+  return (
+    <Image
+      ref={ref}
+      className={cn("w-full h-auto object-cover", className)}
+      {...rest}
+    />
+  );
+});
+
+AvatarImage.displayName = "AvatarImage";
+
+const AvatarFallback = forwardRef((props, ref) => {
+  const { className, ...rest } = props;
+  return (
+    <Fallback
+      ref={ref}
+      className={cn(
+        "flex h-full w-full items-center justify-center rounded-full bg-muted",
+        className
+      )}
+      {...rest}
+    />
+  );
+});
+
+AvatarFallback.displayName = "AvatarFallback";
+
+export { Avatar, AvatarImage, AvatarFallback };

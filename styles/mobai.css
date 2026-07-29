@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* ========== Fonts ========== */
+  --font-bebas:
+    "Bebas Neue", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* ========== Original Colors ========== */
+  --color-red-main-500: #ff0006;
+  --color-card-title: #f7f0ff;
+  --color-main-red: #e52928;
+  --color-mwhite: #FDFDFD;
+  --color-error: #ff6e6e;
+  --color-subtitle: #FDFDFDCC;
+
+  /* ========== Border Radius ========== */
+  --radius: 0.5rem;
+}
+@layer components {
+  .bebas {
+    @apply font-bebas tracking-widest;
+  }
+  .title{
+    @apply text-5xl md:text-6xl lg:text-7xl text-red-main-500 font-bebas tracking-widest mb-12;
+  }
+}
+
+
+h2{
+ font-weight: 600;
+
+  letter-spacing: 0px;
+
+}

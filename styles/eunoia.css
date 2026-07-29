@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #c68313;
+  --color-purple-1: #430870;
+  --color-purple-2: #3b0562;
+  --color-space-light: #2b004d;
+  --color-space-text: #e0e0e0;
+  --color-space-accent: #ff8c00;
+  --radius-sm: 10px;
+}
+:root {
+  --gold: #ffb338;
+  --light-shadow: #77571d;
+  --dark-shadow: #3e2904;
+}
+
+/* Custom utility for the button's hover effect */
+
+.btn-grad {
+  background: linear-gradient(
+    90deg,
+    rgba(198, 131, 19, 0.3) 0%,
+    rgba(198, 131, 19, 1) 50%,
+    rgba(198, 131, 19, 0.3) 100%
+  );
+
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease;
+
+  cursor: pointer;
+}
+
+.btn-grad:hover {
+  transform: scale(1.05);
+}
+.transparency_right {
+  background: linear-gradient(
+    109.46deg,
+    rgba(196, 196, 196, 0.03) 1.57%,
+    rgba(201, 201, 201, 0.24) 100%
+  );
+}
+
+.transparency {
+  background: linear-gradient(
+    109.46deg,
+    rgba(201, 201, 201, 0.24) 1.57%,
+    rgba(196, 196, 196, 0.03) 100%
+  );
+}
+.strokes {
+  background: linear-gradient(
+    0deg,
+    rgba(198, 131, 19, 0.3) 0%,
+    rgba(198, 131, 19, 1) 50%,
+    rgba(198, 131, 19, 0.3) 100%
+  );
+}
+.input-style {
+  @apply w-full py-2 pr-3 pl-5 text-sm bg-space-light/10 border border-gold rounded-md text-space-text placeholder-neutral-300 focus:border-space-accent focus:outline-none;
+}
+.progress_circle {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(198, 131, 19, 0.5) 0%,
+    rgba(198, 131, 19, 0.25) 100%
+  );
+}
+.eunoia-title {
+  background: linear-gradient(
+    83deg,
+    rgba(255, 255, 255, 0.7) 30%,
+    rgba(198, 131, 19, 1) 48%,
+    rgba(255, 255, 255, 0.7) 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: "overlap";
+  place-content: center;
+  text-transform: uppercase;
+}
+.wrapper > div {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #430870;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2em;
+  grid-area: overlap;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 4px transparent;
+}
+.bg {
+  background-image: repeating-linear-gradient(
+    105deg,
+    var(--gold) 0%,
+    var(--dark-shadow) 5%,
+    var(--gold) 12%
+  );
+  color: transparent;
+  transform: scaleY(1.05);
+  transform-origin: top;
+}
+.fg {
+  background-image: repeating-linear-gradient(
+    5deg,
+    var(--gold) 0%,
+    var(--light-shadow) 23%,
+    var(--gold) 31%
+  );
+  color: #430870;
+  transform: scale(1);
+}
+
+@keyframes swim {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

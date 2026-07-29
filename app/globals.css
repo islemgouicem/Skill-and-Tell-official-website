@@ -1,0 +1,609 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* ================================================================================================ */
+/* ===================================== THEME CONFIGURATION ====================================== */
+/* ================================================================================================ */
+
+@theme {
+  /* ========== Container Configuration ========== */
+  --container-center: true;
+  --container-padding: 1rem;
+  --container-2xl: 1400px;
+
+  /* ========== Font Families ========== */
+  --font-futura:
+    futura, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Noto Sans", sans-serif;
+  --font-futura_lt_bt: futura_lt_bt, sans-serif;
+  --font-futura_md_bt: futura_md_bt, sans-serif;
+  --font-futura_bold: futura_bold, sans-serif;
+  --font-compacta: compacta, sans-serif;
+
+  /* ========== Border Radius ========== */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* ========== Brand Colors - Main Palette ========== */
+  --color-Main-100: #f7f0ff;
+  --color-Main-200: #eddbff;
+  --color-Main-300: #d7aeff;
+  --color-Main-400: #9d4edd;
+  --color-Main-500: #7b2cbf;
+  --color-Main-600: #3c096c;
+  --color-Main-700: #1a0132;
+
+  /* ========== Brand Colors - Accent Palette ========== */
+  --color-accent-100: #fff0e5;
+  --color-accent-200: #ffc78a;
+  --color-accent-300: #ff9e00;
+  --color-accent-400: #ff8500;
+  --color-accent-500: #ff6d00;
+
+  /* ========== Neutral Colors ========== */
+  --color-neutral-100: #f7faff;
+  --color-neutral-200: #e0e5eb;
+  --color-neutral-300: #bfc7d4;
+  --color-neutral-400: #657084;
+  --color-neutral-500: #373e4e;
+  --color-neutral-600: #222631;
+
+  /* ========== Status Colors ========== */
+  --color-error-200: #ff6e6e;
+
+  /* ========== Space Theme Colors ========== */
+  --color-space-dark: #0a001a;
+  --color-space-light: #2b004d;
+  --color-space-accent: #ff8c00;
+  --color-space-glow: #ffd700;
+  --color-space-text: #e0e0e0;
+  --color-space-subtle: #4a0080;
+
+  /* ========== Footer Colors ========== */
+  --color-footer-background: #f8f0ff;
+  --color-footer-text: #330066;
+  --color-footer-link: #663399;
+
+  /* ========== Shadcn/UI Theme Colors ========== */
+  --color-titles: hsl(225 18% 16%);
+  --color-background: hsl(0 0% 3.9%);
+  --color-foreground: hsl(0 0% 88.2%);
+  --color-border: hsl(240 3.7% 15.9%);
+  --color-input: hsl(240 3.7% 15.9%);
+  --color-ring: hsl(240 5.9% 10%);
+  --color-card: hsl(240 10% 3.9%);
+  --color-card-foreground: hsl(0 0% 98%);
+  --color-popover: hsl(0 0% 3.9%);
+  --color-popover-foreground: hsl(0 0% 98%);
+  --color-primary: hsl(240 5.9% 10%);
+  --color-primary-foreground: hsl(0 0% 98%);
+  --color-secondary: hsl(240 3.7% 15.9%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-muted: hsl(240 3.7% 15.9%);
+  --color-muted-foreground: hsl(240 5% 64.9%);
+  --color-accent: hsl(240 3.7% 15.9%);
+  --color-accent-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  /* ========== Animations ========== */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-glow: glow 2s infinite alternate;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-grow: grow 10s ease-in-out infinite;
+  --animate-card-expand: card-expand 0.3s ease-out forwards;
+  --animate-card-collapse: card-collapse 0.3s ease-out forwards;
+
+  /* ========== Animation Keyframes ========== */
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 5px rgba(255, 215, 0, 0.5),
+        0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 15px rgba(255, 215, 0, 0.8),
+        0 0 25px rgba(255, 215, 0, 0.6);
+    }
+  }
+
+  @keyframes grow {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes card-expand {
+    0% {
+      width: 100px;
+    }
+    100% {
+      width: 400px;
+    }
+  }
+
+  @keyframes card-collapse {
+    0% {
+      width: 400px;
+    }
+    100% {
+      width: 100px;
+    }
+  }
+
+  @keyframes sparkle-fade-out {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+
+  @keyframes sparkle-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-50px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05) translateY(-10px);
+    }
+    70% {
+      transform: scale(0.95) translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes bounceOut {
+    0% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-50px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes border-movement {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/* ================================================================================================ */
+/* ========================================= BASE LAYER =========================================== */
+/* ================================================================================================ */
+
+@layer base {
+  /* Global element styles */
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    cursor:
+      url("/src/assets/images/shared/cursor.png") 4 4,
+      auto;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  html {
+    font-family: "futura", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply font-futura;
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a001a;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff8c00, #8a38f5);
+    border-radius: 10px;
+    border: 3px solid #0a001a;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 1);
+  }
+
+  html.arcade-active,
+  body.arcade-active {
+    scrollbar-color: #330001 #080000;
+  }
+
+  html.arcade-active::-webkit-scrollbar,
+  body.arcade-active::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  html.arcade-active::-webkit-scrollbar-track,
+  body.arcade-active::-webkit-scrollbar-track {
+    background: #080000;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  }
+
+  html.arcade-active::-webkit-scrollbar-thumb,
+  body.arcade-active::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff0707 0%, #8b0000 50%, #ff0707 100%);
+    border-radius: 10px;
+    border: 2px solid #080000;
+    box-shadow: 0 0 6px rgba(255, 7, 7, 0.6);
+  }
+
+  html.arcade-active::-webkit-scrollbar-thumb:hover,
+  body.arcade-active::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ff3333 0%, #cc0000 50%, #ff3333 100%);
+    box-shadow: 0 0 10px rgba(255, 7, 7, 1);
+  }
+}
+
+/* ================================================================================================ */
+/* ======================================= COMPONENTS LAYER ======================================= */
+/* ================================================================================================ */
+
+@layer components {
+  section {
+    @apply overflow-hidden;
+  }
+
+  .titles {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl mb-4 sm:mb-6 md:mb-8 font-futura_bold text-center;
+  }
+
+  .input-style {
+    @apply w-full py-2 pr-3 pl-5 text-sm bg-space-light/10 border border-Main-500 rounded-md text-space-text placeholder-neutral-300 focus:border-space-accent focus:outline-none;
+  }
+
+  .input-label {
+    @apply block text-space-text font-medium mb-2 font-futura_md_bt;
+  }
+
+  .input-cont {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-25 gap-y-14 px-2 md:px-10;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-space-text mb-2;
+  }
+
+  .abouty {
+    @apply p-2 sm:p-3 md:p-4 rounded-md shadow-lg transition-all duration-700 delay-200 opacity-100 translate-y-0;
+  }
+
+  .socialm {
+    @apply bg-white border border-neutral-300 flex items-center gap-3 rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ================================================================================================ */
+/* ========================================= FONT FACES =========================================== */
+/* ================================================================================================ */
+
+@font-face {
+  font-family: "compacta";
+  src: url("../assets/fonts/Compacta Std Regular.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura";
+  src: url("../assets/fonts/FutuMd.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura_lt_bt";
+  src: url("../assets/fonts/Futura_Lt_BT.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura_md_bt";
+  src: url("../assets/fonts/FuturaMediumBT.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura_bold";
+  src: url("../assets/fonts/FuturaBoldBT.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* ================================================================================================ */
+/* ======================================== CUSTOM CLASSES ======================================== */
+/* ================================================================================================ */
+
+/* Gradient text effects */
+.gradient-text {
+  background: -webkit-linear-gradient(left, #ff6d00, #8a38f5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grad-title {
+  color: #190432;
+  background: linear-gradient(90deg, #ff6d00, #8a38f5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 0.05em;
+  -webkit-text-stroke: 3px transparent;
+}
+
+/* Glass and frosted effects */
+.frosted-glass {
+  background: linear-gradient(
+    177.16deg,
+    rgba(255, 255, 255, 0.3) 0.01%,
+    rgba(255, 255, 255, 0) 99.6%
+  );
+  backdrop-filter: blur(30px);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid #7b2cbf;
+  box-shadow: inset 2px 2px 25px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom button style */
+.botao {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  font-size: 18px;
+  border: none;
+  padding: 5px 20px;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  filter: drop-shadow(0 0 10px #ff6a00);
+  -webkit-filter: drop-shadow(0 0 10px #ff6a00);
+  transition: 0.5s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Background styles */
+.about-cont {
+  background:
+    linear-gradient(
+      210.17deg,
+      rgba(215, 174, 255, 0.28) -9.19%,
+      rgba(26, 1, 50, 0.63) 96.76%
+    ),
+    rgba(60, 9, 108, 0.6);
+}
+
+.heads-card {
+  background: linear-gradient(
+    208.43deg,
+    rgba(26, 1, 50, 0.36) 2.67%,
+    rgba(215, 174, 255, 0.16) 96.85%
+  );
+  backdrop-filter: blur(30px);
+}
+
+.gradient-buttons {
+  background: linear-gradient(
+    89.97deg,
+    rgba(123, 44, 191, 0) -12.06%,
+    rgba(255, 109, 0, 0.9) 99.97%
+  );
+}
+
+.badges {
+  background: linear-gradient(
+    94.54deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(7.5px);
+}
+
+.navbar-bg {
+  background: linear-gradient(
+    208.43deg,
+    rgba(26, 1, 50, 0.16) 2.67%,
+    rgba(215, 174, 255, 0.16) 96.85%
+  );
+  backdrop-filter: blur(15px);
+}
+
+.mob-navbar-bg {
+  background: linear-gradient(
+    208.43deg,
+    rgba(90, 30, 150, 0.25) 2.67%,
+    rgba(180, 100, 255, 0.25) 96.85%
+  );
+  backdrop-filter: blur(15px);
+}
+
+/* Utility classes */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom cursor for interactive elements */
+
+
+/* Responsive textarea */
+.textarea-responsive {
+  min-height: 0;
+}
+
+/* Moving border effect for incoming events */
+.incoming-event-moving-border {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+}
+
+.incoming-event-moving-border::before {
+  content: "";
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  width: 2100%;
+  height: 2100%;
+  background: conic-gradient(
+    transparent 0%,
+    transparent 25%,
+    #330001,
+    #9a031e,
+    transparent 75%,
+    transparent 100%
+  );
+  animation: border-movement 4s linear infinite;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+@media (max-width: 640px) {
+  .textarea-responsive {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .textarea-responsive {
+    min-height: 100px;
+  }
+}
