@@ -4,17 +4,15 @@ import ArcadeInput from "./ArcadeInput";
 import ArcadeYearSelect from "./ArcadeYearSelect";
 import InfoIcon from "./InfoIcon";
 import MemberIcon from "./MemberIcon";
-import { participationOptions } from "../config";
-import slashHand from "/images/arcade/reg_2.png";
-import reg3 from "/images/arcade/reg_3.png";
-import registrationHand from "/images/arcade/registeration_1.png";
+import { participationOptions } from "../lib/config";
+import Image from "next/image";
 const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (<div className="relative isolate">
-    <img src={reg3} alt="" aria-hidden="true" className="arcade-decor-reg3 pointer-events-none absolute right-0 top-[clamp(214px,20vw,330px)] z-0 select-none" style={{
+    <Image src="/images/arcade/reg_3.png" alt="" aria-hidden="true" className="arcade-decor-reg3 pointer-events-none absolute right-0 top-[clamp(214px,20vw,330px)] z-0 select-none" style={{
         width: "clamp(220px, 22vw, 360px)",
         transform: "translate(4%, -55%)",
         filter: "drop-shadow(0 0 26px rgba(255, 7, 7, 0.34))",
         opacity: 0.95,
-    }}/>
+    }} width={360} height={360} />
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">
       <ArcadeCard className="arcade-mobile-no-button-card" size="sm" title="Team Information" icon={<MemberIcon />} cardHeight="clamp(226px, 52vw, 254px)">
@@ -26,18 +24,18 @@ const StepTeamInfo = ({ formData, updateField, onNext, onHome, errors }) => (<di
       </ArcadeCard>
 
       <div className="relative">
-        <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 pointer-events-none absolute left-0 bottom-0 z-0 select-none" style={{
+        <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 pointer-events-none absolute left-0 bottom-0 z-0 select-none" style={{
         width: "clamp(270px, 24vw, 390px)",
         transform: "translate(-24%, 48%)",
         opacity: 0.94,
         filter: "drop-shadow(0 0 22px rgba(255, 7, 7, 0.32))",
-    }}/>
-        <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 pointer-events-none absolute right-0 bottom-0 z-0 select-none" style={{
+    }} width={390} height={390} />
+        <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 pointer-events-none absolute right-0 bottom-0 z-0 select-none" style={{
         width: "clamp(225px, 20vw, 330px)",
         transform: "translate(38%, 44%)",
         opacity: 0.94,
         filter: "drop-shadow(0 0 20px rgba(255, 7, 7, 0.3))",
-    }}/>
+    }} width={330} height={330} />
 
         <ArcadeCard size="lg" cardHeight="clamp(640px, 56vw, 720px)" title="Leader Information" icon={<InfoIcon />}>
           <div className="relative flex h-full flex-col">

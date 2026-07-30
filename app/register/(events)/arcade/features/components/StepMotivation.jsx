@@ -2,34 +2,33 @@ import ArcadeButton from "./ArcadeButton";
 import ArcadeCard from "./ArcadeCard";
 import ArcadeTextarea from "./ArcadeTextarea";
 import MemberIcon from "./MemberIcon";
-import slashHand from "/images/arcade/reg_2.png";
-import registrationHand from "/images/arcade/registeration_1.png";
+import Image from "next/image";
 const StepMotivation = ({ formData, updateField, onPrev, onRegister, errors, submitError, isSubmitting }) => (<div className="relative isolate">
     <div className="pointer-events-none absolute inset-0 z-0 select-none">
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(10px,2vw,20px)]" style={{
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(10px,2vw,20px)]" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(-42%, -30%)",
         opacity: 0.9,
         filter: "drop-shadow(0 0 20px rgba(255, 7, 7, 0.33))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(260px,22vw,380px)]" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(260px,22vw,380px)]" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, -4%)",
         opacity: 0.9,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.3))",
-    }}/>
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(560px,96vw,980px)] sm:hidden" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(560px,96vw,980px)] sm:hidden" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(-42%, -6%)",
         opacity: 0.86,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.28))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(840px,145vw,1460px)] sm:hidden" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(840px,145vw,1460px)] sm:hidden" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, 18%)",
         opacity: 0.82,
         filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.24))",
-    }}/>
+    }} width={340} height={340} />
     </div>
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">

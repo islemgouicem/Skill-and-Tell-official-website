@@ -11,6 +11,8 @@ import { supabase } from "@/lib/services/supabase";
 import "@/styles/mobai.css";
 import regBg from "@/assets/images/mobai/reg_bg.svg";
 import { User, Users, Calendar, Briefcase } from "lucide-react";
+
+export const dynamic = 'force-dynamic';
 const SHIFT_OPTIONS_DAY1_2 = [
     { value: "10-17", label: "10:00 AM - 5:00 PM" },
     { value: "17-00", label: "5:00 PM - 12:00 AM" },

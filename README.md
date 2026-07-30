@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skill & Tell Website
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project has been migrated to **Next.js (App Router)** 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+# Routing
+
+Next.js works with **file-system routing**. You can think of it like the file explorer on your laptop: whenever Next.js finds a `page.tsx` (or `page.jsx`) inside a folder, it automatically creates a route using that folder's name.
+
+For example:
+
+```
+app/
+└── about/
+    └── page.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+becomes:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+/about
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+The project currently has three main route groups:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+/
+├── Landing Page
+├── register
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
 
-## Deploy on Vercel
+### `/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The main Skill & Tell landing page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `/register`
+
+Used for registering new members into the **Skill & Tell club**.and if you add the name of the event to the route it becomes the 
+event  page (the registrations ones ) 
+
+
+Contains all event registrations.
+
+Each event has its own route:
+
+```
+/register/arcade
+/register/eunoia
+/register/mobai
+```
+
+Inside every event there are two registration pages:
+
+```
+organizer/
+participant/
+```
+
+which gives routes like:
+
+```
+/register/arcade/organizer
+/register/arcade/participant
+```
+
+---
+
+# Folder Organization
+
+Every event follows the same structure.
+
+```
+app/
+└── registr/
+    ├── page.tsx
+    └── (events)/
+        └── arcade/
+            ├── page.tsx
+            ├── layout.tsx
+            ├── organizer/
+            │   └── page.tsx
+            ├── participant/
+            │   └── page.tsx
+            └── features/
+                ├── components/
+                ├── sections/
+                ├── lib/
+                └── ...
+```
+
+I grouped everything related to a route inside a `features` folder to keep things organized and easier to work with.
+
+---
+
+# Changes Made
+
+- Reorganized the project structure by grouping each route's files inside its own `features` folder.
+- Converted the **landing page** animations to **Framer Motion**.
+- Kept the existing CSS animations since they're native and generally faster.
+- Changed the custom mouse cursor back to the default browser cursor because it felt too big and wasn't very smooth. If you'd like the old one back, just let me know so I restore it.
+
+---
+
+
+# Future Improvements
+
+```
+-using typescript I didn't convert to it because it's too strict and unforgiving about types and to and since we will redeploying 
+the project very often it can cause too many pb when doing that I didn't convert to it, but hopefully we can do that later 
+-now for the different version of events like arcade 26/25... I am planing to use routes like /arcade/26 or /arcade25 this if we wanna each version of the event in a different page or we can include them all in one page and then use the route /arcade
+
+```

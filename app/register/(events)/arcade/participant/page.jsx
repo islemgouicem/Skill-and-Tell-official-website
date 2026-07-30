@@ -9,6 +9,8 @@ import StepTeamInfo from "../features/components/StepTeamInfo";
 import SuccessState from "../features/components/SuccessState";
 import { STEPS, createInitialFormData, memberErrorKey, memberLabels } from "../features/lib/config";
 import { validateArcadeStep } from "../features/lib/validation";
+
+export const dynamic = 'force-dynamic';
 const RegistrationPage = () => {
     const [step, setStep] = useState(0);
     const [formData, setFormData] = useState(createInitialFormData);

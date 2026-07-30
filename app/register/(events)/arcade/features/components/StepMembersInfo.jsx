@@ -3,71 +3,71 @@ import ArcadeCard from "./ArcadeCard";
 import ArcadeInput from "./ArcadeInput";
 import ArcadeYearSelect from "./ArcadeYearSelect";
 import InfoIcon from "./InfoIcon";
-import { memberErrorKey, participationOptions } from "../config";
-import slashHand from "/images/arcade/reg_2.png";
-import registrationHand from "/images/arcade/registeration_1.png";
+import { memberErrorKey, participationOptions } from "../lib/config";
+import Image from "next/image";
+
 const StepMembersInfo = ({ members, updateMember, memberLabels, onPrev, onRegister, errors, submitError, isSubmitting }) => (<div className="relative isolate">
     <div className="pointer-events-none absolute inset-0 z-0 select-none">
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(28px,4vw,52px)]" style={{
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(28px,4vw,52px)]" style={{
         width: "clamp(285px, 24vw, 410px)",
         transform: "translate(-42%, -34%)",
         opacity: 0.92,
         filter: "drop-shadow(0 0 20px rgba(255, 7, 7, 0.34))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(320px,27vw,470px)]" style={{
+    }} width={410} height={410} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(320px,27vw,470px)]" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, -6%)",
         opacity: 0.92,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.31))",
-    }}/>
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(580px,50vw,860px)]" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(580px,50vw,860px)]" style={{
         width: "clamp(285px, 24vw, 410px)",
         transform: "translate(-42%, -18%)",
         opacity: 0.9,
         filter: "drop-shadow(0 0 20px rgba(255, 7, 7, 0.33))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(980px,82vw,1440px)]" style={{
+    }} width={410} height={410} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(980px,82vw,1440px)]" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, 8%)",
         opacity: 0.9,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.3))",
-    }}/>
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(1220px,102vw,1760px)]" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(1220px,102vw,1760px)]" style={{
         width: "clamp(285px, 24vw, 410px)",
         transform: "translate(-42%, -12%)",
         opacity: 0.88,
         filter: "drop-shadow(0 0 20px rgba(255, 7, 7, 0.32))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(1560px,130vw,2240px)]" style={{
+    }} width={410} height={410} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(1560px,130vw,2240px)]" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, 14%)",
         opacity: 0.88,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.29))",
-    }}/>
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(1880px,154vw,2620px)] sm:hidden" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(1880px,154vw,2620px)] sm:hidden" style={{
         width: "clamp(285px, 24vw, 410px)",
         transform: "translate(-42%, -10%)",
         opacity: 0.86,
         filter: "drop-shadow(0 0 18px rgba(255, 7, 7, 0.28))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(2140px,176vw,2980px)] sm:hidden" style={{
+    }} width={410} height={410} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(2140px,176vw,2980px)] sm:hidden" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, 16%)",
         opacity: 0.84,
         filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.26))",
-    }}/>
-      <img src={registrationHand} alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(2460px,202vw,3400px)] sm:hidden" style={{
+    }} width={340} height={340} />
+      <Image src="/images/arcade/registeration_1.png" alt="" aria-hidden="true" className="arcade-decor-reg1 absolute left-0 top-[clamp(2460px,202vw,3400px)] sm:hidden" style={{
         width: "clamp(285px, 24vw, 410px)",
         transform: "translate(-42%, -8%)",
         opacity: 0.82,
         filter: "drop-shadow(0 0 16px rgba(255, 7, 7, 0.25))",
-    }}/>
-      <img src={slashHand} alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(2720px,222vw,3740px)] sm:hidden" style={{
+    }} width={410} height={410} />
+      <Image src="/images/arcade/reg_2.png" alt="" aria-hidden="true" className="arcade-decor-reg2 absolute right-0 top-[clamp(2720px,222vw,3740px)] sm:hidden" style={{
         width: "clamp(235px, 20vw, 340px)",
         transform: "translate(36%, 18%)",
         opacity: 0.8,
         filter: "drop-shadow(0 0 14px rgba(255, 7, 7, 0.24))",
-    }}/>
+    }} width={340} height={340} />
     </div>
 
     <div className="relative z-10 flex flex-col gap-14 sm:gap-16 lg:gap-20">

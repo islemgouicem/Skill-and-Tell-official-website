@@ -5,6 +5,8 @@ import ProgressStepper from "@/components/ui/progress_eunoia";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/services/supabase";
 import { ArrowLeft, ArrowRight, CheckCircle, Loader2, Trash2 } from "lucide-react";
+
+export const dynamic = 'force-dynamic';
 function Star() {
     // This component renders the red asterisk for required fields
     return <span className="text-error-200">*</span>;

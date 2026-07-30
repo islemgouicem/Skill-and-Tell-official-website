@@ -11,10 +11,9 @@ import ArcadeYearSelect from "../features/components/ArcadeYearSelect";
 import InfoIcon from "../features/components/InfoIcon";
 import { submitArcadeOrganizerRegistration } from "../features/lib/api";
 import SuccessState from "../features/components/SuccessState";
-import slashHand from "/images/arcade/reg_2.png";
-import reg3 from "/images/arcade/reg_3.png";
-import registrationHand from "/images/arcade/registeration_1.png";
 import Image from "next/image";
+
+export const dynamic = 'force-dynamic';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const algerianPhonePattern = /^0[5-7]\d{8}$/;

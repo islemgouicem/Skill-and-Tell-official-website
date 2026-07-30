@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import CosmicSelect from "@/components/ui/select";
 import { ArrowLeft, CheckCircle, Loader2 // Added Loader2 for loading state
  } from "lucide-react";
+
+export const dynamic = 'force-dynamic';
 function Star() {
     return <span className="text-error-200">*</span>;
 }

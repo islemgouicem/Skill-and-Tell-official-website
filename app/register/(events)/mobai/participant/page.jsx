@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProgressIndicator from "../features/components/ProgressIndicator";
 import CyberButton from "../features/components/CyberButton";
 import WelcomeStep from "../features/components/steps/WelcomeStep";
-import TeamNameAndLeaderStep from "../features/steps/TeamNameAndLeaderStep";
+import TeamNameAndLeaderStep from "../features/components/steps/TeamNameAndLeaderStep";
 import SingleMemberStep from "../features/components/steps/SingleMemberStep";
 import TeamQuestionsStep from "../features/components/steps/TeamQuestionsStep";
 import ResponsibilityEnforcement from "../features/components/ResponsibilityEnforcement";
@@ -13,6 +13,8 @@ import "@/styles/mobai.css";
 import regBg from "@/assets/images/mobai/reg_bg.svg";
 import CyberCard from "../features/components/cyberCard";
 import { useNavigate } from "react-router-dom";
+
+export const dynamic = 'force-dynamic';
 const EMPTY_MEMBER = {
     full_name: "",
     school_or_uni: "",
