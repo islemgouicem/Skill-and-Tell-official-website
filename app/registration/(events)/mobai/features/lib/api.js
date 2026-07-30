@@ -1,4 +1,4 @@
-import { supabase } from "../../../lib/services/supabase"
+import { supabase } from "@/lib/services/supabase"
 
 function messageFromDbError(err) {
     if (!err) return "Something went wrong. Please try again."
