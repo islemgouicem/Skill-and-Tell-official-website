@@ -9,6 +9,7 @@ import ArcadeRadioToggle from "../features/components/ArcadeRadioToggle";
 import ArcadeTextarea from "../features/components/ArcadeTextarea";
 import ArcadeYearSelect from "../features/components/ArcadeYearSelect";
 import InfoIcon from "../features/components/InfoIcon";
+import ArcadeButton from "../features/components/ArcadeButton";
 import { submitArcadeOrganizerRegistration } from "../features/lib/api";
 import SuccessState from "../features/components/SuccessState";
 import Image from "next/image";
@@ -452,12 +453,7 @@ const OrganizersRegPage = () => {
             }}/>) : (<div className="flex flex-col gap-14 sm:gap-16 lg:gap-20">
             {/* --- Card 1: Personal Information --- */}
             <div className="relative isolate">
-              <Image width={400} height={300} src={registrationHand} alt="" aria-hidden="true" className="org-decor-reg1-mobile arcade-decor-slashes pointer-events-none absolute left-0 top-0 z-0 select-none" style={{
-                width: "clamp(320px, 32vw, 440px)",
-                transform: "translate(-30%, -20%) rotate(-5deg)",
-                filter: "drop-shadow(0 0 35px rgba(255, 7, 7, 0.45))",
-                opacity: 0.9,
-            }}/>
+             
               <ArcadeCard className="org-card-personal arcade-mobile-no-button-card" size="md" title="Personal Information" icon={<InfoIcon />} cardHeight="auto" contentPadding="px-8 sm:px-14 lg:px-16 py-10 sm:py-10">
                 <div className="org-card-body relative flex h-full flex-col">
                   <div className="flex flex-1 items-start pt-5 sm:pt-4">
@@ -477,20 +473,8 @@ const OrganizersRegPage = () => {
             <div className="relative isolate">
               {/* Hand decorations around the large bottom card */}
               <div className="pointer-events-none absolute inset-0 z-0 select-none">
-                <Image width={400} height={300} src={reg3} // This is reg_3.png (bony hand)
-         alt="" aria-hidden="true" className="org-decor-reg3-mobile arcade-decor-reg2 absolute right-[-8%] top-[-12%]" style={{
-                width: "clamp(100px, 22vw, 120px)",
-                transform: "translateX(-120px) rotate(-30deg)",
-                opacity: 0.9,
-                filter: "blur(1px) drop-shadow(0 0 30px rgba(255, 7, 7, 0.4))",
-            }}/>
-                <Image width={400} height={300} src={slashHand} // This is reg_2.png (HELP hand)
-         alt="" aria-hidden="true" className="org-decor-reg2-mobile arcade-decor-hand2 absolute right-[-5%] bottom-[-5%]" style={{
-                width: "clamp(300px, 30vw, 400px)",
-                transform: "rotate(0deg) translate(20%, -30%)",
-                opacity: 0.9,
-                filter: "blur(2px) drop-shadow(0 0 35px rgba(255, 7, 7, 0.45))",
-            }}/>
+                
+               
               </div>
 
               <ArcadeCard className="org-card-organizers" size="lg" title="Organizers registration" icon={<InfoIcon />} 

@@ -1,14 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Mail } from "lucide-react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Mail ,} from "lucide-react";
+import { FaInstagram,FaLinkedinIn } from "react-icons/fa";
 import { useInView } from "../../../../components/ui/use_in_view.js";
 import { Card, CardContent, CardDescription, CardTitle } from "../../../../components/ui/card";
-import teamMembers from "../../../../data/skillntell/managers-info.json";
 import Image from "next/image.js";
 import left from "@/assets/images/skillntell/left.png";
 import right from "@/assets/images/skillntell/right.png";
-function TeamSection() {
+
+function normalizeUrl(url) {
+    if (!url) return "";
+    return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+}
+
+function TeamSection({ teamMembers }) {
     const [sectionRef, sectionInView] = useInView({ threshold: 0.1 });
     const [currentIndex, setCurrentIndex] = useState(0);
     const [windowWidth, setWindowWidth] = useState(0);
@@ -146,15 +151,15 @@ function TeamSection() {
                     </div>
 
                     <div className="flex gap-5">
-                      <a href={member.instagram} aria-label="instagram" rel="noopener noreferrer" className="text-space-text hover:text-space-accent transition-colors">
-                        <FaInstagram className="h-7 w-7"/>
-                      </a>
-                      <a href={`mailto:${member.email}`} aria-label="gmail" rel="noopener noreferrer" className="text-space-text hover:text-red-600 transition-colors">
-                        <Mail className="h-7 w-7"/>
-                      </a>
-                      <a href={member.linkedin} target="_blank" aria-label="linkedin" rel="noopener noreferrer" className="text-space-text hover:text-[#0077b5] transition-colors">
-                        <FaLinkedin className="h-7 w-7"/>
-                      </a>
+                        <a href={normalizeUrl(member.instagram)} target="_blank" aria-label="instagram" rel="noopener noreferrer" className="text-space-text hover:text-space-accent transition-colors">
+                            <FaInstagram className="h-7 w-7"/>
+                        </a>
+                        <a href={`mailto:${member.email}`} aria-label="gmail" rel="noopener noreferrer" className="text-space-text hover:text-red-600 transition-colors">
+                            <Mail className="h-7 w-7"/>
+                        </a>
+                        <a href={normalizeUrl(member.linkedin)} target="_blank" aria-label="linkedin" rel="noopener noreferrer" className="text-space-text hover:text-[#0077b5] transition-colors">
+                            <FaLinkedinIn className="h-7 w-7 "/>
+                        </a>
                     </div>
                   </CardContent>
                 </Card>);

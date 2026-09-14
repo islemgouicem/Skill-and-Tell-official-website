@@ -12,7 +12,7 @@ import { submitMobaiRegistration } from "../features/lib/api";
 import "@/styles/mobai.css";
 import regBg from "@/assets/images/mobai/reg_bg.svg";
 import CyberCard from "../features/components/cyberCard";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export const dynamic = 'force-dynamic';
 const EMPTY_MEMBER = {
@@ -79,7 +79,7 @@ const RegistrationForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState(null);
-    const navigate = useNavigate();
+    const router = useRouter();
     const formData = {
         team_name: teamName,
         members,
@@ -151,7 +151,7 @@ const RegistrationForm = () => {
         setTimeout(() => {
             setCurrentStep(prev => (prev > -1 ? prev - 1 : -1));
             if (currentStep === -1) {
-                navigate("/mobai");
+                router.push("/mobai");
             }
         }, 250);
         window.scrollTo(0, 0);
@@ -231,7 +231,7 @@ const RegistrationForm = () => {
                                     </p>
                                     <div className="flex justify-center mt-8">
                                         <CyberButton variant="primary" icon="right" onClick={() => {
-                navigate("/");
+                router.push("/");
                 window.scrollTo(0, 0);
             }}>
                                             Return to SkillnTell

@@ -34,22 +34,23 @@ const BouncingPopup = ({ isOpen, onClose, title = "Registration", subtitle = "Co
             backdropFilter: "blur(12px)"
         }}>
             <div style={{
-            position: "relative",
-            maxWidth: "28rem",
-            width: "100%",
-            borderRadius: "1rem",
-            border: "1px solid hsl(250,60%,18%)",
-            background: "linear-gradient(145deg, hsl(250,80%,12%), hsl(250,60%,18%))",
-            boxShadow: "0 25px 50px -12px hsl(250,100%,8% / 0.8)",
-            overflow: "hidden",
-            transform: isAnimatingOut
-                ? "scale(0.3) translateY(-50px)"
-                : "scale(1) translateY(0)",
-            opacity: isAnimatingOut ? 0 : 1,
-            animation: isAnimatingOut
-                ? "bounceOut 0.3s ease-in-out forwards"
-                : "bounceIn 0.6s cubic-bezier(0.68,-0.55,0.265,1.55)"
-        }}>
+        position: "relative",
+        maxWidth: "28rem",
+        width: "100%",
+        borderRadius: "1rem",
+        border: "1px solid hsl(250,60%,18%)",
+        background: "linear-gradient(145deg, hsl(250,80%,12%), hsl(250,60%,18%))",
+        boxShadow: "0 25px 50px -12px hsl(250,100%,8% / 0.8)",
+        overflow: "hidden",
+        transform: isAnimatingOut
+            ? "scale(0.3) translateY(-50px)"
+            : "scale(1) translateY(0)",
+        opacity: isAnimatingOut ? 0 : 1,
+        transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
+        animation: isAnimatingOut
+            ? "bounceOut 0.3s ease-in-out forwards"
+            : "bounceIn 0.6s cubic-bezier(0.68,-0.55,0.265,1.55)"
+    }}>
 
                 {/* Main content */}
                 <div className="bg-Main-700" style={{

@@ -33,7 +33,7 @@ The project currently has three main route groups:
 ```
 /
 ├── Landing Page
-├── register
+├── registervsv
 
 ```
 
@@ -108,7 +108,32 @@ I grouped everything related to a route inside a `features` folder to keep thing
 - Changed the custom mouse cursor back to the default browser cursor because it felt too big and wasn't very smooth. If you'd like the old one back, just let me know so I restore it.
 
 ---
+ Managers / Team Section (CMS)
 
+The managers shown on the landing page's team section are no longer hardcoded — they're managed dynamically through a **Payload CMS** backend, deployed separately at:
+
+https://skillandtell-website-cms-omuq.vercel.app/
+
+
+Club admins can add, edit, or remove managers (name, role, picture, description, socials) directly from that CMS's admin panel, and the changes flow through to the frontend without needing a code change or redeploy.
+
+### Caching
+
+The frontend fetches manager data using Next.js's built-in fetch caching, currently set to a **3-month revalidation window** — meaning the data is fetched once and then reused for about 3 months before Next.js checks the CMS again for updates. This keeps the site fast and avoids hitting the database on every page load, since manager info doesn't change often.
+
+ Managers / Team Section (CMS)
+
+The managers shown on the landing page's team section are no longer hardcoded — they're managed dynamically through a **Payload CMS** backend, deployed separately at:
+
+https://skillandtell-website-cms-omuq.vercel.app/
+
+
+Club admins can add, edit, or remove managers (name, role, picture, description, socials) directly from that CMS's admin panel, and the changes flow through to the frontend without needing a code change or redeploy.
+
+### Caching
+
+The frontend fetches manager data using Next.js's built-in fetch caching, currently set to a **3-month revalidation window** — meaning the data is fetched once and then reused for about 3 months before Next.js checks the CMS again for updates. This keeps the site fast and avoids hitting the database on every page load, since manager info doesn't change often.
+---
 
 # Future Improvements
 

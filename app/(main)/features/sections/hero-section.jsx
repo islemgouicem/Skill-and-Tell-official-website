@@ -11,7 +11,7 @@ export default function HeroSection() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const router = useRouter();
     const handleRegisterClick = () => {
-        router.push("/registration");
+        router.push("/register");
     };
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
