@@ -13,6 +13,8 @@ export default function HeroSection() {
   const navigate = useNavigate();
 
 
+  // kept for when registration reopens: swap it back onto the button below
+  // eslint-disable-next-line no-unused-vars
   const handleRegisterClick = () => {
     // const registeredEmail = localStorage.getItem("alreadyRegistered");
     // if (registeredEmail) { //registeredEmail
@@ -85,8 +87,8 @@ export default function HeroSection() {
         </p>
 
         <Button
-          onClick={handleRegisterClick}
-          /*handleOpenPopup */
+          onClick={handleOpenPopup}
+          /* swap back to handleRegisterClick to reopen registration */
           className="bg-gradient-to-r from-[#FF6D00]/0 from-[-12.06%] to-[#FF6D00] to-[99.97%] 
             drop-shadow-[5px_5px_4px_rgba(0,0,0,0.2)] text-white 
             hover:from-[#FF6D00] hover:to-[rgba(255,109,0,0)] 

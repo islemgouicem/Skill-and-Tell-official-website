@@ -9,6 +9,8 @@ const Registered = lazy(() => import("./apps/skillntell/pages/RegisteredPage.jsx
 const Eunoia = lazy(() => import("./apps/eunoia/pages/EunoiaPage.jsx"));
 const MobAI = lazy(() => import("./apps/mobai/pages/MobaiPage.jsx"));
 const Arcade = lazy(() => import("./apps/arcade/pages/arcade_page.jsx"));
+const Odyssea = lazy(() => import("./apps/odyssea/pages/odyssea_page.jsx"));
+const OdysseaRegistration = lazy(() => import("./apps/odyssea/pages/registration_page.jsx"));
 
 // const ArcadeRegistration = lazy(() => import("./apps/arcade/pages/registration_page.jsx"));
 // const ArcadeOrganizersReg = lazy(() => import("./apps/arcade/pages/organizers_reg.jsx"));
@@ -57,6 +59,8 @@ function Root() {
                     <Route path="/eunoia" element={<Eunoia />} />
                     <Route path="/mobai" element={<MobAI />} />
                     <Route path="/arcade" element={<Arcade />} />
+                    <Route path="/odyssea" element={<Odyssea />} />
+                    <Route path="/odyssea/register" element={<OdysseaRegistration />} />
 
                     {/* <Route path="/arcade/register" element={<ArcadeRegistration />} /> */}
                     {/* <Route path="/arcade/organizers" element={<ArcadeOrganizersReg />} /> */}

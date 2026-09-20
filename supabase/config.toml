@@ -1,0 +1,10 @@
+# Supabase CLI configuration — Skill&Tell
+# Only the Odyssea pieces are declared here; add other projects below.
+
+project_id = "skillntell"
+
+[functions.odyssea-register]
+# The browser calls this with the public anon key, so no JWT is required.
+# Every other guard (CORS allow-list, validation, rate limit, service-role
+# only RPC) lives inside the function and inside the database.
+verify_jwt = false

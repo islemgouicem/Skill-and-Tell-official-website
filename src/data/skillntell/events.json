@@ -1,5 +1,21 @@
 [
     {
+        "id": "08",
+        "title": "Odyssea",
+        "description": "Odyssea is a two-day ideathon focused on well-being. Crews of up to six sail through workshops, mentoring and a build sprint, then pitch a working prototype to a council of academics and industry leaders.",
+        "date": "2026-10-15",
+        "tags": [
+            "Ideathon",
+            "Well-being",
+            "Prototyping",
+            "Mentoring"
+        ],
+        "image": "/images/odyssea_event.webp",
+        "path": "/odyssea",
+        "upcoming": true,
+        "accent": "odyssea"
+    },
+    {
         "id": "01",
         "title": "Arcade",
         "description": "Arcade is the inaugural event of Skill&Tell, featuring a full day packed with fun and challenging activities! Teams compete in various challenges, including math puzzles, programming tasks, the famous scavenger hunt, and other exciting games.",

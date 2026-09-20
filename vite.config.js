@@ -43,6 +43,9 @@ export default defineConfig(() => {
             if (id.includes('src/apps/mobai')) {
               return 'app-mobai';
             }
+            if (id.includes('src/apps/odyssea')) {
+              return 'app-odyssea';
+            }
           },
         },
       },

@@ -1,0 +1,113 @@
+{
+  "route": [
+    {
+      "id": "boarding",
+      "time": "8:00AM - 10AM",
+      "title": "Boarding",
+      "copy": "Check-in, desks and breakfast."
+    },
+    {
+      "id": "call",
+      "time": "10AM - 12:30PM",
+      "title": "The Call",
+      "copy": "Opening ceremony and challenge reveal."
+    },
+    {
+      "id": "open-sea",
+      "time": "2PM - 12AM",
+      "title": "Open Sea",
+      "copy": "Ideation, prototyping, mentor rounds."
+    },
+    {
+      "id": "sprint",
+      "time": "9AM - 1PM",
+      "title": "Final Sprint",
+      "copy": "Last checkpoints before the harbour."
+    },
+    {
+      "id": "pitch",
+      "time": "2PM - 6:30PM",
+      "title": "The Pitch",
+      "copy": "Five minutes before the council."
+    }
+  ],
+  "days": [
+    {
+      "label": "Day I",
+      "subtitle": "Setting sail",
+      "slots": [
+        [
+          "08:00 - 10:00",
+          "Boarding & check-in",
+          "Badges, team desks and the welcome breakfast."
+        ],
+        [
+          "10:00 - 11:00",
+          "Opening ceremony",
+          "Skill&Tell opens the voyage and reveals the challenge."
+        ],
+        [
+          "11:00 - 12:30",
+          "Compass workshops",
+          "Design thinking, user research and pitch craft."
+        ],
+        [
+          "12:30 - 14:00",
+          "Harbour lunch",
+          "Refuel and meet the mentors."
+        ],
+        [
+          "14:00 - 19:00",
+          "Open sea",
+          "Ideation and prototyping with roaming mentors."
+        ],
+        [
+          "19:00 - 20:30",
+          "Dinner & deck games",
+          "Food, music and a break from the screens."
+        ],
+        [
+          "20:30 - 00:00",
+          "Night watch",
+          "The long build sprint, with checkpoints at midnight."
+        ]
+      ]
+    },
+    {
+      "label": "Day II",
+      "subtitle": "Making landfall",
+      "slots": [
+        [
+          "08:00 - 09:00",
+          "Sunrise breakfast",
+          "A quiet start before the last stretch."
+        ],
+        [
+          "09:00 - 13:00",
+          "Final sprint",
+          "Mentor checkpoints and submission of the prototypes."
+        ],
+        [
+          "13:00 - 14:00",
+          "Lunch",
+          "Last rehearsal for the pitch."
+        ],
+        [
+          "14:00 - 16:00",
+          "The Odyssea pitch",
+          "Five minutes per team in front of the jury."
+        ],
+        [
+          "16:00 - 17:00",
+          "Cultural village",
+          "Deliberation time, activities and the partner stands."
+        ],
+        [
+          "17:00 - 18:30",
+          "Closing ceremony",
+          "Awards, group photo and the end of the voyage."
+        ]
+      ]
+    }
+  ]
+}

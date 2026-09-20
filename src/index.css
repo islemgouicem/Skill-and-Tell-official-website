@@ -613,3 +613,33 @@ button,
     min-height: 100px;
   }
 }
+
+/* Odyssea upcoming-event glow (Olympian Gold / Aegean Night) */
+.odyssea-event-moving-border {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+}
+
+.odyssea-event-moving-border::before {
+  content: "";
+  position: absolute;
+  top: -1000%;
+  left: -1000%;
+  width: 2100%;
+  height: 2100%;
+  background: conic-gradient(
+    transparent 0%,
+    transparent 25%,
+    #011b2a,
+    #bc9336,
+    #d9b464,
+    transparent 75%,
+    transparent 100%
+  );
+  animation: border-movement 4s linear infinite;
+  filter: blur(20px);
+  z-index: -1;
+}
