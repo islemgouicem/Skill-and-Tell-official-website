@@ -33,7 +33,7 @@ export default function HeroSection() {
      alt="Hero" height={400} width={300} className="w-full h-auto max-h-[90vh] md:max-h-[60vh] lg:max-h-[30vh] object-contain"/>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
+      <div className="relative z-50 flex flex-col items-center justify-center px-4 translate-y-[-70px] sm:translate-y-0 animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight 
         text-space-text drop-shadow-lg">
           Start your journey with <br />
@@ -72,7 +72,7 @@ export default function HeroSection() {
 
       {/* Floating  Badges */}
       {/* Members */}
-      <div className="badges absolute top-[15%] left-3 
+      <div className="badges absolute top-[8%] left-3 
         md:top-[32%] md:left-[6%] 
         xl:top-[29%] xl:left-[8.5%] 
         rounded-full py-1 px-2 md:py-2 md:px-4 
@@ -102,7 +102,7 @@ export default function HeroSection() {
 
 
       {/* participants */}
-      <div className="badges absolute top-[12%] left-[67%] 
+      <div className="badges absolute top-[10%] left-[67%] 
                     md:top-[18%] md:left-[78%] 
                     rounded-full py-1 px-2 md:py-2 md:px-4 
                     flex flex-col items-center 
@@ -115,7 +115,7 @@ export default function HeroSection() {
       </div>
 
       {/* projects */}
-      <div className="badges absolute top-[60%] left-[4%] 
+      <div className="badges absolute top-[65%] left-[4%] 
                     md:top-[80%] md:left-[7%] 
                     rounded-full py-1 px-5 md:py-2 md:px-8 
                     flex flex-col justify-center 
