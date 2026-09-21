@@ -16,7 +16,7 @@ function Pill({ active, icon: Icon, children, onClick, className = "" }) {
 
 function BlockTitle({ icon: Icon, children }) {
   return (
-    <p className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[2.2rem] lg:font-semibold">
+    <p className="ody-display flex items-center gap-2.5 text-[1.25rem] font-semibold tracking-[0.1em] text-ody-ink sm:text-[1.3rem] sm:font-normal lg:text-[2.2rem] lg:font-semibold">
       <Icon className="h-5 w-5 text-ody-gold-deep lg:h-7 lg:w-7" />
       <Display>{children}</Display>
     </p>

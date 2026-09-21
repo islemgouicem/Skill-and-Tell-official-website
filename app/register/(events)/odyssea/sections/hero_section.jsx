@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import Display from "../components/Display";
-import Image from "next/image";
 import heroRelief from "@/assets/images/odyssea/hero-relief.webp";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import Display from "../components/Display";
 
 /**
  * Hero.
@@ -30,6 +30,13 @@ function HeroSection() {
         className="pointer-events-none absolute -left-[20%] top-[9%] h-[33%] w-auto max-w-none select-none sm:-left-[16%] sm:top-[5%] sm:h-[46%] lg:-left-[6.5%] lg:top-[12%] lg:h-[80%]"
       />
 
+      <Image
+        src={heroRelief}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[25%] -bottom-[8%] h-[32%] w-auto max-w-none scale-x-[-1] select-none opacity-65 sm:-right-[20%] sm:-bottom-[10%] sm:h-[40%] lg:hidden"
+      />
+
       {/* title + call to action */}
       <div className="relative z-10 flex min-h-[82svh] w-full flex-col px-5 pb-7 sm:px-8 lg:block lg:min-h-screen lg:px-0 lg:pb-0">
         {/* the relief owns the top of the phone screen */}
@@ -50,6 +57,7 @@ function HeroSection() {
               <Display>REGISTER NOW!</Display>
             </Link>
           </div>
+
         </div>
 
         
