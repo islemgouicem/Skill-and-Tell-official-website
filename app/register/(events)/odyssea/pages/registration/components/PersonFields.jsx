@@ -7,12 +7,12 @@ import Display from "../../../components/Display";
 function PersonFields({ title, scope, person, errors, onChange, autoFocus = false }) {
   return (
     <div>
-      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem]">
-        <User className="h-5 w-5 text-ody-gold-deep" />
+      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem]">
+        <User className="h-5 w-5 text-ody-gold-deep lg:h-6 lg:w-6" />
         <Display>{title}</Display>
       </h2>
 
-      <div className="mt-5 grid gap-x-10 gap-y-4 md:grid-cols-2">
+      <div className="mt-5 grid gap-x-10 gap-y-4 md:grid-cols-2 lg:mt-8 lg:gap-x-16 lg:gap-y-7">
         {PERSON_FIELDS.map((field, index) => (
           <Field
             key={field.name}

@@ -4,14 +4,9 @@ import Display from "../../../components/Display";
 
 function StepActions({ onBack, onNext, nextLabel = "NEXT", busy = false, submit = false }) {
   return (
-    <div className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+    <div className="mt-9 grid grid-cols-[1fr_auto_1fr] items-center gap-3 lg:mt-12">
       {onBack ? (
-        <button
-          type="button"
-          onClick={onBack}
-          disabled={busy}
-          className="inline-flex items-center gap-2 justify-self-start rounded-full px-3 py-2 text-[0.82rem] font-semibold text-ody-ink/70 transition hover:text-ody-ink disabled:opacity-40"
-        >
+        <button type="button" onClick={onBack} disabled={busy} className="ody-btn-ghost justify-self-start text-[0.85rem] lg:text-[0.95rem]">
           <ArrowLeft className="h-4 w-4" />
           Back
         </button>
@@ -23,7 +18,7 @@ function StepActions({ onBack, onNext, nextLabel = "NEXT", busy = false, submit 
         type={submit ? "submit" : "button"}
         onClick={submit ? undefined : onNext}
         disabled={busy}
-        className="ody-display inline-flex min-h-12 min-w-48 items-center justify-center gap-2 rounded-full bg-ody-night px-8 text-[1.05rem] tracking-wide text-ody-gold shadow-[0_10px_26px_rgba(1,27,42,0.4)] transition duration-300 hover:-translate-y-0.5 hover:bg-ody-night-soft hover:shadow-[0_14px_34px_rgba(1,27,42,0.5)] disabled:translate-y-0 disabled:opacity-60"
+        className="ody-btn ody-display min-w-52 text-[1.1rem] tracking-wide lg:min-w-60 lg:text-[1.3rem]"
       >
         {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
         <Display>{busy ? "SENDING..." : nextLabel}</Display>

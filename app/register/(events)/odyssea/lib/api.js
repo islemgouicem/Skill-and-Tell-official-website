@@ -1,19 +1,12 @@
-import { createClient } from "@supabase/supabase-js";
-
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
-const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
-const supabase = isSupabaseConfigured
-  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
-
 /**
- * Registrations never touch the table from the browser.
- * The anon key can only invoke the `odyssea-register` edge function, which
- * re-validates everything server side, writes with the service role and
- * sends the confirmation email to the team leader.
+ * The registration form never speaks to Supabase.
+ *
+ * It posts to /api/odyssea/register, which runs on the server, holds the
+ * service-role key, re-validates everything and calls the single database
+ * function allowed to write. No Supabase URL, key or table name ever reaches
+ * the browser bundle.
  */
-const FUNCTION_NAME = "odyssea-register";
+const ENDPOINT = "/api/odyssea/register";
 
 const FRIENDLY = {
   duplicate_team_name: "A team with this name is already registered.",
@@ -21,6 +14,7 @@ const FRIENDLY = {
   rate_limited: "Too many attempts from this connection. Please try again in a few minutes.",
   registrations_closed: "Registrations for Odyssea are closed.",
   invalid_payload: "Some of the details are not valid. Please review the form.",
+  server_error: "We could not register you right now. Please try again in a moment.",
 };
 
 function buildPayload(formData) {
@@ -55,31 +49,22 @@ function buildPayload(formData) {
 }
 
 export async function submitOdysseaRegistration(formData) {
-  if (!isSupabaseConfigured) {
-    throw new Error(
-      "Registration is not connected yet. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY, then restart the app.",
-    );
+  let response;
+
+  try {
+    response = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(buildPayload(formData)),
+    });
+  } catch {
+    throw new Error("The connection dropped. Check your network and try again.");
   }
 
-  const { data, error } = await supabase.functions.invoke(FUNCTION_NAME, {
-    body: buildPayload(formData),
-  });
+  const data = await response.json().catch(() => null);
 
-  if (error) {
-    let code = null;
-    try {
-      const body = await error.context?.json?.();
-      code = body?.code ?? null;
-    } catch {
-      code = null;
-    }
-    throw new Error(
-      FRIENDLY[code] ?? "We could not register your team right now. Please try again.",
-    );
-  }
-
-  if (data && data.ok === false) {
-    throw new Error(FRIENDLY[data.code] ?? data.message ?? "Registration failed.");
+  if (!response.ok || !data?.ok) {
+    throw new Error(data?.message ?? FRIENDLY[data?.code] ?? FRIENDLY.server_error);
   }
 
   return data;

@@ -27,8 +27,8 @@ function Field({ field, value, error, onChange, autoFocus = false }) {
 
   return (
     <label htmlFor={id} className="block">
-      <span className="flex items-center gap-2 text-[0.82rem] font-semibold text-ody-ink">
-        <Icon className="h-4 w-4 shrink-0 text-ody-gold-deep" />
+      <span className="flex items-center gap-2 text-[0.82rem] font-semibold text-ody-ink lg:gap-2.5 lg:text-[1rem]">
+        <Icon className="h-4 w-4 shrink-0 text-ody-gold-deep lg:h-[1.15rem] lg:w-[1.15rem]" />
         {field.label}
         {field.required && <span className="text-ody-danger">*</span>}
       </span>
@@ -51,7 +51,7 @@ function Field({ field, value, error, onChange, autoFocus = false }) {
               </option>
             ))}
           </select>
-          <ChevronDown className="pointer-events-none absolute bottom-2.5 right-1 h-4 w-4 text-ody-gold-deep" />
+          <ChevronDown className="pointer-events-none absolute bottom-3 right-1 h-4 w-4 text-ody-gold-deep" />
         </span>
       ) : (
         <input
@@ -74,7 +74,7 @@ function Field({ field, value, error, onChange, autoFocus = false }) {
       <span
         id={`${id}-error`}
         role={invalid ? "alert" : undefined}
-        className={`block overflow-hidden text-[0.72rem] font-medium text-ody-danger transition-all duration-300 ${
+        className={`block overflow-hidden text-[0.72rem] font-medium text-ody-danger transition-all duration-300 lg:text-[0.82rem] ${
           invalid ? "mt-1.5 max-h-8 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

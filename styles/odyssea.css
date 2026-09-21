@@ -203,6 +203,10 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   isolation: isolate;
   overflow: hidden;
   border-radius: 9999px;
+  /* Castelforte's ink sits high inside its line box, so flex centring lands
+     the label a few pixels above the middle. Half of this padding is what
+     pushes it back onto the optical centre, and it scales with the type. */
+  padding-top: 0.22em;
   transition:
     color 0.35s ease,
     box-shadow 0.35s ease,
@@ -388,7 +392,13 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 }
 
 /* ---------- registration ---------- */
+/* The plate is a portrait painting. On phones it behaves like any cover
+   background; from the large breakpoint up it spans the full page width and
+   is pinned to the bottom, so the ruins, the ship and the sunset always close
+   the page the way the Figma frame does. */
 .odyssea-registration {
+  --ody-reg-sky: #0f2b45;
+  background-color: var(--ody-reg-sky);
   background-image: linear-gradient(
       rgba(1, 27, 42, 0.42),
       rgba(1, 27, 42, 0.55)
@@ -400,43 +410,108 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   min-height: 100vh;
 }
 
+@media (min-width: 1024px) {
+  .odyssea-registration {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(1, 27, 42, 0.62) 0%,
+        rgba(1, 27, 42, 0.34) 16%,
+        rgba(1, 27, 42, 0.2) 42%,
+        rgba(1, 27, 42, 0.26) 72%,
+        rgba(1, 27, 42, 0.42) 100%
+      ),
+      var(--ody-registration-img);
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    min-height: min(150vw, 2040px);
+  }
+}
+
+/* ---------- the parchment plate ---------- */
+/* Four nested chamfered layers: gold edge -> parchment field -> gold hairline
+   -> textured well. Nesting by padding (rather than absolute insets) keeps the
+   frame honest at any card height, and each layer's own clip-path is what
+   carries the gold around the 45deg corners. */
+.ody-chamfer {
+  clip-path: polygon(
+    var(--ody-cut) 0,
+    calc(100% - var(--ody-cut)) 0,
+    100% var(--ody-cut),
+    100% calc(100% - var(--ody-cut)),
+    calc(100% - var(--ody-cut)) 100%,
+    var(--ody-cut) 100%,
+    0 calc(100% - var(--ody-cut)),
+    0 var(--ody-cut)
+  );
+}
+
 .ody-card {
+  --ody-cut: 26px;
   position: relative;
+  padding: 3px;
+  background: linear-gradient(150deg, #e2c076 0%, #bc9336 45%, #8d6d25 100%);
+  box-shadow:
+    0 30px 80px rgba(0, 19, 30, 0.6),
+    0 2px 0 rgba(253, 253, 253, 0.12);
+}
+
+.ody-card-sheet {
+  --ody-cut: 24px;
+  padding: 9px;
+  background: var(--color-ody-parchment);
+}
+
+.ody-card-rule {
+  --ody-cut: 19px;
+  padding: 2px;
+  background: linear-gradient(
+    140deg,
+    rgba(217, 180, 100, 0.95) 0%,
+    rgba(188, 147, 54, 0.95) 50%,
+    rgba(141, 109, 37, 0.9) 100%
+  );
+}
+
+.ody-card-well {
+  --ody-cut: 18px;
   background-color: var(--color-ody-parchment);
   background-image: var(--ody-parchment-img);
   background-size: cover;
   background-position: center;
-  border: 2px solid var(--color-ody-gold-deep);
-  box-shadow:
-    0 26px 70px rgba(0, 19, 30, 0.55),
-    inset 0 0 0 5px rgba(253, 253, 253, 0.4);
-  clip-path: polygon(
-    26px 0,
-    calc(100% - 26px) 0,
-    100% 26px,
-    100% calc(100% - 26px),
-    calc(100% - 26px) 100%,
-    26px 100%,
-    0 calc(100% - 26px),
-    0 26px
-  );
-  padding: clamp(1.25rem, 3.6vw, 2.75rem);
+  padding: clamp(1.15rem, 3.4vw, 3.1rem);
 }
 
+@media (min-width: 1280px) {
+  .ody-card-well {
+    padding: 3.25rem 3.5rem 3rem;
+  }
+}
+
+/* ---------- fields ---------- */
 .ody-input {
-  margin-top: 0.35rem;
+  margin-top: 0.4rem;
   display: block;
   width: 100%;
-  min-height: 2.5rem;
+  min-height: 2.6rem;
   border: 0;
   border-bottom: 1px solid rgba(188, 147, 54, 0.6);
   background: transparent;
   color: var(--color-ody-ink);
+  font-size: 0.95rem;
   font-weight: 400;
   outline: none;
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease;
+}
+
+@media (min-width: 1024px) {
+  .ody-input {
+    min-height: 3rem;
+    font-size: 1.02rem;
+  }
 }
 
 .ody-input::placeholder,
@@ -456,49 +531,330 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 }
 
 .ody-textarea {
-  margin-top: 0.55rem;
+  margin-top: 0.6rem;
   display: block;
   width: 100%;
-  min-height: 7.5rem;
+  min-height: 8rem;
   resize: vertical;
   border: 1px solid rgba(188, 147, 54, 0.6);
   border-radius: 0.4rem;
   background: rgba(253, 253, 253, 0.42);
-  padding: 0.75rem 0.9rem;
+  padding: 0.85rem 1rem;
   color: var(--color-ody-ink);
+  font-size: 0.98rem;
   outline: none;
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
-.ody-card-enter-next {
-  animation: ody-card-next 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+/* ---------- the deep-sea button ---------- */
+.ody-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0 2.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(188, 147, 54, 0.9);
+  background: linear-gradient(135deg, #123e51 0%, #195469 100%);
+  color: var(--color-ody-title);
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow:
+    0 12px 28px rgba(1, 27, 42, 0.42),
+    inset 0 1px 0 rgba(253, 204, 70, 0.22);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.ody-card-enter-back {
-  animation: ody-card-back 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+@media (min-width: 1024px) {
+  .ody-btn {
+    min-height: 3.5rem;
+    padding: 0 2.9rem;
+  }
 }
 
-@keyframes ody-card-next {
+.ody-btn::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(253, 204, 70, 0.22) 48%,
+    transparent 66%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ody-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(253, 204, 70, 0.95);
+  box-shadow:
+    0 18px 38px rgba(1, 27, 42, 0.5),
+    0 0 0 1px rgba(253, 204, 70, 0.35),
+    inset 0 1px 0 rgba(253, 204, 70, 0.32);
+}
+
+.ody-btn:hover:not(:disabled)::after {
+  transform: translateX(130%);
+}
+
+.ody-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ody-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: rgba(1, 27, 42, 0.68);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ody-btn-ghost:hover:not(:disabled) {
+  color: var(--color-ody-ink);
+  background: rgba(18, 62, 81, 0.08);
+}
+
+/* ---------- choice pills ---------- */
+.ody-pill {
+  display: inline-flex;
+  min-height: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(141, 109, 37, 0.55);
+  padding: 0 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(1, 27, 42, 0.72);
+  background: rgba(253, 253, 253, 0.28);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ody-pill:hover {
+  border-color: rgba(18, 62, 81, 0.9);
+  color: var(--color-ody-ink);
+}
+
+.ody-pill[aria-pressed="true"] {
+  border-color: rgba(188, 147, 54, 0.9);
+  background: linear-gradient(135deg, #123e51 0%, #195469 100%);
+  color: var(--color-ody-title);
+  box-shadow:
+    0 10px 22px rgba(1, 27, 42, 0.32),
+    inset 0 1px 0 rgba(253, 204, 70, 0.22);
+}
+
+@media (min-width: 1024px) {
+  .ody-pill {
+    min-height: 3.1rem;
+    font-size: 0.98rem;
+    padding: 0 1.4rem;
+  }
+}
+
+.ody-chip {
+  display: inline-flex;
+  height: 2.6rem;
+  width: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(141, 109, 37, 0.5);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(1, 27, 42, 0.7);
+  background: rgba(253, 253, 253, 0.26);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ody-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(18, 62, 81, 0.85);
+  color: var(--color-ody-ink);
+}
+
+.ody-chip[aria-pressed="true"] {
+  border-color: rgba(188, 147, 54, 0.9);
+  background: linear-gradient(135deg, #123e51 0%, #195469 100%);
+  color: var(--color-ody-title);
+  box-shadow: 0 8px 18px rgba(1, 27, 42, 0.3);
+}
+
+/* ---------- the page turn ---------- */
+/* Each step is a leaf of the same logbook: it lifts off its spine, and the
+   next one drops onto the stack. Two phases driven from the page component --
+   `out` on the leaf that is leaving, `in` on the one that arrives. */
+.ody-flip-stage {
+  perspective: 2400px;
+  perspective-origin: 50% 38%;
+}
+
+.ody-page {
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+.ody-page-out-next {
+  animation: ody-page-out-next 0.42s cubic-bezier(0.4, 0.02, 0.72, 0.28) both;
+}
+
+.ody-page-in-next {
+  animation: ody-page-in-next 0.62s cubic-bezier(0.19, 0.93, 0.29, 1) both;
+}
+
+.ody-page-out-back {
+  transform-origin: right center;
+  animation: ody-page-out-back 0.42s cubic-bezier(0.4, 0.02, 0.72, 0.28) both;
+}
+
+.ody-page-in-back {
+  transform-origin: right center;
+  animation: ody-page-in-back 0.62s cubic-bezier(0.19, 0.93, 0.29, 1) both;
+}
+
+@keyframes ody-page-out-next {
   from {
-    opacity: 0;
-    transform: translateX(56px);
+    transform: rotateY(0deg) translateZ(0);
+    opacity: 1;
   }
   to {
-    opacity: 1;
-    transform: none;
+    transform: rotateY(-62deg) translateZ(90px) scale(0.99);
+    opacity: 0;
   }
 }
 
-@keyframes ody-card-back {
+@keyframes ody-page-in-next {
   from {
+    transform: rotateY(58deg) translateZ(90px) scale(0.99);
     opacity: 0;
-    transform: translateX(-56px);
+  }
+  55% {
+    opacity: 1;
   }
   to {
+    transform: rotateY(0deg) translateZ(0) scale(1);
     opacity: 1;
-    transform: none;
+  }
+}
+
+@keyframes ody-page-out-back {
+  from {
+    transform: rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(62deg) translateZ(90px) scale(0.99);
+    opacity: 0;
+  }
+}
+
+@keyframes ody-page-in-back {
+  from {
+    transform: rotateY(-58deg) translateZ(90px) scale(0.99);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(0deg) translateZ(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* the shadow a turning leaf casts on itself */
+.ody-page-shade {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 19, 30, 0.02) 0%,
+    rgba(0, 19, 30, 0.3) 55%,
+    rgba(0, 19, 30, 0.62) 100%
+  );
+}
+
+.ody-page-out-next .ody-page-shade,
+.ody-page-in-next .ody-page-shade {
+  animation: ody-shade 0.62s ease-out both;
+}
+
+.ody-page-out-back .ody-page-shade,
+.ody-page-in-back .ody-page-shade {
+  animation: ody-shade 0.62s ease-out both;
+  transform: scaleX(-1);
+}
+
+@keyframes ody-shade {
+  0% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ody-page-out-next .ody-page-shade {
+  animation: ody-shade-out 0.42s ease-in both;
+}
+
+.ody-page-out-back .ody-page-shade {
+  animation: ody-shade-out 0.42s ease-in both;
+  transform: scaleX(-1);
+}
+
+@keyframes ody-shade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* the phone hero's scroll cue */
+.ody-bob {
+  animation: ody-bob 2.1s ease-in-out infinite;
+}
+
+@keyframes ody-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
   }
 }
 
@@ -524,18 +880,21 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 @media (max-width: 767px) {
   .ody-card {
-    clip-path: polygon(
-      16px 0,
-      calc(100% - 16px) 0,
-      100% 16px,
-      100% calc(100% - 16px),
-      calc(100% - 16px) 100%,
-      16px 100%,
-      0 calc(100% - 16px),
-      0 16px
-    );
+    --ody-cut: 16px;
   }
 
+  .ody-card-sheet {
+    --ody-cut: 14px;
+    padding: 7px;
+  }
+
+  .ody-card-rule {
+    --ody-cut: 10px;
+  }
+
+  .ody-card-well {
+    --ody-cut: 9px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
