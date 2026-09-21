@@ -61,7 +61,7 @@ function Navbar() {
             onClick={(event) => handleNavClick(event, "#home")}
             className="shrink-0"
           >
-            <Brand size="nav" />
+            <Brand size="nav" glow="sm" />
           </a>
 
           <nav className="hidden items-center gap-9 lg:flex xl:gap-14" aria-label="Main navigation">

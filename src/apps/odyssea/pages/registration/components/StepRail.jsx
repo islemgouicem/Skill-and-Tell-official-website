@@ -1,4 +1,5 @@
 import React from "react";
+import Display from "../../../components/Display";
 
 /** Compact progress rail: leader -> members -> motivation. */
 function StepRail({ labels, current }) {
@@ -19,11 +20,11 @@ function StepRail({ labels, current }) {
               }`}
             />
             <span
-              className={`hidden text-[0.62rem] uppercase tracking-[0.14em] transition-colors sm:block ${
+              className={`ody-display hidden text-[0.85rem] tracking-[0.1em] transition-colors sm:block ${
                 active ? "text-ody-ink" : "text-ody-ink/40"
               }`}
             >
-              {label}
+              <Display>{label}</Display>
             </span>
           </div>
         );

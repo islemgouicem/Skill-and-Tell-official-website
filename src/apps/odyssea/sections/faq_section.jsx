@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import CompassDivider from "../components/CompassDivider";
 import Reveal from "../components/Reveal";
+import SectionTitle from "../components/SectionTitle";
 import faqs from "../../../data/odyssea/faq.json";
 import flourish from "../../../assets/images/odyssea/flourish.webp";
+import Display from "../components/Display";
 
 function FaqSection({ parchmentImg }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -11,43 +12,43 @@ function FaqSection({ parchmentImg }) {
   return (
     <section
       id="faq"
-      className="ody-parchment relative px-5 pb-28 pt-16 text-ody-ink sm:px-8 sm:pt-20 lg:pb-36"
+      className="ody-parchment relative px-5 pb-28 pt-16 text-ody-ink sm:px-8 sm:pt-20 lg:pb-40"
       style={{ "--ody-parchment-img": `url(${parchmentImg})` }}
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[1360px]">
+        {/* the rules run the full width of the heading beneath them */}
         <Reveal>
-          <CompassDivider tone="ink" star="w-8 sm:w-10" />
-          <h2 className="ody-display mt-5 text-center text-[clamp(2.1rem,7.2vw,4.9rem)] leading-none text-ody-ink [text-shadow:0_1px_0_rgba(1,27,42,0.6)]">
-            WHAT YOU NEED TO KNOW
-          </h2>
+          <SectionTitle>WHAT YOU NEED TO KNOW</SectionTitle>
         </Reveal>
 
-        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.32fr_0.68fr] lg:gap-6">
+        <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1.42fr_0.58fr] lg:gap-8">
           <Reveal delay={80}>
-            <div className="ody-faq-card rounded-2xl px-5 py-7 sm:px-9 sm:py-9">
-              <h3 className="ody-display text-4xl text-ody-gold sm:text-5xl">FAQ</h3>
+            <div className="ody-faq-card rounded-2xl px-6 py-8 sm:px-10 sm:py-10">
+              <h3 className="ody-display ody-weighted text-[2.6rem] leading-none text-ody-title sm:text-[3.5rem]">
+                <Display>FAQ</Display>
+              </h3>
 
-              <div className="mt-6 border-t border-ody-gold/35">
+              <div className="mt-7 border-t border-ody-title/60">
                 {faqs.map((item, index) => {
                   const open = openIndex === index;
                   return (
-                    <div key={item.q} className="border-b border-ody-gold/35">
+                    <div key={item.q} className="border-b border-ody-title/60">
                       <button
                         type="button"
                         onClick={() => setOpenIndex(open ? -1 : index)}
                         aria-expanded={open}
                         aria-controls={`odyssea-faq-${index}`}
-                        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-5 text-left"
+                        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-5 py-6 text-left"
                       >
                         <span
-                          className={`text-[0.98rem] font-semibold transition-colors duration-300 sm:text-[1.05rem] ${
-                            open ? "text-ody-gold" : "text-white hover:text-ody-gold"
+                          className={`ody-display text-[1.45rem] tracking-[0.02em] transition-colors duration-300 sm:text-[1.8rem] ${
+                            open ? "text-ody-title" : "text-ody-white hover:text-ody-title"
                           }`}
                         >
-                          {item.q}
+                          <Display>{item.q}</Display>
                         </span>
                         <ChevronDown
-                          className={`h-5 w-5 shrink-0 text-ody-gold transition-transform duration-400 ${
+                          className={`h-7 w-7 shrink-0 text-ody-title transition-transform duration-400 ${
                             open ? "rotate-180" : ""
                           }`}
                         />
@@ -60,7 +61,7 @@ function FaqSection({ parchmentImg }) {
                         role="region"
                       >
                         <div>
-                          <p className="pb-5 pr-8 text-[0.88rem] leading-6 text-white/68">
+                          <p className="pb-6 pr-6 text-[1.05rem] leading-[1.45] text-ody-white/80 sm:text-[1.25rem]">
                             {item.a}
                           </p>
                         </div>
@@ -72,13 +73,13 @@ function FaqSection({ parchmentImg }) {
             </div>
           </Reveal>
 
-          <Reveal delay={150} className="flex justify-center">
+          <Reveal delay={150} className="flex justify-center lg:justify-end">
             <img
               src={flourish}
               alt=""
               aria-hidden="true"
               loading="lazy"
-              className="ody-float w-44 select-none sm:w-56 lg:w-auto lg:max-h-[30rem]"
+              className="ody-float w-56 select-none sm:w-72 lg:w-[28vw] lg:max-w-[28rem]"
             />
           </Reveal>
         </div>

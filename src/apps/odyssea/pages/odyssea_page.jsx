@@ -8,8 +8,10 @@ import AboutSection from "../sections/about_section";
 import AgendaSection from "../sections/agenda_section";
 import SeparatorSection from "../sections/separator_section";
 import FaqSection from "../sections/faq_section";
+import Sparkles from "../components/Sparkles";
+import { HERO_SPARKS } from "../components/sparkle_marks";
 
-import stars from "../../../assets/images/odyssea/stars.webp";
+import stars from "../../../assets/images/odyssea/stars.png";
 import parchment from "../../../assets/images/odyssea/parchment.webp";
 
 export default function OdysseaPage() {
@@ -36,8 +38,9 @@ export default function OdysseaPage() {
           src={stars}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-60"
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
         />
+        <Sparkles marks={HERO_SPARKS} />
         <div className="relative">
           <HeroSection />
           <AboutSection />

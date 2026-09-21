@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Brand from "../components/Brand";
 import CompassDivider from "../components/CompassDivider";
-import stars from "../../../assets/images/odyssea/stars.webp";
+import stars from "../../../assets/images/odyssea/stars.png";
 
 function MobileNav({ isOpen, onClose, links, onNavigate }) {
   useEffect(() => {

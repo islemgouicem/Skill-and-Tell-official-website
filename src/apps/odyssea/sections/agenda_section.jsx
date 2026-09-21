@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { ChevronsDown } from "lucide-react";
 import CloudCard from "../components/CloudCard";
-import CompassDivider from "../components/CompassDivider";
+import SectionTitle from "../components/SectionTitle";
 import Reveal from "../components/Reveal";
 import { useInView } from "../components/use_in_view";
 import agenda from "../../../data/odyssea/agenda.json";
-import laurel from "../../../assets/images/odyssea/laurel.webp";
+import laurel from "../../../assets/images/odyssea/laurel.png";
+import Display from "../components/Display";
 
 /* Cloud placements, transcribed from the Figma frame (percentages of the
    route container). `flip` mirrors the cloud so its tail faces the path. */
@@ -75,7 +76,7 @@ function CloudTrail({ slots }) {
       />
 
       <div className="relative grid justify-items-center gap-5 lg:justify-items-stretch lg:gap-y-1">
-        {slots.map(([time, title, copy], index) => (
+        {slots.map(([time, title], index) => (
           <Reveal
             key={time}
             delay={index * 60}
@@ -86,7 +87,6 @@ function CloudTrail({ slots }) {
             <CloudCard
               time={time}
               title={title}
-              copy={copy}
               flip={index % 2 === 1}
               className={`w-[92%] max-w-[420px] lg:max-w-none lg:w-[54%] ${
                 index % 2 ? "lg:ml-auto lg:-mt-6" : "lg:mr-auto lg:-mt-6"
@@ -111,10 +111,9 @@ function FullAgenda({ open }) {
         <div className="grid gap-14 pt-10">
           {agenda.days.map((day) => (
             <section key={day.label} className="overflow-visible">
-              <CompassDivider tone="ink" star="w-7 sm:w-9" />
-              <h3 className="ody-display mt-3 text-center text-3xl text-ody-ink sm:text-4xl">
+              <SectionTitle className="[&_h2]:text-[clamp(1.9rem,4.2vw,3.4rem)] [&_img]:w-9 sm:[&_img]:w-11">
                 {day.label}
-              </h3>
+              </SectionTitle>
               <p className="mt-1 text-center text-[0.7rem] uppercase tracking-[0.24em] text-ody-ink/55">
                 {day.subtitle}
               </p>
@@ -140,10 +139,7 @@ function AgendaSection({ parchmentImg }) {
 
       <div className="mx-auto max-w-6xl px-5 pb-16 pt-24 sm:px-8 sm:pt-28 lg:pb-20 lg:pt-36">
         <Reveal>
-          <CompassDivider tone="ink" star="w-8 sm:w-10" />
-          <h2 className="ody-display mt-5 text-center text-[clamp(2.5rem,8vw,5.2rem)] leading-none text-ody-ink">
-            EVENT AGENDA
-          </h2>
+          <SectionTitle>EVENT AGENDA</SectionTitle>
         </Reveal>
 
         {/* ---------- desktop: the plotted route ---------- */}
@@ -154,7 +150,8 @@ function AgendaSection({ parchmentImg }) {
               alt=""
               aria-hidden="true"
               loading="lazy"
-              className="pointer-events-none absolute left-[-3%] top-[1%] w-[43%] select-none"
+              className="pointer-events-none absolute top-[-4%] select-none"
+              style={{ width: "44vw", left: "calc(50% - 50vw - 22vw)" }}
             />
 
             <RoutePath />
@@ -164,7 +161,6 @@ function AgendaSection({ parchmentImg }) {
                 key={agenda.route[index].id}
                 time={agenda.route[index].time}
                 title={agenda.route[index].title}
-                copy={agenda.route[index].copy}
                 flip={stop.flip}
                 style={{
                   position: "absolute",
@@ -193,7 +189,6 @@ function AgendaSection({ parchmentImg }) {
                 <CloudCard
                   time={stop.time}
                   title={stop.title}
-                  copy={stop.copy}
                   flip={index % 2 === 1}
                   className="w-[92%] max-w-[430px] sm:w-[78%]"
                 />
@@ -209,12 +204,14 @@ function AgendaSection({ parchmentImg }) {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="odyssea-full-agenda"
-            className="group inline-flex items-center gap-3 rounded-full border border-ody-ink/25 bg-ody-parchment/40 px-6 py-3 text-[0.78rem] uppercase tracking-[0.2em] text-ody-ink/75 transition duration-300 hover:border-ody-ink/60 hover:bg-ody-ink hover:text-ody-parchment"
+            className="ody-agenda-toggle group inline-flex items-center gap-4 px-9 py-4 sm:px-11 sm:py-[1.15rem]"
           >
-            {open ? "Hide the full agenda" : "See the full agenda"}
+            <span className="ody-display text-[1.25rem] tracking-wide text-ody-title sm:text-[1.45rem]">
+              <Display>{open ? "Hide the full agenda" : "See the full agenda"}</Display>
+            </span>
             <ChevronsDown
-              className={`h-5 w-5 transition-transform duration-400 ${
-                open ? "rotate-180" : "translate-y-0 group-hover:translate-y-0.5"
+              className={`h-6 w-6 text-ody-title transition-transform duration-400 ${
+                open ? "rotate-180" : "group-hover:translate-y-1"
               }`}
             />
           </button>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Sparkles } from "lucide-react";
 import StepActions from "./StepActions";
+import Display from "../../../components/Display";
 
 function Star() {
   return <span aria-hidden="true" className="text-ody-gold-deep">✦</span>;
@@ -12,15 +13,15 @@ function StepMotivation({ formData, errors, onChange, onBack, busy }) {
 
   return (
     <div>
-      <h2 className="flex items-center gap-2 text-[0.82rem] font-bold uppercase tracking-[0.12em] text-ody-ink">
-        <Sparkles className="h-4 w-4 text-ody-gold-deep" />
-        Motivation
+      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem]">
+        <Sparkles className="h-5 w-5 text-ody-gold-deep" />
+        <Display>Motivation</Display>
       </h2>
 
       <div className="mt-6 grid gap-7">
         <label className="block">
-          <span className="flex items-center gap-2 text-[0.92rem] font-semibold text-ody-ink">
-            <Star /> How did you hear about us?
+          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-ody-ink">
+            <Star /> <Display>How did you hear about us?</Display>
           </span>
           <textarea
             value={formData.discovery}
@@ -32,8 +33,8 @@ function StepMotivation({ formData, errors, onChange, onBack, busy }) {
         </label>
 
         <label className="block">
-          <span className="flex items-center gap-2 text-[0.92rem] font-semibold text-ody-ink">
-            <Star /> Motivation <span className="text-ody-danger">*</span>
+          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-ody-ink">
+            <Star /> <Display>Motivation</Display> <span className="text-ody-danger">*</span>
           </span>
           <span className="mt-1 block text-[0.76rem] text-ody-ink/58">
             {isTeam

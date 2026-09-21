@@ -2,18 +2,20 @@ import React from "react";
 import compass from "../../../assets/images/odyssea/compass.webp";
 
 /**
- * Thin rule — compass star — thin rule. Used above every section title
- * and at the bottom of the footer, exactly as in the Figma frames.
+ * Solid rule — compass star — solid rule. `width` lets a section stretch the
+ * rules out to the exact edges of the heading underneath it.
  */
-function CompassDivider({ className = "", tone = "gold", star = "w-9 sm:w-11" }) {
-  const line =
-    tone === "gold"
-      ? "bg-gradient-to-r from-transparent via-ody-gold-deep to-ody-gold-deep"
-      : "bg-gradient-to-r from-transparent via-ody-ink/45 to-ody-ink/45";
+function CompassDivider({
+  className = "",
+  tone = "gold",
+  star = "w-9 sm:w-11",
+  width = "w-14 sm:w-40",
+}) {
+  const line = tone === "gold" ? "bg-ody-title" : "bg-ody-ink/55";
 
   return (
     <div className={`flex items-center justify-center gap-4 sm:gap-6 ${className}`}>
-      <span className={`h-px w-14 sm:w-40 ${line}`} />
+      <span className={`h-px ${width} ${line}`} />
       <img
         src={compass}
         alt=""
@@ -21,7 +23,7 @@ function CompassDivider({ className = "", tone = "gold", star = "w-9 sm:w-11" })
         loading="lazy"
         className={`${star} shrink-0 select-none`}
       />
-      <span className={`h-px w-14 sm:w-40 ${line} rotate-180`} />
+      <span className={`h-px ${width} ${line}`} />
     </div>
   );
 }

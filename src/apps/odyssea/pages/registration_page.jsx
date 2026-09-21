@@ -25,6 +25,7 @@ import { TAGLINE } from "../lib/content";
 import registrationBg from "../../../assets/images/odyssea/registration-bg.webp";
 import parchment from "../../../assets/images/odyssea/parchment.webp";
 import flourish from "../../../assets/images/odyssea/flourish.webp";
+import Display from "../components/Display";
 
 export default function OdysseaRegistrationPage() {
   const [formData, setFormData] = useState(createInitialFormData);
@@ -223,11 +224,11 @@ export default function OdysseaRegistrationPage() {
       <section className="relative z-10 mx-auto max-w-4xl px-4 pb-24 pt-2 sm:px-7">
         <div className="text-center">
           <CompassDivider star="w-9 sm:w-11" />
-          <p className="mt-4 text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-ody-gold sm:text-[0.95rem]">
-            Join the journey
+          <p className="ody-display mt-4 text-[1.1rem] tracking-[0.22em] text-ody-title sm:text-[1.35rem]">
+            <Display>Join the journey</Display>
           </p>
-          <h1 className="ody-display mt-1 text-[clamp(3.2rem,11vw,7rem)] leading-none text-ody-parchment drop-shadow-[0_6px_24px_rgba(0,19,30,0.7)]">
-            REGISTRATION
+          <h1 className="ody-display ody-weighted mt-1 text-[clamp(3.2rem,11vw,7rem)] leading-none text-ody-parchment drop-shadow-[0_6px_24px_rgba(0,19,30,0.7)]">
+            <Display>REGISTRATION</Display>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-[0.9rem] leading-6 text-white/78 sm:text-[1.05rem] sm:leading-7">
             Ready to make an impact? Fill in your details below

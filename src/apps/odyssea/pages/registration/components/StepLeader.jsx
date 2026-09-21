@@ -3,6 +3,7 @@ import { Laptop, MapPin, User, Users } from "lucide-react";
 import PersonFields from "./PersonFields";
 import StepActions from "./StepActions";
 import { MODES, TEAM_SIZES } from "../config";
+import Display from "../../../components/Display";
 
 function Pill({ active, icon: Icon, children, onClick, className = "" }) {
   return (
@@ -29,9 +30,9 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
     <div>
       <div className="grid gap-7 border-b border-ody-gold-deep/35 pb-7 md:grid-cols-2 md:gap-10">
         <div>
-          <p className="flex items-center gap-2 text-[0.82rem] font-bold uppercase tracking-[0.12em] text-ody-ink">
-            <Users className="h-4 w-4 text-ody-gold-deep" />
-            How are you sailing?
+          <p className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem]">
+            <Users className="h-5 w-5 text-ody-gold-deep" />
+            <Display>How are you sailing?</Display>
           </p>
 
           <div className="mt-3 flex gap-3">
@@ -111,9 +112,9 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
         </div>
 
         <div>
-          <p className="flex items-center gap-2 text-[0.82rem] font-bold uppercase tracking-[0.12em] text-ody-ink">
-            <MapPin className="h-4 w-4 text-ody-gold-deep" />
-            Participation mode
+          <p className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem]">
+            <MapPin className="h-5 w-5 text-ody-gold-deep" />
+            <Display>Participation mode</Display>
           </p>
           <div className="mt-3 flex gap-3">
             {MODES.map((mode) => (

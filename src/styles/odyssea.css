@@ -12,6 +12,8 @@
   --color-ody-night-deep: #00131e;   /* Aegean Night -  */
   --color-ody-night-soft: #062b41;   /* Aegean Night +  */
   --color-ody-gold: #bc9336;         /* Olympian Gold   */
+  --color-ody-title: #fdcc46;        /* title yellow    */
+  --color-ody-orange: #d77a34;       /* sub-brand orange*/
   --color-ody-gold-deep: #8d6d25;    /* Olympian Gold - */
   --color-ody-gold-soft: #d9b464;    /* Olympian Gold + */
   --color-ody-blue: #3c6daa;         /* Odyssey Blue    */
@@ -42,13 +44,36 @@
 .odyssea-app,
 .odyssea-app * {
   font-family: "WorkSans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  letter-spacing: 0;
 }
 
 .odyssea-app .ody-display,
 .odyssea-app .ody-display * {
-  font-family: "Castelforte", "Castelforte", serif;
-  letter-spacing: 0.01em;
+  font-family: "Castelforte", serif;
+  /* Castelforte keeps its alternate (round-E, round-a) set in the lowercase
+     slots — that is the cut the brand uses, so every display line is folded
+     to lowercase to reach it. Visually it still reads as capitals. */
+  text-transform: lowercase;
+}
+
+/* opts a run of characters out of the lowercase fold (the O, the hours) */
+.odyssea-app .ody-display .ody-keep-case,
+.odyssea-app .ody-keep-case {
+  text-transform: none;
+}
+
+/* a hair of stroke so the thin display face holds its own at large sizes */
+.odyssea-app .ody-weighted {
+  -webkit-text-stroke: 0.014em currentColor;
+  paint-order: stroke fill;
+}
+
+/* the clouds are busy: give their type weight and a hard edge to sit on */
+.odyssea-app .ody-cloud-ink {
+  -webkit-text-stroke: 0.03em currentColor;
+  paint-order: stroke fill;
+  text-shadow:
+    0 1px 2px rgba(1, 27, 42, 0.95),
+    0 0 10px rgba(1, 27, 42, 0.75);
 }
 
 .odyssea-app {
@@ -96,8 +121,16 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 .ody-text-glow {
   text-shadow:
-    0 0 14px rgba(217, 180, 100, 0.34),
-    0 0 38px rgba(188, 147, 54, 0.2);
+    0 0 12px rgba(253, 204, 70, 0.42),
+    0 0 34px rgba(253, 204, 70, 0.26),
+    0 0 74px rgba(188, 147, 54, 0.18);
+}
+
+.ody-text-glow-sm {
+  text-shadow:
+    0 0 5px rgba(253, 204, 70, 0.45),
+    0 0 14px rgba(253, 204, 70, 0.28),
+    0 0 28px rgba(188, 147, 54, 0.2);
 }
 
 .ody-stars {
@@ -129,12 +162,6 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   pointer-events: none;
 }
 
-/* footer arc */
-.ody-footer-arc {
-  border-top-left-radius: 50% 96px;
-  border-top-right-radius: 50% 96px;
-  border-top: 2px solid rgba(188, 147, 54, 0.9);
-}
 
 /* ---------- hero ---------- */
 .ody-sun-spin {
@@ -173,20 +200,47 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 .ody-cta {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+  border-radius: 9999px;
   transition:
     color 0.35s ease,
     box-shadow 0.35s ease,
     transform 0.35s ease;
 }
 
+/* the ring: yellow on the left, royal white on the right */
+.ody-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #fdcc46 0%,
+    #ffe08a 42%,
+    #fdfdfd 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .ody-cta::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, #bc9336, #d9b464 52%, #bc9336);
+  background: linear-gradient(95deg, #fdcc46 0%, #ffe9b0 55%, #fdfdfd 100%);
   transform: translateY(101%);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: -1;
 }
 
@@ -198,7 +252,7 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 .ody-cta:hover,
 .ody-cta:focus-visible {
   color: #011b2a;
-  box-shadow: 0 0 30px rgba(188, 147, 54, 0.42);
+  box-shadow: 0 0 34px rgba(253, 204, 70, 0.4);
   transform: translateY(-2px);
 }
 
@@ -216,7 +270,7 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   right: 0;
   bottom: -6px;
   height: 2px;
-  background: var(--color-ody-gold);
+  background: var(--color-ody-title);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -224,7 +278,7 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 .ody-navlink:hover,
 .ody-navlink[data-active="true"] {
-  color: var(--color-ody-gold);
+  color: var(--color-ody-title);
 }
 
 .ody-navlink:hover::after,
@@ -270,14 +324,53 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   transform: none;
 }
 
+/* the full-agenda toggle: a night pill on the parchment */
+.ody-agenda-toggle {
+  position: relative;
+  isolation: isolate;
+  border-radius: 9999px;
+  background: var(--color-ody-night);
+  box-shadow:
+    0 12px 28px rgba(1, 27, 42, 0.32),
+    inset 0 0 0 1px rgba(253, 204, 70, 0.55);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.ody-agenda-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(60, 109, 170, 0.35), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.ody-agenda-toggle:hover,
+.ody-agenda-toggle:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-ody-night-soft);
+  box-shadow:
+    0 16px 34px rgba(1, 27, 42, 0.45),
+    inset 0 0 0 1.5px rgba(253, 204, 70, 0.95);
+}
+
+.ody-agenda-toggle:hover::before,
+.ody-agenda-toggle:focus-visible::before {
+  opacity: 1;
+}
+
 /* ---------- FAQ ---------- */
 .ody-faq-card {
   background:
     linear-gradient(180deg, rgba(6, 43, 65, 0.97), rgba(1, 19, 30, 0.99));
-  border: 2px solid var(--color-ody-gold);
+  border: 2px solid var(--color-ody-title);
   box-shadow:
     0 26px 60px rgba(1, 27, 42, 0.45),
-    inset 0 0 0 1px rgba(188, 147, 54, 0.22);
+    inset 0 0 0 1px rgba(253, 204, 70, 0.2);
 }
 
 .ody-faq-answer {
@@ -411,6 +504,12 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 /* ---------- mobile ---------- */
 @media (max-width: 1023px) {
+  /* the compass stars are sized for the desktop frame; keep them in
+     proportion on narrow screens */
+  .ody-sparks {
+    --ody-spark-scale: 0.6;
+  }
+
   .ody-parchment {
     background-attachment: scroll;
     background-size: 100% auto;
@@ -437,10 +536,6 @@ body.odyssea-active::-webkit-scrollbar-thumb {
     );
   }
 
-  .ody-footer-arc {
-    border-top-left-radius: 50% 44px;
-    border-top-right-radius: 50% 44px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
