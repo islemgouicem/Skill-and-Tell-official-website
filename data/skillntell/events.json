@@ -11,7 +11,7 @@
             "Games"
         ],
         "image": "/images/arcade/UNKNOWN.jpg",
-        "path": "/arcade"
+        "path": "register/arcade"
     },
     {
         "id": "02",
@@ -25,7 +25,7 @@
             "Hackathon"
         ],
         "image": "/images/mobai2026.png",
-        "path": "/mobai"
+        "path": "register/mobai"
     },
     {
         "id": "07",
@@ -38,7 +38,7 @@
             "well being"
         ],
         "image": "/images/eunoia_event.jpg",
-        "path": "/eunoia"
+        "path": "register/eunoia"
     },
     {
         "id": "03",

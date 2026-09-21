@@ -1,0 +1,554 @@
+@import "tailwindcss";
+
+/* ================================================================== */
+/* ODYSSEA — by Skill&Tell                                            */
+/* Scoped design system. Everything lives under .odyssea-app so the   */
+/* global Skill&Tell theme (futura / purple) is never touched.        */
+/* ================================================================== */
+
+@theme {
+  /* ---- Odyssea brand palette (Skill&Tell) ---- */
+  --color-ody-night: #011b2a;        /* Aegean Night   */
+  --color-ody-night-deep: #00131e;   /* Aegean Night -  */
+  --color-ody-night-soft: #062b41;   /* Aegean Night +  */
+  --color-ody-gold: #bc9336;         /* Olympian Gold   */
+  --color-ody-title: #fdcc46;        /* title yellow    */
+  --color-ody-orange: #d77a34;       /* sub-brand orange*/
+  --color-ody-gold-deep: #8d6d25;    /* Olympian Gold - */
+  --color-ody-gold-soft: #d9b464;    /* Olympian Gold + */
+  --color-ody-blue: #3c6daa;         /* Odyssey Blue    */
+  --color-ody-sea: #4d90a3;          /* Seafoam         */
+  --color-ody-parchment: #f6e7ca;    /* Parchment       */
+  --color-ody-parchment-deep: #e8d5b0;
+  --color-ody-white: #fdfdfd;        /* Royal White     */
+  --color-ody-ink: #011b2a;
+  --color-ody-danger: #bc1d0c;       /* Ithacan Red     */
+}
+
+@font-face {
+  font-family: "Castelforte";
+  src: url("../assets/fonts/Castelforte.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/WorkSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ---------- font scoping (beats the global `* { font-futura }`) ---------- */
+.odyssea-app,
+.odyssea-app * {
+  font-family: "WorkSans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.odyssea-app .ody-display,
+.odyssea-app .ody-display * {
+  font-family: "Castelforte", serif;
+  /* Castelforte keeps its alternate (round-E, round-a) set in the lowercase
+     slots — that is the cut the brand uses, so every display line is folded
+     to lowercase to reach it. Visually it still reads as capitals. */
+  text-transform: lowercase;
+}
+
+/* opts a run of characters out of the lowercase fold (the O, the hours) */
+.odyssea-app .ody-display .ody-keep-case,
+.odyssea-app .ody-keep-case {
+  text-transform: none;
+}
+
+/* a hair of stroke so the thin display face holds its own at large sizes */
+.odyssea-app .ody-weighted {
+  -webkit-text-stroke: 0.014em currentColor;
+  paint-order: stroke fill;
+}
+
+/* the clouds are busy: give their type weight and a hard edge to sit on */
+.odyssea-app .ody-cloud-ink {
+  -webkit-text-stroke: 0.03em currentColor;
+  paint-order: stroke fill;
+  text-shadow:
+    0 1px 2px rgba(1, 27, 42, 0.95),
+    0 0 10px rgba(1, 27, 42, 0.75);
+}
+
+.odyssea-app {
+  background-color: var(--color-ody-night);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.odyssea-app ::selection {
+  background: var(--color-ody-gold);
+  color: var(--color-ody-white);
+}
+
+/* ---------- scrollbar ---------- */
+html.odyssea-active,
+body.odyssea-active {
+  background: #00131e !important;
+  scrollbar-color: #bc9336 #00131e;
+}
+
+html.odyssea-active::-webkit-scrollbar,
+body.odyssea-active::-webkit-scrollbar {
+  width: 12px;
+}
+
+html.odyssea-active::-webkit-scrollbar-track,
+body.odyssea-active::-webkit-scrollbar-track {
+  background: #00131e;
+  box-shadow: none;
+}
+
+html.odyssea-active::-webkit-scrollbar-thumb,
+body.odyssea-active::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d9b464 0%, #bc9336 55%, #8d6d25 100%);
+  border-radius: 10px;
+  border: 3px solid #00131e;
+  box-shadow: none;
+}
+
+/* ---------- shared bits ---------- */
+.ody-glow {
+  filter: drop-shadow(0 0 18px rgba(188, 147, 54, 0.5))
+    drop-shadow(0 0 46px rgba(188, 147, 54, 0.22));
+}
+
+.ody-text-glow {
+  text-shadow:
+    0 0 12px rgba(253, 204, 70, 0.42),
+    0 0 34px rgba(253, 204, 70, 0.26),
+    0 0 74px rgba(188, 147, 54, 0.18);
+}
+
+.ody-text-glow-sm {
+  text-shadow:
+    0 0 5px rgba(253, 204, 70, 0.45),
+    0 0 14px rgba(253, 204, 70, 0.28),
+    0 0 28px rgba(188, 147, 54, 0.2);
+}
+
+.ody-stars {
+  background-image: var(--ody-stars-img);
+  background-size: 1440px auto;
+  background-repeat: repeat;
+}
+
+.ody-parchment {
+  background-color: var(--color-ody-parchment);
+  background-image: var(--ody-parchment-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* pinned to the viewport so the paper grain keeps its natural scale
+     however tall the section grows */
+  background-attachment: fixed;
+}
+
+/* downward chevron that bites into the parchment (Figma frame 1 → 2) */
+.ody-notch {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: clamp(46px, 7vw, 104px);
+  background: var(--color-ody-night);
+  clip-path: polygon(0 0, 100% 0, 100% 3px, 50% 100%, 0 3px);
+  pointer-events: none;
+}
+
+
+/* ---------- hero ---------- */
+.ody-sun-spin {
+  animation: ody-spin 46s linear infinite;
+  transform-origin: 34.9% 45%; /* the reconstructed disc centre of hero-sun */
+  will-change: transform;
+}
+
+.ody-sun-spin-slow {
+  animation: ody-spin 34s linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+@keyframes ody-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ody-float {
+  animation: ody-float 7s ease-in-out infinite;
+}
+
+
+
+@keyframes ody-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.ody-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 9999px;
+  transition:
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* the ring: yellow on the left, royal white on the right */
+.ody-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #fdcc46 0%,
+    #ffe08a 42%,
+    #fdfdfd 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ody-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(95deg, #fdcc46 0%, #ffe9b0 55%, #fdfdfd 100%);
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.ody-cta:hover::after,
+.ody-cta:focus-visible::after {
+  transform: translateY(0);
+}
+
+.ody-cta:hover,
+.ody-cta:focus-visible {
+  color: #011b2a;
+  box-shadow: 0 0 34px rgba(253, 204, 70, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ---------- navbar ---------- */
+.ody-navlink {
+  position: relative;
+  color: rgba(253, 253, 253, 0.82);
+  transition: color 0.25s ease;
+}
+
+.ody-navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--color-ody-title);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ody-navlink:hover,
+.ody-navlink[data-active="true"] {
+  color: var(--color-ody-title);
+}
+
+.ody-navlink:hover::after,
+.ody-navlink[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* ---------- agenda ---------- */
+.ody-cloud-card {
+  filter: drop-shadow(0 14px 18px rgba(1, 27, 42, 0.3));
+}
+
+.ody-cloud-img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.ody-route-line {
+  opacity: 0;
+  transition: opacity 1.1s ease 0.25s;
+}
+
+.ody-route-line.is-visible {
+  opacity: 1;
+}
+
+.ody-route-line path {
+  stroke: rgba(188, 147, 54, 0.9);
+  stroke-width: 1.4;
+  fill: none;
+}
+
+.ody-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ody-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* the full-agenda toggle: a night pill on the parchment */
+.ody-agenda-toggle {
+  position: relative;
+  isolation: isolate;
+  border-radius: 9999px;
+  background: var(--color-ody-night);
+  box-shadow:
+    0 12px 28px rgba(1, 27, 42, 0.32),
+    inset 0 0 0 1px rgba(253, 204, 70, 0.55);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.ody-agenda-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(60, 109, 170, 0.35), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.ody-agenda-toggle:hover,
+.ody-agenda-toggle:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-ody-night-soft);
+  box-shadow:
+    0 16px 34px rgba(1, 27, 42, 0.45),
+    inset 0 0 0 1.5px rgba(253, 204, 70, 0.95);
+}
+
+.ody-agenda-toggle:hover::before,
+.ody-agenda-toggle:focus-visible::before {
+  opacity: 1;
+}
+
+/* ---------- FAQ ---------- */
+.ody-faq-card {
+  background:
+    linear-gradient(180deg, rgba(6, 43, 65, 0.97), rgba(1, 19, 30, 0.99));
+  border: 2px solid var(--color-ody-title);
+  box-shadow:
+    0 26px 60px rgba(1, 27, 42, 0.45),
+    inset 0 0 0 1px rgba(253, 204, 70, 0.2);
+}
+
+.ody-faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ody-faq-answer[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.ody-faq-answer > div {
+  overflow: hidden;
+}
+
+/* ---------- registration ---------- */
+.odyssea-registration {
+  background-image: linear-gradient(
+      rgba(1, 27, 42, 0.42),
+      rgba(1, 27, 42, 0.55)
+    ),
+    var(--ody-registration-img);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.ody-card {
+  position: relative;
+  background-color: var(--color-ody-parchment);
+  background-image: var(--ody-parchment-img);
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--color-ody-gold-deep);
+  box-shadow:
+    0 26px 70px rgba(0, 19, 30, 0.55),
+    inset 0 0 0 5px rgba(253, 253, 253, 0.4);
+  clip-path: polygon(
+    26px 0,
+    calc(100% - 26px) 0,
+    100% 26px,
+    100% calc(100% - 26px),
+    calc(100% - 26px) 100%,
+    26px 100%,
+    0 calc(100% - 26px),
+    0 26px
+  );
+  padding: clamp(1.25rem, 3.6vw, 2.75rem);
+}
+
+.ody-input {
+  margin-top: 0.35rem;
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  border: 0;
+  border-bottom: 1px solid rgba(188, 147, 54, 0.6);
+  background: transparent;
+  color: var(--color-ody-ink);
+  font-weight: 400;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ody-input::placeholder,
+.ody-textarea::placeholder {
+  color: rgba(1, 27, 42, 0.4);
+}
+
+.ody-input:focus,
+.ody-textarea:focus {
+  border-color: var(--color-ody-blue);
+  box-shadow: 0 2px 0 -1px var(--color-ody-blue);
+}
+
+.ody-input[aria-invalid="true"],
+.ody-textarea[aria-invalid="true"] {
+  border-color: var(--color-ody-danger);
+}
+
+.ody-textarea {
+  margin-top: 0.55rem;
+  display: block;
+  width: 100%;
+  min-height: 7.5rem;
+  resize: vertical;
+  border: 1px solid rgba(188, 147, 54, 0.6);
+  border-radius: 0.4rem;
+  background: rgba(253, 253, 253, 0.42);
+  padding: 0.75rem 0.9rem;
+  color: var(--color-ody-ink);
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ody-card-enter-next {
+  animation: ody-card-next 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ody-card-enter-back {
+  animation: ody-card-back 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ody-card-next {
+  from {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ody-card-back {
+  from {
+    opacity: 0;
+    transform: translateX(-56px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 1023px) {
+  /* the compass stars are sized for the desktop frame; keep them in
+     proportion on narrow screens */
+  .ody-sparks {
+    --ody-spark-scale: 0.6;
+  }
+
+  .ody-parchment {
+    background-attachment: scroll;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+  }
+
+  .odyssea-registration {
+    background-attachment: scroll;
+    background-position: 62% center;
+  }
+}
+
+@media (max-width: 767px) {
+  .ody-card {
+    clip-path: polygon(
+      16px 0,
+      calc(100% - 16px) 0,
+      100% 16px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      16px 100%,
+      0 calc(100% - 16px),
+      0 16px
+    );
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .odyssea-app *,
+  .odyssea-app *::before,
+  .odyssea-app *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ody-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

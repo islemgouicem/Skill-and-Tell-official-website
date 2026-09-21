@@ -1,0 +1,28 @@
+{
+  "route": [
+    { "id": "welcome", "time": "09:00", "title": "Welcome and team formation" },
+    { "id": "briefing", "time": "11:00", "title": "Challenge briefing" },
+    { "id": "ideation", "time": "14:00", "title": "Ideation workshop" },
+    { "id": "prototype", "time": "09:00", "title": "Prototype sprint" },
+    { "id": "mentors", "time": "14:00", "title": "Mentor sessions" }
+  ],
+  "days": [
+    {
+      "label": "DAY ONE",
+      "subtitle": "Discover and define",
+      "slots": [
+        ["09:00", "Welcome and team formation"],
+        ["11:00", "Challenge briefing"],
+        ["14:00", "Ideation workshop"]
+      ]
+    },
+    {
+      "label": "DAY TWO",
+      "subtitle": "Build and present",
+      "slots": [
+        ["09:00", "Prototype sprint"],
+        ["14:00", "Mentor sessions"]
+      ]
+    }
+  ]
+}
