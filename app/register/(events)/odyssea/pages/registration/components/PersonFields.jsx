@@ -1,14 +1,14 @@
-import React from "react";
 import { User } from "lucide-react";
-import Field from "./Field";
-import { PERSON_FIELDS, personErrorKey } from "../config";
+import React from "react";
 import Display from "../../../components/Display";
+import { PERSON_FIELDS, personErrorKey } from "../config";
+import Field from "./Field";
 
 function PersonFields({ title, scope, person, errors, onChange, autoFocus = false }) {
   return (
     <div>
-      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem]">
-        <User className="h-5 w-5 text-ody-gold-deep lg:h-6 lg:w-6" />
+      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem] lg:font-semibold">
+        <User className="h-5 w-5 text-ody-gold-deep lg:h-7 lg:w-7" />
         <Display>{title}</Display>
       </h2>
 

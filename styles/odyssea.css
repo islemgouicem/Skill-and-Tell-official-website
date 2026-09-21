@@ -448,34 +448,43 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 }
 
 .ody-card {
-  --ody-cut: 26px;
+  /* the plate IS the parchment: the texture runs all the way out to the
+     chamfered edge, and the only frame is the gold hairline set inside it */
+  --ody-cut: 50px;
   position: relative;
-  padding: 3px;
-  background: linear-gradient(150deg, #e2c076 0%, #bc9336 45%, #8d6d25 100%);
+  background-color: var(--color-ody-parchment);
+  background-image: var(--ody-parchment-img);
+  background-size: cover;
+  background-position: center;
   box-shadow:
     0 30px 80px rgba(0, 19, 30, 0.6),
-    0 2px 0 rgba(253, 253, 253, 0.12);
+    0 1px 0 rgba(253, 253, 253, 0.08);
 }
 
+/* the margin between the paper's edge and the gold rule */
 .ody-card-sheet {
-  --ody-cut: 24px;
-  padding: 9px;
-  background: var(--color-ody-parchment);
+  --ody-cut: 50px;
+  padding: 12px;
+  background: transparent;
 }
 
 .ody-card-rule {
-  --ody-cut: 19px;
-  padding: 2px;
+  /* offsetting a chamfer inward by d shortens its leg by d(2 - sqrt2) */
+  --ody-cut: 43px;
+  padding: 2.5px;
   background: linear-gradient(
     140deg,
     rgba(217, 180, 100, 0.95) 0%,
     rgba(188, 147, 54, 0.95) 50%,
-    rgba(141, 109, 37, 0.9) 100%
+    rgba(141, 109, 37, 0.92) 100%
   );
 }
 
+/* the sheet band above is transparent, so the outer margin shows the card's own
+   paper; the well repaints the same texture inside the rule. The 2px gold line
+   sits between the two paints, so the join is never visible. */
 .ody-card-well {
-  --ody-cut: 18px;
+  --ody-cut: 41px;
   background-color: var(--color-ody-parchment);
   background-image: var(--ody-parchment-img);
   background-size: cover;
@@ -880,20 +889,21 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 @media (max-width: 767px) {
   .ody-card {
-    --ody-cut: 16px;
+    --ody-cut: 20px;
   }
 
   .ody-card-sheet {
-    --ody-cut: 14px;
+    --ody-cut: 20px;
     padding: 7px;
   }
 
   .ody-card-rule {
-    --ody-cut: 10px;
+    --ody-cut: 16px;
+    padding: 2px;
   }
 
   .ody-card-well {
-    --ody-cut: 9px;
+    --ody-cut: 15px;
   }
 }
 

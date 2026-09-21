@@ -1,14 +1,14 @@
-import React from "react";
 import {
-  BookOpen,
-  Building2,
-  CalendarDays,
-  ChevronDown,
-  Mail,
-  Phone,
-  User,
+    BookOpen,
+    Building2,
+    CalendarDays,
+    ChevronDown,
+    Mail,
+    Phone,
+    User,
 } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import React from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 const ICONS = {
   user: User,
   mail: Mail,
@@ -27,8 +27,8 @@ function Field({ field, value, error, onChange, autoFocus = false }) {
 
   return (
     <label htmlFor={id} className="block">
-      <span className="flex items-center gap-2 text-[0.82rem] font-semibold text-ody-ink lg:gap-2.5 lg:text-[1rem]">
-        <Icon className="h-4 w-4 shrink-0 text-ody-gold-deep lg:h-[1.15rem] lg:w-[1.15rem]" />
+      <span className="flex items-center gap-2 text-[0.86rem] font-semibold text-[#124053] lg:gap-2.5 lg:text-[1.08rem] lg:font-bold">
+        <Icon className="h-4 w-4 shrink-0 text-ody-gold-deep lg:h-[1.3rem] lg:w-[1.3rem]" />
         {field.label}
         {field.required && <span className="text-ody-danger">*</span>}
       </span>

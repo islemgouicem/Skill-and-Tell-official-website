@@ -1,9 +1,9 @@
-import React from "react";
 import { Laptop, MapPin, User, Users } from "lucide-react";
+import React from "react";
+import Display from "../../../components/Display";
+import { MODES, TEAM_SIZES } from "../config";
 import PersonFields from "./PersonFields";
 import StepActions from "./StepActions";
-import { MODES, TEAM_SIZES } from "../config";
-import Display from "../../../components/Display";
 
 function Pill({ active, icon: Icon, children, onClick, className = "" }) {
   return (
@@ -16,8 +16,8 @@ function Pill({ active, icon: Icon, children, onClick, className = "" }) {
 
 function BlockTitle({ icon: Icon, children }) {
   return (
-    <p className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem]">
-      <Icon className="h-5 w-5 text-ody-gold-deep lg:h-6 lg:w-6" />
+    <p className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[2.2rem] lg:font-semibold">
+      <Icon className="h-5 w-5 text-ody-gold-deep lg:h-7 lg:w-7" />
       <Display>{children}</Display>
     </p>
   );
@@ -44,7 +44,7 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
           {isTeam ? (
             <>
               <label htmlFor="team-name" className="mt-5 block">
-                <span className="text-[0.82rem] font-semibold text-ody-ink/80 lg:text-[0.95rem]">
+                <span className="text-[0.86rem] font-semibold text-[#124053] lg:text-[1.08rem] lg:font-bold">
                   Team name <span className="text-ody-danger">*</span>
                 </span>
                 <input
@@ -66,7 +66,7 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
               </label>
 
               <div className="mt-5">
-                <span className="text-[0.82rem] font-semibold text-ody-ink/80 lg:text-[0.95rem]">Team size</span>
+                <span className="text-[0.86rem] font-semibold text-[#124053] lg:text-[1.08rem] lg:font-bold">Team size</span>
                 <div className="mt-2.5 flex flex-wrap gap-2.5">
                   {TEAM_SIZES.map((size) => (
                     <button
@@ -81,15 +81,15 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
                     </button>
                   ))}
                 </div>
-                <span className="mt-2.5 block text-[0.76rem] leading-5 text-ody-ink/55 lg:text-[0.88rem]">
-                  <span className="font-semibold text-ody-ink/75">{formData.teamSize} members</span>
+                <span className="mt-2.5 block text-[0.76rem] leading-5 text-ody-ink/55 lg:text-[0.95rem] lg:leading-6">
+                  <span className="font-semibold text-ody-ink/75 lg:font-bold">{formData.teamSize} members</span>
                   <br />
                   including the team leader
                 </span>
               </div>
             </>
           ) : (
-            <p className="mt-5 text-[0.8rem] leading-6 text-ody-ink/60 lg:text-[0.95rem] lg:leading-7">
+            <p className="mt-5 text-[0.8rem] leading-6 text-ody-ink/60 lg:text-[1.05rem] lg:leading-8">
               Sailing solo is welcome. We pair individual voyagers into balanced crews on the
               morning of day one, so you still build with a team.
             </p>
@@ -111,9 +111,9 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
               </Pill>
             ))}
           </div>
-          <p className="mt-3.5 text-[0.76rem] leading-5 text-ody-ink/55 lg:text-[0.88rem] lg:leading-6">
+          <p className="mt-3.5 max-w-xl text-[0.76rem] leading-5 text-ody-ink/55 lg:text-[1rem] lg:leading-7">
             {formData.mode === "onsite"
-              ? "Two days on site at World AI Week in Amsterdam, with mentors, workshops and the final defence in the room."
+              ? "Onsite teams will meet in Amsterdam for two focused days of workshops, mentor check-ins and a live final defence. The exact venue will be announced soon, with location details shared before the event."
               : "You follow the briefings, the mentoring rounds and the final defence through our live stream, wherever you are."}
           </p>
         </div>

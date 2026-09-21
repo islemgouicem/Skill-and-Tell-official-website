@@ -1,7 +1,7 @@
-import React from "react";
 import { Sparkles } from "lucide-react";
-import StepActions from "./StepActions";
+import React from "react";
 import Display from "../../../components/Display";
+import StepActions from "./StepActions";
 
 function Star() {
   return <span aria-hidden="true" className="text-ody-gold-deep">✦</span>;
@@ -12,14 +12,14 @@ function StepMotivation({ formData, errors, onChange, onBack, busy, isTeam = tru
 
   return (
     <div>
-      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem]">
-        <Sparkles className="h-5 w-5 text-ody-gold-deep lg:h-6 lg:w-6" />
+      <h2 className="ody-display flex items-center gap-2.5 text-[1.15rem] tracking-[0.1em] text-ody-ink sm:text-[1.3rem] lg:text-[1.55rem] lg:font-semibold">
+        <Sparkles className="h-5 w-5 text-ody-gold-deep lg:h-7 lg:w-7" />
         <Display>Motivation</Display>
       </h2>
 
       <div className="mt-6 grid gap-7 lg:mt-9 lg:gap-10">
         <label className="block">
-          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-ody-ink lg:text-[1.4rem]">
+          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-[#124053] lg:text-[1.55rem] lg:font-semibold">
             <Star /> <Display>How did you hear about us?</Display>
           </span>
           <textarea
@@ -32,10 +32,10 @@ function StepMotivation({ formData, errors, onChange, onBack, busy, isTeam = tru
         </label>
 
         <label className="block">
-          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-ody-ink lg:text-[1.4rem]">
+          <span className="ody-display flex items-center gap-2 text-[1.2rem] tracking-[0.02em] text-[#124053] lg:text-[1.55rem] lg:font-semibold">
             <Star /> <Display>Motivation</Display> <span className="text-ody-danger">*</span>
           </span>
-          <span className="mt-1 block text-[0.78rem] text-ody-ink/58 lg:text-[0.92rem]">
+          <span className="mt-1 block text-[0.78rem] text-ody-ink/58 lg:text-[1rem] lg:leading-6">
             {isTeam
               ? "Why does your crew want to sail the Odyssea datathon?"
               : "Why do you want to sail the Odyssea datathon?"}
