@@ -58,7 +58,7 @@ function Footer() {
         </svg>
       </div>
 
-      <div className="relative overflow-hidden bg-ody-night px-6 pb-12 pt-12 sm:px-10 sm:pt-16 lg:px-16 lg:pt-20">
+      <div className="relative overflow-hidden bg-ody-night px-6 pb-8 pt-12 sm:px-10 sm:pt-16 lg:px-16 lg:pt-20">
         <Image
           src={stars}
           alt=""
@@ -145,13 +145,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-20 w-full max-w-[1440px]">
+        <div className="relative mx-auto mt-10 w-full max-w-[1440px]">
           <div className="flex items-center gap-6">
             <span className="h-px flex-1 bg-ody-title/70" />
             <Image src={compass} alt="" aria-hidden="true" className="w-10 shrink-0 sm:w-12" />
             <span className="h-px flex-1 bg-ody-title/70" />
           </div>
-          <p className="mt-8 text-center text-[0.9rem] tracking-wide text-ody-white/50">
+          <p className="mt-4 text-center text-[0.9rem] tracking-wide text-ody-white/50">
             © {new Date().getFullYear()} Skill&amp;Tell Scientific Club — ENSIA, Algeria
           </p>
         </div>

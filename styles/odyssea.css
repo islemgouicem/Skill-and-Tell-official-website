@@ -273,10 +273,11 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   isolation: isolate;
   overflow: hidden;
   border-radius: 9999px;
-  /* Castelforte's ink sits high inside its line box, so flex centring lands
-     the label a few pixels above the middle. Half of this padding is what
-     pushes it back onto the optical centre, and it scales with the type. */
-  padding-top: 0.22em;
+  /* Castelforte's ink sits high inside its line box, but the compensation must
+     stay small: Windows metrics read noticeably differently from macOS/iPhone,
+     so using the full 0.22em offset pushes the label too low there. */
+  padding-top: 0;
+  line-height: 1;
   transition:
     color 0.35s ease,
     box-shadow 0.35s ease,

@@ -7,6 +7,7 @@ import heroBg from "@/assets/images/odyssea/hero-bg.webp";
 import heroBgMobile from "@/assets/images/odyssea/hero-bg-mobile.webp";
 import sunRelief from "@/assets/images/odyssea/sun-relief.webp";
 import wordmark from "@/assets/images/odyssea/wordmark.webp";
+import sntLogo from "@/assets/images/odyssea/sntxwsai.png";
 
 /**
  * Hero.
@@ -60,7 +61,7 @@ function HeroSection() {
         src={sunRelief}
         alt="A gilded sun rising through carved clouds"
         priority
-        className="pointer-events-none absolute -left-[26%] top-[15%] h-[33%] w-auto max-w-none select-none drop-shadow-[0_18px_40px_rgba(0,12,20,0.55)] sm:-left-[18%] sm:h-[44%] lg:-left-[7%] lg:top-[11%] lg:h-[82%]"
+        className="pointer-events-none absolute left-[-20%] top-[15%] h-[33%] w-auto max-w-none select-none drop-shadow-[0_18px_40px_rgba(0,12,20,0.55)] sm:left-[-16%] sm:h-[44%] lg:left-[-7%] lg:top-[11%] lg:h-[82%]"
       />
 
       {/* ---- wordmark + call to action ---- */}
@@ -80,31 +81,16 @@ function HeroSection() {
                 aria-hidden="true"
                 priority
                 sizes="(min-width: 1024px) 76vw, 88vw"
-                className="mx-auto block h-auto w-[88%] max-w-[560px] select-none sm:w-[78%] sm:max-w-[680px] lg:w-[76%] lg:max-w-[1180px]"
+                className="mx-auto block -mb-6 h-auto w-[88%] max-w-[560px] select-none sm:w-[78%] sm:max-w-[680px] lg:w-[76%] lg:max-w-[1180px]"
               />
             </h1>
 
-            {/* ---- the dates ----
-              a gilt rule tapering in from each side onto the display face, so
-              the line reads as an inscription under the wordmark rather than a
-              label. On phones it rides in the flow between the mark and the
-              button; from lg up it is pinned between them on the plate. */}
-            <div className="mt-7 flex items-center justify-center gap-3 sm:mt-9 sm:gap-5 lg:mt-5 lg:gap-7">
-              <span
-                aria-hidden="true"
-                className="ody-date-rule w-[14vw] max-w-[5.5rem] shrink lg:w-[10vw] lg:max-w-[11rem]"
-              />
-
-              <p className="ody-display ody-weighted ody-text-glow-sm m-0 whitespace-nowrap text-center text-[clamp(1rem,4.4vw,1.6rem)] tracking-[0.14em] text-ody-title sm:text-[clamp(1.3rem,3vw,2.1rem)] lg:text-[clamp(1.6rem,2vw,2.6rem)]">
-                <Display>8 &ndash; 9 October 2026</Display>
-                <span className="mt-[0.5em] block text-[0.5em] tracking-[0.3em] text-ody-gold-soft">
-                  <Display>Amsterdam</Display>
-                </span>
-              </p>
-
-              <span
-                aria-hidden="true"
-                className="ody-date-rule w-[14vw] max-w-[5.5rem] shrink -scale-x-100 lg:w-[10vw] lg:max-w-[11rem]"
+            <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center">
+              <Image
+                src={sntLogo}
+                alt="SkillnTell"
+                priority
+                className="h-auto w-[42%] max-w-[220px] select-none drop-shadow-[0_10px_28px_rgba(0,0,0,0.35)] sm:w-[35%] sm:max-w-[260px] lg:w-[22%] lg:max-w-[320px]"
               />
             </div>
           </div>
@@ -118,6 +104,15 @@ function HeroSection() {
               <Display>REGISTER NOW!</Display>
             </Link>
           </div>
+        </div>
+
+        <div className="mt-auto flex justify-center pb-2 pt-8 lg:hidden">
+          <Image
+            src={sntLogo}
+            alt="SkillnTell"
+            priority
+            className="h-auto w-[52%] max-w-[260px] select-none drop-shadow-[0_10px_28px_rgba(0,0,0,0.35)] sm:w-[44%] sm:max-w-[300px]"
+          />
         </div>
       </div>
     </section>

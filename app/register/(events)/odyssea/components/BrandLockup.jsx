@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Brand from "./Brand";
 import compass from "@/assets/images/odyssea/compass.webp";
-import aiWeek from "@/assets/images/odyssea/AI_week_logo.png";
+import aiWeek from "@/assets/images/odyssea/WSAI_logo.png";
 
 /**
  * The co-branded lockup, used in the footer only: the Odyssea mark stacked
