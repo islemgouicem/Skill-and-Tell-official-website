@@ -11,8 +11,8 @@ export const CONTACT = {
   phone: "+213 561 71 84 75",
   phoneHref: "tel:+213561718475",
   place: "ENSIA, Sidi Abdellah",
-  instagram: "https://www.instagram.com/skill.and.tell/",
-  linkedin: "https://www.linkedin.com/company/skill-tell/",
+  instagram: "https://www.instagram.com/skillntell.club?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==",
+  linkedin: "https://www.linkedin.com/company/skill-and-tell/posts/",
   website: "/",
 };
 

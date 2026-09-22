@@ -1,7 +1,11 @@
 [
   {
     "q": "Who can participate?",
-    "a": "Students and curious builders who want to explore practical ideas for healthier student life are welcome to join."
+    "a": "Students and curious builders who want to explore practical data and AI challenges are welcome to join."
+  },
+  {
+    "q": "Is the event free?",
+    "a": "Yes. Participation in the datathon is completely free."
   },
   {
     "q": "Can I register alone?",
