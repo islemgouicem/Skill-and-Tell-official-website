@@ -14,6 +14,11 @@ import cloud from "@/assets/images/odyssea/cloud.webp";
  * image box, which the tail throws off.
  */
 function CloudCard({ time, title, flip = false, className = "", style }) {
+  /* a range ("09:00 - 10:30") is about two and a half times the width of a bare
+     hour, and the caption well is only 66% of the cloud, so the hour is sized
+     from its own length rather than fixed — short times keep the size they had */
+  const timeSize = time.length > 7 ? "7.4cqw" : "8.4cqw";
+
   return (
     <figure
       className={`ody-cloud-card @container relative select-none ${className}`}
@@ -36,7 +41,10 @@ function CloudCard({ time, title, flip = false, className = "", style }) {
           width: "66%",
         }}
       >
-        <span className="ody-display ody-keep-case ody-cloud-ink text-[8.4cqw] leading-none text-ody-title">
+        <span
+          className="ody-display ody-keep-case ody-cloud-ink whitespace-nowrap leading-none text-ody-title"
+          style={{ fontSize: timeSize }}
+        >
           {time}
         </span>
         <span className="ody-display ody-cloud-ink mt-[2.4cqw] max-w-full text-[5.6cqw] leading-[1.05] tracking-[0.06em] text-ody-parchment">

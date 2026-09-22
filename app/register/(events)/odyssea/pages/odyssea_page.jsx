@@ -35,8 +35,16 @@ export default function OdysseaPage() {
     <main className="odyssea-app relative w-full overflow-x-hidden">
       <Navbar />
 
-      {/* ---- the night half: hero + about, under one starfield ---- */}
-      <div className="relative bg-ody-night">
+      {/* ---- the night half: hero + about, under one starfield ----
+
+           z-10 puts this half ABOVE the parchment below it in paint order. the
+           parchment section's background is attachment:fixed, so the engine
+           composites it in its own layer and can round it a device row higher
+           than the section's own box — that stray row of paper is what showed
+           as a pale hairline just above the chevron. painting the night over it
+           removes the row outright, whatever the engine rounds to, and the
+           3px lap below finishes the join from the other side. */}
+      <div className="relative z-10 bg-ody-night">
         <Image
           src={stars}
           alt=""
@@ -48,6 +56,13 @@ export default function OdysseaPage() {
           <HeroSection />
           <AboutSection />
         </div>
+
+        {/* the night lapped 3px over the parchment's top edge — the same 3px the
+            chevron already paints there, so nothing looks different */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 -bottom-[3px] h-[3px] bg-ody-night"
+        />
       </div>
 
       {/* ---- the parchment half ---- */}

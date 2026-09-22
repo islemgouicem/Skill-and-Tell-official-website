@@ -46,6 +46,18 @@
   font-family: "WorkSans", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
+/* sections land on fractional pixel boundaries, and a sub-pixel gap would let
+   the page background flash through as a white hairline — so the page itself is
+   night, and there is nothing light left to show */
+.odyssea-app {
+  background-color: var(--color-ody-night);
+}
+
+html.odyssea-active,
+body.odyssea-active {
+  background-color: var(--color-ody-night);
+}
+
 .odyssea-app .ody-display,
 .odyssea-app .ody-display * {
   font-family: "Castelforte", serif;
@@ -150,10 +162,16 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   background-attachment: fixed;
 }
 
-/* downward chevron that bites into the parchment (Figma frame 1 → 2) */
+/* downward chevron that bites into the parchment (Figma frame 1 -> 2).
+
+   it is flush with the section's top edge, not lifted above it: a negative
+   offset would be re-clipped by the section's own overflow and the two clips
+   round independently, which is what used to leak a grey row of parchment.
+   the night half above laps 3px over this edge (see odyssea_page) and covers
+   the join outright. */
 .ody-notch {
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 0;
   width: 100%;
   height: clamp(46px, 7vw, 104px);
@@ -163,7 +181,59 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 }
 
 
+/* phones: the turning sun sits ON THE FOLD.
+
+   the hero is 82svh tall, so the bottom of the first screen falls 18svh below
+   this section's top. parking the disc's centre there means the top half is
+   already showing when the page opens and one small scroll reveals the rest —
+   and because it is stated in svh rather than pixels it lands on the fold on
+   every phone, not just a 844pt one.
+
+   it is a FLOW item, not an absolute one: the heading and copy are laid out
+   after it, so they can never ride over the rays however large the disc gets.
+   the art is 506 x 494, hence 247/506 for half its height. */
+.ody-about-sun {
+  --ody-about-sun-w: min(56vw, 22rem);
+  --ody-about-sun-half: calc(var(--ody-about-sun-w) * 247 / 506);
+  width: var(--ody-about-sun-w);
+  margin-inline: auto;
+  margin-top: max(0px, calc(18svh - var(--ody-about-sun-half)));
+}
+
+@media (min-width: 640px) {
+  .ody-about-sun {
+    --ody-about-sun-w: min(44vw, 22rem);
+  }
+}
+
+/* Each footer column is headed by a compass sitting to the LEFT of the words.
+   Inline, that pushed the title clear of the list beneath it, so the list is
+   indented by exactly the compass plus its gap: the words and the items then
+   share one vertical line and only the ornament hangs outside it. Both halves
+   are derived from the same numbers, so they cannot drift apart. */
+.ody-col-head {
+  --ody-compass: 2.25rem; /* w-9 */
+  --ody-compass-gap: 0.875rem; /* gap-3.5 */
+}
+
+.ody-col-indent {
+  padding-left: calc(var(--ody-compass, 2.25rem) + var(--ody-compass-gap, 0.875rem));
+}
+
+@media (min-width: 1280px) {
+  .ody-col-head {
+    --ody-compass: 2.75rem; /* xl:w-11 */
+  }
+}
+
+/* the tapering gold rules either side of the hero's date */
+.ody-date-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-ody-gold-soft));
+}
+
 /* ---------- hero ---------- */
+
 .ody-sun-spin {
   animation: ody-spin 46s linear infinite;
   transform-origin: 34.9% 45%; /* the reconstructed disc centre of hero-sun */

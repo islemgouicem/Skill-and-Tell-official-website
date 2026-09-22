@@ -19,8 +19,8 @@ export const CONTACT = {
 export const TAGLINE = "IDEAS · TALENT · IMPACT";
 
 export const ABOUT = {
-  lead: "Odyssea by Skill & Tell is an innovative ideathon focused on well-being. It gathers curious builders, original thinkers and determined teams for two days, and asks them a single question: how do we make student life healthier to live? Across one immersive voyage, participants meet mentors, confront a real challenge, prototype under pressure and defend their vision in front of a council of academics and industry leaders.",
+  lead: "Skill & Tell’s Datathon brings together curious minds, data enthusiasts and ambitious builders for an intense challenge where data meets real-world problems. Over the course of the event, participants explore a carefully designed dataset, uncover hidden patterns, build intelligent solutions and compete against teams pushing the limits of what can be achieved. From the first insight to the final submission, every decision matters, turning raw data into models, ideas and solutions that can stand up to a serious technical challenge.",
 };
 
 export const FOOTER_BLURB =
-  "Odyssea by Skill & Tell presents an innovative ideathon focused on well-being. Join us in creating beautiful solutions for a better tomorrow.";
+  "Skill & Tell’s Datathon brings data, AI and ambitious problem-solvers together to turn complex challenges into meaningful solutions.";

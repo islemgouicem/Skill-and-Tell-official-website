@@ -1,4 +1,3 @@
-// src/lib/skillntell/get-managers.js
 import teamMembersFallback from "@/data/skillntell/managers-info.json";
 
 const BACKEND_ORIGIN = "https://skillandtell-website-cms-omuq.vercel.app";

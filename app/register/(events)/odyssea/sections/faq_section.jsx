@@ -13,7 +13,7 @@ function FaqSection({ parchmentImg }) {
   return (
     <section
       id="faq"
-      className="ody-parchment relative px-5 pb-28 pt-16 text-ody-ink sm:px-8 sm:pt-20 lg:pb-40"
+      className="ody-parchment relative -mt-px px-5 pb-28 pt-16 text-ody-ink sm:px-8 sm:pt-20 lg:pb-40"
       style={{ "--ody-parchment-img": `url(${parchmentImg})` }}
     >
       <div className="mx-auto max-w-[1360px]">

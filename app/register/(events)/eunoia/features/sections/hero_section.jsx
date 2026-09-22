@@ -43,10 +43,6 @@ export default function HeroSection() {
                         </h1>
                         {/* Register Button */}
                         <Button onClick={handleOpenPopup} 
-    // {() => {
-    //     navigate("/eunoia/register");
-    //     window.scrollTo(0, 0);
-    // }}
     className="btn-grad px-8 py-5 sm:px-10 sm:py-6 rounded-[10px] text-xl sm:text-2xl text-purple-1 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
                             Register now
                         </Button>

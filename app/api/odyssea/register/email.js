@@ -119,6 +119,41 @@ async function sendWithResend(from, to, replyTo, subject, html, text) {
   return { ok: true, id: data?.id ?? null, via: "resend" };
 }
 
+/**
+ * Works out the link that goes in the email.
+ *
+ * ODYSSEA_SITE_URL gets pasted as whichever URL is in front of whoever set it:
+ * the bare origin, the event page itself, with or without a trailing slash.
+ * The template used to append "/register/odyssea" unconditionally, so an env
+ * var already ending in it produced .../register/odyssea/register/odyssea.
+ * Parsing the value and rebuilding the path means every spelling lands on the
+ * same, correct URL.
+ */
+export function resolveSiteUrls(raw) {
+  const FALLBACK = "https://www.skillntell.com";
+  let value = String(raw ?? "").trim() || FALLBACK;
+  if (!/^https?:\/\//i.test(value)) value = `https://${value}`;
+
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch {
+    parsed = new URL(FALLBACK);
+  }
+
+  // drop a trailing /register/odyssea (however many times it was pasted) and any
+  // trailing slash, so what is left is the site root the event hangs off
+  let base = parsed.pathname.replace(/\/+$/, "");
+  let previous;
+  do {
+    previous = base;
+    base = base.replace(/\/register\/odyssea$/i, "");
+  } while (base !== previous);
+
+  const siteUrl = `${parsed.origin}${base}`;
+  return { siteUrl, eventUrl: `${siteUrl}/register/odyssea` };
+}
+
 export async function sendConfirmationEmail(details) {
   const contactEmail = process.env.ODYSSEA_CONTACT_EMAIL ?? "skill.and.tell@ensia.edu.dz";
   const smtp = smtpConfig();
@@ -135,7 +170,7 @@ export async function sendConfirmationEmail(details) {
 
   const payload = {
     ...details,
-    siteUrl: (process.env.ODYSSEA_SITE_URL ?? "https://skillandtell.com").replace(/\/$/, ""),
+    ...resolveSiteUrls(process.env.ODYSSEA_SITE_URL),
     contactEmail,
   };
 

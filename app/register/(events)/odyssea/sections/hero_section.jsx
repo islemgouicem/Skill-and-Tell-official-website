@@ -1,54 +1,115 @@
-import heroRelief from "@/assets/images/odyssea/hero-relief.webp";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Display from "../components/Display";
+
+import heroBg from "@/assets/images/odyssea/hero-bg.webp";
+import heroBgMobile from "@/assets/images/odyssea/hero-bg-mobile.webp";
+import sunRelief from "@/assets/images/odyssea/sun-relief.webp";
+import wordmark from "@/assets/images/odyssea/wordmark.webp";
 
 /**
  * Hero.
- * The sun/cloud relief is the original artwork, turned a quarter turn so it
- * stands vertically against the left edge. It is completely static — no
- * rotation, no float, no sheen.
+ * Deep-blue marble plate behind everything (a landscape cut on desktop, the
+ * portrait cut on phones, anchored to the top so its chevron stays below the
+ * fold), the gilded sun relief bleeding off the left edge, and the ODYSSEA
+ * wordmark as artwork rather than type, so the gold leaf and its glow survive
+ * exactly as drawn.
  *
- * Desktop keeps the Figma composition (title across the middle, the call to
- * action low and to the right). Phones get their own composition instead of a
- * squeezed copy of it: the relief holds the top of the screen, and the title,
- * the event line and the button sit together as one block in the lower half,
- * with a scroll cue closing the frame.
+ * Phones get their own composition: the relief holds the top corner and the
+ * wordmark and button ride together in the upper middle. The turning sun that
+ * straddles this section's foot belongs to About, so that it can hang below
+ * the join as well as above it.
  */
 function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[82svh] w-full overflow-hidden lg:min-h-screen"
+      className="relative min-h-[82svh] w-full overflow-hidden bg-ody-night lg:min-h-screen"
     >
-      {/* the relief, flush to the left edge and cropped by it */}
+      {/* ---- the marble ---- */}
       <Image
-        src={heroRelief}
-        alt="A golden classical sun rising through a bank of carved clouds"
-        fetchPriority="high"
-        className="pointer-events-none absolute -left-[20%] top-[9%] h-[33%] w-auto max-w-none select-none sm:-left-[16%] sm:top-[5%] sm:h-[46%] lg:-left-[6.5%] lg:top-[12%] lg:h-[80%]"
-      />
-
-      <Image
-        src={heroRelief}
+        src={heroBgMobile}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -right-[25%] -bottom-[8%] h-[32%] w-auto max-w-none scale-x-[-1] select-none opacity-65 sm:-right-[20%] sm:-bottom-[10%] sm:h-[40%] lg:hidden"
+        priority
+        sizes="100vw"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[128%] w-full select-none object-cover object-top lg:hidden"
+      />
+      <Image
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        priority
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 hidden h-full w-full select-none object-cover lg:block"
+      />
+      {/* a breath of darkness at the edges so the gold reads cleanly, and a
+          fade at the foot so the marble melts into the starfield below */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_45%,transparent_35%,rgba(1,18,28,0.55)_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] bg-[linear-gradient(to_bottom,rgba(1,27,42,0)_0%,rgba(1,27,42,0.35)_45%,rgba(1,27,42,0.8)_78%,var(--color-ody-night)_100%)] lg:h-[32%]"
       />
 
-      {/* title + call to action */}
-      <div className="relative z-10 flex min-h-[82svh] w-full flex-col px-5 pb-7 sm:px-8 lg:block lg:min-h-screen lg:px-0 lg:pb-0">
-        {/* the relief owns the top of the phone screen */}
-        <div aria-hidden="true" className="h-[26svh] shrink-0 sm:h-[34svh] lg:hidden" />
+      {/* ---- the gilded relief, flush to the left edge ---- */}
+      <Image
+        src={sunRelief}
+        alt="A gilded sun rising through carved clouds"
+        priority
+        className="pointer-events-none absolute -left-[26%] top-[15%] h-[33%] w-auto max-w-none select-none drop-shadow-[0_18px_40px_rgba(0,12,20,0.55)] sm:-left-[18%] sm:h-[44%] lg:-left-[7%] lg:top-[11%] lg:h-[82%]"
+      />
+
+      {/* ---- wordmark + call to action ---- */}
+      <div className="relative z-10 flex min-h-[82svh] w-full flex-col px-5 pb-8 sm:px-8 lg:block lg:min-h-screen lg:px-0 lg:pb-0">
+        <div
+          aria-hidden="true"
+          className="h-[24svh] shrink-0 sm:h-[32svh] lg:hidden"
+        />
 
         <div className="flex flex-1 flex-col justify-center lg:contents">
-          <h1 className="ody-display ody-weighted ody-text-glow pl-[0.18em] text-center text-[clamp(3.1rem,19.5vw,17.5rem)] leading-[0.86] tracking-[0.18em] text-ody-title lg:absolute lg:inset-x-0 lg:top-[48%] lg:-translate-y-1/2">
-            <Display>ODYSSEA</Display>
-          </h1>
-         
+          <div className="lg:absolute lg:inset-x-0 lg:top-[46%] lg:-translate-y-1/2">
+            <h1 className="m-0">
+              <span className="sr-only">Odyssea</span>
+              <Image
+                src={wordmark}
+                alt=""
+                aria-hidden="true"
+                priority
+                sizes="(min-width: 1024px) 76vw, 88vw"
+                className="mx-auto block h-auto w-[88%] max-w-[560px] select-none sm:w-[78%] sm:max-w-[680px] lg:w-[76%] lg:max-w-[1180px]"
+              />
+            </h1>
 
-          <div className="mt-8 flex justify-center sm:mt-10 lg:absolute lg:inset-x-0 lg:top-[79%] lg:mt-0 lg:justify-end lg:pr-[11%]">
+            {/* ---- the dates ----
+              a gilt rule tapering in from each side onto the display face, so
+              the line reads as an inscription under the wordmark rather than a
+              label. On phones it rides in the flow between the mark and the
+              button; from lg up it is pinned between them on the plate. */}
+            <div className="mt-7 flex items-center justify-center gap-3 sm:mt-9 sm:gap-5 lg:mt-5 lg:gap-7">
+              <span
+                aria-hidden="true"
+                className="ody-date-rule w-[14vw] max-w-[5.5rem] shrink lg:w-[10vw] lg:max-w-[11rem]"
+              />
+
+              <p className="ody-display ody-weighted ody-text-glow-sm m-0 whitespace-nowrap text-center text-[clamp(1rem,4.4vw,1.6rem)] tracking-[0.14em] text-ody-title sm:text-[clamp(1.3rem,3vw,2.1rem)] lg:text-[clamp(1.6rem,2vw,2.6rem)]">
+                <Display>8 &ndash; 9 October 2026</Display>
+                <span className="mt-[0.5em] block text-[0.5em] tracking-[0.3em] text-ody-gold-soft">
+                  <Display>Amsterdam</Display>
+                </span>
+              </p>
+
+              <span
+                aria-hidden="true"
+                className="ody-date-rule w-[14vw] max-w-[5.5rem] shrink -scale-x-100 lg:w-[10vw] lg:max-w-[11rem]"
+              />
+            </div>
+          </div>
+
+          <div className="mt-7 flex justify-center sm:mt-9 lg:absolute lg:inset-x-0 lg:top-[80%] lg:mt-0 lg:justify-end lg:pr-[11%]">
             <Link
               href="/register/odyssea/register"
               onClick={() => window.scrollTo(0, 0)}
@@ -57,10 +118,7 @@ function HeroSection() {
               <Display>REGISTER NOW!</Display>
             </Link>
           </div>
-
         </div>
-
-        
       </div>
     </section>
   );

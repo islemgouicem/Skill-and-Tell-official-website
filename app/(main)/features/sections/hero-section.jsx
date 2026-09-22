@@ -16,9 +16,6 @@ export default function HeroSection() {
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
     };
-    // const openingDate = new Date('2025-10-11T15:00:00');
-    // const now = new Date();
-    // const isOpen = now >= openingDate;
     const handleClosePopup = () => {
         setIsPopupOpen(false);
     };

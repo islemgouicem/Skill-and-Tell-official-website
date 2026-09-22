@@ -262,7 +262,7 @@ export default function OdysseaRegistrationPage() {
 
       <header className="relative z-20 mx-auto flex max-w-[1500px] items-start justify-between gap-4 px-5 py-6 sm:px-9 lg:px-14 lg:py-9">
         <Link href="/register/odyssea" onClick={() => window.scrollTo(0, 0)} aria-label="Back to Odyssea">
-          <Brand size="nav" glow="sm" />
+          <Brand size="nav" variant="row" />
         </Link>
         <p className="pt-2 text-right text-[0.62rem] font-semibold tracking-[0.12em] text-ody-gold sm:text-[0.82rem] lg:text-[0.95rem]">
           {TAGLINE}

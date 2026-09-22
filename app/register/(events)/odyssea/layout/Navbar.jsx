@@ -11,32 +11,57 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
 
+  /* Scroll-spy.
+
+     This used to be an IntersectionObserver keyed on intersectionRatio, which
+     silently failed on the long sections: with a rootMargin of -20%/-50% the
+     root box is only 30% of the viewport, so a section taller than that can
+     never reach a ratio of 0.25 — Agenda (1070px) and FAQ (1220px) never fired
+     at all and the underline stayed stuck on About. Ratios are the wrong tool
+     when a section can be taller than the screen.
+
+     Instead: a reading line sits just under the header, and the active section
+     is simply the last one whose top has crossed it. Height stops mattering,
+     and clicking a link lands its section's top at 0, which is above the line,
+     so the underline moves the moment the scroll settles. */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
+    const nodes = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!nodes.length) return undefined;
+
+    let frame = 0;
+
+    const measure = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 40);
+
+      const line = 100; /* clears the 80px header */
+      let current = nodes[0].id;
+      nodes.forEach((node) => {
+        if (node.getBoundingClientRect().top <= line) current = node.id;
+      });
+
+      /* the last section is short enough to sit below the line at the very
+         foot of the page, so bottoming out always selects it */
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) current = nodes[nodes.length - 1].id;
+
+      setActive(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (typeof IntersectionObserver === "undefined") return undefined;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { threshold: [0.25, 0.5], rootMargin: "-20% 0px -50% 0px" },
-    );
-
-    SECTION_IDS.forEach((id) => {
-      const node = document.getElementById(id);
-      if (node) observer.observe(node);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   const handleNavClick = useCallback((event, href) => {
@@ -61,7 +86,7 @@ function Navbar() {
             onClick={(event) => handleNavClick(event, "#home")}
             className="shrink-0"
           >
-            <Brand size="nav" glow="sm" />
+            <Brand size="nav" variant="row" />
           </a>
 
           <nav className="hidden items-center gap-9 lg:flex xl:gap-14" aria-label="Main navigation">

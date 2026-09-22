@@ -1,7 +1,7 @@
 import React from "react";
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import Brand from "../components/Brand";
+import BrandLockup from "../components/BrandLockup";
 import Sparkles from "../components/Sparkles";
 import { FOOTER_SPARKS } from "../components/sparkle_marks";
 import { CONTACT, FOOTER_BLURB, NAV_LINKS } from "../lib/content";
@@ -19,7 +19,7 @@ const SOCIALS = [
 function Heading({ children }) {
   return (
     <h3 className="ody-display flex items-center gap-3.5 text-[1.9rem] leading-none text-ody-title lg:text-[2.2rem] xl:text-[2.6rem]">
-      <Image src={compass} alt="" aria-hidden="true" className="w-9 shrink-0 xl:w-11" />
+      <Image src={compass} alt="" aria-hidden="true" className="w-9 shrink-0 select-none xl:w-11" />
       <Display>{children}</Display>
     </h3>
   );
@@ -68,9 +68,9 @@ function Footer() {
         />
         <Sparkles marks={FOOTER_SPARKS} />
 
-        <div className="relative mx-auto grid w-full max-w-[1440px] gap-14 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-3 lg:gap-x-14">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Brand size="lg" glow />
+        <div className="relative mx-auto grid w-full max-w-[1440px] gap-14 sm:grid-cols-2 sm:gap-x-12 xl:w-fit xl:grid-cols-[auto_auto_auto] xl:gap-x-28">
+          <div className="sm:col-span-2 xl:col-span-1">
+            <BrandLockup size="lg" />
             <p className="mt-8 max-w-[24rem] text-[1.1rem] leading-[1.75] text-ody-white/90 sm:text-[1.2rem]">
               {FOOTER_BLURB}
             </p>
@@ -95,9 +95,9 @@ function Footer() {
             </div>
           </div>
 
-          <div className="lg:pt-3">
+          <div className="ody-col-head xl:pt-3">
             <Heading>QUICK LINKS</Heading>
-            <nav className="mt-8 grid gap-6 text-[1.2rem] leading-[1.4] text-ody-white/85 xl:text-[1.35rem]">
+            <nav className="ody-col-indent mt-8 grid gap-6 text-[1.2rem] leading-[1.4] text-ody-white/85 xl:text-[1.35rem]">
               {NAV_LINKS.slice(0, 4).map(({ name, href }) => (
                 <a
                   key={href}
@@ -116,9 +116,9 @@ function Footer() {
             </nav>
           </div>
 
-          <div className="lg:pt-3">
+          <div className="ody-col-head xl:pt-3">
             <Heading>CONTACT US</Heading>
-            <div className="mt-8 grid gap-7 text-[1.1rem] leading-[1.5] text-ody-white/85 xl:text-[1.25rem]">
+            <div className="ody-col-indent mt-8 grid gap-7 text-[1.1rem] leading-[1.5] text-ody-white/85 xl:text-[1.25rem]">
               <a
                 href={`mailto:${CONTACT.email}`}
                 className="flex items-center gap-4 transition-colors hover:text-ody-title"
@@ -152,7 +152,7 @@ function Footer() {
             <span className="h-px flex-1 bg-ody-title/70" />
           </div>
           <p className="mt-8 text-center text-[0.9rem] tracking-wide text-ody-white/50">
-            © {new Date().getFullYear()} Skill&amp;Tell Scientific Club — ENSIA, Sidi Abdellah.
+            © {new Date().getFullYear()} Skill&amp;Tell Scientific Club — ENSIA, Algeria
           </p>
         </div>
       </div>
