@@ -18,7 +18,7 @@ function Layout(){
         color={"bg-Main-500"}
         title={"Registration Closed"}
         subtitle={"Closed for This Season"}
-        msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we'll be opening again with fresh opportunities next season."} />
+        msg={"Registration for this season hasn't open yet, but great things are ahead! Keep an eye out — we'll be opening with fresh opportunities this season."} />
     </main>
   );
 }
