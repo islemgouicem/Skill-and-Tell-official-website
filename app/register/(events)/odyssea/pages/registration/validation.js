@@ -63,6 +63,10 @@ export function validateMotivationStep(formData) {
     errors.motivation = "A little more detail, please (40 characters minimum)";
   }
 
+  if (!formData.privacyConsent) {
+    errors.privacyConsent = "Please confirm the data-sharing notice before registering";
+  }
+
   return errors;
 }
 

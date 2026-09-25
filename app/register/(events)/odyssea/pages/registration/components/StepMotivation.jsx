@@ -1,4 +1,5 @@
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 import Display from "../../../components/Display";
 import StepActions from "./StepActions";
@@ -58,6 +59,35 @@ function StepMotivation({ formData, errors, onChange, onBack, busy, isTeam = tru
             </span>
           </span>
         </label>
+      </div>
+
+      <div className="ody-consent mt-7 lg:mt-10">
+        <label className="flex cursor-pointer items-center gap-3">
+          <input
+            type="checkbox"
+            name="privacyConsent"
+            checked={formData.privacyConsent === true}
+            onChange={(event) => onChange("privacyConsent", event.target.checked)}
+            aria-invalid={Boolean(errors.privacyConsent)}
+            aria-describedby="odyssea-consent-copy odyssea-consent-error"
+            className="ody-consent-checkbox shrink-0"
+          />
+          <span id="odyssea-consent-copy" className="text-[0.78rem] leading-5 text-ody-ink/72 lg:text-[0.94rem] lg:leading-6">
+            I accept the
+            <Link
+              href="/register/odyssea/data-use"
+              target="_blank"
+              rel="noreferrer"
+              className="ml-1 font-semibold text-ody-blue underline decoration-ody-gold underline-offset-2 transition hover:text-ody-gold-deep"
+            >
+              Data Privacy terms
+            </Link>
+            . <span className="text-ody-danger">*</span>
+          </span>
+        </label>
+        <p id="odyssea-consent-error" role="alert" className="mt-2 pl-8 text-[0.72rem] font-medium text-ody-danger lg:text-[0.82rem]">
+          {errors.privacyConsent ?? ""}
+        </p>
       </div>
 
       <StepActions onBack={onBack} nextLabel="REGISTER" submit busy={busy} />

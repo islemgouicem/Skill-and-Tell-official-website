@@ -628,6 +628,56 @@ body.odyssea-active::-webkit-scrollbar-thumb {
     box-shadow 0.25s ease;
 }
 
+.ody-consent {
+  border-top: 1px solid rgba(188, 147, 54, 0.35);
+  padding-top: 0.85rem;
+}
+
+.ody-consent-checkbox {
+  appearance: none;
+  display: grid;
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-content: center;
+  border: 1px solid rgba(141, 109, 37, 0.75);
+  border-radius: 0.25rem;
+  background: rgba(253, 253, 253, 0.42);
+  color: var(--color-ody-white);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ody-consent-checkbox::before {
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  clip-path: polygon(14% 44%, 0 59%, 39% 100%, 100% 18%, 84% 5%, 38% 68%);
+  background: currentColor;
+  content: "";
+  transition: transform 0.15s ease-in-out;
+}
+
+.ody-consent-checkbox:checked {
+  border-color: var(--color-ody-blue);
+  background: var(--color-ody-blue);
+}
+
+.ody-consent-checkbox:checked::before {
+  transform: scale(1);
+}
+
+.ody-consent-checkbox:focus-visible {
+  box-shadow: 0 0 0 3px rgba(60, 109, 170, 0.28);
+}
+
+.ody-consent-checkbox[aria-invalid="true"] {
+  border-color: var(--color-ody-danger);
+}
+
 /* ---------- the deep-sea button ---------- */
 .ody-btn {
   position: relative;

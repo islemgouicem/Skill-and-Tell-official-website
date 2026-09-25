@@ -57,6 +57,7 @@ export const createInitialFormData = () => ({
   members: Array.from({ length: MAX_TEAM_SIZE - 1 }, emptyPerson),
   discovery: "",
   motivation: "",
+  privacyConsent: false,
   website: "",
 });
 

@@ -1,5 +1,5 @@
-import { createHmac, randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
+import { createHmac, randomUUID } from "node:crypto";
 import { sendConfirmationEmail, smtpConfig, verifySmtp } from "./email";
 
 /**
@@ -114,6 +114,7 @@ export async function POST(request) {
 
   if (!Number.isInteger(teamSize) || teamSize < 1 || teamSize > 6) return fail("invalid_payload");
   if (motivation.length < 40) return fail("invalid_payload");
+  if (body.privacy_consent !== true) return fail("invalid_payload");
 
   const leader = cleanPerson(body.leader);
   if (!leader) return fail("invalid_payload");
@@ -149,6 +150,7 @@ export async function POST(request) {
       members,
       discovery,
       motivation,
+      privacy_consent: true,
       ip_hash: hashIp(request),
       user_agent: text(request.headers.get("user-agent"), 400),
     },
