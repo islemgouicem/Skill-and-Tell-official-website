@@ -1,5 +1,5 @@
-import { useRegistration } from "../../../../lib/hooks/useRegistration";
-import Star from "../../../../components/ui/star";
+import { useRegistration } from "@/lib/hooks/useRegistration";
+import Star from "@/components/ui/star";
 export default function Motivations() {
     const { formData, handleInputChange, errors } = useRegistration();
     return (<div className="space-y-6 animate-fade-in-up">

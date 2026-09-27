@@ -1,5 +1,5 @@
-import Star from "../../../../components/ui/star";
-import { useRegistration } from "../../../../lib/hooks/useRegistration";
+import Star from "@/components/ui/star";
+import { useRegistration } from "@/lib/hooks/useRegistration";
 export default function PersonalInofo() {
     const { formData, handleInputChange, errors } = useRegistration();
     return (<div className="space-y-6 animate-fade-in-up">

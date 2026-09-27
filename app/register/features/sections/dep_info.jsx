@@ -1,6 +1,6 @@
-import Star from "../../../../components/ui/star";
-import { useRegistration } from "../../../../lib/hooks/useRegistration";
-import CosmicSelect from "../../../../components/ui/select";
+import Star from "@/components/ui/star";
+import { useRegistration } from "@/lib/hooks/useRegistration";
+import CosmicSelect from "@/components/ui/select";
 export default function DepartmentInfo() {
     const { formData, handleSelectChange, errors } = useRegistration();
     const departments = [

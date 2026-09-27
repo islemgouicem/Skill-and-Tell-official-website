@@ -1,7 +1,7 @@
-import wilayas from "../../../../data/skillntell/wilayas.json";
-import CosmicSelect from "../../../../components/ui/select";
-import Star from "../../../../components/ui/star";
-import { useRegistration } from "../../../../lib/hooks/useRegistration";
+import wilayas from "@/data/skillntell/wilayas.json";
+import CosmicSelect from "@/components/ui/select";
+import Star from "@/components/ui/star";
+import { useRegistration } from "@/lib/hooks/useRegistration";
 export default function AcademicInfo() {
     const { formData, handleInputChange, handleSelectChange, errors } = useRegistration();
     const yearOptions = [

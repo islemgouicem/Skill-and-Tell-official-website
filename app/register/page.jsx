@@ -1,25 +1,11 @@
-"use client";
-import PopUp from "./features/components/PopUp";
-import { useState } from "react";
+"use client"
+import { RegisterationProvider } from "@/lib/hooks/useRegistration";
+import RegistrationForm from "./features/ifregistration_active/register_if_reg_active";
 
-function Layout(){
-
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
-
+export default function Page() {
   return (
-    <main>
-
-      <PopUp isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-        color={"bg-Main-500"}
-        title={"Registration Closed"}
-        subtitle={"Not yet Open for This Season...."}
-        msg={"Registration for this season hasn't open yet. Keep an eye out, we will be opening with fresh opportunities this season."} />
-    </main>
+    <RegisterationProvider>
+      <RegistrationForm />
+    </RegisterationProvider>
   );
 }
-export default Layout

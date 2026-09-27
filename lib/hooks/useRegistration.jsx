@@ -2,21 +2,17 @@ import { createContext, useContext, useState } from "react";
 const RegisterationContext = createContext();
 export function RegisterationProvider({ children }) {
     const [formData, setFormData] = useState({
-        // Personal Information
         fullname: "",
         email: "",
         phone: "",
         discordID: "",
-        // Academic Information
         university: "",
         university_location: "",
         field: "",
         yearOfStudy: "",
-        // department info:
         dep1: "",
         dep2: "",
         dep3: "",
-        // Club-specific Information
         dep1_motiv: "",
         dep2_3_motiv: "",
     });
@@ -25,6 +21,13 @@ export function RegisterationProvider({ children }) {
     const [isRegistered, setIsRegistered] = useState(false);
     const [phase1, setPhase1] = useState(1);
     const [errors, setErrors] = useState({});
+
+    // NEW: completion screen text (phase1 === 3)
+    const [completionTitle, setCompletionTitle] = useState("Registration Complete!");
+    const [completionMsg, setCompletionMsg] = useState(
+        "Thanks for registering to be part of Skill & Tell. We're excited to have you on board, and welcome to our creative community!"
+    );
+
     const updateFormData = (field, value) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
     };
@@ -33,7 +36,6 @@ export function RegisterationProvider({ children }) {
             ...prev,
             [field]: value,
         }));
-        // clear error for this field
         if (errors[field]) {
             setErrors((prev) => {
                 const updated = { ...prev };
@@ -54,7 +56,6 @@ export function RegisterationProvider({ children }) {
     };
     const validateStep = async () => {
         let stepErrors = {};
-        // --- CASE 1: Already registered user
         if (isRegistered) {
             if (currentStep === 1) {
                 if (!formData.dep1)
@@ -78,7 +79,6 @@ export function RegisterationProvider({ children }) {
             setErrors(stepErrors);
             return Object.keys(stepErrors).length === 0;
         }
-        // --- CASE 2: New registration (4-step flow) ---
         if (currentStep === 1) {
             if (!formData.fullname.trim())
                 stepErrors.fullname = "Please enter your Full name";
@@ -121,7 +121,7 @@ export function RegisterationProvider({ children }) {
     };
     const nextStep = async () => {
         const isValid = await validateStep();
-        if (isValid) { /*uncomment*/
+        if (isValid) {
             setCurrentStep((prev) => prev + 1);
         }
     };
@@ -147,7 +147,11 @@ export function RegisterationProvider({ children }) {
             setIsRegistered,
             phase1,
             setPhase1,
-            validateStep
+            validateStep,
+            completionTitle,
+            setCompletionTitle,
+            completionMsg,
+            setCompletionMsg,
         }}>
             {children}
         </RegisterationContext.Provider>);
