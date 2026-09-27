@@ -13,8 +13,7 @@ export function RegisterationProvider({ children }) {
         dep1: "",
         dep2: "",
         dep3: "",
-        dep1_motiv: "",
-        dep2_3_motiv: "",
+        club_experience: "",
     });
     const [currentStep, setCurrentStep] = useState(1);
     const [totalSteps, setTotalSteps] = useState(1);
@@ -68,14 +67,6 @@ export function RegisterationProvider({ children }) {
                     stepErrors.similar = "Department choices must be different";
                 }
             }
-            if (currentStep === 2) {
-                if (!formData.dep1_motiv.trim()) {
-                    stepErrors.dep1_motiv = "Please write about your first choice";
-                }
-                if (!formData.dep2_3_motiv.trim()) {
-                    stepErrors.dep2_3_motiv = "Please write about your second/third choices";
-                }
-            }
             setErrors(stepErrors);
             return Object.keys(stepErrors).length === 0;
         }
@@ -106,14 +97,6 @@ export function RegisterationProvider({ children }) {
                 formData.dep1 === formData.dep3 ||
                 formData.dep2 === formData.dep3) {
                 stepErrors.similar = "Department choices must be different";
-            }
-        }
-        if (currentStep === 4) {
-            if (!formData.dep1_motiv.trim()) {
-                stepErrors.dep1_motiv = "Please write about your first choice";
-            }
-            if (!formData.dep2_3_motiv.trim()) {
-                stepErrors.dep2_3_motiv = "Please write about your second/third choices";
             }
         }
         setErrors(stepErrors);

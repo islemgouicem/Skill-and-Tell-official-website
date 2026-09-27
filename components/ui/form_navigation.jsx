@@ -1,10 +1,10 @@
 "use client";
 
 import { ArrowLeft, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
-import { Button } from "./button";
-import { useRegistration } from "../../lib/hooks/useRegistration";
 import { useState } from "react";
+import { useRegistration } from "../../lib/hooks/useRegistration";
 import { supabase } from "../../lib/services/supabase";
+import { Button } from "./button";
 
 const FormNavigation = () => {
     const {
@@ -45,8 +45,7 @@ const FormNavigation = () => {
                         dep1: formData.dep1 || null,
                         dep2: formData.dep2 || null,
                         dep3: formData.dep3 || null,
-                        dep1_motiv: formData.dep1_motiv?.trim() || null,
-                        dep2_3_motiv: formData.dep2_3_motiv?.trim() || null,
+                        club_experience: formData.club_experience.trim() || null,
                     },
                 ]);
 
