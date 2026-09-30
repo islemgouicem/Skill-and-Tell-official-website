@@ -142,6 +142,6 @@ The frontend fetches manager data using Next.js's built-in fetch caching, curren
 the project very often it can cause too many pb when doing that I didn't convert to it, but hopefully we can do that later 
 -now for the different version of events like arcade 26/25... I am planing to use routes like /arcade/26 or /arcade25 this if we wanna each version of the event in a different page or we can include them all in one page and then use the route /arcade
 
-<force redeploy^3>
+<force redeploy^4>
 
 ```
