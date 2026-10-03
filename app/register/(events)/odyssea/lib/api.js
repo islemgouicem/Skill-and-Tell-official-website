@@ -38,7 +38,7 @@ function buildPayload(formData) {
     registration_kind: individual ? "individual" : "team",
     team_name: individual ? trim(formData.leader.fullName) : trim(formData.teamName),
     team_size: teamSize,
-    participation_mode: formData.mode === "online" ? "online" : "onsite",
+    participation_mode: "online",
     leader: person(formData.leader),
     members: formData.members.slice(0, memberCount).map(person),
     discovery: trim(formData.discovery).slice(0, 500),

@@ -60,11 +60,7 @@ export default function Footer() {
                   F&Q
                 </a>
               </li>
-              <li>
-                <a href="https://miniarcadepuzzle.netlify.app" className="text-footer-text/80 hover:text-footer-link transition-colors" target="_blank" rel="noopener noreferrer">
-                  You Found me !
-                </a>
-              </li>
+
             </ul>
           </div>
         </div>

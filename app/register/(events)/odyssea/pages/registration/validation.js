@@ -49,7 +49,7 @@ export function validateLeaderStep(formData) {
     else if (teamName.length < 2) errors.teamName = "Team name is too short";
   }
 
-  if (!formData.mode) errors.mode = "Pick a participation mode";
+  
 
   return errors;
 }

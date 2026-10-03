@@ -2,10 +2,8 @@ export const TEAM_SIZES = [2, 3, 4, 5, 6];
 export const MIN_TEAM_SIZE = 2;
 export const MAX_TEAM_SIZE = 6;
 
-export const MODES = [
-  { value: "onsite", label: "Onsite" },
-  { value: "online", label: "Online" },
-];
+
+
 
 export const YEARS = [
   "1st year",
@@ -52,7 +50,7 @@ export const createInitialFormData = () => ({
   kind: "team",
   teamName: "",
   teamSize: 6,
-  mode: "onsite",
+  mode: "online",
   leader: emptyPerson(),
   members: Array.from({ length: MAX_TEAM_SIZE - 1 }, emptyPerson),
   discovery: "",

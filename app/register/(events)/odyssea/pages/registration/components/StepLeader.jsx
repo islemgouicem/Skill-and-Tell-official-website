@@ -1,7 +1,7 @@
 import { Laptop, MapPin, User, Users } from "lucide-react";
 import React from "react";
 import Display from "../../../components/Display";
-import { MODES, TEAM_SIZES } from "../config";
+import {  TEAM_SIZES } from "../config";
 import PersonFields from "./PersonFields";
 import StepActions from "./StepActions";
 
@@ -96,27 +96,7 @@ function StepLeader({ formData, errors, onChange, onPersonChange, onNext }) {
           )}
         </div>
 
-        <div className="md:border-l md:border-ody-gold-deep/30 md:pl-10 lg:pl-14">
-          <BlockTitle icon={MapPin}>Participation mode</BlockTitle>
-          <div className="mt-3.5 flex gap-3 lg:mt-5">
-            {MODES.map((mode) => (
-              <Pill
-                key={mode.value}
-                active={formData.mode === mode.value}
-                icon={mode.value === "onsite" ? MapPin : Laptop}
-                onClick={() => onChange("mode", mode.value)}
-                className="flex-1"
-              >
-                {mode.label}
-              </Pill>
-            ))}
-          </div>
-          <p className="mt-3.5 max-w-xl text-[0.76rem] leading-5 text-ody-ink/55 lg:text-[1rem] lg:leading-7">
-            {formData.mode === "onsite"
-              ? "Onsite teams will meet in Amsterdam for two focused days of workshops, mentor check-ins and a live final defence. The exact venue will be announced soon, with location details shared before the event."
-              : "You follow the briefings, the mentoring rounds and the final defence through our live stream, wherever you are."}
-          </p>
-        </div>
+        
       </div>
 
       <div className="pt-7 lg:pt-10">

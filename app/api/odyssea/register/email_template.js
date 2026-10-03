@@ -67,7 +67,7 @@ export function buildHtml({
   teamName,
   reference,
   isTeam,
-  mode,
+  mode="online",
   crew,
   eventUrl,
   siteUrl,

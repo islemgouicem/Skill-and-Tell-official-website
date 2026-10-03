@@ -107,7 +107,7 @@ export async function POST(request) {
   }
 
   const kind = body.registration_kind === "individual" ? "individual" : "team";
-  const mode = body.participation_mode === "online" ? "online" : "onsite";
+  const mode = "online";
   const teamSize = kind === "individual" ? 1 : Number(body.team_size);
   const motivation = text(body.motivation, 1500);
   const discovery = text(body.discovery, 500);
