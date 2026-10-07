@@ -1,13 +1,13 @@
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import React, { useState } from "react";
 import Display from "../components/Display";
+import RegistrationClosedDialog from "../components/RegistrationClosedDialog";
 
-import heroBg from "@/assets/images/odyssea/hero-bg.webp";
 import heroBgMobile from "@/assets/images/odyssea/hero-bg-mobile.webp";
+import heroBg from "@/assets/images/odyssea/hero-bg.webp";
+import sntLogo from "@/assets/images/odyssea/sntxwsai.png";
 import sunRelief from "@/assets/images/odyssea/sun-relief.webp";
 import wordmark from "@/assets/images/odyssea/wordmark.webp";
-import sntLogo from "@/assets/images/odyssea/sntxwsai.png";
 
 /**
  * Hero.
@@ -23,11 +23,14 @@ import sntLogo from "@/assets/images/odyssea/sntxwsai.png";
  * the join as well as above it.
  */
 function HeroSection() {
+  const [isRegistrationClosedOpen, setRegistrationClosedOpen] = useState(false);
+
   return (
-    <section
-      id="home"
-      className="relative min-h-[82svh] w-full overflow-hidden bg-ody-night lg:min-h-screen"
-    >
+    <>
+      <section
+        id="home"
+        className="relative min-h-[82svh] w-full overflow-hidden bg-ody-night lg:min-h-screen"
+      >
       {/* ---- the marble ---- */}
       <Image
         src={heroBgMobile}
@@ -96,13 +99,13 @@ function HeroSection() {
           </div>
 
           <div className="mt-7 flex justify-center sm:mt-9 lg:absolute lg:inset-x-0 lg:top-[80%] lg:mt-0 lg:justify-end lg:pr-[11%]">
-            <Link
-              href="/register/odyssea/register"
-              onClick={() => window.scrollTo(0, 0)}
+            <button
+              type="button"
+              onClick={() => setRegistrationClosedOpen(true)}
               className="ody-cta ody-display relative z-10 inline-flex min-h-[3.6rem] items-center justify-center px-9 text-[1.55rem] tracking-wide text-ody-title sm:min-h-[4.3rem] sm:px-12 sm:text-[2.05rem]"
             >
               <Display>REGISTER NOW!</Display>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -115,7 +118,12 @@ function HeroSection() {
           />
         </div>
       </div>
-    </section>
+      </section>
+      <RegistrationClosedDialog
+        isOpen={isRegistrationClosedOpen}
+        onClose={() => setRegistrationClosedOpen(false)}
+      />
+    </>
   );
 }
 

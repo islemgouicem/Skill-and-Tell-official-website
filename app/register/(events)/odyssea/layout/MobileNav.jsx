@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import stars from "@/assets/images/odyssea/stars.png";
 import { X } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import Brand from "../components/Brand";
 import CompassDivider from "../components/CompassDivider";
-import Image from "next/image";
-import stars from "@/assets/images/odyssea/stars.png";
+import RegistrationClosedDialog from "../components/RegistrationClosedDialog";
 
 function MobileNav({ isOpen, onClose, links, onNavigate }) {
+  const [isRegistrationClosedOpen, setRegistrationClosedOpen] = useState(false);
+
   useEffect(() => {
     if (!isOpen) return undefined;
     const previous = document.body.style.overflow;
@@ -24,7 +26,7 @@ function MobileNav({ isOpen, onClose, links, onNavigate }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[60] lg:hidden transition-opacity duration-300 ${
+      className={`fixed inset-0 z-60 lg:hidden transition-opacity duration-300 ${
         isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
       aria-hidden={!isOpen}
@@ -78,16 +80,23 @@ function MobileNav({ isOpen, onClose, links, onNavigate }) {
         </div>
 
         <div className="relative mt-auto px-6 pb-9">
-          <Link
-            href="/register/odyssea/register"
-            onClick={onClose}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              setRegistrationClosedOpen(true);
+            }}
             className="ody-display ody-cta relative z-10 flex min-h-13 items-center justify-center rounded-full border border-ody-gold text-xl text-ody-gold"
           >
             REGISTER NOW!
-          </Link>
+          </button>
           <CompassDivider className="mt-7" star="w-7" />
         </div>
       </nav>
+      <RegistrationClosedDialog
+        isOpen={isRegistrationClosedOpen}
+        onClose={() => setRegistrationClosedOpen(false)}
+      />
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function OdysseaDataUsePage() {
   return (
     <main className="odyssea-app min-h-screen w-full overflow-x-hidden px-5 py-6 sm:px-9 sm:py-9 lg:px-14 lg:py-12">
       <header className="mx-auto flex max-w-5xl items-start justify-between gap-4">
-        <Link href="/register/odyssea/register" aria-label="Back to Odyssea registration">
+        <Link href="/register/odyssea" aria-label="Back to Odyssea">
           <Brand size="nav" variant="row" />
         </Link>
         <p className="pt-2 text-right text-[0.62rem] font-semibold tracking-[0.12em] text-ody-gold sm:text-[0.82rem]">
@@ -54,11 +54,11 @@ export default function OdysseaDataUsePage() {
 
       <section className="mx-auto max-w-4xl pb-16 pt-16 sm:pt-24">
         <Link
-          href="/register/odyssea/register"
+          href="/register/odyssea"
           className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-white/65 transition hover:text-ody-gold"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to registration
+          Back to Odyssea
         </Link>
 
         <div className="mt-10 border-y border-ody-gold/35 py-9 sm:py-12">

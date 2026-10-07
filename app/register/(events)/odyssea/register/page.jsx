@@ -1,5 +1,5 @@
-import OdysseaRegistrationPage from "../pages/registration_page";
+import { notFound } from "next/navigation";
 
 export default function Page() {
-  return <OdysseaRegistrationPage />;
+  notFound();
 }
