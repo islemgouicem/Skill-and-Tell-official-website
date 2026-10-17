@@ -1,6 +1,6 @@
 [
     {
-        "id": "01",
+        "id": "06",
         "title": "Arcade",
         "description": "Arcade is the inaugural event of Skill&Tell, featuring a full day packed with fun and challenging activities! Teams compete in various challenges, including math puzzles, programming tasks, the famous scavenger hunt, and other exciting games.",
         "date": "2025-03-10",
@@ -27,7 +27,7 @@
         "image": "/images/mobai2026.png",
         "path": "register/mobai"
     },{
-    "id": "06",
+    "id": "01",
     "title": "Odyssea",
     "description": "ODYSSEA is a free 48-hour online datathon organized by Skill and Tell on October 8 and 9, as part of the World AI Week program.",
     "date": "2026-10-08",
