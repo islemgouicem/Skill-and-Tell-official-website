@@ -26,8 +26,19 @@
         ],
         "image": "/images/mobai2026.png",
         "path": "register/mobai"
-    },
-    {
+    },{
+    "id": "06",
+    "title": "Odyssea",
+    "description": "ODYSSEA is a free 48-hour online datathon organized by Skill and Tell on October 8 and 9, as part of the World AI Week program.",
+    "date": "2026-10-08",
+    "tags": [
+        "Datathon",
+        "Models",
+        "AI"
+    ],
+    "image": "/images/Odyssea.png"
+}
+    ,{
         "id": "07",
         "title": "EUNOIA",
         "description": "EUNOIA is a full-day innovation event centered on student well-being, featuring an ideathon, expert talks, interactive activities, a cultural village, and social/movement-based experiences. Its goal is to help students tackle real mental and physical health challenges, create meaningful solutions, and strengthen a supportive, energetic campus community.",
