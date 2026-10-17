@@ -36,7 +36,8 @@
         "Models",
         "AI"
     ],
-    "image": "/images/Odyssea.png"
+    "image": "/images/Odyssea.png",
+    "path": "register/odyssea"
 }
     ,{
         "id": "07",
