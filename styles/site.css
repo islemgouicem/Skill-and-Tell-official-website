@@ -1,0 +1,277 @@
+/* =====================================================================
+   Skill&Tell — main site layer (/, /team, /events, /missions, /partner)
+   Builds on the brand tokens declared in app/globals.css.
+   ===================================================================== */
+
+/* ---------- Lenis ---------- */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Shell ---------- */
+.snt {
+  background: #0a001a;
+  color: #e0e0e0;
+  overflow-x: clip;
+}
+.snt section { overflow: visible; overflow-x: clip; }
+.snt ::selection { background: #ff6d00; color: #fff; }
+
+html[data-intro="seen"] .snt-intro { display: none; }
+
+/* Avoid a flash of un-animated content before GSAP takes over */
+html.js .snt [data-reveal],
+html.js .snt [data-split],
+html.js .snt [data-reveal-stagger] > * { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .snt [data-reveal],
+  html.js .snt [data-split],
+  html.js .snt [data-reveal-stagger] > * { opacity: 1 !important; }
+}
+.split-line { padding-bottom: 0.06em; }
+/* globals.css sets a font on every element; let split letters and nested
+   spans inherit the heading's face instead. */
+.snt .snt-display *,
+.snt .snt-h2 *,
+.snt .snt-h3 *,
+.snt [data-split] *,
+.snt [data-scrub-text] * { font-family: inherit; }
+
+/* ---------- Type ---------- */
+.snt-display {
+  font-family: futura, sans-serif;
+  font-size: clamp(2.9rem, 8.4vw, 8.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+.snt-h2 {
+  font-family: futura, sans-serif;
+  font-size: clamp(2.2rem, 5.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.snt-h3 {
+  font-family: futura_bold, sans-serif;
+  font-size: clamp(1.4rem, 2.3vw, 2rem);
+  line-height: 1.1;
+}
+.snt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: futura_md_bt, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d7aeff;
+}
+.snt-eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+.snt-eyebrow--dark { color: #7b2cbf; }
+.snt-lead {
+  font-family: futura_lt_bt, sans-serif;
+  font-size: clamp(1.02rem, 1.25vw, 1.25rem);
+  line-height: 1.65;
+}
+.gradient-text-warm {
+  background: linear-gradient(90deg, #ffc78a, #ff6d00 45%, #9d4edd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(215, 174, 255, 0.55);
+}
+
+/* ---------- Buttons ---------- */
+.snt-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 14px;
+  font-family: futura_md_bt, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: color 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+}
+.snt-btn:focus-visible { outline: 2px solid #ffc78a; outline-offset: 3px; }
+.snt-btn--primary {
+  color: #fff;
+  border: 1px solid rgba(215, 174, 255, 0.5);
+  background: linear-gradient(90deg, rgba(123, 44, 191, 0) -12%, #ff6d00 100%);
+  box-shadow: 0 10px 30px -10px rgba(255, 109, 0, 0.7);
+}
+.snt-btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #ff6d00, #ff9e00 60%, #9d4edd);
+  transform: translateX(-101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.snt-btn--primary:hover::before { transform: translateX(0); }
+.snt-btn--primary:hover { box-shadow: 0 16px 40px -10px rgba(255, 109, 0, 0.9); }
+.snt-btn--ghost {
+  color: #f7f0ff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+.snt-btn--ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #f7f0ff;
+  transform: translateY(101%);
+  border-radius: inherit;
+  transition: transform 0.55s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.snt-btn--ghost:hover { color: #1a0132; border-color: #f7f0ff; }
+.snt-btn--ghost:hover::before { transform: translateY(0); }
+.snt-btn--dark {
+  color: #fff;
+  background: #1a0132;
+  border: 1px solid #1a0132;
+}
+.snt-btn--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #7b2cbf, #ff6d00);
+  transform: translateX(-101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.snt-btn--dark:hover::before { transform: translateX(0); }
+.snt-btn .snt-btn__arrow { transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1); }
+.snt-btn:hover .snt-btn__arrow { transform: translateX(4px) rotate(-45deg); }
+
+.snt-link {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.45s cubic-bezier(0.7, 0, 0.2, 1), color 0.3s;
+}
+.snt-link:hover { background-size: 100% 1px; }
+
+/* ---------- Surfaces ---------- */
+.snt-grid-bg {
+  background-image:
+    linear-gradient(rgba(215, 174, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 174, 255, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+.snt-grid-bg--light {
+  background-image:
+    linear-gradient(rgba(123, 44, 191, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 44, 191, 0.07) 1px, transparent 1px);
+}
+.snt-card {
+  position: relative;
+  border-radius: 22px;
+  background: linear-gradient(208deg, rgba(26, 1, 50, 0.5) 2%, rgba(215, 174, 255, 0.1) 97%);
+  border: 1px solid rgba(215, 174, 255, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+/* gradient border that follows the pointer (set --mx/--my from JS) */
+.snt-glow {
+  --mx: 50%;
+  --my: 50%;
+}
+.snt-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 158, 0, 0.9), rgba(157, 78, 221, 0.6) 35%, transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.snt-glow:hover::after { opacity: 1; }
+
+.snt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-family: futura_md_bt, sans-serif;
+  color: #f7f0ff;
+  background: rgba(157, 78, 221, 0.18);
+  border: 1px solid rgba(215, 174, 255, 0.22);
+}
+.snt-chip--light {
+  color: #3c096c;
+  background: rgba(123, 44, 191, 0.08);
+  border-color: rgba(123, 44, 191, 0.18);
+}
+
+.snt-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Light lavender sections (original "Who are we?" / statistics palette) */
+.snt-light {
+  background: #f7f0ff;
+  color: #222631;
+}
+
+/* Scroll hint */
+@keyframes snt-scroll-dot {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(18px); opacity: 0; }
+}
+.snt-scroll-dot { animation: snt-scroll-dot 1.8s ease-in-out infinite; }
+
+@keyframes snt-spin { to { transform: rotate(360deg); } }
+.snt-spin-slow { animation: snt-spin 40s linear infinite; }
+.snt-spin-slower { animation: snt-spin 70s linear infinite reverse; }
+
+@keyframes snt-pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.snt-pulse-ring { animation: snt-pulse-ring 2.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .snt-spin-slow, .snt-spin-slower, .snt-pulse-ring, .snt-scroll-dot { animation: none; }
+}
+
+html.js .snt [data-hero-fade],
+html.js .snt [data-ph-fade],
+html.js .snt [data-g-fade],
+html.js .snt [data-depth] { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .snt [data-hero-fade],
+  html.js .snt [data-ph-fade],
+  html.js .snt [data-g-fade],
+  html.js .snt [data-depth] { opacity: 1 !important; }
+}

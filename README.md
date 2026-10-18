@@ -145,3 +145,35 @@ the project very often it can cause too many pb when doing that I didn't convert
 <force redeploy>
 
 ```
+---
+
+# Main website redesign (`new_design` branch)
+
+The public site is now a multi-page experience inside `app/(main)`:
+
+| Route | Content |
+| --- | --- |
+| `/` | Hero, values marquee, Who are we?, statistics, Missions, events (horizontal scroll), heads, S&T App, department test, F&Q, partner call-to-action |
+| `/events` | Latest event, filterable archive by year, ARCADE editions, photo gallery with lightbox |
+| `/missions` | The Skill&Tell Missions format: phases, XP ranks, tracks, leaderboards |
+| `/team` | Executive board, departments (filterable), Hall of Mandates archive |
+| `/partner` | Why partner, audiences, formats, logos, process, contact form (opens a pre-filled email) |
+
+The `/register/...` pages are untouched.
+
+### Motion stack
+
+- **GSAP** (+ ScrollTrigger, SplitText, Flip, MotionPath) — registered once in `lib/motion/gsap.js`.
+- **Lenis** smooth scrolling — `components/site/SmoothScroll.jsx`, synced with ScrollTrigger.
+- Page transitions — `components/site/TransitionShell.jsx` + `TLink` (use `TLink` instead of `Link` for internal links to get the curtain).
+- Declarative scroll reveals — `components/motion/useReveals.js` (`data-reveal`, `data-split`, `data-reveal-stagger`, `data-parallax`).
+- Everything respects `prefers-reduced-motion`.
+
+### Where to edit content
+
+- `data/skillntell/events.json` — events (add `category`, `editions`, or `placeholder: true` for an event whose details are not ready, like ARWAh).
+- `data/skillntell/archive.json` — previous mandates for the Hall of Mandates.
+- `data/skillntell/missions.js` — Missions phases, ranks, tracks and facts.
+- `data/skillntell/partner.js` — partner page formats, process and F&Q.
+- `data/skillntell/site.js` — navigation, contacts, socials, headline stats, partner logos.
+- Managers still come from the Payload CMS (fallback: `data/skillntell/managers-info.json`); departments are derived from roles in `lib/utils/team.js`.

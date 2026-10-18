@@ -75,9 +75,6 @@ function roleRank(member) {
 
 // Order: vice president, PRESIDENT, secretary general, then for each department
 // its lead(s) first and its managers after.
-// The carousel jumps to index floor(n / 2 + 1) % n after its intro animation, so the list is rotated
-// to make sure the president is the card that ends up in the middle (vice president on his left,
-// secretary general on his right).
 function orderManagers(list) {
   if (!Array.isArray(list) || list.length === 0) return list;
 
@@ -101,12 +98,7 @@ function orderManagers(list) {
     ordered.push(...[...members].sort((a, b) => roleRank(a) - roleRank(b)));
   });
 
-  if (!president || ordered.length < 2) return ordered;
-
-  const total = ordered.length;
-  const presidentIndex = ordered.indexOf(president);
-  const landingIndex = Math.floor(total / 2 + 1) % total;
-  return ordered.map((_, i) => ordered[(((i - landingIndex + presidentIndex) % total) + total) % total]);
+  return ordered;
 }
 
 // Payload paginates its REST API (10 docs per page by default), so walk every page
@@ -156,7 +148,7 @@ export async function getManagers() {
       image: resolveImageUrl(doc.picture),
       department:doc.department?? ""
     })));
-  } catch (err) {
+  } catch {
     return orderManagers(teamMembersFallback);
   }
 }

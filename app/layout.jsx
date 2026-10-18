@@ -12,8 +12,21 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children, }) {
-    return (<html lang="en">
+export const viewport = {
+  themeColor: "#0a001a",
+};
+
+// Runs before first paint: enables JS-only initial animation states and
+// skips the intro loader when it has already played this session.
+const bootScript = `(function(){try{var d=document.documentElement;d.classList.add('js');if(sessionStorage.getItem('loaderShown')==='true'){d.setAttribute('data-intro','seen');}}catch(e){}})();`;
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
-    </html>);
+    </html>
+  );
 }
