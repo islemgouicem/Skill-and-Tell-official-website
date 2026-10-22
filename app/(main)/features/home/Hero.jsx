@@ -6,9 +6,9 @@ import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } fro
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
 import Shield from "@/components/ui/shield_badge";
-import Planet from "@/components/motion/Planet";
+import globe from "@/assets/images/skillntell/globe2.png";
 
-const AVATARS = ["/images/managers/Khefif_Abderahim.JPG", "/images/managers/salamo.jpg", "/images/managers/badri.jpg"];
+const AVATARS = ["/images/managers/web/Khefif_Abderahim.webp", "/images/managers/web/salamo.webp", "/images/managers/web/badri.webp"];
 
 export default function Hero() {
   const root = useRef(null);
@@ -32,7 +32,7 @@ export default function Hero() {
       const tl = gsap.timeline({ delay: delay + 0.15 });
       tl.from(q("[data-planet]"), { yPercent: 60, opacity: 0, duration: 1.8, ease: "expo.out" }, 0)
         .from(split.chars, { yPercent: 120, rotate: 8, duration: 1.1, stagger: 0.022, ease: "power4.out" }, 0.1)
-        .from(q("[data-hero-brand]"), { yPercent: 40, opacity: 0, scale: 0.92, filter: "blur(12px)", duration: 1.3, ease: "power3.out" }, 0.55)
+        .from(q("[data-hero-brand]"), { yPercent: 40, opacity: 0, scale: 0.92, duration: 1.3, ease: "power3.out", clearProps: "transform,opacity" }, 0.55)
         .fromTo(q("[data-hero-fade]"), { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1 }, 0.7)
         .fromTo(q("[data-depth]"), { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 1, stagger: 0.12, ease: "back.out(1.7)" }, 1.0);
 
@@ -90,7 +90,22 @@ export default function Hero() {
           <span data-hero-chars>Start your journey</span>
           <br />
           <span data-hero-chars>with</span>{" "}
-          <span data-hero-brand className="snt-brand-text inline-block">Skill&amp;Tell</span>
+          <span data-hero-brand className="inline-block">
+            <span
+              className="text-space-accent"
+              style={{
+                color: "#422352",
+                background: "linear-gradient(90deg,#FF6D00,#8A38F5)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextStroke: "0.06em transparent",
+                letterSpacing: "0.05em",
+                fontWeight: 800,
+              }}
+            >
+              Skill&amp;Tell
+            </span>
+          </span>
         </h1>
         <p data-hero-fade className="snt-lead mt-7 max-w-2xl text-white/70">
           Start your journey with our creative, inspiring and welcoming club, where skills are sharpened, ideas come to life,
@@ -149,10 +164,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Planet horizon — same footprint as the original site's planet */}
+      {/* Globe rising from the bottom: only its upper cap shows, turning slowly. */}
       <div data-planet-scroll className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] flex justify-center">
-        <div data-planet className="w-[115%] max-w-none sm:w-full lg:w-[calc(28vh*3.487)]">
-          <Planet className="w-full" />
+        <div className="w-[108vw] max-w-none translate-y-[56%] sm:w-[80vw] sm:translate-y-[64%] md:w-[66vw] lg:w-[min(50vw,86vh)]">
+          <div data-planet className="relative">
+            <div className="absolute inset-[6%] rounded-full bg-Main-400/40 blur-[70px]" aria-hidden="true" />
+            <Image src={globe} alt="" priority sizes="(min-width:1024px) 50vw, 108vw" className="snt-globe relative h-auto w-full" />
+          </div>
         </div>
       </div>
     </section>

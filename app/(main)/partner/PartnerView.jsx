@@ -37,7 +37,6 @@ function Formats() {
 
   return (
     <section ref={root} className="snt-light relative py-24 md:py-32">
-      <div className="snt-grid-bg snt-grid-bg--light absolute inset-0" />
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
         <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">03 — Formats</span>
         <h2 data-split="chars" className="snt-h2 mt-5 max-w-3xl text-neutral-600">Ways to work together</h2>
@@ -192,7 +191,7 @@ function ContactForm() {
           <div className="snt-card p-6 md:p-10">
             {sent ? (
               <div data-sent className="flex min-h-[420px] flex-col items-center justify-center text-center">
-                <span className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-accent-500 to-Main-400 text-white shadow-[0_0_40px_rgba(255,109,0,0.5)]"><Check className="h-9 w-9" /></span>
+                <span className="snt-icon h-20 w-20 rounded-full !border-accent-400/50 shadow-[0_0_40px_-10px_rgba(255,109,0,0.6)]"><Check className="h-9 w-9" /></span>
                 <h3 className="mt-6 font-futura_bold text-3xl text-white">Your email is ready</h3>
                 <p className="mt-3 max-w-sm text-white/65">Your mail app should have opened with everything filled in — just hit send. If it didn&apos;t, write to us at <a className="text-accent-300 underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
                 <button type="button" onClick={() => setSent(false)} className="mt-8 text-sm text-white/60 underline-offset-4 hover:underline">Edit my message</button>
@@ -246,6 +245,7 @@ export default function PartnerView() {
   return (
     <div ref={root}>
       <PageHero
+        compact
         eyebrow="Partner with us"
         title={<>Let&apos;s create <span className="gradient-text">impact</span> together</>}
         lead="Skill&Tell connects clubs, companies and organizations with a growing community of motivated students at ENSIA — through events, workshops, Missions and more."
@@ -284,7 +284,7 @@ export default function PartnerView() {
               const Icon = ICONS[a.icon];
               return (
                 <Tilt key={a.key} className="snt-card group p-7">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-accent-500 to-Main-400 text-white shadow-[0_10px_30px_-8px_rgba(255,109,0,0.6)] transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
+                  <span className="snt-icon h-14 w-14 rounded-2xl transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-8 font-futura_bold text-xl text-white">{a.title}</h3>

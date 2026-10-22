@@ -24,13 +24,17 @@ export function useReveals(scope, deps = []) {
         scale: { scale: 0.88, opacity: 0 },
         left: { x: -80, opacity: 0 },
         right: { x: 80, opacity: 0 },
-        clip: { clipPath: "inset(100% 0% 0% 0%)" },
+        clip: { clipPath: "inset(100% 0% 0% 0%)", opacity: 1 },
       };
 
       own("[data-reveal]").forEach((el) => {
         const type = el.dataset.reveal || "up";
         if (reduced) return gsap.set(el, { clearProps: "all", opacity: 1 });
-        const to = { y: 0, x: 0, scale: 1, opacity: 1, clipPath: "inset(0% 0% 0% 0%)" };
+        // Only "clip" animates clip-path (and drops it afterwards), so shadows
+        // and glows of the other reveals are never cut off.
+        const to = type === "clip"
+          ? { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, clearProps: "clipPath" }
+          : { y: 0, x: 0, scale: 1, opacity: 1 };
         gsap.fromTo(el, from[type] ?? from.up, {
           ...to,
           duration: type === "clip" ? 1.3 : 1.1,

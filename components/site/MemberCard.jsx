@@ -17,7 +17,7 @@ export default function MemberCard({ member, size = "md", badge, className = "",
           src={member.image || "/images/pfp.png"}
           alt={prettyName(member.name)}
           fill
-          sizes={lg ? "(min-width:1024px) 30vw, 90vw" : "(min-width:1280px) 20vw, (min-width:768px) 30vw, 50vw"}
+          sizes={lg ? "(min-width:1024px) 30vw, 90vw" : sm ? "(min-width:1280px) 15vw, (min-width:768px) 25vw, 50vw" : "(min-width:1280px) 20vw, (min-width:768px) 30vw, 50vw"}
           className="object-cover grayscale-[35%] transition-all duration-[1.1s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.07] group-hover:grayscale-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a001a] via-[#0a001a]/30 to-transparent" />

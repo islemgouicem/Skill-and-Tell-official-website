@@ -19,6 +19,9 @@ export const SOCIALS = [
 ];
 
 // Headline numbers already used across the site.
+// Skill&Tell was founded on 1 March 2022.
+export const FOUNDED = { year: 2022, label: "1 March 2022" };
+
 export const STATS = [
   { value: 534, suffix: "+", label: "Members", description: "Students who joined the Skill&Tell community." },
   { value: 400, suffix: "+", label: "Participants in events", description: "People who took part in our hackathons, datathons and competitions." },
@@ -30,8 +33,8 @@ export const PILLARS = [
   {
     key: "about",
     title: "About us",
-    short: "A dynamic scientific club at ENSIA, now in its fourth year, growing students' soft skills — marketing, multimedia, photography and more.",
-    body: "Skill&Tell is a dynamic scientific club at the National Higher School of Artificial Intelligence (ENSIA). Now in its fourth year, it fosters student growth by emphasizing soft skills including marketing, multimedia, and photography—empowering members to express themselves, collaborate effectively, and engage in creative, impactful initiatives.",
+    short: "A scientific club at ENSIA, born on 1 March 2022, growing students' skills — tech, design, marketing, events and more.",
+    body: "Skill&Tell is a dynamic scientific club at the National Higher School of Artificial Intelligence (ENSIA). Born on 1 March 2022, it fosters student growth by emphasizing soft skills including marketing, multimedia, and photography—empowering members to express themselves, collaborate effectively, and engage in creative, impactful initiatives.",
   },
   {
     key: "vision",
@@ -57,25 +60,19 @@ export const VALUES = ["Skills", "Ideas", "Collaboration", "Creativity", "Growth
 
 export const PARTNER_LOGOS = [
   { name: "ENSIA", src: "/images/mobai/ensia.png" },
-  { name: "Algérie Télécom", src: "/images/mobai/Logo_Algérie_Télécom.png" },
   { name: "BMS", src: "/images/mobai/bms.png" },
   { name: "NetBeOpen", src: "/images/arcade/logo-netbeopen-red.png" },
+  { name: "FormaTech Expo", src: "/images/partners/formatech.png" },
+  { name: "NIUM", src: "/images/partners/nium.png" },
+  { name: "CAAT", src: "/images/partners/caat.png" },
+  { name: "Inspired Minds", src: "/images/partners/inspired-minds.png" },
   { name: "World AI Week", src: "/images/partners/AI_week_logo.png", dark: true },
-  { name: "WSAI", src: "/images/partners/WSAI_logo.png", dark: true },
 ];
 
 // The club's Chrome extension (new-tab dashboard), built by the IT department.
 export const EXTENSION = {
   name: "Skill & Tell extension",
   url: "https://chromewebstore.google.com/detail/Skill%20%26%20Tell%20extension/ieegploffcpecfhiebbihgncgcfflonj",
-  // Screenshots shown inside the laptop / iPad mockups (paths under /public).
-  // Leave null to show the built-in illustration.
-  screens: { laptop: null, tablet: null },
-  tagline: "A polished new tab with search, inspiration, events and daily learning prompts — made for Skill&Tell members.",
-  features: [
-    { title: "Built-in search", body: "Search the web straight from your new tab." },
-    { title: "Quick links hub", body: "Club platforms, repos, workspaces, socials and the website in one click." },
-    { title: "Branded & clean", body: "A distraction-free layout in the official Skill&Tell identity." },
-    { title: "Lightweight", body: "Lives only on the new tab page — the rest of your browsing is untouched." },
-  ],
+  tagline:
+    "Swap Chrome's default, boring new tab for a Skill&Tell one — a daily dose of motivation and the latest club updates, every time you open a tab.",
 };

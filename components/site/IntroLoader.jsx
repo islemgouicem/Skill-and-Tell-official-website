@@ -1,15 +1,20 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import logo from "@/assets/images/shared/logo.png";
+import mark from "@/assets/images/shared/snt_mark.png";
 import { gsap, useGSAP, prefersReducedMotion, stage } from "@/lib/motion/gsap";
 
 const KEY = "loaderShown";
 // Decided once per page load (survives React StrictMode's double effect run).
 let skipIntro = null;
-const WORDS = ["Skills", "Ideas", "Collaboration", "Skill&Tell"];
+const BRAND = "Skill&Tell".split("");
 
-/** Short branded intro, played once per session (the old loader's rule). */
+/**
+ * Branded intro, played once per session (the old loader's rule):
+ * a shooting star — the one in our logo — streaks across the night and lands
+ * in the centre, the mark ignites, the name rises, then the night opens like
+ * an iris onto the site.
+ */
 export default function IntroLoader() {
   const root = useRef(null);
 
@@ -29,11 +34,14 @@ export default function IntroLoader() {
         return;
       }
 
-      stage.delay = 2.55;
+      stage.delay = 2.85;
       window.__lenis?.stop();
       const counter = el.querySelector("[data-count]");
       const n = { v: 0 };
-      const words = el.querySelectorAll("[data-word]");
+      gsap.set(el, { "--r": "0vmax" });
+      // point the tail back along the flight path (top-left → centre)
+      gsap.set("[data-comet-tail]", { rotate: (Math.atan2(window.innerHeight * 0.38, window.innerWidth * 0.55) * 180) / Math.PI });
+
       const tl = gsap.timeline({
         onComplete: () => {
           el.style.display = "none";
@@ -41,47 +49,66 @@ export default function IntroLoader() {
           window.__lenis?.start();
         },
       });
-      tl.fromTo("[data-logo]", { scale: 0.6, opacity: 0, rotate: -12 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.9, ease: "back.out(1.6)" })
-        .to(n, {
-          v: 100,
-          duration: 1.7,
-          ease: "power2.inOut",
-          onUpdate: () => (counter.textContent = String(Math.round(n.v)).padStart(3, "0")),
-        }, 0.1)
-        .fromTo("[data-bar]", { scaleX: 0 }, { scaleX: 1, duration: 1.7, ease: "power2.inOut" }, 0.1);
-      words.forEach((w, i) => {
-        tl.fromTo(w, { yPercent: 100 }, { yPercent: 0, duration: 0.32, ease: "power3.out" }, 0.15 + i * 0.4);
-        if (i < words.length - 1) tl.to(w, { yPercent: -100, duration: 0.32, ease: "power3.in" }, 0.15 + i * 0.4 + 0.36);
-      });
-      tl.to("[data-inner]", { opacity: 0, y: -30, duration: 0.35, ease: "power2.in" }, 1.9)
-        .to("[data-half='top']", { yPercent: -100, duration: 0.85, ease: "expo.inOut" }, 2.05)
-        .to("[data-half='bottom']", { yPercent: 100, duration: 0.85, ease: "expo.inOut" }, 2.05);
+
+      tl.fromTo("[data-stars]", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 0)
+        // the shooting star crosses the sky and lands in the centre
+        .fromTo("[data-comet]", { x: "-55vw", y: "-38vh", opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.75, ease: "power3.in" }, 0.1)
+        .to("[data-comet-tail]", { scaleX: 0.15, duration: 0.25, ease: "power2.out" }, 0.85)
+        .to("[data-comet]", { opacity: 0, scale: 0.4, duration: 0.12 }, 0.84)
+        // impact: a shockwave and the mark ignites
+        .fromTo("[data-wave]", { scale: 0.2, opacity: 0.9 }, { scale: 4, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.12 }, 0.85)
+        .fromTo("[data-mark]", { scale: 0.3, opacity: 0, rotate: -25 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.8, ease: "back.out(1.8)" }, 0.85)
+        .fromTo("[data-glow]", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "power2.out" }, 0.85)
+        // the name rises letter by letter
+        .fromTo("[data-letter]", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, stagger: 0.04, ease: "power4.out" }, 1.05)
+        .fromTo("[data-tagline]", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5 }, 1.35)
+        // progress
+        .to(n, { v: 100, duration: 2, ease: "power2.inOut", onUpdate: () => (counter.textContent = String(Math.round(n.v)).padStart(3, "0")) }, 0.1)
+        .fromTo("[data-bar]", { scaleX: 0 }, { scaleX: 1, duration: 2, ease: "power2.inOut" }, 0.1)
+        // the night opens like an iris, from the mark outwards
+        .to("[data-inner]", { scale: 1.06, opacity: 0, duration: 0.45, ease: "power2.in" }, 2.15)
+        .to(el, { "--r": "150vmax", duration: 0.9, ease: "expo.inOut" }, 2.25);
     },
     { scope: root }
   );
 
   return (
-    <div ref={root} className="snt-intro fixed inset-0 z-[300]" aria-hidden="true">
-      <div data-half="top" className="absolute inset-x-0 top-0 h-1/2 bg-[#0a001a]" />
-      <div data-half="bottom" className="absolute inset-x-0 bottom-0 h-1/2 bg-[#0a001a]" />
+    <div
+      ref={root}
+      className="snt-intro fixed inset-0 z-[300] bg-[#0a001a]"
+      style={{
+        WebkitMaskImage: "radial-gradient(circle at 50% 50%, transparent calc(var(--r, 0vmax) - 1px), #000 var(--r, 0vmax))",
+        maskImage: "radial-gradient(circle at 50% 50%, transparent calc(var(--r, 0vmax) - 1px), #000 var(--r, 0vmax))",
+      }}
+      aria-hidden="true"
+    >
+      <div data-stars className="snt-intro-stars absolute inset-0 opacity-0" />
       <div data-inner className="absolute inset-0 flex flex-col items-center justify-center">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(40% 35% at 50% 50%, rgba(123,44,191,0.35), transparent 70%)" }} />
-        <Image data-logo src={logo} alt="" width={200} height={120} priority className="relative w-40 md:w-52 h-auto opacity-0" />
-        <div className="relative mt-8 h-8 overflow-hidden text-center">
-          {WORDS.map((w, i) => (
-            <span
-              key={w}
-              data-word
-              className={`absolute inset-x-0 block font-futura_bold text-xl md:text-2xl tracking-wide ${i === WORDS.length - 1 ? "gradient-text" : "text-white/90"}`}
-              style={{ transform: "translateY(100%)" }}
-            >
-              {w}
+        <div data-glow className="absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0" style={{ background: "radial-gradient(circle, rgba(123,44,191,0.45), rgba(255,109,0,0.08) 45%, transparent 70%)" }} />
+
+        <div className="relative grid h-28 w-28 place-items-center md:h-36 md:w-36">
+          {[0, 1].map((i) => (
+            <span key={i} data-wave className="absolute inset-0 rounded-full border border-accent-300/70 opacity-0" />
+          ))}
+          {/* shooting star: head + tail, flying in from the top-left */}
+          <span data-comet className="absolute left-1/2 top-1/2 opacity-0">
+            <span className="absolute -left-1.5 -top-1.5 h-3 w-3 rounded-full bg-[#ffc78a] shadow-[0_0_12px_4px_rgba(255,158,0,0.9),0_0_40px_10px_rgba(255,109,0,0.5)]" />
+            <span data-comet-tail className="absolute right-0 top-0 h-[2px] w-[34vw] max-w-[420px] origin-right -translate-y-1/2 rounded-full" style={{ background: "linear-gradient(90deg, transparent, rgba(157,78,221,0.5) 50%, #ffb066)" }} />
+          </span>
+          <Image data-mark src={mark} alt="" priority sizes="144px" className="relative h-full w-auto opacity-0 drop-shadow-[0_0_24px_rgba(157,78,221,0.7)]" />
+        </div>
+
+        <div className="relative mt-6 flex overflow-hidden px-2 pb-1">
+          {BRAND.map((c, i) => (
+            <span key={i} data-letter className="inline-block font-futura_bold text-3xl tracking-wide text-white opacity-0 md:text-5xl">
+              {c}
             </span>
           ))}
         </div>
-        <div className="absolute bottom-10 inset-x-6 md:inset-x-16 flex items-end justify-between gap-6">
-          <span className="font-futura_md_bt text-xs uppercase tracking-[0.3em] text-Main-300">Scientific Club · ENSIA</span>
-          <span data-count className="font-compacta text-6xl md:text-8xl leading-none text-white/90">000</span>
+        <p data-tagline className="mt-3 font-futura_md_bt text-xs uppercase tracking-[0.35em] text-Main-300 opacity-0">Scientific Club · ENSIA</p>
+
+        <div className="absolute inset-x-6 bottom-10 flex items-end justify-end md:inset-x-16">
+          <span data-count className="font-compacta text-6xl leading-none text-white/90 md:text-8xl">000</span>
         </div>
         <span data-bar className="absolute bottom-0 left-0 h-[3px] w-full origin-left bg-gradient-to-r from-accent-500 via-accent-300 to-Main-400" />
       </div>

@@ -1,31 +1,22 @@
-import Star from "@/components/ui/star";
 import { useRegistration } from "@/lib/hooks/useRegistration";
+import { Field, StepHeader, inputClass } from "../components/Fields";
+
 export default function PersonalInofo() {
-    const { formData, handleInputChange, errors } = useRegistration();
-    return (<div className="space-y-6 animate-fade-in-up">
-            <div className="text-center mb-8">
-                <img src="/icons/Profile.svg" alt="User Icon" className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"/>
-                <h2 className="section-title">Personal Information</h2>
-            </div>
-
-            <div className="input-cont">
-                <div>
-                    <label className="input-label">Full Name <Star /></label>
-                    <input type="text" value={formData.fullname} onChange={(e) => handleInputChange("fullname", e.target.value)} className="input-style" placeholder="Enter your Full name" required/>
-                    {errors.fullname && <p className="text-error-200 text-sm my-1">* {errors.fullname}</p>}
-                </div>
-                <div>
-                    <label className="input-label">Phone Number <Star /></label>
-                    <input type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} className="input-style" placeholder="Eg: 0712435687" required/>
-                    {errors.phone && <p className="text-error-200 text-sm my-1">* {errors.phone}</p>}
-
-                </div>
-                <div>
-                    <label className="input-label">Discord ID <span className="text-gray-500">(optional)</span></label>
-                    <input type="text" value={formData.discordID} onChange={(e) => handleInputChange("discordID", e.target.value)} className="input-style" placeholder="Enter your Discord ID" required/>
-                    {errors.discordID && <p className="text-error-200 text-sm my-1">* {errors.discordID}</p>}
-
-                </div>
-            </div>
-        </div>);
+  const { formData, handleInputChange, errors } = useRegistration();
+  return (
+    <div>
+      <StepHeader icon="/icons/Profile.svg" title="Personal Information" text="How should we call you, and how can we reach you?" />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Full name" required error={errors.fullname} htmlFor="reg-fullname" className="sm:col-span-2">
+          <input id="reg-fullname" type="text" autoComplete="name" value={formData.fullname} onChange={(e) => handleInputChange("fullname", e.target.value)} className={inputClass(errors.fullname)} placeholder="Your full name" aria-invalid={!!errors.fullname} />
+        </Field>
+        <Field label="Phone number" required error={errors.phone} htmlFor="reg-phone">
+          <input id="reg-phone" type="tel" inputMode="numeric" autoComplete="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} className={inputClass(errors.phone)} placeholder="0712435687" aria-invalid={!!errors.phone} />
+        </Field>
+        <Field label="Discord ID" optional error={errors.discordID} htmlFor="reg-discord">
+          <input id="reg-discord" type="text" value={formData.discordID} onChange={(e) => handleInputChange("discordID", e.target.value)} className={inputClass(errors.discordID)} placeholder="username" />
+        </Field>
+      </div>
+    </div>
+  );
 }

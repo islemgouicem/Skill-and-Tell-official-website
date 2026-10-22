@@ -10,12 +10,18 @@ import Extension from "./features/home/Extension";
 import DepartmentTest from "./features/home/DepartmentTest";
 import Faq from "./features/home/Faq";
 import PartnerCTA from "@/components/site/PartnerCTA";
+import JsonLd from "@/components/site/JsonLd";
+import faqItems from "@/data/skillntell/faq.json";
+import { SITE, faqLd, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({ description: SITE.description, path: "/" });
 
 export default async function Page() {
   const teamMembers = await getManagers();
 
   return (
     <>
+      <JsonLd data={faqLd(faqItems)} />
       <Hero />
       <ValuesMarquee />
       <About />

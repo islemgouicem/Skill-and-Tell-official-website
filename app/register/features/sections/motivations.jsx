@@ -1,26 +1,25 @@
 import { useRegistration } from "@/lib/hooks/useRegistration";
+import { Field, StepHeader, inputClass } from "../components/Fields";
+
 export default function Motivations() {
-    const { formData, handleInputChange, errors } = useRegistration();
-    return (<div className="space-y-6 animate-fade-in-up">
-            <div className="text-center mb-8">
-                <img src="/icons/motivation.svg" alt="User Icon" className="w-12 h-12 sm:w-16 sm:h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"/>
-                <h2 className="section-title">Club Experience</h2>
-            </div>
-
-            <div className="space-y-6 px-2 md:px-10">
-                <div>
-                        <label className="input-label">Any club experience</label>
-                        <textarea value={formData.club_experience} onChange={(e) => {
-                    handleInputChange("club_experience", e.target.value);
-            // Auto-resize logic
-            e.target.style.height = "auto"; // reset height
-            e.target.style.height = e.target.scrollHeight + "px"; // set new height
-        }} className="input-style resize-none pr-4 textarea-responsive overflow-hidden text-sm" placeholder="Tell us about any clubs, organizations, or communities you have been part of."/>
-
-                    {errors.club_experience && <p className="text-error-200 text-sm my-1">* {errors.club_experience}</p>}
-
-                </div>
-
-            </div>
-        </div>);
+  const { formData, handleInputChange, errors } = useRegistration();
+  return (
+    <div>
+      <StepHeader icon="/icons/motivation.svg" title="Club Experience" text="Last step! Tell us about clubs, organizations or communities you've been part of." />
+      <Field label="Your experience" optional error={errors.club_experience} htmlFor="reg-exp">
+        <textarea
+          id="reg-exp"
+          rows={5}
+          value={formData.club_experience}
+          onChange={(e) => {
+            handleInputChange("club_experience", e.target.value);
+            e.target.style.height = "auto";
+            e.target.style.height = `${e.target.scrollHeight}px`;
+          }}
+          className={`${inputClass(errors.club_experience)} min-h-[150px] resize-none leading-relaxed`}
+          placeholder="E.g. member of a robotics club, volunteer at an event, organizer of a workshop… or nothing yet, that's fine too!"
+        />
+      </Field>
+    </div>
+  );
 }

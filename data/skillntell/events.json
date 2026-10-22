@@ -1,10 +1,29 @@
 [
     {
+        "id": "09",
+        "title": "FormaTech Expo",
+        "description": "From 12 to 15 October 2026, Skill&Tell was the organizing team of the second edition of FormaTech Expo in Algiers, the national fair for digital skills and technology training, and also held its own stand to present the club, its projects and events like MobAI.",
+        "date": "2026-10-12",
+        "dateLabel": "12–15 Oct 2026",
+        "tags": [
+            "2nd edition",
+            "Organizing team",
+            "Our stand",
+            "Algiers"
+        ],
+        "category": "Exhibition",
+        "image": "/images/formatech-expo.png"
+    },
+    {
         "id": "01",
         "title": "Odyssea",
         "description": "ODYSSEA is a free 48-hour online datathon organized by Skill and Tell on October 8 and 9, as part of the World AI Week program.",
         "date": "2026-10-08",
-        "tags": ["Datathon", "Models", "AI"],
+        "tags": [
+            "Datathon",
+            "Models",
+            "AI"
+        ],
         "category": "Datathon",
         "image": "/images/Odyssea.png",
         "path": "register/odyssea"
@@ -14,13 +33,24 @@
         "title": "Arcade",
         "description": "Arcade is the inaugural event of Skill&Tell, featuring a full day packed with fun and challenging activities! Teams compete in various challenges, including math puzzles, programming tasks, the famous scavenger hunt, and other exciting games.",
         "date": "2025-03-10",
-        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
+        "tags": [
+            "Math puzzles",
+            "Programming tasks",
+            "Scavenger hunt",
+            "Games"
+        ],
         "category": "Competition",
         "image": "/images/arcade/UNKNOWN.jpg",
         "path": "register/arcade",
         "editions": [
-            { "label": "Arcade 2024", "image": "/images/Arcade.jpg" },
-            { "label": "Arcade 2025", "image": "/images/arcade/UNKNOWN.jpg" }
+            {
+                "label": "Arcade 2024",
+                "image": "/images/Arcade.jpg"
+            },
+            {
+                "label": "Arcade 2025",
+                "image": "/images/arcade/UNKNOWN.jpg"
+            }
         ]
     },
     {
@@ -28,7 +58,12 @@
         "title": "MobAi",
         "description": "MobAI is a 3-day hackathon that brings together mobile development, AI, and UI/UX in one exciting event. Participants engage in hands-on workshops to learn the skills they need to tackle the challenges",
         "date": "2026-02-12",
-        "tags": ["Mobile dev", "AI", "UI/UX", "Hackathon"],
+        "tags": [
+            "Mobile dev",
+            "AI",
+            "UI/UX",
+            "Hackathon"
+        ],
         "category": "Hackathon",
         "image": "/images/mobai2026.png",
         "path": "register/mobai"
@@ -38,27 +73,25 @@
         "title": "EUNOIA",
         "description": "EUNOIA is a full-day innovation event centered on student well-being, featuring an ideathon, expert talks, interactive activities, a cultural village, and social/movement-based experiences. Its goal is to help students tackle real mental and physical health challenges, create meaningful solutions, and strengthen a supportive, energetic campus community.",
         "date": "2025-12-13",
-        "tags": ["ideathon", "Creativity", "well being"],
+        "tags": [
+            "ideathon",
+            "Creativity",
+            "well being"
+        ],
         "category": "Ideathon",
         "image": "/images/eunoia_event.jpg",
         "path": "register/eunoia"
-    },
-    {
-        "id": "08",
-        "title": "ARWAh",
-        "description": "",
-        "date": "",
-        "tags": [],
-        "category": "Club activity",
-        "image": "",
-        "placeholder": true
     },
     {
         "id": "03",
         "title": "ElectroHub",
         "description": "Electro Hub is an exciting electronics day designed for beginners to dive into the world of Arduino. During this event, participants get hands-on experience learning how to use Arduino and its applications.",
         "date": "2025-04-15",
-        "tags": ["Arduino basics", "Hands-on workshops", "Electronics for beginners"],
+        "tags": [
+            "Arduino basics",
+            "Hands-on workshops",
+            "Electronics for beginners"
+        ],
         "category": "Workshop",
         "image": "/images/electrohub.webp"
     },
@@ -67,7 +100,11 @@
         "title": "IndabaX",
         "description": "IndabaX is a series of community-driven AI and machine learning events across Africa, empowering local innovators to tackle regional challenges. It fosters collaboration, skill-building, and growth of AI talent within the continent.",
         "date": "2025-05-20",
-        "tags": ["Machine learning", "Research Papers", "AI"],
+        "tags": [
+            "Machine learning",
+            "Research Papers",
+            "AI"
+        ],
         "category": "Conference",
         "image": "/images/indabax.jpg"
     },
@@ -76,8 +113,12 @@
         "title": "AgriChallenge",
         "description": "Agri Challenge is Algeria's premier hackathon where students and innovators develop AI-driven solutions to real agricultural problems. It fosters creativity, collaboration, and cutting-edge technology for a smarter agriculture future.",
         "date": "2025-05-22",
-        "tags": ["AI in agriculture", "data-driven solutions", "plant recognition"],
+        "tags": [
+            "AI in agriculture",
+            "data-driven solutions",
+            "plant recognition"
+        ],
         "category": "Hackathon",
-        "image": "/images/agri.jpg"
+        "image": "/images/agrichallenge.jpg"
     }
 ]

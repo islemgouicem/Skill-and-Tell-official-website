@@ -7,8 +7,8 @@ import { useReveals } from "@/components/motion/useReveals";
 import Tilt from "@/components/motion/Tilt";
 import { PILLARS } from "@/data/skillntell/site";
 import whitebg from "@/assets/images/skillntell/white_bg.webp";
-import aboutus1 from "@/assets/images/skillntell/about_us1.webp";
-import aboutus2 from "@/assets/images/skillntell/about_us2.webp";
+import photoArcade from "@/assets/images/skillntell/events/arcade-2024.webp";
+import photoFormatech from "@/assets/images/skillntell/events/formatech-1.webp";
 import phone from "@/assets/images/skillntell/phone.webp";
 
 const ICONS = { about: Lightbulb, vision: Rocket, specialty: Users, achievements: Award };
@@ -27,7 +27,7 @@ function Pillar({ pillar, variant }) {
         <h3 className="font-futura_bold text-lg">{pillar.title}</h3>
       </div>
       <div className="flex gap-3">
-        <span className="w-0.5 shrink-0 rounded bg-gradient-to-b from-accent-300 to-white/10" />
+        <span className="w-0.5 shrink-0 rounded bg-white/50" />
         <p className="text-[15px] leading-relaxed text-white/85">{pillar.short}</p>
       </div>
     </Tilt>
@@ -51,17 +51,17 @@ export default function About() {
   );
 
   return (
-    <section ref={root} id="about" className="snt-light relative pb-12 pt-32 md:pb-16 md:pt-44">
+    <section ref={root} id="about" className="snt-light relative z-[1] pb-16 pt-32 md:pb-20 md:pt-44">
       <Image src={whitebg} alt="" aria-hidden="true" className="pointer-events-none absolute left-0 top-0 h-auto w-[90%] select-none" />
 
       <div className="relative mx-auto grid max-w-[1400px] items-center gap-14 px-5 md:px-10 lg:grid-cols-12 lg:gap-16">
         {/* Visual: the app phone with two club photos */}
         <div data-visual data-reveal="up" className="relative order-2 mx-auto h-[400px] w-full max-w-[420px] sm:h-[480px] lg:order-1 lg:col-span-5 lg:h-[560px] lg:max-w-none">
-          <div data-photo="1" className="absolute left-0 top-[6%] w-[44%] overflow-hidden rounded-2xl border-4 border-white">
-            <Image src={aboutus1} alt="Skill&Tell members during an event" className="h-auto w-full" sizes="220px" />
+          <div data-photo="1" className="absolute left-[1%] top-[4%] w-[48%] overflow-hidden rounded-2xl border-4 border-white">
+            <Image src={photoArcade} alt="Skill&Tell members at ARCADE" className="h-auto w-full" sizes="(min-width:1024px) 280px, 48vw" />
           </div>
-          <div data-photo="2" className="absolute bottom-[4%] right-0 w-[38%] overflow-hidden rounded-2xl border-4 border-white">
-            <Image src={aboutus2} alt="A Skill&Tell member at a club activity" className="h-auto w-full" sizes="200px" />
+          <div data-photo="2" className="absolute bottom-[4%] right-0 w-[54%] overflow-hidden rounded-2xl border-4 border-white">
+            <Image src={photoFormatech} alt="The Skill&Tell team at Formatech Expo" className="h-auto w-full" sizes="(min-width:1024px) 320px, 54vw" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <Image
@@ -69,7 +69,7 @@ export default function About() {
               src={phone}
               alt="The Skill & Tell app"
               sizes="280px"
-              className="relative h-[86%] w-auto"
+              className="relative h-[74%] w-auto"
             />
           </div>
         </div>

@@ -1,49 +1,74 @@
-// Skill&Tell Missions — the club's hands-on challenge format.
-// Edit freely: every Missions section on the site reads from this file.
+// Skill&Tell Missions — the club's hands-on program, inspired by Solo Leveling.
+// Every Missions section on the site reads from this file.
 
-export const MISSIONS_INTRO =
-  "Skill&Tell Missions replace classic workshops with hands-on challenges. Each session starts with learning and guided practice, then turns into a competitive mission — solo or in teams — on problems inspired by the real world.";
-
-export const MISSION_PHASES = [
-  { key: "drop", name: "Drop", duration: "Start", body: "You enter the lab, meet your crew and the mission drops: theme, stakes and rules." },
-  { key: "ice", name: "Ice Breaker", duration: "Warm-up", body: "A quick, playful warm-up so strangers become teammates in minutes." },
-  { key: "brief", name: "Brief", duration: "~30–40 min", body: "The host teaches exactly what you need, and you practise it straight away." },
-  { key: "mission", name: "Mission", duration: "~40 min", body: "The clock starts. A competitive challenge, individual or in teams, built around a real problem." },
-  { key: "debrief", name: "Debrief", duration: "Wrap-up", body: "Solutions are shared, lessons are drawn, XP is awarded and the leaderboard moves." },
-];
-
-export const MISSION_RANKS = [
-  { name: "Rookie", xp: 0 },
-  { name: "Explorer", xp: 25 },
-  { name: "Specialist", xp: 50 },
-  { name: "Strategist", xp: 75 },
-  { name: "Master", xp: 100 },
-];
-
-export const MISSION_TRACKS = [
-  { name: "Web", dept: "IT" },
-  { name: "Mobile", dept: "IT" },
-  { name: "AI", dept: "IT" },
-  { name: "Marketing", dept: "Marketing" },
-  { name: "Relex", dept: "Relex" },
-  { name: "UI/UX", dept: "Design" },
-];
-
-export const MISSION_FACTS = [
-  { value: "30", label: "Seats per mission, held in labs" },
-  { value: "4", label: "Players per team, up to 8 teams" },
-  { value: "3", label: "Leaderboards: per track, per department & overall" },
-  { value: "∞", label: "Open to everyone — members of any department and non-members" },
-];
-
-// The Missions platform (Skill&Tell app).
+// The Missions platform: accounts, mission board, XP, levels and leaderboard.
 export const MISSIONS_URL = "https://missions.skillntell.com";
 
+// Short pitch used on the home page.
 export const MISSIONS_SOLO_LEVELING =
-  "Inspired by Solo Leveling: just like Sung Jin-Woo rose from the weakest hunter to the strongest, every member starts at the bottom and levels up one gate at a time. Each Mission is a gate — learn the skill, enter the challenge, clear it with your team, earn XP and climb the ranks.";
+  "Inspired by Solo Leveling: every hunter is born with a level and stays there, except one, who levels up by clearing the missions his System gives him. Here, that hunter is you. Join hands-on missions, earn XP on the Missions platform, level up and go for the final prize.";
 
-export const MISSION_GATES = [
-  { name: "Arena", image: "/images/missions/arena.webp" },
-  { name: "Boss Raid", image: "/images/missions/boss.webp" },
-  { name: "Dungeon Run", image: "/images/missions/dungeon.webp" },
+// The concept, told through the anime.
+export const MISSIONS_STORY = {
+  anime:
+    "In Solo Leveling, hunters are born with a level and stay stuck there for life. Except one: Sung Jin-Woo. A mysterious System gives him missions, and every mission he clears makes him stronger, until the weakest hunter becomes the strongest.",
+  you: "At Skill&Tell, you are the main character.",
+  map: [
+    { anime: "The System", club: "The Missions platform, missions.skillntell.com" },
+    { anime: "Missions", club: "Hands-on workshops, onsite at school: no lecture, you learn by doing" },
+    { anime: "XP", club: "Earned with every mission you complete" },
+    { anime: "Level up", club: "Pass an XP threshold and your level goes up" },
+    { anime: "The strongest hunter", club: "A prize for the winner at the end of the program" },
+  ],
+};
+
+// The journey, step by step (the last line is the closing call to action).
+export const MISSION_JOURNEY = [
+  { key: "awakening", title: "The Awakening", body: "Every hunter starts somewhere. Create your account on the Skill&Tell Missions platform, enter the system and begin your journey." },
+  { key: "profile", title: "Your Hunter Profile", body: "Your own profile, your XP, your rank, your achievements. Everything is tracked on the platform, all in one place." },
+  { key: "board", title: "The Mission Board", body: "New missions, new challenges, different skills to explore. Browse the available missions, choose yours and accept the quest." },
+  { key: "grind", title: "The Real Grind", body: "This is where it gets real. Join onsite missions, solve problems, work with others and learn by doing. No more watching from the sidelines." },
+  { key: "complete", title: "Complete the Mission", body: "Face the challenge, put your skills to the test and prove what you're capable of." },
+  { key: "xp", title: "Earn XP", body: "Every completed mission earns you experience points. Every step forward brings you closer to your next milestone." },
+  { key: "level", title: "Level Up", body: "Watch your hunter profile evolve, collect achievements and keep track of your mission history." },
+  { key: "leaderboard", title: "Climb the Leaderboard", body: "The grind doesn't go unnoticed. Your XP sets your place on the leaderboard: compete with other hunters and aim for the top." },
+  { key: "rank", title: "Your Journey, Your Rank", body: "From your first registration to your latest achievement: every mission, every XP point, every step forward, in one place." },
+];
+
+export const MISSIONS_FINAL_CALL = {
+  title: "The Final Call",
+  body: "The system is ready. The missions are waiting. Your journey starts with one decision. Will you answer the call, Hunter?",
+};
+
+export const MISSIONS_FAQ = [
+  {
+    value: "m-1",
+    question: "Do I need any skills to join?",
+    answer: "No, zero skills needed. That's the whole point: from zero to hero. Missions are built in progression, step by step, so nobody jumps ahead. Before each mission you'll be told which tools to download.",
+  },
+  {
+    value: "m-2",
+    question: "Can I join missions outside my department?",
+    answer: "Yes. You belong to one department in the club, but you can join any mission from any department. Members of a department get priority on that department's missions (a Marketing member, for example, gets priority on Marketing missions).",
+  },
+  {
+    value: "m-3",
+    question: "How do I register for a mission?",
+    answer: "Create an account on missions.skillntell.com. You'll find the available missions there and register for the ones you want. Seats are limited for each mission, so don't wait.",
+  },
+  {
+    value: "m-4",
+    question: "Where do missions take place?",
+    answer: "Onsite, at the school (ENSIA).",
+  },
+  {
+    value: "m-5",
+    question: "How is it different from a workshop?",
+    answer: "Missions aren't lecture-style workshops. Each one has its own structure and you learn by doing: solving problems and working with others, not just watching.",
+  },
+  {
+    value: "m-6",
+    question: "What do I get out of it?",
+    answer: "XP for every mission you complete, levels as you pass XP thresholds, a place on the leaderboard and, for the winner, a prize at the end of the program.",
+  },
 ];

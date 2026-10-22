@@ -8,18 +8,20 @@ const THREE_MONTHS = 60 * 60 * 24 * 30 * 3;
 
 
 
-function resolveImageUrl(picture) {
-  if (typeof picture === "object" && typeof picture?.url === "string" && picture.url.length > 0) {
-    // Absolute URL (e.g. a direct Blob URL) — use as-is
-    if (picture.url.startsWith("http://") || picture.url.startsWith("https://")) {
-      return picture.url;
-    }
-    // Relative URL (Payload's own file-serving route) — prefix with backend origin
-    if (picture.url.startsWith("/")) {
-      return `${BACKEND_ORIGIN}${picture.url}`;
-    }
-  }
-  return "/images/pfp.png";
+function absoluteUrl(url) {
+  if (typeof url !== "string" || url.length === 0) return null;
+  // Absolute URL (e.g. a direct Blob URL) — use as-is
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  // Relative URL (Payload's own file-serving route) — prefix with backend origin
+  if (url.startsWith("/")) return `${BACKEND_ORIGIN}${url}`;
+  return null;
+}
+
+// Payload generates smaller copies of every upload (sizes.card 768×1024, sizes.thumbnail 300×300):
+// use them instead of the full original so pictures load fast.
+function resolveImageUrl(picture, size) {
+  if (typeof picture !== "object" || !picture) return "/images/pfp.png";
+  return absoluteUrl(size && picture.sizes?.[size]?.url) ?? absoluteUrl(picture.url) ?? "/images/pfp.png";
 }
 
 // Lowercase, treat "-" / "_" as spaces, collapse spaces (so "Vice-President" === "vice president")
@@ -145,7 +147,8 @@ export async function getManagers() {
       description: doc.description ?? "",
       email: doc.email ?? "",
       linkedin: doc.linkedin ?? "",
-      image: resolveImageUrl(doc.picture),
+      image: resolveImageUrl(doc.picture, "card"),
+      thumb: resolveImageUrl(doc.picture, "thumbnail"),
       department:doc.department?? ""
     })));
   } catch {

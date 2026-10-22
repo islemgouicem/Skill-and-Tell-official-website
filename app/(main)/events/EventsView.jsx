@@ -12,18 +12,51 @@ import Lightbox from "@/components/site/Lightbox";
 import PartnerCTA from "@/components/site/PartnerCTA";
 import Marquee from "@/components/motion/Marquee";
 import { getEvents, EVENT_CATEGORIES } from "@/lib/utils/events";
+import { FOUNDED } from "@/data/skillntell/site";
+// Web-sized (.webp) copies of the event photos in assets/images/skillntell/events.
+import photoArcade1 from "@/assets/images/skillntell/events/arcade-2024.webp";
+import photoArcade2 from "@/assets/images/skillntell/events/arcade-2025.webp";
+import photoArcade3 from "@/assets/images/skillntell/events/arcade-3.webp";
+import photoArcade4 from "@/assets/images/skillntell/events/arcade-4.webp";
+import photoFormatech1 from "@/assets/images/skillntell/events/formatech-1.webp";
+import photoFormatech2 from "@/assets/images/skillntell/events/formatech-2.webp";
+import photoFormatech3 from "@/assets/images/skillntell/events/formatech-3.webp";
+import photoFormatech4 from "@/assets/images/skillntell/events/formatech-4.webp";
+import photoMobai1 from "@/assets/images/skillntell/events/mobai-1.webp";
+import photoMobai2 from "@/assets/images/skillntell/events/mobai-2.webp";
+import photoMobai3 from "@/assets/images/skillntell/events/mobai-3.webp";
+import photoMobai4 from "@/assets/images/skillntell/events/mobai-4.webp";
+import photoEunoia1 from "@/assets/images/skillntell/events/eunoia-1.webp";
+import photoEunoia2 from "@/assets/images/skillntell/events/eunoia-2.webp";
+import photoEunoia3 from "@/assets/images/skillntell/events/eunoia-3.webp";
+import photoEunoia4 from "@/assets/images/skillntell/events/eunoia-4.webp";
+import photoOpenDay from "@/assets/images/skillntell/events/openday-2026.webp";
+import photoOdyssea from "@/assets/images/skillntell/events/odyssea-world-ai-week.webp";
 
+// Photos of our people at our events, mixed so every column tells a different story.
 const GALLERY = [
-  { src: "/images/indabax.jpg", title: "IndabaX", alt: "IndabaX participants group photo" },
-  { src: "/images/eunoia_event.jpg", title: "EUNOIA", alt: "EUNOIA by Skill&Tell" },
-  { src: "/images/reg-pic.png", title: "New season", alt: "Skill&Tell new season poster with members" },
-  { src: "/images/agri.jpg", title: "AgriChallenge", alt: "AgriChallenge participants group photo" },
-  { src: "/images/Arcade.jpg", title: "ARCADE 2024", alt: "ARCADE 2024 visual" },
-  { src: "/images/arcade/UNKNOWN.jpg", title: "ARCADE 2025", alt: "ARCADE 2025 teaser" },
-  { src: "/images/mobai2026.png", title: "MobAI", alt: "MobAI hackathon visual" },
-  { src: "/images/electrohub.webp", title: "ElectroHub", alt: "Arduino components at ElectroHub" },
-  { src: "/images/Odyssea.png", title: "Odyssea", alt: "Odyssea datathon visual" },
+  { src: photoArcade1, title: "ARCADE 2024", alt: "Participants and organizers of ARCADE 2024" },
+  { src: photoMobai1, title: "MobAI", alt: "A MobAI participant in a Spider-Man mask with his participant badge" },
+  { src: photoFormatech1, title: "FormaTech Expo", alt: "The Skill&Tell team at the FormaTech Expo stand" },
+  { src: photoEunoia1, title: "EUNOIA", alt: "EUNOIA participants walking across the ENSIA campus" },
+  { src: photoOdyssea, title: "Odyssea · World AI Week", alt: "Skill&Tell members at World AI Week in Amsterdam for Odyssea" },
+  { src: photoArcade2, title: "ARCADE 2025", alt: "The full room of ARCADE 2025 participants" },
+  { src: photoMobai2, title: "MobAI", alt: "MobAI participants group photo" },
+  { src: photoEunoia4, title: "EUNOIA", alt: "Three EUNOIA participants posing in a photo frame" },
+  { src: photoFormatech3, title: "FormaTech Expo", alt: "A FormaTech Expo participant holding his certificate" },
+  { src: photoArcade3, title: "ARCADE", alt: "A 'Zombies Ahead' sign from the ARCADE zombie theme" },
+  { src: photoOpenDay, title: "Open Day 2026", alt: "A full amphitheatre at the Skill&Tell Open Day 2026" },
+  { src: photoMobai3, title: "MobAI", alt: "A MobAI team working on their laptop" },
+  { src: photoEunoia2, title: "EUNOIA", alt: "An EUNOIA organizer holding a picnic sign" },
+  { src: photoFormatech4, title: "FormaTech Expo", alt: "Two members posing with FormaTech Expo signs" },
+  { src: photoArcade4, title: "ARCADE", alt: "An ARCADE participant with zombie make-up" },
+  { src: photoMobai4, title: "MobAI", alt: "The MobAI winners on stage with their prizes" },
+  { src: photoEunoia3, title: "EUNOIA", alt: "EUNOIA decorations: hope, well-being, peace and love" },
+  { src: photoFormatech2, title: "FormaTech Expo", alt: "Skill&Tell members in front of the FormaTech Expo stand" },
 ];
+
+// ARCADE editions, in the order of event.editions (2024, 2025).
+const ARCADE_PHOTOS = [photoArcade1, photoArcade2];
 
 function Featured({ event }) {
   return (
@@ -92,18 +125,17 @@ function Arcade({ event }) {
           </div>
           <div data-reveal="up" className="mt-10 flex flex-wrap gap-4">
             <Magnetic>
-              <TLink href={event.href} className="snt-btn border border-[#ff0707]/60 bg-gradient-to-r from-[#8b0000] to-[#ff0707] text-white shadow-[0_10px_40px_-10px_rgba(255,7,7,0.8)]">
+              <TLink href={event.href} className="snt-btn !overflow-visible bg-gradient-to-r from-[#8b0000] to-[#ff0707] text-white shadow-[0_10px_40px_-10px_rgba(255,7,7,0.8)] transition-shadow hover:shadow-[0_14px_50px_-8px_rgba(255,7,7,0.95)]">
                 Enter the ARCADE <ArrowRight className="snt-btn__arrow h-5 w-5" />
               </TLink>
             </Magnetic>
           </div>
         </div>
         <div className="relative mx-auto grid w-full max-w-xl grid-cols-2 gap-4 py-10">
-          {event.editions.map((ed) => (
+          {event.editions.map((ed, i) => (
             <figure key={ed.label} data-edition className="incoming-event-moving-border overflow-hidden rounded-[18px] bg-black p-[3px] shadow-2xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[15px]">
-                <Image src={ed.image} alt="" aria-hidden="true" fill sizes="10vw" className="scale-125 object-cover opacity-60 blur-xl" />
-                <Image src={ed.image} alt={ed.label} fill sizes="(min-width:1024px) 24vw, 45vw" className="object-contain" />
+                <Image src={ARCADE_PHOTOS[i]} alt={`${ed.label} participants`} fill placeholder="blur" sizes="(min-width:1024px) 24vw, 45vw" className="object-cover" />
               </div>
               <figcaption className="px-3 py-3 font-futura_bold text-white">{ed.label}</figcaption>
             </figure>
@@ -204,8 +236,9 @@ function Gallery() {
       const mm = gsap.matchMedia();
       mm.add("(min-width: 768px)", () => {
         gsap.utils.toArray("[data-gcol]").forEach((col, i) => {
-          gsap.fromTo(col, { yPercent: [6, -6, 10][i] }, {
-            yPercent: [-10, 8, -14][i], ease: "none",
+          // pixel offsets (not %) so long columns never drift over the heading
+          gsap.fromTo(col, { y: [40, -30, 60][i] }, {
+            y: [-40, 30, -60][i], ease: "none",
             scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
           });
         });
@@ -221,7 +254,7 @@ function Gallery() {
         <div className="text-center">
           <span data-reveal="fade" className="snt-eyebrow justify-center">04 — Gallery</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Moments &amp; memories</h2>
-          <p data-reveal="up" className="mx-auto mt-5 max-w-xl text-white/60">Photos and visuals from our events. Tap any picture to open it.</p>
+          <p data-reveal="up" className="mx-auto mt-5 max-w-xl text-white/60">Our people, at our events. Tap any picture to open it.</p>
         </div>
         <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {cols.map((col, ci) => (
@@ -229,8 +262,8 @@ function Gallery() {
               {col.map((g) => {
                 const i = GALLERY.indexOf(g);
                 return (
-                  <button key={g.src} type="button" onClick={() => setIndex(i)} data-reveal="up" className="group relative block overflow-hidden rounded-[20px] text-left">
-                    <Image src={g.src} alt={g.alt} width={800} height={800} sizes="(min-width:768px) 30vw, 50vw" className="h-auto w-full transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105" />
+                  <button key={g.src.src} type="button" onClick={() => setIndex(i)} data-reveal="up" className="group relative block overflow-hidden rounded-[20px] text-left">
+                    <Image src={g.src} alt={g.alt} placeholder="blur" sizes="(min-width:768px) 30vw, 50vw" className="h-auto w-full transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105" />
                     <span className="absolute inset-0 bg-gradient-to-t from-[#0a001a]/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     <span className="absolute bottom-4 left-4 flex items-center gap-2 font-futura_bold text-white opacity-0 translate-y-3 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                       <Expand className="h-4 w-4" /> {g.title}
@@ -258,15 +291,15 @@ export default function EventsView() {
   return (
     <div ref={root}>
       <PageHero
+        compact
         eyebrow="Our Events"
         title={<>Moments that <span className="gradient-text">move</span> us</>}
         lead="Datathons, hackathons, ideathons, competitions and workshops — every event is a chance to learn, build and meet people who push you further."
-        bg="/images/Events_Section.webp"
         aside={
           <div className="flex gap-6 md:gap-8 whitespace-nowrap">
             <div><p className="font-compacta text-6xl leading-none text-white">{events.length}</p><p className="mt-1 text-sm text-white/60">Experiences</p></div>
             <div><p className="font-compacta text-6xl leading-none text-white">400+</p><p className="mt-1 text-sm text-white/60">Participants</p></div>
-            <div><p className="font-compacta text-6xl leading-none gradient-text">{Math.min(...years)}–{String(Math.max(...years)).slice(2)}</p><p className="mt-1 text-sm text-white/60">Seasons</p></div>
+            <div><p className="font-compacta text-6xl leading-none gradient-text">{FOUNDED.year}–{String(Math.max(...years)).slice(2)}</p><p className="mt-1 text-sm text-white/60">Seasons</p></div>
           </div>
         }
       />

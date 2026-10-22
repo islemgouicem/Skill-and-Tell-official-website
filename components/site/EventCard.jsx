@@ -18,7 +18,6 @@ export function EventArt({ event, sizes = "(min-width:1024px) 33vw, 90vw", class
   }
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-[radial-gradient(70%_60%_at_30%_20%,#7b2cbf_0%,#1a0132_60%,#0a001a_100%)]">
-      <div className="snt-grid-bg absolute inset-0" />
       <span className="snt-spin-slow absolute h-[140%] aspect-square rounded-full border border-dashed border-Main-300/20" />
       <span className="relative font-futura_bold text-[clamp(3rem,7vw,5.5rem)] leading-none text-outline">{event.title}</span>
       <Sparkles className="absolute right-6 top-6 h-6 w-6 text-accent-300" />

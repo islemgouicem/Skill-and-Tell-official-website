@@ -1,7 +1,7 @@
 "use client";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import { gsap, Flip, useGSAP, prefersReducedMotion } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
 import PageHero from "@/components/site/PageHero";
@@ -13,35 +13,59 @@ import { structureTeam, prettyName } from "@/lib/utils/team";
 import { PREVIOUS_OFFICES } from "@/data/skillntell/offices";
 import { CONTACT_EMAIL } from "@/data/skillntell/site";
 
+function OrbitRing({ members, radius, size, dir }) {
+  return (
+    <div data-orbit-ring={dir} className="absolute inset-0">
+      {members.map((m, i) => {
+        const a = (i / members.length) * Math.PI * 2 - Math.PI / 2;
+        return (
+          <div
+            key={m.id + m.name}
+            className="absolute"
+            style={{ left: `${(50 + Math.cos(a) * radius).toFixed(3)}%`, top: `${(50 + Math.sin(a) * radius).toFixed(3)}%`, transform: "translate(-50%,-50%)" }}
+          >
+            <div data-orbit-face={dir} className={`relative ${size} overflow-hidden rounded-full border-2 border-white/80 bg-Main-700 shadow-[0_0_22px_rgba(157,78,221,0.55)]`}>
+              <Image src={m.thumb || m.image || "/images/pfp.png"} alt="" fill sizes="64px" priority className="object-cover" />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Two counter-rotating rings of managers around the Skill&Tell mark. */
 function Orbit({ members }) {
   const ref = useRef(null);
-  const ring = members.slice(0, 12);
+  const split = Math.min(14, Math.ceil(members.length * 0.56));
+  const outer = members.slice(0, split);
+  const inner = members.slice(split, split + 10);
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
-      gsap.to("[data-orbit]", { rotate: 360, duration: 90, ease: "none", repeat: -1 });
-      gsap.to("[data-orbit-face]", { rotate: -360, duration: 90, ease: "none", repeat: -1 });
-      gsap.from("[data-orbit-face]", { scale: 0, opacity: 0, stagger: 0.06, duration: 0.9, ease: "back.out(1.8)", delay: 0.6 });
+      gsap.to("[data-orbit-ring='cw']", { rotate: 360, duration: 110, ease: "none", repeat: -1 });
+      gsap.to("[data-orbit-face='cw']", { rotate: -360, duration: 110, ease: "none", repeat: -1 });
+      gsap.to("[data-orbit-ring='ccw']", { rotate: -360, duration: 80, ease: "none", repeat: -1 });
+      gsap.to("[data-orbit-face='ccw']", { rotate: 360, duration: 80, ease: "none", repeat: -1 });
+      gsap.from("[data-orbit-face]", { scale: 0, opacity: 0, stagger: 0.04, duration: 0.8, ease: "back.out(1.8)", delay: 0.6 });
     },
     { scope: ref }
   );
   return (
-    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute right-[-45%] top-[6%] h-[110vw] w-[110vw] opacity-35 md:right-[-20%] md:opacity-60 lg:right-[4%] lg:top-[52%] lg:h-[min(40vw,600px)] lg:w-[min(40vw,600px)] lg:-translate-y-1/2 lg:opacity-100">
-      <div className="absolute inset-0 rounded-full border border-dashed border-Main-300/25" />
-      <div className="absolute inset-[18%] rounded-full border border-Main-300/15" />
-      <div className="absolute inset-[38%] rounded-full bg-gradient-to-br from-Main-500/50 to-accent-500/30 blur-2xl" />
-      <div data-orbit className="absolute inset-0">
-        {ring.map((m, i) => {
-          const a = (i / ring.length) * Math.PI * 2;
-          return (
-            <div key={m.id + m.name} className="absolute" style={{ left: `${(50 + Math.cos(a) * 50).toFixed(3)}%`, top: `${(50 + Math.sin(a) * 50).toFixed(3)}%`, transform: "translate(-50%,-50%)" }}>
-              <div data-orbit-face>
-                <Image src={m.image || "/images/pfp.png"} alt="" width={72} height={72} className="h-12 w-12 rounded-full border-2 border-white/70 object-cover shadow-[0_0_24px_rgba(157,78,221,0.6)] md:h-16 md:w-16" />
-              </div>
-            </div>
-          );
-        })}
+    <div
+      ref={ref}
+      aria-hidden="true"
+      className="pointer-events-none absolute right-[5%] top-[calc(50%+2.5rem)] hidden aspect-square w-[min(32vw,58svh,500px)] -translate-y-1/2 lg:block xl:right-[7%]"
+    >
+      <div className="absolute inset-0 rounded-full border border-dashed border-Main-300/30" />
+      <div className="absolute inset-[21%] rounded-full border border-Main-300/20" />
+      <div className="absolute inset-[34%] rounded-full bg-gradient-to-br from-Main-500/45 to-accent-500/25 blur-2xl" />
+      <div className="absolute inset-[37%] flex items-center justify-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/snt.svg" alt="" className="h-full w-full object-contain drop-shadow-[0_0_24px_rgba(157,78,221,0.6)]" />
       </div>
+      <OrbitRing members={outer} radius={50} size="h-14 w-14 xl:h-16 xl:w-16" dir="cw" />
+      <OrbitRing members={inner} radius={29} size="h-11 w-11 xl:h-12 xl:w-12" dir="ccw" />
     </div>
   );
 }
@@ -125,6 +149,34 @@ function Departments({ departments }) {
   );
 }
 
+const MANDATE_SUBJECT = "Previous office — Skill&Tell website";
+const MANDATE_BODY = "Hi Skill&Tell,\n\nI was part of a previous office. Here are the details:\n\nMandate (years): \nPresident: \nBoard & managers (name — role): \nOur best memory: \n\nTeam photo attached.\n";
+
+/** Opens a pre-filled email (Gmail in a new tab, works without a mail app) + copy the address. */
+function ShareMandate() {
+  const [copied, setCopied] = useState(false);
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(MANDATE_SUBJECT)}&body=${encodeURIComponent(MANDATE_BODY)}`;
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(MANDATE_SUBJECT)}&body=${encodeURIComponent(MANDATE_BODY)}`;
+    }
+  };
+  return (
+    <div className="mt-5 flex shrink-0 flex-wrap items-center gap-3 md:mt-0">
+      <a href={gmail} target="_blank" rel="noopener noreferrer" className="snt-btn snt-btn--primary !px-5 !py-3 text-sm">
+        <Mail className="h-4 w-4" /> Share your mandate <ArrowUpRight className="h-4 w-4" />
+      </a>
+      <button type="button" onClick={copy} className="snt-btn snt-btn--ghost !px-4 !py-3 text-sm" aria-live="polite">
+        {copied ? <><Check className="h-4 w-4" /> Copied</> : <><Copy className="h-4 w-4" /> {CONTACT_EMAIL}</>}
+      </button>
+    </div>
+  );
+}
+
 function PreviousOffices() {
   const [active, setActive] = useState(0);
   const office = PREVIOUS_OFFICES[active];
@@ -178,9 +230,7 @@ function PreviousOffices() {
             <p className="font-futura_bold text-xl text-white">Were you part of an earlier office?</p>
             <p className="mt-2 text-white/60">Send us your mandate, your team photo and your best memory — we&apos;ll add it here.</p>
           </div>
-          <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Previous office — Skill&Tell website")}`} className="mt-5 inline-flex shrink-0 items-center gap-2 text-accent-300 snt-link md:mt-0">
-            <Mail className="h-4 w-4" /> Share your mandate <ArrowUpRight className="h-4 w-4" />
-          </a>
+          <ShareMandate />
         </div>
       </div>
     </section>
@@ -236,7 +286,7 @@ export default function TeamView({ teamMembers = [] }) {
 
       <div className="border-y border-white/10 bg-Main-700 py-5">
         <Marquee speed={50}>
-          {["Creativity", "Communication", "Collaboration", "Leadership", "Production", "Design", "Events", "Relex", "IT"].map((w) => (
+          {["Creativity", "Collaboration", "Leadership", "HR", "IT", "Design", "Marketing", "Events", "Relex"].map((w) => (
             <span key={w} className="flex items-center gap-6 pr-6 font-futura_bold text-4xl uppercase text-white/90 md:text-6xl">
               {w} <span className="text-accent-500">✦</span>
             </span>

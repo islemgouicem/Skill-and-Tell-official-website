@@ -6,7 +6,8 @@ import { gsap, useGSAP, prefersReducedMotion } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
-import { MISSIONS_URL, MISSIONS_SOLO_LEVELING, MISSION_GATES } from "@/data/skillntell/missions";
+import monster from "@/assets/images/skillntell/monster2.png";
+import { MISSIONS_URL, MISSIONS_SOLO_LEVELING } from "@/data/skillntell/missions";
 
 /** Short Solo Leveling–flavoured teaser that sends people to the Missions platform. */
 export default function Missions() {
@@ -16,14 +17,9 @@ export default function Missions() {
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
-      gsap.to("[data-portal]", { rotate: 360, duration: 40, ease: "none", repeat: -1 });
       const st = { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true };
       gsap.fromTo("[data-world]", { yPercent: -8, scale: 1.12 }, { yPercent: 8, scale: 1.02, ease: "none", scrollTrigger: st });
       gsap.fromTo("[data-hunter]", { y: 60 }, { y: -40, ease: "none", scrollTrigger: st });
-      gsap.fromTo("[data-gate]", { y: 80, rotate: (i) => (i - 1) * 10, opacity: 0 }, {
-        y: 0, rotate: (i) => (i - 1) * 6, opacity: 1, stagger: 0.12, duration: 1.1, ease: "power3.out",
-        scrollTrigger: { trigger: "[data-gates]", start: "top 85%", once: true },
-      });
     },
     { scope: root }
   );
@@ -65,22 +61,19 @@ export default function Missions() {
         </div>
 
         <div className="relative mx-auto h-[380px] w-full max-w-[520px] sm:h-[460px] lg:col-span-6 lg:h-[540px] lg:max-w-none">
-          <div className="absolute left-1/2 top-[44%] w-[78%] -translate-x-1/2 -translate-y-1/2">
-            <Image data-portal src="/images/missions/portal.webp" alt="" width={540} height={548} sizes="420px" className="h-auto w-full opacity-90" />
-          </div>
-          <div data-hunter className="absolute inset-x-0 bottom-0 flex justify-center">
-            <Image src="/images/missions/hunter.webp" alt="" width={1400} height={1061} sizes="(min-width:1024px) 600px, 90vw" className="h-auto w-[105%] max-w-none drop-shadow-[0_20px_60px_rgba(10,0,26,0.9)]" />
+          {/* Backlight so the dark monster reads against the night sky */}
+          <div className="absolute left-1/2 top-[46%] h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(157,78,221,0.55)_0%,rgba(123,44,191,0.25)_40%,transparent_70%)]" aria-hidden="true" />
+          <div data-hunter className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src={monster}
+              alt="A shadow monster guarding a gate"
+              sizes="(min-width:1024px) 560px, 90vw"
+              className="h-auto w-full max-w-[560px] [mask-image:linear-gradient(to_bottom,#000_72%,transparent)]"
+            />
           </div>
         </div>
       </div>
 
-      <div data-gates className="relative mx-auto mt-12 flex max-w-[1400px] justify-center gap-4 px-5 md:mt-16 md:gap-8 md:px-10">
-        {MISSION_GATES.map((g) => (
-          <figure key={g.name} data-gate className="w-[30%] max-w-[190px]">
-            <Image src={g.image} alt={`${g.name} gate`} width={540} height={1200} sizes="190px" className="h-auto w-full transition-transform duration-500 hover:-translate-y-3 hover:scale-105 drop-shadow-[0_20px_40px_rgba(157,78,221,0.45)]" />
-          </figure>
-        ))}
-      </div>
     </section>
   );
 }

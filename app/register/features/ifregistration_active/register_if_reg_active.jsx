@@ -1,19 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import { supabase } from "@/lib/services/supabase";
-import { Button } from "@/components/ui/button";
 import NotRegistered from "../sections/new_register";
 import { useRegistration } from "@/lib/hooks/useRegistration";
-import { ArrowLeft, ArrowRight, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { AlertCircle, ArrowLeft, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Star from "@/components/ui/star";
+import RegisterShell from "../components/RegisterShell";
+import { Field, StepHeader, inputClass } from "../components/Fields";
 
 function RegistrationForm() {
   const [isCheckingEmail, setIsCheckingEmail] = useState(false);
 
   const {
     phase1, setPhase1, formData, errors, setErrors,
-    handleInputChange, totalSteps, setTotalSteps,
+    handleInputChange, setTotalSteps, currentStep,
     setIsRegistered,
     completionTitle, completionMsg,
   } = useRegistration();
@@ -54,158 +54,85 @@ function RegistrationForm() {
     }
   };
 
+  const done = phase1 === 3 || phase1 === 4;
+  const step = phase1 === 1 ? 0 : phase1 === 2 ? currentStep : 4;
+
   return (
-    <div
-      className="min-h-screen p-2 bg-cover bg-center bg-repeat"
-      style={{ backgroundImage: "url('/images/Team_Section.webp')" }}
-    >
-      {/* Header */}
-      <div className="max-w-6xl mx-auto py-4">
-        <div className="mb-4 text-center">
-          <h1 className="inline-block text-3xl sm:text-4xl md:text-5xl font-bold p-2 grad-title">
-            Join Skill&amp;Tell
-          </h1>
-        </div>
-
-        {/* Progress Bar */}
-        {(phase1 === 1 || phase1 === 2) && (
-          <div className="w-full bg-Main-600 rounded-full h-2 mb-8">
-            <div
-              className="h-2 rounded-full transition-all duration-500"
-              style={{
-                width: `${(phase1 / totalSteps) * 100}%`,
-                background: "linear-gradient(90deg,#FF6D00,#7B2CBF)",
-              }}
-            ></div>
-          </div>
-        )}
-      </div>
-
-      {/* Form Container */}
+    <RegisterShell step={step} done={done} wide={phase1 !== 1}>
+      {/* Step 0 — email check */}
       {phase1 === 1 && (
-        <div className="flex justify-center items-center min-h-[70vh] mb-6">
-          <div className="glass rounded-2xl p-8 md:p-10 w-full max-w-xl text-center animate-fade-in-up">
-            <img
-              src="/icons/Profile.svg"
-              alt="User Icon"
-              className="w-16 h-16 md:w-[70px] md:h-[70px] mx-auto mb-4"
+        <form
+          noValidate
+          className="reg-step"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!isCheckingEmail) redirect();
+          }}
+        >
+          <StepHeader icon="/icons/Profile.svg" title="Enter Your Email" text="We'll check if you're already registered." />
+          <Field label="Email address" required error={errors.email} htmlFor="reg-email">
+            <input
+              id="reg-email"
+              type="email"
+              autoComplete="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className={inputClass(errors.email)}
+              placeholder="your.email@example.com"
+              aria-invalid={!!errors.email}
+              autoFocus
             />
-            <h2 className="section-title">Enter Your Email</h2>
-            <p className="text-gray-500 text-sm mb-8">
-              We&apos;ll check if you&apos;re already registered
-            </p>
+          </Field>
 
-            <div className="text-left mb-8">
-              <label className="input-label">
-                Email Address <Star />
-              </label>
-              <input
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
-                className="input-style w-full"
-                placeholder="your.email@example.com"
-                required
-              />
-              {errors.email && (
-                <p className="text-error-200 text-sm mt-1">* {errors.email}</p>
-              )}
-            </div>
-
-            {/* form navigation */}
-            <div className="flex justify-between items-center pt-6 border-t border-space-subtle">
-              {/* Back Button */}
-              <Button
-                onClick={() => {
-                  router.push("/");
-                  window.scrollTo(0, 0);
-                }}
-                variant="ghost"
-                className="text-white/80 border border-Main-500 rounded-sm hover:bg-space-light disabled:opacity-50"
-              >
-                <ArrowLeft className="w-5 h-5 mr-2" />
-                Back to home
-              </Button>
-
-              {/* Next or Submit Button */}
-              <Button
-                onClick={redirect}
-                disabled={isCheckingEmail}
-                className="gradient-buttons rounded-sm text-white hover:from-space-orange-light hover:to-space-purple"
-              >
-                {isCheckingEmail ? (
-                  <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    Next...
-                  </>
-                ) : (
-                  <>
-                    Next
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </>
-                )}
-              </Button>
-            </div>
+          <div className="mt-10 flex items-center justify-between gap-3 border-t border-Main-500/40 pt-6">
+            <button
+              type="button"
+              onClick={() => {
+                router.push("/");
+                window.scrollTo(0, 0);
+              }}
+              className="inline-flex h-11 items-center gap-2 rounded-lg border border-Main-500 px-4 text-sm text-white/85 transition-colors hover:border-Main-300 hover:bg-white/5 sm:px-5"
+            >
+              <ArrowLeft className="h-4 w-4" /> Home
+            </button>
+            <button type="submit" disabled={isCheckingEmail} className="reg-next inline-flex h-11 items-center gap-2 rounded-lg border border-Main-300/50 px-5 text-sm text-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,109,0,0.8)] disabled:pointer-events-none disabled:opacity-60 sm:px-6">
+              {isCheckingEmail ? (<><Loader2 className="h-4 w-4 animate-spin" /> Checking…</>) : (<>Continue <ArrowRight className="h-4 w-4" /></>)}
+            </button>
           </div>
-        </div>
+        </form>
       )}
 
-      {/* New-user, full 4-step flow */}
-      {phase1 === 2 && (
-        <div className="max-w-5xl mx-auto mb-6">
-          <div className="glass rounded-2xl p-6 md:p-8">
-            <NotRegistered />
-          </div>
-        </div>
+      {/* Steps 1–4 — new member */}
+      {phase1 === 2 && <NotRegistered />}
+
+      {/* Completion (new member finished all steps) */}
+      {phase1 === 3 && (
+        <Outcome icon={CheckCircle} title={completionTitle} text={completionMsg} onHome={() => router.push("/")} />
       )}
 
-{/* Completion screen (new user finished all steps) */}
-{phase1 === 3 && (
-  <div className="flex justify-center items-center min-h-[70vh] mb-6 mx-2">
-    <div className="glass rounded-2xl p-8 w-full max-w-5xl">
-      <div className="mb-2 text-center animate-fade-in-up">
-        <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-        <h1 className="inline-block text-5xl md:text-14xl p-2 gradient-text text-center font-bold">
-          {completionTitle}
-        </h1>
-        <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto text-center my-10">
-          {completionMsg}
-        </p>
-        <Button
-          onClick={() => router.push("/")}
-          className="text-white rounded-md mt-4 px-8 py-3 bg-gradient-to-r from-[#8A38F5]/0 to-[#FF6D00] hover:from-space-orange-light hover:to-space-purple"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Home
-        </Button>
-      </div>
-    </div>
-  </div>
-)}
+      {/* Already registered (no further steps) */}
+      {phase1 === 4 && (
+        <Outcome
+          icon={AlertCircle}
+          tone="warm"
+          title="You're already registered!"
+          text="You've already registered with Skill & Tell. Your information is already saved."
+          onHome={() => router.push("/")}
+        />
+      )}
+    </RegisterShell>
+  );
+}
 
-{/* Already-registered message (no further steps, no update) */}
-{phase1 === 4 && (
-  <div className="flex justify-center items-center min-h-[70vh] mb-6 mx-2">
-    <div className="glass rounded-2xl p-8 w-full max-w-5xl">
-      <div className="mb-2 text-center animate-fade-in-up">
-        <AlertCircle className="w-16 h-16 text-orange-400 mx-auto mb-4" />
-        <h1 className="inline-block text-4xl md:text-5xl p-2 gradient-text text-center font-bold">
-          You're already registered!
-        </h1>
-        <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto text-center my-10">
-         You’ve already registered with Skill & Tell.Your information is already saved.
-         </p>
-        <Button
-          onClick={() => router.push("/")}
-          className="text-white rounded-md mt-4 px-8 py-3 bg-gradient-to-r from-[#8A38F5]/0 to-[#FF6D00] hover:from-space-orange-light hover:to-space-purple"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Home
-        </Button>
-      </div>
-    </div>
-  </div>
-)}
+function Outcome({ icon: Icon, title, text, onHome, tone }) {
+  return (
+    <div className="reg-step py-4 text-center sm:py-8">
+      <Icon className={`mx-auto h-16 w-16 ${tone === "warm" ? "text-orange-400" : "text-green-400"}`} />
+      <h2 className="gradient-text mt-5 inline-block p-1 text-4xl font-bold md:text-5xl">{title}</h2>
+      <p className="mx-auto mt-6 max-w-md leading-relaxed text-white/75">{text}</p>
+      <button type="button" onClick={onHome} className="reg-next mt-9 inline-flex h-11 items-center gap-2 rounded-lg border border-Main-300/50 px-6 text-sm text-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,109,0,0.8)]">
+        <ArrowLeft className="h-4 w-4" /> Back to home
+      </button>
     </div>
   );
 }

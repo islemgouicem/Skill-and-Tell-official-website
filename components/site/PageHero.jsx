@@ -5,7 +5,7 @@ import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } fro
 import EmberField from "@/components/motion/EmberField";
 
 /** Shared hero for inner pages: masked headline, lead, optional visual slot. */
-export default function PageHero({ eyebrow, title, lead, bg = "/images/background_c.webp", children, aside, className = "", minH = "min-h-[88svh]", stacked = false }) {
+export default function PageHero({ eyebrow, title, lead, bg = "/images/background_c.webp", children, aside, className = "", minH = "min-h-[88svh]", stacked = false, compact = false }) {
   const root = useRef(null);
 
   useGSAP(
@@ -38,11 +38,10 @@ export default function PageHero({ eyebrow, title, lead, bg = "/images/backgroun
   );
 
   return (
-    <section ref={root} className={`relative flex ${minH} items-end overflow-hidden bg-space-dark pb-16 pt-36 md:pb-24 ${className}`}>
+    <section ref={root} className={`relative flex ${compact ? "pb-14 pt-28 md:pb-20 md:pt-32" : `${minH} items-end pb-16 pt-36 md:pb-24`} overflow-hidden bg-space-dark ${className}`}>
       <div data-ph-bg className="absolute inset-0">
         <Image src={bg} alt="" fill priority sizes="100vw" className="object-cover" />
       </div>
-      <div className="snt-grid-bg absolute inset-0 opacity-70" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-space-dark" />
       <EmberField density={0.6} />
       {children}
