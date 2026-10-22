@@ -67,7 +67,7 @@ function Gate() {
       <div data-flash className="pointer-events-none absolute inset-0 bg-[#1a0132] opacity-0" />
 
       <div data-g-content className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 pt-20 text-center">
-        <Image data-g-fade src="/images/missions/logo.webp" alt="Skill&Tell Missions" width={960} height={418} priority sizes="360px" className="h-auto w-[260px] drop-shadow-[0_0_30px_rgba(157,78,221,0.6)] md:w-[360px]" />
+        <Image data-g-fade src="/images/missions/logo.webp" alt="Skill&Tell Missions" width={960} height={418} priority sizes="360px" className="h-auto w-[260px] md:w-[360px]" />
         <h1 data-g-title className="snt-display mt-6 text-white opacity-0 [text-shadow:0_10px_60px_rgba(10,0,26,0.8)]">
           Learn. Practise.
           <br />

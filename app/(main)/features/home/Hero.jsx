@@ -3,26 +3,12 @@ import { useRef } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } from "@/lib/motion/gsap";
-import EmberField from "@/components/motion/EmberField";
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
 import Shield from "@/components/ui/shield_badge";
 import Planet from "@/components/motion/Planet";
 
 const AVATARS = ["/images/managers/Khefif_Abderahim.JPG", "/images/managers/salamo.jpg", "/images/managers/badri.jpg"];
-
-// Arc of the logo's shooting star, traced over the headline.
-const STAR_PATH = "M -40 520 C 260 520, 420 330, 640 300 S 1040 170, 1260 40";
-
-function StarHead() {
-  return (
-    <g data-star-head>
-      <circle r="22" fill="url(#hero-star-glow)" />
-      <path d="M0 -14 L3.2 -3.2 L14 0 L3.2 3.2 L0 14 L-3.2 3.2 L-14 0 L-3.2 -3.2 Z" fill="#ffc78a" />
-      <circle r="3" fill="#fff" />
-    </g>
-  );
-}
 
 export default function Hero() {
   const root = useRef(null);
@@ -35,7 +21,6 @@ export default function Hero() {
 
       if (reduced) {
         gsap.set(q("[data-hero-fade], [data-hero-title]"), { opacity: 1 });
-        gsap.set(q("[data-star-trail]"), { strokeDashoffset: 0 });
         return;
       }
 
@@ -44,22 +29,10 @@ export default function Hero() {
       const split = SplitText.create(q("[data-hero-chars]"), { type: "words,chars", mask: "words" });
       gsap.set(q("[data-hero-title]"), { opacity: 1 });
 
-      const trail = q("[data-star-trail]")[0];
-      const len = trail.getTotalLength();
-      gsap.set(trail, { strokeDasharray: len, strokeDashoffset: len });
-
       const tl = gsap.timeline({ delay: delay + 0.15 });
       tl.from(q("[data-planet]"), { yPercent: 60, opacity: 0, duration: 1.8, ease: "expo.out" }, 0)
         .from(split.chars, { yPercent: 120, rotate: 8, duration: 1.1, stagger: 0.022, ease: "power4.out" }, 0.1)
         .from(q("[data-hero-brand]"), { yPercent: 40, opacity: 0, scale: 0.92, filter: "blur(12px)", duration: 1.3, ease: "power3.out" }, 0.55)
-        .to(trail, { strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut" }, 0.35)
-        .fromTo(q("[data-star-head]"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.35)
-        .to(q("[data-star-head]"), {
-          duration: 1.6,
-          ease: "power2.inOut",
-          motionPath: { path: trail, align: trail, alignOrigin: [0.5, 0.5] },
-        }, 0.35)
-        .to(q("[data-star-head]"), { scale: 1.8, opacity: 0, duration: 0.5, transformOrigin: "50% 50%" }, 1.9)
         .fromTo(q("[data-hero-fade]"), { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1 }, 0.7)
         .fromTo(q("[data-depth]"), { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 1, stagger: 0.12, ease: "back.out(1.7)" }, 1.0);
 
@@ -110,37 +83,9 @@ export default function Hero() {
       <div data-hero-bg className="absolute inset-0">
         <Image src="/images/background_c.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" />
       </div>
-      <div className="snt-grid-bg absolute inset-0 opacity-70" />
-      <div className="absolute inset-0" style={{ background: "radial-gradient(60% 50% at 50% 40%, rgba(123,44,191,0.35), transparent 70%)" }} />
-      <EmberField density={0.9} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(60% 50% at 50% 40%, rgba(123,44,191,0.3), transparent 70%)" }} />
 
-      {/* Orbit rings */}
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[44%] -translate-x-1/2 -translate-y-1/2">
-        <div className="snt-spin-slow h-[88vmin] w-[88vmin] rounded-full border border-dashed border-Main-300/15" />
-        <div className="snt-spin-slower absolute inset-[12%] rounded-full border border-Main-300/10">
-          <span className="absolute -top-1.5 left-1/2 h-3 w-3 rounded-full bg-accent-500 shadow-[0_0_18px_6px_rgba(255,109,0,0.6)]" />
-        </div>
-      </div>
-
-      {/* Shooting star */}
-      <svg aria-hidden="true" viewBox="0 0 1220 600" preserveAspectRatio="xMidYMid slice" className="pointer-events-none absolute inset-0 h-full w-full">
-        <defs>
-          <linearGradient id="hero-trail" x1="0" x2="1" y1="1" y2="0">
-            <stop offset="0" stopColor="#7b2cbf" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#9d4edd" stopOpacity="0.7" />
-            <stop offset="1" stopColor="#ff9e00" stopOpacity="0.95" />
-          </linearGradient>
-          <radialGradient id="hero-star-glow">
-            <stop offset="0" stopColor="#ff9e00" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#ff6d00" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <path data-star-trail d={STAR_PATH} fill="none" stroke="url(#hero-trail)" strokeWidth="3" strokeLinecap="round" />
-        <StarHead />
-      </svg>
-
-      <div data-hero-content className="relative z-20 mx-auto flex max-w-6xl -translate-y-[7vh] flex-col items-center px-5 pt-24 text-center">
-        <span data-hero-fade className="snt-eyebrow mb-6">Scientific Club · ENSIA</span>
+      <div data-hero-content className="relative z-20 mx-auto flex max-w-6xl -translate-y-[6vh] flex-col items-center px-5 pt-20 text-center">
         <h1 data-hero-title className="snt-display text-white opacity-0">
           <span data-hero-chars>Start your journey</span>
           <br />

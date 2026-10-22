@@ -35,7 +35,11 @@ export default function EmberField({ density = 1, className = "", interactive = 
     const canvas = ref.current;
     const ctx = canvas.getContext("2d");
     const sprites = PALETTE.map((c) => sprite(c.join(",")));
-    const reduced = prefersReducedMotion();
+    // Weaker machines get a still starfield instead of an animated one.
+    const lowEnd =
+      (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+      (navigator.deviceMemory && navigator.deviceMemory <= 4);
+    const reduced = prefersReducedMotion() || lowEnd;
     let w = 0, h = 0, dpr = 1, raf = 0, running = false;
     let particles = [];
     const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -58,13 +62,13 @@ export default function EmberField({ density = 1, className = "", interactive = 
 
     const resize = () => {
       const r = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       w = r.width;
       h = r.height;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.round(Math.min(90, (w * h) / 16000) * density);
+      const count = Math.round(Math.min(60, (w * h) / 22000) * density);
       particles = Array.from({ length: count }, () => make(true));
       if (!running) draw(0);
     };

@@ -29,8 +29,11 @@ export default function Marquee({ children, speed = 40, reverse = false, classNa
         },
       });
       let paused = false;
+      let visible = true;
+      const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
+      io.observe(root.current);
       const tick = (_, dt) => {
-        if (paused) return;
+        if (paused || !visible) return;
         const delta = (dt / 1000) * speed * dir * (1 + Math.abs(boost)) * (boost < -1 ? -1 : 1);
         x = wrap(x + delta);
         boost *= 0.92;
@@ -43,6 +46,7 @@ export default function Marquee({ children, speed = 40, reverse = false, classNa
       root.current.addEventListener("pointerleave", leave);
       return () => {
         gsap.ticker.remove(tick);
+        io.disconnect();
         st.kill();
       };
     },

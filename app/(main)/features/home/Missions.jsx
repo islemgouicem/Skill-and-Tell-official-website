@@ -47,7 +47,7 @@ export default function Missions() {
             width={960}
             height={418}
             sizes="(min-width:1024px) 520px, 90vw"
-            className="mt-6 h-auto w-full max-w-[520px] drop-shadow-[0_0_30px_rgba(157,78,221,0.55)]"
+            className="mt-6 h-auto w-full max-w-[520px]"
           />
           <p data-reveal="up" className="snt-lead mt-6 max-w-xl text-white/75">{MISSIONS_SOLO_LEVELING}</p>
           <div data-reveal="up" className="mt-9 flex flex-col gap-4 sm:flex-row">

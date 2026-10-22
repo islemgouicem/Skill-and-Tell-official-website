@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
 import Magnetic from "@/components/motion/Magnetic";
+import Image from "next/image";
+import sntMark from "@/assets/images/shared/snt_mark.png";
 
 const DEPARTMENTS = ["IT", "Design", "Events", "Relex", "Marketing", "Production"];
 
@@ -27,11 +29,13 @@ export default function DepartmentTest() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
         <div data-reveal="up" className="snt-card grid items-center gap-10 overflow-hidden p-7 md:p-12 lg:grid-cols-2">
           <div>
-            <span className="snt-eyebrow">By Skill&amp;Tell</span>
+            <span className="snt-eyebrow">Department test</span>
             <h2 className="snt-h2 mt-5 text-white">
-              Where do <span className="snt-brand-text">you</span> belong?
+              Wondering which department to join?
             </h2>
-            <p className="snt-lead mt-5 max-w-md text-white/70">Discover your ideal department through our personality-based assessment.</p>
+            <p className="snt-lead mt-5 max-w-md text-white/70">
+              Take our personality-based test and find out where <span className="font-futura_bold text-accent-300">you</span> belong in Skill&amp;Tell.
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Magnetic>
                 <a href="https://departments-test.vercel.app/" target="_blank" rel="noopener noreferrer" className="snt-btn snt-btn--primary">
@@ -49,10 +53,8 @@ export default function DepartmentTest() {
           <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[380px]">
             <div className="absolute inset-[10%] rounded-full border border-dashed border-Main-300/30" />
             <div className="absolute inset-[30%] rounded-full border border-Main-300/15" />
-            <div data-core className="absolute inset-[36%] rounded-full bg-gradient-to-br from-accent-500 via-accent-400 to-Main-400 shadow-[0_0_60px_rgba(255,109,0,0.55)]">
-              <svg viewBox="0 0 24 24" className="absolute inset-[26%] text-white">
-                <path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor" />
-              </svg>
+            <div data-core className="absolute inset-[33%] grid place-items-center rounded-full border border-Main-300/40 bg-[#1a0132] shadow-[0_0_50px_rgba(157,78,221,0.45)]">
+              <Image src={sntMark} alt="" sizes="120px" className="h-[58%] w-auto" />
             </div>
             <div data-orbit className="absolute inset-[10%]">
               {DEPARTMENTS.map((d, i) => {

@@ -30,7 +30,7 @@ export default function Stats({ tone = "light" }) {
             >
               <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-accent-500 to-Main-400 transition-transform duration-700 group-hover:scale-x-100" />
               <span className={`font-futura_md_bt text-xs ${light ? "text-Main-500" : "text-Main-300"}`}>0{i + 1}</span>
-              <div className="mt-6 snt-brand-text text-[clamp(2.6rem,5.2vw,5rem)] leading-none">
+              <div className="mt-6 font-compacta text-[clamp(3.6rem,8vw,7.5rem)] leading-[0.85] gradient-text">
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
               <p className={`mt-4 font-futura_bold text-base sm:text-lg ${light ? "text-neutral-600" : "text-white"}`}>{s.label}</p>

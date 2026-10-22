@@ -68,6 +68,9 @@ export const PARTNER_LOGOS = [
 export const EXTENSION = {
   name: "Skill & Tell extension",
   url: "https://chromewebstore.google.com/detail/Skill%20%26%20Tell%20extension/ieegploffcpecfhiebbihgncgcfflonj",
+  // Screenshots shown inside the laptop / iPad mockups (paths under /public).
+  // Leave null to show the built-in illustration.
+  screens: { laptop: null, tablet: null },
   tagline: "A polished new tab with search, inspiration, events and daily learning prompts — made for Skill&Tell members.",
   features: [
     { title: "Built-in search", body: "Search the web straight from your new tab." },

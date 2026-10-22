@@ -18,7 +18,7 @@ function Pillar({ pillar, variant }) {
   return (
     <Tilt
       max={5}
-      className={`${variant === "deep" ? "about-cont" : "bg-Main-600"} relative h-full rounded-[20px] p-6 text-white shadow-[0_24px_50px_-25px_rgba(60,9,108,0.65)]`}
+      className={`${variant === "deep" ? "about-cont" : "bg-Main-600"} relative h-full rounded-[20px] p-6 text-white`}
     >
       <div className="mb-3 flex items-center gap-3">
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 ring-1 ring-white/20">
@@ -42,9 +42,10 @@ export default function About() {
     () => {
       if (prefersReducedMotion()) return;
       const st = { trigger: "[data-visual]", start: "top bottom", end: "bottom top", scrub: true };
-      gsap.fromTo("[data-phone]", { y: 70 }, { y: -50, ease: "none", scrollTrigger: st });
-      gsap.fromTo("[data-photo='1']", { y: -20, rotate: -12 }, { y: 50, rotate: -6, ease: "none", scrollTrigger: st });
-      gsap.fromTo("[data-photo='2']", { y: 40, rotate: 12 }, { y: -40, rotate: 7, ease: "none", scrollTrigger: st });
+      // Gentle drift that stays inside the column (nothing gets cut by the next section).
+      gsap.fromTo("[data-phone]", { y: 24 }, { y: -24, ease: "none", scrollTrigger: st });
+      gsap.fromTo("[data-photo='1']", { y: -12, rotate: -10 }, { y: 18, rotate: -6, ease: "none", scrollTrigger: st });
+      gsap.fromTo("[data-photo='2']", { y: 16, rotate: 10 }, { y: -16, rotate: 6, ease: "none", scrollTrigger: st });
     },
     { scope: root }
   );
@@ -55,11 +56,11 @@ export default function About() {
 
       <div className="relative mx-auto grid max-w-[1400px] items-center gap-14 px-5 md:px-10 lg:grid-cols-12 lg:gap-16">
         {/* Visual: the app phone with two club photos */}
-        <div data-visual data-reveal="up" className="relative mx-auto h-[400px] w-full max-w-[420px] sm:h-[480px] lg:col-span-5 lg:h-[560px] lg:max-w-none">
-          <div data-photo="1" className="absolute left-0 top-[6%] w-[44%] overflow-hidden rounded-2xl border-4 border-white shadow-[0_20px_40px_-15px_rgba(60,9,108,0.45)]">
+        <div data-visual data-reveal="up" className="relative order-2 mx-auto h-[400px] w-full max-w-[420px] sm:h-[480px] lg:order-1 lg:col-span-5 lg:h-[560px] lg:max-w-none">
+          <div data-photo="1" className="absolute left-0 top-[6%] w-[44%] overflow-hidden rounded-2xl border-4 border-white">
             <Image src={aboutus1} alt="Skill&Tell members during an event" className="h-auto w-full" sizes="220px" />
           </div>
-          <div data-photo="2" className="absolute bottom-[4%] right-0 w-[38%] overflow-hidden rounded-2xl border-4 border-white shadow-[0_20px_40px_-15px_rgba(60,9,108,0.45)]">
+          <div data-photo="2" className="absolute bottom-[4%] right-0 w-[38%] overflow-hidden rounded-2xl border-4 border-white">
             <Image src={aboutus2} alt="A Skill&Tell member at a club activity" className="h-auto w-full" sizes="200px" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -68,12 +69,12 @@ export default function About() {
               src={phone}
               alt="The Skill & Tell app"
               sizes="280px"
-              className="relative h-[92%] w-auto drop-shadow-[0_40px_50px_rgba(60,9,108,0.45)]"
+              className="relative h-[86%] w-auto"
             />
           </div>
         </div>
 
-        <div className="lg:col-span-7">
+        <div className="order-1 lg:order-2 lg:col-span-7">
           <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">01 — Identity</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-neutral-600">Who Are We?</h2>
           <p data-reveal="up" className="snt-lead mt-5 max-w-xl text-neutral-500">

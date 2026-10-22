@@ -3,20 +3,19 @@ import { useMemo, useRef } from "react";
 import Image from "next/image";
 import { ArrowRight, Crown } from "lucide-react";
 import { useReveals } from "@/components/motion/useReveals";
-import Marquee from "@/components/motion/Marquee";
 import TLink from "@/components/site/TLink";
 import Magnetic from "@/components/motion/Magnetic";
 import { structureTeam, prettyName, prettyRole } from "@/lib/utils/team";
 
 function HeadCard({ m, board }) {
   return (
-    <figure className="group relative mx-2.5 w-[200px] shrink-0 overflow-hidden rounded-[20px] border border-white/10 bg-Main-700 md:mx-3 md:w-[230px]">
+    <figure className={`group relative overflow-hidden rounded-[18px] border bg-Main-700 ${board ? "border-accent-400/60 shadow-[0_0_30px_-8px_rgba(255,109,0,0.55)]" : "border-white/10"}`}>
       <div className="relative aspect-[3/4]">
         <Image
           src={m.image || "/images/pfp.png"}
           alt={prettyName(m.name)}
           fill
-          sizes="230px"
+          sizes="(min-width:1280px) 200px, (min-width:768px) 25vw, 45vw"
           className="object-cover grayscale-[30%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a001a] via-[#0a001a]/20 to-transparent" />
@@ -25,16 +24,16 @@ function HeadCard({ m, board }) {
             <Crown className="h-4 w-4" />
           </span>
         )}
-        <figcaption className="absolute inset-x-0 bottom-0 p-4">
-          <p className="font-futura_md_bt text-xs text-accent-300">{prettyRole(m.role)}</p>
-          <p className="font-futura_bold text-base leading-tight text-white">{prettyName(m.name)}</p>
+        <figcaption className="absolute inset-x-0 bottom-0 p-3 md:p-4">
+          <p className="font-futura_md_bt text-[11px] leading-tight text-accent-300 md:text-xs">{prettyRole(m.role)}</p>
+          <p className="font-futura_bold text-sm leading-tight text-white md:text-base">{prettyName(m.name)}</p>
         </figcaption>
       </div>
     </figure>
   );
 }
 
-/** Every head gets the same card: the board first, then each department. */
+/** Every head on the home page, same card size: the board first, then each department. */
 export default function TeamTeaser({ teamMembers = [] }) {
   const root = useRef(null);
   useReveals(root);
@@ -42,12 +41,10 @@ export default function TeamTeaser({ teamMembers = [] }) {
     const { board, departments } = structureTeam(teamMembers);
     return { ordered: [...board, ...departments.flatMap((d) => d.members)], boardSet: new Set(board) };
   }, [teamMembers]);
-  const half = Math.ceil(ordered.length / 2);
-  const rows = ordered.length > 8 ? [ordered.slice(0, half), ordered.slice(half)] : [ordered];
 
   return (
-    <section ref={root} id="team" className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0" style={{ backgroundImage: "url('/images/Team_Section.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+    <section ref={root} id="team" className="relative overflow-hidden py-20 md:py-28">
+      <div className="absolute inset-0" style={{ backgroundImage: "url('/images/bg/team.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <div className="absolute inset-0 bg-gradient-to-b from-space-dark via-space-dark/30 to-space-dark" />
 
       <div className="relative mx-auto flex max-w-[1400px] flex-col justify-between gap-6 px-5 md:px-10 lg:flex-row lg:items-end">
@@ -67,13 +64,10 @@ export default function TeamTeaser({ teamMembers = [] }) {
         </div>
       </div>
 
-      <div data-reveal="fade" className="relative mt-14 space-y-5">
-        {rows.map((row, i) => (
-          <Marquee key={i} speed={i ? 26 : 32} reverse={i === 1} pauseOnHover>
-            {row.map((m) => (
-              <HeadCard key={`${m.id}-${m.name}`} m={m} board={boardSet.has(m)} />
-            ))}
-          </Marquee>
+      {/* Everyone on one screen: the executive board always comes first. */}
+      <div data-reveal-stagger className="relative mx-auto mt-12 grid max-w-[1400px] grid-cols-2 gap-3 px-5 sm:grid-cols-3 md:grid-cols-4 md:gap-4 md:px-10 lg:grid-cols-6">
+        {ordered.map((m) => (
+          <HeadCard key={`${m.id}-${m.name}`} m={m} board={boardSet.has(m)} />
         ))}
       </div>
     </section>

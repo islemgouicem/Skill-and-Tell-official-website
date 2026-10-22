@@ -52,7 +52,7 @@ export default function EventsHighlight() {
 
   return (
     <section ref={root} id="events" className="relative bg-space-dark">
-      <div className="absolute inset-0 opacity-70" style={{ backgroundImage: "url('/images/Events_Section.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="absolute inset-0 opacity-70" style={{ backgroundImage: "url('/images/bg/events.webp')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <div className="absolute inset-0 bg-gradient-to-b from-space-dark via-transparent to-space-dark" />
 
       <div data-pin className="relative flex min-h-screen flex-col justify-center overflow-hidden py-24 lg:py-0">

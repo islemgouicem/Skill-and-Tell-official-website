@@ -32,7 +32,7 @@ float snoise(vec3 v){
   vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0); m=m*m;
   return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
 }
-float fbm(vec3 p){float f=0.0;float a=0.5;for(int i=0;i<5;i++){f+=a*snoise(p);p*=2.03;a*=0.5;}return f;}
+float fbm(vec3 p){float f=0.0;float a=0.5;for(int i=0;i<3;i++){f+=a*snoise(p);p*=2.07;a*=0.5;}return f;}
 `;
 
 const PLANET_VS = /* glsl */ `
@@ -51,32 +51,25 @@ varying vec3 vLocal; varying vec3 vNormalW; varying vec3 vViewDir;
 ${NOISE}
 void main(){
   vec3 p = normalize(vLocal);
-  // continents with ragged coastlines
-  float n = fbm(p*1.7) + 0.35*fbm(p*5.0 + 7.3);
-  float land = smoothstep(0.05, 0.13, n);
-  float detail = fbm(p*9.0 + 3.1);
-  vec3 ocean = mix(vec3(0.012,0.0,0.045), vec3(0.05,0.01,0.14), 0.5 + 0.5*detail);
-  vec3 ground = mix(vec3(0.10,0.03,0.26), vec3(0.26,0.10,0.55), smoothstep(-0.4,0.7,detail));
-  vec3 col = mix(ocean, ground, land);
+  // soft continents: dark indigo land on a near-black sea
+  float n = fbm(p*1.6);
+  float land = smoothstep(0.0, 0.18, n);
+  vec3 col = mix(vec3(0.02,0.0,0.06), vec3(0.11,0.04,0.25), land);
+  col += vec3(0.05,0.01,0.10) * fbm(p*6.0 + 4.0) * land;
 
-  // sun sits above and behind: a thin lit crescent, the rest is night
+  // faint sunlight on the upper edge, the rest is night
   float diff = dot(normalize(vNormalW), normalize(uLight));
-  float day = smoothstep(-0.05, 0.55, diff);
-  col *= 0.35 + 1.4*day;
+  float day = smoothstep(0.0, 0.7, diff);
+  col = mix(col, col*3.2 + vec3(0.10,0.04,0.20), day*0.6);
 
-  // city lights on the night side: violet-white clusters with orange cores
-  float clusters = smoothstep(0.15, 0.75, snoise(p*7.0) + 0.25);
-  float lights = smoothstep(0.62, 0.95, snoise(p*48.0)) * clusters;
-  float glow = smoothstep(0.35, 0.9, snoise(p*20.0)) * clusters;
-  vec3 cityCol = mix(vec3(0.72,0.55,1.0), vec3(1.0,0.55,0.15), smoothstep(0.75,0.95, snoise(p*31.0)));
-  col += (cityCol * lights * 1.8 + vec3(0.45,0.2,0.9) * glow * 0.25) * land * (1.0 - day);
+  // fine city lights on land, violet-white with a few orange cores
+  float lights = smoothstep(0.7, 0.95, snoise(p*55.0)) * smoothstep(0.1, 0.6, snoise(p*8.0) + 0.3);
+  vec3 cityCol = mix(vec3(0.78,0.62,1.0), vec3(1.0,0.6,0.2), step(0.6, snoise(p*23.0)));
+  col += cityCol * lights * land * (1.0 - day) * 1.4;
 
-  // drifting high clouds
-  float clouds = smoothstep(0.25, 0.85, fbm(vec3(p.x*3.0 + uTime*0.01, p.y*6.0, p.z*3.0)));
-  col = mix(col, vec3(0.55,0.42,0.85) * (0.15 + day), clouds * 0.22);
-
-  float rim = pow(1.0 - max(dot(normalize(vNormalW), vViewDir), 0.0), 2.4);
-  col += vec3(0.62,0.31,0.95) * rim * 1.1;
+  // the pink/violet rim
+  float rim = pow(1.0 - max(dot(normalize(vNormalW), vViewDir), 0.0), 3.0);
+  col += vec3(0.85,0.35,1.0) * rim * 1.15;
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -93,7 +86,7 @@ const ATMO_FS = /* glsl */ `
 varying vec3 vNormalW; varying vec3 vViewDir;
 void main(){
   float i = pow(clamp(0.78 - dot(normalize(vNormalW), vViewDir), 0.0, 1.0), 3.2);
-  vec3 c = mix(vec3(0.62,0.31,0.95), vec3(1.0,0.55,0.15), 0.18);
+  vec3 c = vec3(0.85,0.35,1.0);
   gl_FragColor = vec4(c, 1.0) * i * 1.6;
 }`;
 
@@ -112,12 +105,12 @@ export default function Planet({ className = "" }) {
       const el = host.current;
       let renderer;
       try {
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "low-power" });
+        renderer = new THREE.WebGLRenderer({ antialias: (window.devicePixelRatio || 1) < 1.5, alpha: true, powerPreference: "low-power" });
       } catch {
         setFallback(true);
         return;
       }
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
       el.appendChild(renderer.domElement);
       Object.assign(renderer.domElement.style, { width: "100%", height: "100%", display: "block" });
 
@@ -132,14 +125,14 @@ export default function Planet({ className = "" }) {
       const planetMat = new THREE.ShaderMaterial({
         vertexShader: PLANET_VS,
         fragmentShader: PLANET_FS,
-        uniforms: { uLight: { value: new THREE.Vector3(-0.35, 1.0, -0.45).normalize() }, uTime: { value: 0 } },
+        uniforms: { uLight: { value: new THREE.Vector3(-0.3, 1.0, -0.2).normalize() }, uTime: { value: 0 } },
       });
-      const planet = new THREE.Mesh(new THREE.SphereGeometry(R, 160, 120), planetMat);
+      const planet = new THREE.Mesh(new THREE.SphereGeometry(R, 96, 64), planetMat);
       planet.position.copy(center);
       planet.rotation.z = 0.32;
 
       const atmo = new THREE.Mesh(
-        new THREE.SphereGeometry(R * 1.055, 96, 72),
+        new THREE.SphereGeometry(R * 1.05, 64, 48),
         new THREE.ShaderMaterial({ vertexShader: ATMO_VS, fragmentShader: ATMO_FS, side: THREE.BackSide, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false })
       );
       atmo.position.copy(center);
@@ -163,8 +156,13 @@ export default function Planet({ className = "" }) {
       let raf = 0;
       let running = false;
       let last = performance.now();
+      // ~30 fps is plenty for a slow rotation and halves the GPU work.
       const frame = (t) => {
-        const dt = Math.min(0.05, (t - last) / 1000);
+        if (t - last < 32) {
+          if (running) raf = requestAnimationFrame(frame);
+          return;
+        }
+        const dt = Math.min(0.08, (t - last) / 1000);
         last = t;
         planet.rotation.y += dt * 0.045;
         planetMat.uniforms.uTime.value += dt;

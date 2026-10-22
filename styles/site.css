@@ -16,7 +16,9 @@ html.lenis body { height: auto; }
   color: #e0e0e0;
   overflow-x: clip;
 }
-.snt section { overflow: visible; overflow-x: clip; }
+/* globals.css hides overflow on every section (breaks sticky); undo that,
+   except where a section explicitly asks for overflow-hidden. */
+.snt section:not(.overflow-hidden) { overflow: visible; overflow-x: clip; }
 .snt ::selection { background: #ff6d00; color: #fff; }
 
 html[data-intro="seen"] .snt-intro { display: none; }
@@ -42,19 +44,19 @@ html.js .snt [data-reveal-stagger] > * { opacity: 0; }
 /* ---------- Type ---------- */
 .snt-display {
   font-family: futura, sans-serif;
-  font-size: clamp(2.9rem, 8.4vw, 8.75rem);
+  font-size: clamp(2.5rem, min(6.4vw, 11.5vh), 7.25rem);
   line-height: 0.92;
   letter-spacing: -0.025em;
 }
 .snt-h2 {
   font-family: futura, sans-serif;
-  font-size: clamp(2.2rem, 5.4vw, 5rem);
+  font-size: clamp(2rem, 4.2vw, 4.25rem);
   line-height: 0.98;
   letter-spacing: -0.02em;
 }
 .snt-h3 {
   font-family: futura_bold, sans-serif;
-  font-size: clamp(1.4rem, 2.3vw, 2rem);
+  font-size: clamp(1.3rem, 2vw, 1.85rem);
   line-height: 1.1;
 }
 .snt-eyebrow {
@@ -76,7 +78,7 @@ html.js .snt [data-reveal-stagger] > * { opacity: 0; }
 .snt-eyebrow--dark { color: #7b2cbf; }
 .snt-lead {
   font-family: futura_lt_bt, sans-serif;
-  font-size: clamp(1.02rem, 1.25vw, 1.25rem);
+  font-size: clamp(0.98rem, 1.1vw, 1.15rem);
   line-height: 1.65;
 }
 .gradient-text-warm {
@@ -183,10 +185,9 @@ html.js .snt [data-reveal-stagger] > * { opacity: 0; }
 .snt-card {
   position: relative;
   border-radius: 22px;
-  background: linear-gradient(208deg, rgba(26, 1, 50, 0.5) 2%, rgba(215, 174, 255, 0.1) 97%);
+  /* no backdrop blur: it is costly on integrated GPUs and barely visible here */
+  background: linear-gradient(208deg, rgba(26, 1, 50, 0.82) 2%, rgba(60, 20, 100, 0.55) 97%);
   border: 1px solid rgba(215, 174, 255, 0.16);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 /* gradient border that follows the pointer (set --mx/--my from JS) */
 .snt-glow {
@@ -287,4 +288,17 @@ html.js .snt [data-depth] { opacity: 0; }
   letter-spacing: 0.05em;
   font-family: futura_bold, sans-serif;
   padding: 0 0.04em;
+}
+
+/* Laptops and small screens: everything scales down a notch so content
+   isn't oversized on 13–15" displays (rem-based spacing follows). */
+html:has(.snt) { font-size: 16px; }
+@media (max-width: 1600px), (max-height: 900px) {
+  html:has(.snt) { font-size: 15px; }
+}
+@media (max-width: 1366px), (max-height: 780px) {
+  html:has(.snt) { font-size: 14px; }
+}
+@media (max-width: 640px) {
+  html:has(.snt) { font-size: 15px; }
 }

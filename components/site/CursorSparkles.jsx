@@ -63,8 +63,6 @@ export default function CursorSparkles() {
         s.life -= 0.022;
         ctx.globalAlpha = Math.max(0, s.life);
         ctx.fillStyle = s.c;
-        ctx.shadowColor = s.c;
-        ctx.shadowBlur = 10;
         const r = s.size * (0.5 + s.life * 0.5);
         if (s.star) drawStar(s.x, s.y, r * 1.6);
         else {

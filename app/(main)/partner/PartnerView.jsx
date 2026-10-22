@@ -267,7 +267,7 @@ export default function PartnerView() {
           <div data-reveal-stagger className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[26px] bg-white/10 lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="bg-space-dark p-6 md:p-9">
-                <div className="snt-brand-text text-[clamp(2.4rem,5vw,4.6rem)] leading-none"><Counter value={s.value} suffix={s.suffix} /></div>
+                <div className="font-compacta text-[clamp(3.4rem,7vw,6.5rem)] leading-[0.85] gradient-text"><Counter value={s.value} suffix={s.suffix} /></div>
                 <p className="mt-3 font-futura_bold text-white">{s.label}</p>
               </div>
             ))}

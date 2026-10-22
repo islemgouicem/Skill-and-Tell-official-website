@@ -25,7 +25,7 @@ export default async function Page() {
       <TeamTeaser teamMembers={teamMembers} />
       <Extension />
       {/* One shared background so the test and the F&Q read as one continuous space */}
-      <div className="relative" style={{ backgroundImage: "url('/images/more_About.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className="relative" style={{ backgroundImage: "url('/images/bg/more-about.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <DepartmentTest />
         <Faq transparent index="07" />
       </div>
