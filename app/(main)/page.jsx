@@ -6,7 +6,7 @@ import Stats from "./features/home/Stats";
 import Missions from "./features/home/Missions";
 import EventsHighlight from "./features/home/EventsHighlight";
 import TeamTeaser from "./features/home/TeamTeaser";
-import AppShowcase from "./features/home/AppShowcase";
+import Extension from "./features/home/Extension";
 import DepartmentTest from "./features/home/DepartmentTest";
 import Faq from "./features/home/Faq";
 import PartnerCTA from "@/components/site/PartnerCTA";
@@ -23,9 +23,12 @@ export default async function Page() {
       <Missions />
       <EventsHighlight />
       <TeamTeaser teamMembers={teamMembers} />
-      <AppShowcase />
-      <DepartmentTest />
-      <Faq />
+      <Extension />
+      {/* One shared background so the test and the F&Q read as one continuous space */}
+      <div className="relative" style={{ backgroundImage: "url('/images/more_About.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <DepartmentTest />
+        <Faq transparent index="07" />
+      </div>
       <PartnerCTA />
     </>
   );

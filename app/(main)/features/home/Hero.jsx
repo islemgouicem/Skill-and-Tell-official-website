@@ -1,12 +1,13 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowDown } from "lucide-react";
-import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay, paintGradients } from "@/lib/motion/gsap";
+import { ArrowRight } from "lucide-react";
+import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } from "@/lib/motion/gsap";
 import EmberField from "@/components/motion/EmberField";
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
 import Shield from "@/components/ui/shield_badge";
+import Planet from "@/components/motion/Planet";
 
 const AVATARS = ["/images/managers/Khefif_Abderahim.JPG", "/images/managers/salamo.jpg", "/images/managers/badri.jpg"];
 
@@ -38,9 +39,10 @@ export default function Hero() {
         return;
       }
 
-      const split = SplitText.create(q("[data-hero-title]"), { type: "lines,chars", mask: "lines" });
+      // Letters rise for the plain words; the brand word keeps its original
+      // outlined-gradient styling, so it is revealed as one piece.
+      const split = SplitText.create(q("[data-hero-chars]"), { type: "words,chars", mask: "words" });
       gsap.set(q("[data-hero-title]"), { opacity: 1 });
-      paintGradients(q("[data-hero-title]")[0]);
 
       const trail = q("[data-star-trail]")[0];
       const len = trail.getTotalLength();
@@ -49,6 +51,7 @@ export default function Hero() {
       const tl = gsap.timeline({ delay: delay + 0.15 });
       tl.from(q("[data-planet]"), { yPercent: 60, opacity: 0, duration: 1.8, ease: "expo.out" }, 0)
         .from(split.chars, { yPercent: 120, rotate: 8, duration: 1.1, stagger: 0.022, ease: "power4.out" }, 0.1)
+        .from(q("[data-hero-brand]"), { yPercent: 40, opacity: 0, scale: 0.92, filter: "blur(12px)", duration: 1.3, ease: "power3.out" }, 0.55)
         .to(trail, { strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut" }, 0.35)
         .fromTo(q("[data-star-head]"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.35)
         .to(q("[data-star-head]"), {
@@ -90,7 +93,7 @@ export default function Hero() {
         scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
       })
         .to(q("[data-hero-content]"), { yPercent: -35, opacity: 0, ease: "none" }, 0)
-        .to(q("[data-planet-scroll]"), { yPercent: -18, scale: 1.25, ease: "none" }, 0)
+        .to(q("[data-planet-scroll]"), { yPercent: -10, scale: 1.08, ease: "none" }, 0)
         .to(q("[data-hero-bg]"), { scale: 1.15, ease: "none" }, 0)
         .to(q("[data-badge]"), { y: (i) => -120 - i * 70, opacity: 0, ease: "none" }, 0);
 
@@ -136,12 +139,13 @@ export default function Hero() {
         <StarHead />
       </svg>
 
-      <div data-hero-content className="relative z-20 mx-auto flex max-w-6xl flex-col items-center px-5 pt-24 text-center">
+      <div data-hero-content className="relative z-20 mx-auto flex max-w-6xl -translate-y-[7vh] flex-col items-center px-5 pt-24 text-center">
         <span data-hero-fade className="snt-eyebrow mb-6">Scientific Club · ENSIA</span>
         <h1 data-hero-title className="snt-display text-white opacity-0">
-          Start your journey
+          <span data-hero-chars>Start your journey</span>
           <br />
-          with <span className="gradient-text pr-1">Skill&amp;Tell</span>
+          <span data-hero-chars>with</span>{" "}
+          <span data-hero-brand className="snt-brand-text inline-block">Skill&amp;Tell</span>
         </h1>
         <p data-hero-fade className="snt-lead mt-7 max-w-2xl text-white/70">
           Start your journey with our creative, inspiring and welcoming club, where skills are sharpened, ideas come to life,
@@ -162,7 +166,7 @@ export default function Hero() {
       </div>
 
       {/* Floating badges */}
-      <div data-badge className="absolute left-3 top-[13%] z-10 md:left-[6%] md:top-[30%] xl:left-[8.5%]">
+      <div data-badge className="absolute left-3 top-[13%] z-10 md:left-[6%] md:top-[14%] xl:left-[8.5%]">
         <div data-depth="0.6">
           <div data-badge-inner className="badges flex -rotate-6 items-center gap-2 rounded-full border border-white/40 px-2 py-1 md:px-4 md:py-2">
             <div className="flex -space-x-2">
@@ -200,18 +204,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Planet horizon */}
-      <div data-planet-scroll className="pointer-events-none absolute inset-x-0 -bottom-2 z-[5] flex justify-center">
-        <div data-planet className="flex w-full justify-center">
-        <Image src="/purpleplanet.png" alt="" width={1210} height={347} priority className="h-auto w-[170%] max-w-none sm:w-[120%] lg:w-full" />
+      {/* Planet horizon — same footprint as the original site's planet */}
+      <div data-planet-scroll className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] flex justify-center">
+        <div data-planet className="w-[115%] max-w-none sm:w-full lg:w-[calc(28vh*3.487)]">
+          <Planet className="w-full" />
         </div>
-      </div>
-
-      <div data-hero-fade className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/60">
-        <span className="relative flex h-10 w-6 justify-center rounded-full border border-white/40 pt-2">
-          <span className="snt-scroll-dot block h-2 w-1 rounded-full bg-accent-300" />
-        </span>
-        <ArrowDown className="h-3 w-3" aria-hidden="true" />
       </div>
     </section>
   );

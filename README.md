@@ -153,10 +153,10 @@ The public site is now a multi-page experience inside `app/(main)`:
 
 | Route | Content |
 | --- | --- |
-| `/` | Hero, values marquee, Who are we?, statistics, Missions, events (horizontal scroll), heads, S&T App, department test, F&Q, partner call-to-action |
+| `/` | Hero (rotating WebGL planet), values ribbons, Who are we?, statistics, Missions teaser, events (horizontal scroll), heads, Chrome extension, department test, F&Q, partner call-to-action |
 | `/events` | Latest event, filterable archive by year, ARCADE editions, photo gallery with lightbox |
 | `/missions` | The Skill&Tell Missions format: phases, XP ranks, tracks, leaderboards |
-| `/team` | Executive board, departments (filterable), Hall of Mandates archive |
+| `/team` | Executive board and departments (live from the CMS), previous offices |
 | `/partner` | Why partner, audiences, formats, logos, process, contact form (opens a pre-filled email) |
 
 The `/register/...` pages are untouched.
@@ -172,8 +172,8 @@ The `/register/...` pages are untouched.
 ### Where to edit content
 
 - `data/skillntell/events.json` — events (add `category`, `editions`, or `placeholder: true` for an event whose details are not ready, like ARWAh).
-- `data/skillntell/archive.json` — previous mandates for the Hall of Mandates.
-- `data/skillntell/missions.js` — Missions phases, ranks, tracks and facts.
+- `data/skillntell/offices.js` — previous offices shown on /team (the 2025 – 2026 office reads `managers-info.json`).
+- `data/skillntell/missions.js` — Missions platform URL, Solo Leveling copy, gates, phases, ranks, tracks and facts (images in `public/images/missions/`).
 - `data/skillntell/partner.js` — partner page formats, process and F&Q.
-- `data/skillntell/site.js` — navigation, contacts, socials, headline stats, partner logos.
+- `data/skillntell/site.js` — navigation, contacts, socials, headline stats, partner logos, Chrome extension.
 - Managers still come from the Payload CMS (fallback: `data/skillntell/managers-info.json`); departments are derived from roles in `lib/utils/team.js`.

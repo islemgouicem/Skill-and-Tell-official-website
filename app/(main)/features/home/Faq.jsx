@@ -6,12 +6,12 @@ import { useReveals } from "@/components/motion/useReveals";
 import faqItems from "@/data/skillntell/faq.json";
 import snt from "@/assets/images/skillntell/snt.svg";
 
-export default function Faq({ items = faqItems, title = "More About S&T", subtitle = "F&Q section to answer the most frequently repeated questions", id = "FQ", index = "07" }) {
+export default function Faq({ items = faqItems, title = "More About S&T", subtitle = "F&Q section to answer the most frequently repeated questions", id = "FQ", index = "07", transparent = false }) {
   const root = useRef(null);
   useReveals(root);
 
   return (
-    <section ref={root} id={id} className="relative overflow-hidden py-24 md:py-32" style={{ backgroundImage: "url('/images/more_About.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <section ref={root} id={id} className="relative overflow-hidden py-24 md:py-32" style={transparent ? undefined : { backgroundImage: "url('/images/more_About.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="relative mx-auto grid max-w-[1400px] gap-12 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <span data-reveal="fade" className="snt-eyebrow">{index} — Questions</span>

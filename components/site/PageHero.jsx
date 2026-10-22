@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay, paintGradients } from "@/lib/motion/gsap";
+import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } from "@/lib/motion/gsap";
 import EmberField from "@/components/motion/EmberField";
 
 /** Shared hero for inner pages: masked headline, lead, optional visual slot. */
@@ -16,12 +16,12 @@ export default function PageHero({ eyebrow, title, lead, bg = "/images/backgroun
         gsap.set(q("[data-ph-title], [data-ph-fade]"), { opacity: 1 });
         return;
       }
-      const split = SplitText.create(q("[data-ph-title]"), { type: "lines,chars", mask: "lines" });
+      // Lines (not letters) so gradient / outlined words keep their styling.
+      const split = SplitText.create(q("[data-ph-title]"), { type: "lines", mask: "lines" });
       gsap.set(q("[data-ph-title]"), { opacity: 1 });
-      paintGradients(q("[data-ph-title]")[0]);
       gsap.timeline({ delay: delay + 0.1 })
         .from(q("[data-ph-bg]"), { scale: 1.2, opacity: 0, duration: 1.8, ease: "expo.out" }, 0)
-        .from(split.chars, { yPercent: 120, rotate: 6, stagger: 0.02, duration: 1.1, ease: "power4.out" }, 0.1)
+        .from(split.lines, { yPercent: 110, rotate: 3, stagger: 0.12, duration: 1.2, ease: "power4.out" }, 0.1)
         .fromTo(q("[data-ph-fade]"), { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1 }, 0.5);
 
       gsap.to(q("[data-ph-inner]"), {

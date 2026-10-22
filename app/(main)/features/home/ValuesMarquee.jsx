@@ -10,29 +10,34 @@ function Star({ className = "" }) {
   );
 }
 
-/** Two counter-rotating bands — the hand-off between the hero and the light sections. */
+/**
+ * Two crossing ribbons laid over the seam between the hero and "Who are we?".
+ * Zero-height and transparent, so neither section gets a band of its own.
+ */
 export default function ValuesMarquee() {
   return (
-    <div className="relative z-10 -mt-px overflow-hidden bg-space-dark py-10 md:py-14" aria-label="Skill&Tell values">
-      <div className="-rotate-2 scale-105 bg-gradient-to-r from-accent-500 via-accent-400 to-accent-300 py-3 md:py-4 shadow-[0_20px_60px_-20px_rgba(255,109,0,0.6)]">
-        <Marquee speed={60} itemClassName="gap-8 pr-8">
-          {VALUES.map((v) => (
-            <span key={v} className="flex items-center gap-8 font-futura_bold text-3xl uppercase text-[#1a0132] md:text-5xl">
-              {v}
-              <Star className="h-6 w-6 text-white md:h-8 md:w-8" />
-            </span>
-          ))}
-        </Marquee>
-      </div>
-      <div className="-mt-3 rotate-[1.5deg] scale-105 border-y border-Main-300/20 bg-Main-700 py-3 md:py-4">
-        <Marquee speed={45} reverse itemClassName="gap-8 pr-8">
-          {VALUES.map((v) => (
-            <span key={v} className="flex items-center gap-8 font-futura_bold text-3xl uppercase md:text-5xl">
-              <span className="text-outline">{v}</span>
-              <Star className="h-5 w-5 text-accent-500 md:h-7 md:w-7" />
-            </span>
-          ))}
-        </Marquee>
+    <div className="relative z-30 h-0" style={{ overflowX: "clip" }} aria-label="Skill&Tell values">
+      <div className="absolute inset-x-0 top-0 -translate-y-1/2">
+        <div className="-rotate-2 scale-[1.06] bg-gradient-to-r from-accent-500 via-accent-400 to-accent-300 py-2.5 shadow-[0_18px_50px_-18px_rgba(255,109,0,0.7)] md:py-3.5">
+          <Marquee speed={60} itemClassName="gap-8 pr-8">
+            {VALUES.map((v) => (
+              <span key={v} className="flex items-center gap-8 font-futura_bold text-2xl uppercase text-[#1a0132] md:text-4xl">
+                {v}
+                <Star className="h-5 w-5 text-white md:h-7 md:w-7" />
+              </span>
+            ))}
+          </Marquee>
+        </div>
+        <div className="-mt-2 rotate-[1.5deg] scale-[1.06] border-y border-Main-300/30 bg-Main-700/85 py-2.5 backdrop-blur-md md:py-3.5">
+          <Marquee speed={45} reverse itemClassName="gap-8 pr-8">
+            {VALUES.map((v) => (
+              <span key={v} className="flex items-center gap-8 font-futura_bold text-2xl uppercase md:text-4xl">
+                <span className="text-outline">{v}</span>
+                <Star className="h-4 w-4 text-accent-500 md:h-6 md:w-6" />
+              </span>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </div>
   );

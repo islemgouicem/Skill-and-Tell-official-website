@@ -1,4 +1,0 @@
-{
-  "_comment": "Hall of Mandates — previous presidents and boards. Add one object per mandate (newest first). The current board is shown automatically from the managers data. Fields: mandate (e.g. \"2023 – 2024\"), president, vicePresident, secretaryGeneral, image (optional, path under /public), highlights (optional list of strings).",
-  "mandates": []
-}

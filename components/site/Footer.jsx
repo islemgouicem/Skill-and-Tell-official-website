@@ -11,7 +11,7 @@ import { NAV_LINKS, SOCIALS, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PLACE } from 
 const MORE = [
   { name: "Register", href: "/register" },
   { name: "Who are we?", href: "/#about" },
-  { name: "S&T App", href: "/#app" },
+  { name: "Chrome extension", href: "/#extension" },
   { name: "F&Q", href: "/#FQ" },
   { name: "Department test", href: "https://departments-test.vercel.app/", external: true },
 ];
@@ -22,15 +22,6 @@ export default function Footer() {
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
-      gsap.fromTo(
-        "[data-wordmark-fill]",
-        { clipPath: "inset(0% 100% 0% 0%)" },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          ease: "none",
-          scrollTrigger: { trigger: "[data-wordmark]", start: "top bottom", end: "bottom 85%", scrub: 0.6 },
-        }
-      );
       gsap.from("[data-foot-col]", {
         y: 40, opacity: 0, stagger: 0.08, duration: 0.9,
         scrollTrigger: { trigger: root.current, start: "top 85%", once: true },
@@ -114,16 +105,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div data-wordmark className="relative mt-20 select-none" aria-hidden="true">
-          <div className="font-futura_bold leading-[0.8] tracking-[-0.03em] text-[18.4vw] xl:text-[16.4rem] whitespace-nowrap text-transparent [-webkit-text-stroke:1.5px_rgba(51,0,102,0.18)]">
-            Skill&amp;Tell
-          </div>
-          <div data-wordmark-fill className="absolute inset-0 font-futura_bold leading-[0.8] tracking-[-0.03em] text-[18.4vw] xl:text-[16.4rem] whitespace-nowrap gradient-text">
-            Skill&amp;Tell
-          </div>
-        </div>
-
-        <div className="flex flex-col-reverse items-center justify-between gap-4 border-t border-footer-text/15 py-6 text-sm text-footer-text/60 md:flex-row">
+        <div className="mt-16 flex flex-col-reverse items-center justify-between gap-4 border-t border-footer-text/15 py-6 text-sm text-footer-text/60 md:flex-row">
           <span className="flex items-center gap-2">
             © Skill &amp; Tell {new Date().getFullYear()}. All rights reserved. Crafted with
             <Heart className="h-4 w-4 animate-pulse fill-red-500 text-red-500" />

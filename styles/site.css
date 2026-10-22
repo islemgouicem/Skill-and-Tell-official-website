@@ -275,3 +275,16 @@ html.js .snt [data-depth] { opacity: 0; }
   html.js .snt [data-g-fade],
   html.js .snt [data-depth] { opacity: 1 !important; }
 }
+
+/* The original "Skill&Tell" wordmark treatment from the first site:
+   deep-purple letters with an orange → violet gradient outline. */
+.snt-brand-text {
+  color: #422352;
+  background: linear-gradient(90deg, #ff6d00, #8a38f5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0.06em transparent;
+  letter-spacing: 0.05em;
+  font-family: futura_bold, sans-serif;
+  padding: 0 0.04em;
+}

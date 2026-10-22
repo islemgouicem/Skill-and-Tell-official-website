@@ -1,7 +1,7 @@
 "use client";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Crown, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { gsap, Flip, useGSAP, prefersReducedMotion } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
 import PageHero from "@/components/site/PageHero";
@@ -9,8 +9,8 @@ import MemberCard from "@/components/site/MemberCard";
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
 import Marquee from "@/components/motion/Marquee";
-import { structureTeam, prettyName, prettyRole } from "@/lib/utils/team";
-import archive from "@/data/skillntell/archive.json";
+import { structureTeam, prettyName } from "@/lib/utils/team";
+import { PREVIOUS_OFFICES } from "@/data/skillntell/offices";
 import { CONTACT_EMAIL } from "@/data/skillntell/site";
 
 function Orbit({ members }) {
@@ -83,7 +83,7 @@ function Departments({ departments }) {
           <p data-reveal="up" className="max-w-md text-white/60 lg:text-right">Every department has its lead and managers. Filter to explore who drives what.</p>
         </div>
 
-        <div className="sticky top-[88px] z-20 -mx-5 mt-10 overflow-x-auto px-5 py-3 no-scrollbar md:top-[100px]">
+        <div className="sticky top-[92px] z-20 -mx-5 mt-10 overflow-x-auto px-5 py-3 no-scrollbar md:top-[104px]">
           <div role="tablist" aria-label="Filter by department" className="flex w-max gap-2 rounded-full border border-white/10 bg-[#12002a]/80 p-1.5 backdrop-blur-xl">
             {[{ key: "all", label: "All" }, ...departments].map((d) => (
               <button
@@ -125,79 +125,63 @@ function Departments({ departments }) {
   );
 }
 
-function Archive({ board }) {
-  const mandates = archive.mandates ?? [];
+function PreviousOffices() {
+  const [active, setActive] = useState(0);
+  const office = PREVIOUS_OFFICES[active];
+  const { board, departments } = useMemo(() => structureTeam(office?.members ?? []), [office]);
+  const members = [...board, ...departments.flatMap((d) => d.members)];
+  const president = board.find((m) => /president/i.test(m.role) && !/vice/i.test(m.role));
+
   return (
-    <section id="archive" className="relative overflow-hidden bg-[#0d0022] py-24 md:py-32">
-      <div className="absolute inset-0" style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(255,199,138,0.12), transparent 70%)" }} />
+    <section id="previous-offices" className="relative overflow-hidden bg-[#0d0022] py-24 md:py-32">
+      <div className="absolute inset-0" style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(255,199,138,0.10), transparent 70%)" }} />
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="text-center">
-          <span data-reveal="fade" className="snt-eyebrow justify-center">03 — Legacy</span>
-          <h2 data-split="chars" className="snt-h2 mt-5 text-white">Hall of Mandates</h2>
-          <p data-reveal="up" className="mx-auto mt-5 max-w-2xl text-white/60">
-            Every generation of Skill&amp;Tell left its mark. This is where we celebrate the presidents, boards and managers who built the club, mandate after mandate.
-          </p>
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <span data-reveal="fade" className="snt-eyebrow">03 — Legacy</span>
+            <h2 data-split="chars" className="snt-h2 mt-5 text-white">Previous offices</h2>
+            <p data-reveal="up" className="mt-5 max-w-xl text-white/60">
+              Every office built a piece of Skill&amp;Tell. Thank you to the presidents, boards and managers who carried the club before us.
+            </p>
+          </div>
+          {PREVIOUS_OFFICES.length > 1 && (
+            <div role="tablist" aria-label="Choose a mandate" className="flex flex-wrap gap-2">
+              {PREVIOUS_OFFICES.map((o, i) => (
+                <button key={o.mandate} role="tab" aria-selected={i === active} onClick={() => setActive(i)}
+                  className={`rounded-full border px-4 py-2 font-futura_md_bt text-sm transition-colors ${i === active ? "border-transparent bg-gradient-to-r from-accent-500 to-accent-300 text-[#1a0132]" : "border-white/15 text-white/70 hover:text-white"}`}>
+                  {o.mandate}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        <ol className="relative mx-auto mt-16 max-w-4xl">
-          <span aria-hidden="true" className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-accent-400 via-Main-400 to-transparent md:left-1/2" />
-
-          <li data-reveal="up" className="relative mb-12 pl-14 md:w-1/2 md:pl-0 md:pr-14 md:text-right">
-            <span className="absolute left-[11px] top-6 grid h-5 w-5 place-items-center rounded-full bg-accent-500 shadow-[0_0_0_6px_rgba(255,109,0,0.2),0_0_24px_#ff6d00] md:left-auto md:right-[-10px]" />
-            <div className="snt-card p-6 md:p-8">
-              <span className="snt-chip">Current mandate</span>
-              <ul className="mt-5 space-y-4">
-                {board.map((m) => (
-                  <li key={m.id + m.name} className="flex items-center gap-4 md:flex-row-reverse">
-                    <Image src={m.image || "/images/pfp.png"} alt="" width={56} height={56} className="h-14 w-14 rounded-full object-cover ring-2 ring-accent-300/60" />
-                    <div>
-                      <p className="font-futura_bold text-lg text-white">{prettyName(m.name)}</p>
-                      <p className="flex items-center gap-1.5 text-sm text-accent-300 md:justify-end">
-                        {/president/i.test(m.role) && !/vice/i.test(m.role) && <Crown className="h-3.5 w-3.5" />}
-                        {prettyRole(m.role)}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-
-          {mandates.map((md, i) => (
-            <li key={md.mandate} data-reveal="up" className={`relative mb-12 pl-14 md:w-1/2 ${i % 2 === 0 ? "md:ml-auto md:pl-14" : "md:pl-0 md:pr-14 md:text-right"}`}>
-              <span className={`absolute left-[13px] top-6 h-4 w-4 rounded-full border-2 border-Main-300 bg-space-dark ${i % 2 === 0 ? "md:left-[-8px]" : "md:left-auto md:right-[-8px]"}`} />
-              <div className="snt-card overflow-hidden">
-                {md.image && (
-                  <div className="relative aspect-[16/9]">
-                    <Image src={md.image} alt={`Skill&Tell board ${md.mandate}`} fill sizes="(min-width:768px) 40vw, 90vw" className="object-cover" />
-                  </div>
-                )}
-                <div className="p-6 md:p-8">
-                  <span className="font-compacta text-4xl text-white/80">{md.mandate}</span>
-                  <p className="mt-3 text-white"><span className="text-accent-300">President · </span>{md.president}</p>
-                  {md.vicePresident && <p className="text-white/75"><span className="text-Main-300">Vice President · </span>{md.vicePresident}</p>}
-                  {md.secretaryGeneral && <p className="text-white/75"><span className="text-Main-300">Secretary General · </span>{md.secretaryGeneral}</p>}
-                  {md.highlights?.length > 0 && (
-                    <ul className="mt-4 space-y-1 text-sm text-white/60">{md.highlights.map((h) => <li key={h}>— {h}</li>)}</ul>
-                  )}
-                </div>
-              </div>
-            </li>
-          ))}
-
-          <li data-reveal="up" className="relative pl-14 md:ml-auto md:w-1/2 md:pl-14">
-            <span className="absolute left-[13px] top-6 h-4 w-4 rounded-full border-2 border-dashed border-Main-300 md:left-[-8px]" />
-            <div className="rounded-[22px] border border-dashed border-Main-300/40 p-6 md:p-8">
-              <p className="font-futura_bold text-xl text-white">{mandates.length ? "Earlier chapters" : "The archive is being written"}</p>
-              <p className="mt-2 text-white/60">
-                Were you part of a previous Skill&amp;Tell board? Send us your mandate, your team photo and your best memory — we&apos;ll add it to the hall.
+        {office && (
+          <div className="mt-14">
+            <div data-reveal="up" className="flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-8">
+              <p className="font-compacta text-[clamp(3.5rem,8vw,6.5rem)] leading-none text-outline">{office.mandate}</p>
+              <p className="text-white/60">
+                {president && <>Led by <span className="font-futura_bold text-white">{prettyName(president.name)}</span> · </>}
+                {members.length} heads
               </p>
-              <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Hall of Mandates — previous board")}`} className="mt-5 inline-flex items-center gap-2 text-accent-300 snt-link">
-                <Mail className="h-4 w-4" /> Share your mandate <ArrowUpRight className="h-4 w-4" />
-              </a>
             </div>
-          </li>
-        </ol>
+            <div data-reveal="up" className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-6">
+              {members.map((m) => (
+                <MemberCard key={`${m.id}-${m.name}`} member={m} size="sm" />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div data-reveal="up" className="mt-14 rounded-[22px] border border-dashed border-Main-300/40 p-6 md:flex md:items-center md:justify-between md:gap-8 md:p-8">
+          <div>
+            <p className="font-futura_bold text-xl text-white">Were you part of an earlier office?</p>
+            <p className="mt-2 text-white/60">Send us your mandate, your team photo and your best memory — we&apos;ll add it here.</p>
+          </div>
+          <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Previous office — Skill&Tell website")}`} className="mt-5 inline-flex shrink-0 items-center gap-2 text-accent-300 snt-link md:mt-0">
+            <Mail className="h-4 w-4" /> Share your mandate <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -212,7 +196,7 @@ export default function TeamView({ teamMembers = [] }) {
     <div ref={root}>
       <PageHero
         eyebrow="Our Team"
-        title={<>The crew behind <span className="gradient-text">Skill&amp;Tell</span></>}
+        title={<>The crew behind <span className="snt-brand-text">Skill&amp;Tell</span></>}
         lead="Students who give their time, ideas and energy so that every event, mission and project happens. Meet the people who lead the club."
         bg="/images/Team_Section.webp"
         stacked
@@ -240,9 +224,9 @@ export default function TeamView({ teamMembers = [] }) {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <span data-reveal="fade" className="snt-eyebrow">01 — Executive board</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Leading the club</h2>
-          <div data-reveal-stagger className="mt-12 grid gap-5 md:grid-cols-3">
-            {board.map((m, i) => (
-              <MemberCard key={m.id + m.name} member={m} size="lg" badge={i === 0 ? "Leading the mandate" : undefined} />
+          <div data-reveal-stagger className="mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
+            {board.map((m) => (
+              <MemberCard key={m.id + m.name} member={m} />
             ))}
           </div>
         </div>
@@ -260,7 +244,7 @@ export default function TeamView({ teamMembers = [] }) {
         </Marquee>
       </div>
 
-      <Archive board={board} />
+      <PreviousOffices />
 
       <section className="relative overflow-hidden bg-space-dark py-24 md:py-32">
         <div className="absolute inset-0" style={{ background: "radial-gradient(50% 60% at 50% 100%, rgba(123,44,191,0.45), transparent 70%)" }} />

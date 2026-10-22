@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
-import { ArrowDown, ArrowRight, Brain, Code2, Megaphone, Palette, Smartphone, Handshake, Trophy, Users, Building, Globe2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, ArrowRight, ArrowUpRight, Brain, Code2, Megaphone, Palette, Smartphone, Handshake, Trophy, Users, Building, Globe2 } from "lucide-react";
 import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay, paintGradients } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
 import EmberField from "@/components/motion/EmberField";
@@ -9,7 +10,7 @@ import Tilt from "@/components/motion/Tilt";
 import TLink from "@/components/site/TLink";
 import SystemPanel from "@/components/site/SystemPanel";
 import PartnerCTA from "@/components/site/PartnerCTA";
-import { MISSIONS_INTRO, MISSION_PHASES, MISSION_RANKS, MISSION_TRACKS, MISSION_FACTS } from "@/data/skillntell/missions";
+import { MISSIONS_INTRO, MISSION_PHASES, MISSION_RANKS, MISSION_TRACKS, MISSION_FACTS, MISSIONS_URL } from "@/data/skillntell/missions";
 
 const TRACK_ICONS = { Web: Code2, Mobile: Smartphone, AI: Brain, Marketing: Megaphone, Relex: Handshake, "UI/UX": Palette };
 
@@ -49,7 +50,8 @@ function Gate() {
 
   return (
     <section ref={root} className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#07000f]">
-      <div className="snt-grid-bg absolute inset-0" />
+      <Image src="/images/missions/world.webp" alt="" fill priority sizes="100vw" className="object-cover opacity-45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#07000f]/70 via-[#07000f]/30 to-[#07000f]" />
       <EmberField density={0.7} />
       <div data-gate aria-hidden="true" className="absolute left-1/2 top-1/2 h-[min(110vw,820px)] w-[min(110vw,820px)] -translate-x-1/2 -translate-y-1/2">
         <div data-core className="absolute inset-[30%] rounded-full" style={{ background: "radial-gradient(circle, #ffc78a 0%, #ff6d00 22%, #9d4edd 52%, rgba(60,9,108,0.4) 70%, transparent 72%)", filter: "blur(18px)" }} />
@@ -65,7 +67,7 @@ function Gate() {
       <div data-flash className="pointer-events-none absolute inset-0 bg-[#1a0132] opacity-0" />
 
       <div data-g-content className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 pt-20 text-center">
-        <span data-g-fade className="snt-eyebrow">Skill&amp;Tell Missions</span>
+        <Image data-g-fade src="/images/missions/logo.webp" alt="Skill&Tell Missions" width={960} height={418} priority sizes="360px" className="h-auto w-[260px] drop-shadow-[0_0_30px_rgba(157,78,221,0.6)] md:w-[360px]" />
         <h1 data-g-title className="snt-display mt-6 text-white opacity-0 [text-shadow:0_10px_60px_rgba(10,0,26,0.8)]">
           Learn. Practise.
           <br />
@@ -76,8 +78,8 @@ function Gate() {
           <SystemPanel title="System">
             <p className="text-white/90">You have been invited to join a mission.</p>
             <div className="mt-5 flex justify-center gap-3">
-              <a href="#format" className="snt-btn snt-btn--primary !px-5 !py-3 text-sm">Accept <ArrowDown className="h-4 w-4" /></a>
-              <span className="snt-chip self-center">Launching soon</span>
+              <a href={MISSIONS_URL} target="_blank" rel="noopener noreferrer" className="snt-btn snt-btn--primary !px-5 !py-3 text-sm">Accept <ArrowUpRight className="h-4 w-4" /></a>
+              <a href="#format" className="snt-btn snt-btn--ghost !px-5 !py-3 text-sm">How it works <ArrowDown className="h-4 w-4" /></a>
             </div>
           </SystemPanel>
         </div>

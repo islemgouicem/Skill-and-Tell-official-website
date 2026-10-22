@@ -1,137 +1,85 @@
 "use client";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/motion/gsap";
 import { useReveals } from "@/components/motion/useReveals";
-import EmberField from "@/components/motion/EmberField";
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
-import SystemPanel from "@/components/site/SystemPanel";
-import { MISSIONS_INTRO, MISSION_PHASES, MISSION_RANKS, MISSION_TRACKS } from "@/data/skillntell/missions";
+import { MISSIONS_URL, MISSIONS_SOLO_LEVELING, MISSION_GATES } from "@/data/skillntell/missions";
 
+/** Short Solo Leveling–flavoured teaser that sends people to the Missions platform. */
 export default function Missions() {
   const root = useRef(null);
   useReveals(root);
 
   useGSAP(
     () => {
-      const reduced = prefersReducedMotion();
-      const nodes = gsap.utils.toArray("[data-phase]");
-      if (reduced) {
-        gsap.set("[data-phase-line]", { scaleY: 1 });
-        gsap.set("[data-xp-fill]", { scaleX: 1 });
-        return;
-      }
-      // Timeline spine draws itself; each phase lights up as the line reaches it.
-      gsap.fromTo("[data-phase-line]", { scaleY: 0 }, {
-        scaleY: 1, ease: "none",
-        scrollTrigger: { trigger: "[data-phases]", start: "top 70%", end: "bottom 60%", scrub: true },
-      });
-      nodes.forEach((n) => {
-        gsap.timeline({ scrollTrigger: { trigger: n, start: "top 68%", toggleActions: "play none none reverse" } })
-          .to(n.querySelector("[data-dot]"), { backgroundColor: "#ff6d00", boxShadow: "0 0 0 6px rgba(255,109,0,0.18), 0 0 24px #ff6d00", duration: 0.3 })
-          .fromTo(n.querySelector("[data-phase-body]"), { x: 30, opacity: 0.25 }, { x: 0, opacity: 1, duration: 0.6 }, 0);
-      });
-
-      // XP bar climbs through the ranks.
-      const ranks = gsap.utils.toArray("[data-rank]");
-      gsap.timeline({ scrollTrigger: { trigger: "[data-xp]", start: "top 80%", end: "top 35%", scrub: 0.8 } })
-        .fromTo("[data-xp-fill]", { scaleX: 0 }, { scaleX: 1, ease: "none", duration: 1 })
-        .to(ranks, { color: "#ffffff", textShadow: "0 0 18px rgba(255,158,0,0.9)", stagger: 0.24, duration: 0.05 }, 0);
-
-      // "New mission" notification types itself in.
-      const txt = root.current.querySelector("[data-typed]");
-      const full = txt.dataset.typed;
-      const o = { n: 0 };
-      gsap.to(o, {
-        n: full.length, duration: 1.6, ease: "none",
-        scrollTrigger: { trigger: txt, start: "top 85%", once: true },
-        onUpdate: () => (txt.textContent = full.slice(0, Math.round(o.n))),
+      if (prefersReducedMotion()) return;
+      gsap.to("[data-portal]", { rotate: 360, duration: 40, ease: "none", repeat: -1 });
+      const st = { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true };
+      gsap.fromTo("[data-world]", { yPercent: -8, scale: 1.12 }, { yPercent: 8, scale: 1.02, ease: "none", scrollTrigger: st });
+      gsap.fromTo("[data-hunter]", { y: 60 }, { y: -40, ease: "none", scrollTrigger: st });
+      gsap.fromTo("[data-gate]", { y: 80, rotate: (i) => (i - 1) * 10, opacity: 0 }, {
+        y: 0, rotate: (i) => (i - 1) * 6, opacity: 1, stagger: 0.12, duration: 1.1, ease: "power3.out",
+        scrollTrigger: { trigger: "[data-gates]", start: "top 85%", once: true },
       });
     },
     { scope: root }
   );
 
   return (
-    <section ref={root} id="missions" className="relative overflow-hidden bg-space-dark py-24 md:py-36">
-      <div className="absolute inset-0" style={{ background: "radial-gradient(50% 40% at 15% 20%, rgba(123,44,191,0.35), transparent 70%), radial-gradient(40% 35% at 90% 80%, rgba(255,109,0,0.15), transparent 70%)" }} />
-      <div className="snt-grid-bg absolute inset-0" />
-      <EmberField density={0.35} interactive={false} />
+    <section ref={root} id="missions" className="relative overflow-hidden bg-space-dark py-24 md:py-32">
+      <div data-world className="absolute inset-0">
+        <Image src="/images/missions/world.webp" alt="" fill sizes="100vw" className="object-cover opacity-60" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-space-dark via-space-dark/40 to-space-dark" />
+      <div className="absolute inset-0 bg-gradient-to-r from-space-dark/90 via-space-dark/40 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-space-dark to-transparent" />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <span data-reveal="fade" className="snt-eyebrow">03 — New format</span>
-            <h2 data-split="chars" className="snt-h2 mt-5 text-white">
-              Skill&amp;Tell <span className="gradient-text-warm">Missions</span>
-            </h2>
-            <p data-reveal="up" className="snt-lead mt-6 max-w-xl text-white/70">{MISSIONS_INTRO}</p>
-
-            <div data-reveal="up" data-delay="0.1" className="mt-10 max-w-md">
-              <SystemPanel title="Notification">
-                <p className="text-center font-futura_md_bt text-white/90">
-                  <span className="text-accent-300">[</span>
-                  <span data-typed="A new mission is available." className="inline-block min-w-[1ch]">A new mission is available.</span>
-                  <span className="text-accent-300">]</span>
-                </p>
-                <p className="mt-3 text-center text-sm text-white/55">Learn it. Practise it. Then prove it against the clock.</p>
-              </SystemPanel>
-            </div>
-
-            <div data-reveal="up" data-delay="0.15" className="mt-8 flex flex-wrap gap-2">
-              {MISSION_TRACKS.map((t) => (
-                <span key={t.name} className="snt-chip">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-400" /> {t.name}
-                </span>
-              ))}
-            </div>
-
-            <div data-reveal="up" data-delay="0.2" className="mt-10">
-              <Magnetic>
-                <TLink href="/missions" className="snt-btn snt-btn--primary">
-                  Discover Missions <ArrowRight className="snt-btn__arrow h-5 w-5" />
-                </TLink>
-              </Magnetic>
-            </div>
-          </div>
-
-          <ol data-phases className="relative pl-10 md:pl-14">
-            <span className="absolute left-[11px] top-2 bottom-2 w-px bg-white/10 md:left-[15px]" aria-hidden="true" />
-            <span data-phase-line className="absolute left-[11px] top-2 bottom-2 w-px origin-top bg-gradient-to-b from-accent-500 via-accent-300 to-Main-400 md:left-[15px]" aria-hidden="true" />
-            {MISSION_PHASES.map((p, i) => (
-              <li key={p.key} data-phase className="relative pb-12 last:pb-0 md:pb-16">
-                <span data-dot className="absolute -left-10 top-1 grid h-6 w-6 place-items-center rounded-full border border-Main-300/40 bg-Main-700 md:-left-14 md:h-8 md:w-8">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                </span>
-                <div data-phase-body className="snt-card p-6 md:p-8">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="font-compacta text-5xl leading-none text-white/15 md:text-6xl">0{i + 1}</span>
-                    <span className="snt-chip">{p.duration}</span>
-                  </div>
-                  <h3 className="snt-h3 mt-3 text-white">{p.name}</h3>
-                  <p className="mt-2 text-white/65">{p.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div data-xp className="mt-24 md:mt-32">
-          <div className="flex items-end justify-between gap-6">
-            <h3 data-reveal="up" className="snt-h3 text-white">Earn XP. Climb the ranks.</h3>
-            <span data-reveal="fade" className="hidden font-futura_md_bt text-sm text-white/50 md:block">Every mission levels you up</span>
-          </div>
-          <div className="relative mt-8 h-3 overflow-hidden rounded-full bg-white/10">
-            <span data-xp-fill className="absolute inset-0 origin-left rounded-full bg-gradient-to-r from-Main-500 via-accent-500 to-accent-300 shadow-[0_0_24px_rgba(255,109,0,0.7)]" />
-          </div>
-          <div className="mt-5 grid grid-cols-5 text-center">
-            {MISSION_RANKS.map((r, i) => (
-              <div key={r.name} className={i === 0 ? "text-left" : i === MISSION_RANKS.length - 1 ? "text-right" : ""}>
-                <span data-rank className="font-futura_bold text-sm text-white/35 transition-colors sm:text-base md:text-xl">{r.name}</span>
-              </div>
-            ))}
+      <div className="relative mx-auto grid max-w-[1400px] items-center gap-12 px-5 md:px-10 lg:grid-cols-12">
+        <div className="lg:col-span-6">
+          <span data-reveal="fade" className="snt-eyebrow">03 — Skill&amp;Tell Missions</span>
+          <Image
+            data-reveal="up"
+            src="/images/missions/logo.webp"
+            alt="Skill&Tell Missions"
+            width={960}
+            height={418}
+            sizes="(min-width:1024px) 520px, 90vw"
+            className="mt-6 h-auto w-full max-w-[520px] drop-shadow-[0_0_30px_rgba(157,78,221,0.55)]"
+          />
+          <p data-reveal="up" className="snt-lead mt-6 max-w-xl text-white/75">{MISSIONS_SOLO_LEVELING}</p>
+          <div data-reveal="up" className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <Magnetic>
+              <a href={MISSIONS_URL} target="_blank" rel="noopener noreferrer" className="snt-btn snt-btn--primary">
+                Enter the Missions platform <ArrowUpRight className="h-5 w-5" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <TLink href="/missions" className="snt-btn snt-btn--ghost">
+                How it works <ArrowRight className="snt-btn__arrow h-5 w-5" />
+              </TLink>
+            </Magnetic>
           </div>
         </div>
+
+        <div className="relative mx-auto h-[380px] w-full max-w-[520px] sm:h-[460px] lg:col-span-6 lg:h-[540px] lg:max-w-none">
+          <div className="absolute left-1/2 top-[44%] w-[78%] -translate-x-1/2 -translate-y-1/2">
+            <Image data-portal src="/images/missions/portal.webp" alt="" width={540} height={548} sizes="420px" className="h-auto w-full opacity-90" />
+          </div>
+          <div data-hunter className="absolute inset-x-0 bottom-0 flex justify-center">
+            <Image src="/images/missions/hunter.webp" alt="" width={1400} height={1061} sizes="(min-width:1024px) 600px, 90vw" className="h-auto w-[105%] max-w-none drop-shadow-[0_20px_60px_rgba(10,0,26,0.9)]" />
+          </div>
+        </div>
+      </div>
+
+      <div data-gates className="relative mx-auto mt-12 flex max-w-[1400px] justify-center gap-4 px-5 md:mt-16 md:gap-8 md:px-10">
+        {MISSION_GATES.map((g) => (
+          <figure key={g.name} data-gate className="w-[30%] max-w-[190px]">
+            <Image src={g.image} alt={`${g.name} gate`} width={540} height={1200} sizes="190px" className="h-auto w-full transition-transform duration-500 hover:-translate-y-3 hover:scale-105 drop-shadow-[0_20px_40px_rgba(157,78,221,0.45)]" />
+          </figure>
+        ))}
       </div>
     </section>
   );

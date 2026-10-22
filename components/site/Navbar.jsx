@@ -2,7 +2,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import logo from "@/assets/images/shared/logo.png";
+import logo from "@/assets/images/shared/logo_hd.png";
 import { gsap, prefersReducedMotion } from "@/lib/motion/gsap";
 import TLink from "./TLink";
 import Magnetic from "@/components/motion/Magnetic";
@@ -114,14 +114,14 @@ export default function Navbar() {
     <>
       <header ref={headerRef} className="fixed inset-x-0 top-0 z-[120] px-3 pt-3 md:px-6 md:pt-4">
         <div
-          className={`mx-auto flex h-16 md:h-[72px] max-w-[1400px] items-center justify-between rounded-2xl px-3 md:px-5 transition-[background,border-color,box-shadow] duration-500 border ${
+          className={`mx-auto flex h-[72px] md:h-20 max-w-[1400px] items-center justify-between rounded-2xl px-3 md:px-5 transition-[background,border-color,box-shadow] duration-500 border ${
             scrolled || open
               ? "border-white/10 bg-[#12002a]/70 shadow-[0_10px_40px_-10px_rgba(10,0,26,0.8)] backdrop-blur-xl"
               : "border-transparent bg-transparent"
           }`}
         >
           <TLink href="/" aria-label="Skill & Tell — home" className="relative z-[2] flex items-center">
-            <Image src={logo} alt="Skill & Tell Scientific Club" width={110} height={66} priority className="h-11 md:h-12 w-auto" />
+            <Image src={logo} alt="Skill & Tell Scientific Club" width={460} height={210} priority sizes="160px" className="h-12 md:h-[60px] w-auto" />
           </TLink>
 
           <nav

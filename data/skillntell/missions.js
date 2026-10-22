@@ -35,3 +35,15 @@ export const MISSION_FACTS = [
   { value: "3", label: "Leaderboards: per track, per department & overall" },
   { value: "∞", label: "Open to everyone — members of any department and non-members" },
 ];
+
+// The Missions platform (Skill&Tell app).
+export const MISSIONS_URL = "https://missions.skillntell.com";
+
+export const MISSIONS_SOLO_LEVELING =
+  "Inspired by Solo Leveling: just like Sung Jin-Woo rose from the weakest hunter to the strongest, every member starts at the bottom and levels up one gate at a time. Each Mission is a gate — learn the skill, enter the challenge, clear it with your team, earn XP and climb the ranks.";
+
+export const MISSION_GATES = [
+  { name: "Arena", image: "/images/missions/arena.webp" },
+  { name: "Boss Raid", image: "/images/missions/boss.webp" },
+  { name: "Dungeon Run", image: "/images/missions/dungeon.webp" },
+];
