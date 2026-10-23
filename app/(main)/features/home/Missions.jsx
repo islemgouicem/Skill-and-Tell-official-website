@@ -41,7 +41,7 @@ export default function Missions() {
   return (
     <section ref={root} id="missions" className="relative overflow-hidden bg-space-dark py-24 md:py-32">
       <div data-world className="absolute inset-0">
-        <Image src="/images/missions/world.webp" alt="" fill sizes="100vw" className="object-cover opacity-60" />
+        <Image src="/images/missions/world-optimized.webp" alt="" fill sizes="100vw" loading="lazy" className="object-cover opacity-60" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-space-dark via-space-dark/40 to-space-dark" />
       <div className="absolute inset-0 bg-gradient-to-r from-space-dark/90 via-space-dark/40 to-transparent" />
@@ -54,7 +54,7 @@ export default function Missions() {
           <span data-reveal="fade" className="snt-eyebrow">03 — Skill&amp;Tell Missions</span>
           <Image
             data-reveal="up"
-            src="/images/missions/logo-2.PNG"
+            src="/images/missions/logo-2.webp"
             alt="Skill&Tell Missions"
             width={960}
             height={418}

@@ -45,7 +45,7 @@ function Hero() {
   return (
     <section ref={root} className="relative overflow-hidden bg-[#07000f] pb-16 pt-28 md:pb-24 md:pt-36">
       <div data-g-bg className="absolute inset-0">
-        <Image src="/images/missions/world.webp" alt="" fill priority sizes="100vw" className="object-cover opacity-45" />
+        <Image src="/images/missions/world-optimized.webp" alt="" fill priority sizes="100vw" className="object-cover opacity-45" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#07000f]/70 via-[#07000f]/40 to-[#07000f]" />
 
@@ -153,7 +153,7 @@ function Journey() {
 function FinalCall() {
   return (
     <section className="relative overflow-hidden bg-[#14002e]">
-      <Image src="/images/missions/world.webp" alt="" fill sizes="100vw" className="object-cover opacity-70" />
+      <Image src="/images/missions/world-optimized.webp" alt="" fill sizes="100vw" className="object-cover opacity-70" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#14002e] via-[#14002e]/75 to-[#14002e]/10" />
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#14002e] to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#14002e] to-transparent" />

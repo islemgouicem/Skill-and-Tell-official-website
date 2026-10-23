@@ -95,7 +95,7 @@ export default function IntroLoader() {
             <span className="absolute -left-1.5 -top-1.5 h-3 w-3 rounded-full bg-[#ffc78a] shadow-[0_0_12px_4px_rgba(255,158,0,0.9),0_0_40px_10px_rgba(255,109,0,0.5)]" />
             <span data-comet-tail className="absolute right-0 top-0 h-[2px] w-[34vw] max-w-[420px] origin-right -translate-y-1/2 rounded-full" style={{ background: "linear-gradient(90deg, transparent, rgba(157,78,221,0.5) 50%, #ffb066)" }} />
           </span>
-          <Image data-mark src={mark} alt="" priority sizes="144px" className="relative h-full w-auto opacity-0 drop-shadow-[0_0_24px_rgba(157,78,221,0.7)]" />
+          <Image data-mark src={mark} alt="" sizes="144px" className="relative h-full w-auto opacity-0 drop-shadow-[0_0_24px_rgba(157,78,221,0.7)]" />
         </div>
 
         <div className="relative mt-6 flex overflow-hidden px-2 pb-1">

@@ -25,7 +25,7 @@ function OrbitRing({ members, radius, size, dir }) {
             style={{ left: `${(50 + Math.cos(a) * radius).toFixed(3)}%`, top: `${(50 + Math.sin(a) * radius).toFixed(3)}%`, transform: "translate(-50%,-50%)" }}
           >
             <div data-orbit-face={dir} className={`relative ${size} overflow-hidden rounded-full border-2 border-white/80 bg-Main-700 shadow-[0_0_22px_rgba(157,78,221,0.55)]`}>
-              <Image src={m.thumb || m.image || "/images/pfp.png"} alt="" fill sizes="64px" priority className="object-cover" />
+              <Image src={m.thumb || m.image || "/images/pfp.png"} alt="" fill sizes="64px" className="object-cover" />
             </div>
           </div>
         );

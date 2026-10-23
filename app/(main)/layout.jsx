@@ -1,4 +1,3 @@
-import "lenis/dist/lenis.css";
 import "@/styles/site.css";
 import SmoothScroll from "@/components/site/SmoothScroll";
 import TransitionShell from "@/components/site/TransitionShell";

@@ -1,5 +1,5 @@
 "use client";
-import { gsap, ScrollTrigger, SplitText, useGSAP, prefersReducedMotion, paintGradients } from "@/lib/motion/gsap";
+import { gsap, SplitText, useGSAP, prefersReducedMotion, paintGradients } from "@/lib/motion/gsap";
 
 /**
  * Declarative scroll reveals inside a scope.
@@ -90,7 +90,6 @@ export function useReveals(scope, deps = []) {
         });
       }
 
-      ScrollTrigger.refresh();
     },
     { scope, dependencies: deps }
   );

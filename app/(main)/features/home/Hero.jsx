@@ -6,7 +6,7 @@ import { gsap, SplitText, useGSAP, prefersReducedMotion, consumeStageDelay } fro
 import Magnetic from "@/components/motion/Magnetic";
 import TLink from "@/components/site/TLink";
 import Shield from "@/components/ui/shield_badge";
-import globe from "@/assets/images/skillntell/globe2.png";
+import globe from "@/assets/images/skillntell/globe2.webp";
 
 const AVATARS = ["/images/managers/web/Khefif_Abderahim.webp", "/images/managers/web/salamo.webp", "/images/managers/web/badri.webp"];
 
@@ -81,7 +81,7 @@ export default function Hero() {
   return (
     <section ref={root} id="hero" className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-space-dark">
       <div data-hero-bg className="absolute inset-0">
-        <Image src="/images/background_c.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" />
+        <Image src="/images/background_c.webp" alt="" fill sizes="100vw" className="object-cover object-center" />
       </div>
       <div className="absolute inset-0" style={{ background: "radial-gradient(60% 50% at 50% 40%, rgba(123,44,191,0.3), transparent 70%)" }} />
 
@@ -169,7 +169,7 @@ export default function Hero() {
         <div className="w-[108vw] max-w-none translate-y-[56%] sm:w-[80vw] sm:translate-y-[64%] md:w-[66vw] lg:w-[min(50vw,86vh)]">
           <div data-planet className="relative">
             <div className="absolute inset-[6%] rounded-full bg-Main-400/40 blur-[70px]" aria-hidden="true" />
-            <Image src={globe} alt="" priority sizes="(min-width:1024px) 50vw, 108vw" className="snt-globe relative h-auto w-full" />
+            <Image src={globe} alt="" priority fetchPriority="high" sizes="(min-width:1024px) 50vw, 108vw" className="snt-globe relative h-auto w-full" />
           </div>
         </div>
       </div>

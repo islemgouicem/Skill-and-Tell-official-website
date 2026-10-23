@@ -169,7 +169,7 @@ export default function TransitionShell({ children }) {
           ))}
         </div>
         <div data-curtain-content className="absolute inset-0 flex flex-col items-center justify-center gap-5">
-          <Image src={logo} alt="" width={150} height={90} className="w-[120px] md:w-[150px] h-auto opacity-0" priority />
+          <Image src={logo} alt="" width={150} height={90} className="w-[120px] md:w-[150px] h-auto opacity-0" />
           <span ref={labelRef} className="font-futura_bold text-3xl md:text-5xl text-white opacity-0" />
           <span className="block h-[3px] w-28 rounded-full bg-gradient-to-r from-accent-500 to-Main-400 opacity-0" />
         </div>
