@@ -7,8 +7,8 @@ import { useReveals } from "@/components/motion/useReveals";
 import Tilt from "@/components/motion/Tilt";
 import { PILLARS } from "@/data/skillntell/site";
 import whitebg from "@/assets/images/skillntell/white_bg.webp";
-import photoArcade from "@/assets/images/skillntell/events/arcade-2024.webp";
-import photoFormatech from "@/assets/images/skillntell/events/formatech-1.webp";
+import photoArcade from "@/assets/images/skillntell/events/formatech-1.webp";
+import photoFormatech from "@/assets/images/skillntell/events/arcade-2024.webp";
 import phone from "@/assets/images/skillntell/phone.webp";
 
 const ICONS = { about: Lightbulb, vision: Rocket, specialty: Users, achievements: Award };

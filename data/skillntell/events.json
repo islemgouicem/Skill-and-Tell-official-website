@@ -1,124 +1,178 @@
 [
     {
-        "id": "09",
-        "title": "FormaTech Expo",
-        "description": "From 12 to 15 October 2026, Skill&Tell was the organizing team of the second edition of FormaTech Expo in Algiers, the national fair for digital skills and technology training, and also held its own stand to present the club, its projects and events like MobAI.",
-        "date": "2026-10-12",
-        "dateLabel": "12–15 Oct 2026",
-        "tags": [
-            "2nd edition",
-            "Organizing team",
-            "Our stand",
-            "Algiers"
-        ],
-        "category": "Exhibition",
-        "image": "/images/formatech-expo.png"
-    },
-    {
         "id": "01",
-        "title": "Odyssea",
-        "description": "ODYSSEA is a free 48-hour online datathon organized by Skill and Tell on October 8 and 9, as part of the World AI Week program.",
-        "date": "2026-10-08",
-        "tags": [
-            "Datathon",
-            "Models",
-            "AI"
-        ],
-        "category": "Datathon",
-        "image": "/images/Odyssea.png",
-        "path": "register/odyssea"
-    },
-    {
-        "id": "06",
-        "title": "Arcade",
-        "description": "Arcade is the inaugural event of Skill&Tell, featuring a full day packed with fun and challenging activities! Teams compete in various challenges, including math puzzles, programming tasks, the famous scavenger hunt, and other exciting games.",
-        "date": "2025-03-10",
-        "tags": [
-            "Math puzzles",
-            "Programming tasks",
-            "Scavenger hunt",
-            "Games"
-        ],
+        "title": "Arcade 1",
+        "description": "ARCADE is a unique event organized by Skill&Tell, bringing together teams and individuals to take on a variety of game-based challenges that combine both individual and group activities. Participants are immersed in realistic, scenario-based situations that require them to apply and develop a range of skills to successfully complete each task.",
+        "date": "2022-04-23",
+        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
         "category": "Competition",
-        "image": "/images/arcade/UNKNOWN.jpg",
-        "path": "register/arcade",
-        "editions": [
-            {
-                "label": "Arcade 2024",
-                "image": "/images/Arcade.jpg"
-            },
-            {
-                "label": "Arcade 2025",
-                "image": "/images/arcade/UNKNOWN.jpg"
-            }
-        ]
+        "image": "/images/events/arcade-2022.jpg"
     },
     {
         "id": "02",
-        "title": "MobAi",
-        "description": "MobAI is a 3-day hackathon that brings together mobile development, AI, and UI/UX in one exciting event. Participants engage in hands-on workshops to learn the skills they need to tackle the challenges",
-        "date": "2026-02-12",
-        "tags": [
-            "Mobile dev",
-            "AI",
-            "UI/UX",
-            "Hackathon"
-        ],
+        "title": "Web Design",
+        "description": "Web Design is a hands-on day dedicated to UI/UX: participants take part in design workshops covering user research, wireframing and prototyping, guided by club members and invited designers.",
+        "date": "2022-05-24",
+        "tags": ["UI/UX", "Design workshops", "Prototyping"],
+        "category": "Workshop",
+        "image": "/images/events/design-league-2024.jpg"
+    },
+    {
+        "id": "03",
+        "title": "Blood Donation Campaign",
+        "description": "A one-day blood donation campaign organised by Skill&Tell with local blood banks and the university health services, mobilising students and staff to donate.",
+        "date": "2022-11-13",
+        "tags": ["Blood donation", "Community", "Health"],
+        "category": "Campaign",
+        "image": "/images/events/blood-donation.png"
+    },
+    {
+        "id": "04",
+        "title": "Arcade 2",
+        "description": "ARCADE is a unique event organized by Skill&Tell, bringing together teams and individuals to take on a variety of game-based challenges that combine both individual and group activities. Participants are immersed in realistic, scenario-based situations that require them to apply and develop a range of skills to successfully complete each task.",
+        "date": "2023-04-29",
+        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
+        "category": "Competition",
+        "image": "/images/events/arcade-2023.jpg"
+    },
+    {
+        "id": "05",
+        "title": "ElectroHub",
+        "description": "Electro Hub is an exciting electronics day designed for beginners to dive into the world of Arduino. During this event, participants get hands-on experience learning how to use Arduino and its applications.",
+        "date": "2023-12-09",
+        "tags": ["Arduino basics", "Hands-on workshops", "Electronics for beginners"],
+        "category": "Workshop",
+        "image": "/images/electrohub.webp"
+    },
+    {
+        "id": "06",
+        "title": "MobAi 1",
+        "description": "MobAi is a hackathon organized by Skill&Tell, where innovators and tech enthusiasts come together to build AI-powered mobile applications. Participants compete to create amazing apps.",
+        "date": "2024-01-29",
+        "tags": ["Mobile dev", "AI", "UI/UX", "Hackathon"],
         "category": "Hackathon",
-        "image": "/images/mobai2026.png",
-        "path": "register/mobai"
+        "image": "/images/events/mobai-2025.jpg"
     },
     {
         "id": "07",
+        "title": "Arcade 3",
+        "description": "ARCADE is a unique event organized by Skill&Tell, bringing together teams and individuals to take on a variety of game-based challenges that combine both individual and group activities. Participants are immersed in realistic, scenario-based situations that require them to apply and develop a range of skills to successfully complete each task.",
+        "date": "2024-04-27",
+        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
+        "category": "Competition",
+        "image": "/images/events/arcade-2024.jpg"
+    },
+    {
+        "id": "08",
+        "title": "Hopink",
+        "description": "Hopink is an awareness event co-organized by Skill&Tell with HEC and MEDSA as part of Pink October, the annual breast cancer awareness campaign, bringing students together around prevention, screening and support for patients.",
+        "date": "2024-10-24",
+        "tags": ["Pink October", "Breast cancer awareness", "HEC", "MEDSA"],
+        "category": "Campaign",
+        "image": "/images/events/pink-day.jpg"
+    },
+    {
+        "id": "09",
+        "title": "IndabaX",
+        "description": "IndabaX is the biggest AI conference in Algeria. It hosts the largest poster exhibition competition in the country, a series of talks and a panel discussion with experts from the field.",
+        "date": "2024-12-07",
+        "tags": ["Machine learning", "Research Papers", "AI"],
+        "category": "Conference",
+        "image": "/images/indabax.jpg"
+    },
+    {
+        "id": "10",
+        "title": "Design League",
+        "description": "Design League is a three-week design competition organized by Skill&Tell: 200 participants, 4 online challenges, 1 mini hackathon, only 1 winner. Over those three weeks, participants went through four online challenges covering different parts of the design process, from branding and design systems to UI/UX, pitching ideas and building creative assets. Before each round they joined a workshop that walked them through that specific skill and gave them the tools they needed, then came the real test: a deadline and a chance to show what they've got. After each round, participants were ranked on four criteria: coherence, creativity, technique and how well they followed the guidelines. Last came the Mini Hackathon, where participants brought everything together, from their initial idea to their final assets, built a pitch deck and presented in front of the other participants and the jury. Initiatives like Design League matter more than ever now that AI makes it easy to skip learning design altogether and just take the easiest output, which is why Skill&Tell gives people a space to learn, experiment, create and compete. Because sometimes you just need a place to create.",
+        "date": "2024-12-23",
+        "tags": ["UI/UX", "Design", "Competition", "Mini hackathon"],
+        "category": "Competition",
+        "image": "/images/events/design-league-2024.jpg"
+    },
+    {
+        "id": "11",
+        "title": "MobAi 2",
+        "description": "MobAi is a hackathon organized by Skill&Tell, where innovators and tech enthusiasts come together to build AI-powered mobile applications. Participants compete to create amazing apps.",
+        "date": "2025-02-13",
+        "tags": ["Mobile dev", "AI", "UI/UX", "Hackathon"],
+        "category": "Hackathon",
+        "image": "/images/events/mobai-2025.jpg"
+    },
+    {
+        "id": "12",
+        "title": "Arcade 4",
+        "description": "ARCADE is a unique event organized by Skill&Tell, bringing together teams and individuals to take on a variety of game-based challenges that combine both individual and group activities. Participants are immersed in realistic, scenario-based situations that require them to apply and develop a range of skills to successfully complete each task.",
+        "date": "2025-04-19",
+        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
+        "category": "Competition",
+        "image": "/images/events/arcade-2025.webp"
+    },
+    {
+        "id": "13",
+        "title": "AgriChallenge",
+        "description": "Agri Challenge is a national AI + Agriculture hackathon where students solve real-world agronomic problems using the power of Botanics and AI. The event is built around two main challenges: Data collection & build intelligent models, and the IDEA Challenge (NEW!), a brand-new special segment for just 5 selected teams, judged not just on tech but on creative ideas. It runs 22-25 June 2025 at the Botanical Garden \"Hamma\" and the National Higher School of AI.",
+        "date": "2025-06-22",
+        "tags": ["AI in agriculture", "data-driven solutions", "plant recognition"],
+        "category": "Hackathon",
+        "image": "/images/agri.jpg"
+    },
+    {
+        "id": "14",
         "title": "EUNOIA",
-        "description": "EUNOIA is a full-day innovation event centered on student well-being, featuring an ideathon, expert talks, interactive activities, a cultural village, and social/movement-based experiences. Its goal is to help students tackle real mental and physical health challenges, create meaningful solutions, and strengthen a supportive, energetic campus community.",
+        "description": "EUNOIA is the first edition of a full-day innovation event focused on student well-being. Combining creativity, collaboration, and fun, it features an ideathon, inspiring talks by well-being experts, interactive activities, a cultural village, and opportunities for movement and social connection. The event aims to help students address real mental and physical health challenges, turn meaningful ideas into solutions, and build a supportive, energetic campus community.",
         "date": "2025-12-13",
-        "tags": [
-            "ideathon",
-            "Creativity",
-            "well being"
-        ],
+        "tags": ["ideathon", "Creativity", "well being"],
         "category": "Ideathon",
         "image": "/images/eunoia_event.jpg",
         "path": "register/eunoia"
     },
     {
-        "id": "03",
-        "title": "ElectroHub",
-        "description": "Electro Hub is an exciting electronics day designed for beginners to dive into the world of Arduino. During this event, participants get hands-on experience learning how to use Arduino and its applications.",
-        "date": "2025-04-15",
-        "tags": [
-            "Arduino basics",
-            "Hands-on workshops",
-            "Electronics for beginners"
-        ],
-        "category": "Workshop",
-        "image": "/images/electrohub.webp"
+        "id": "15",
+        "title": "Pitch Day",
+        "description": "Pitch Day is the closing showcase of the season: teams present their projects and ideas to a jury of mentors and partners, and the best pitches are awarded.",
+        "date": "2025-12-29",
+        "tags": ["Pitching", "Demo day", "Startups"],
+        "category": "Competition",
+        "image": "/images/pitch-day-2025.jpg"
     },
     {
-        "id": "04",
-        "title": "IndabaX",
-        "description": "IndabaX is a series of community-driven AI and machine learning events across Africa, empowering local innovators to tackle regional challenges. It fosters collaboration, skill-building, and growth of AI talent within the continent.",
-        "date": "2025-05-20",
-        "tags": [
-            "Machine learning",
-            "Research Papers",
-            "AI"
-        ],
-        "category": "Conference",
-        "image": "/images/indabax.jpg"
-    },
-    {
-        "id": "05",
-        "title": "AgriChallenge",
-        "description": "Agri Challenge is Algeria's premier hackathon where students and innovators develop AI-driven solutions to real agricultural problems. It fosters creativity, collaboration, and cutting-edge technology for a smarter agriculture future.",
-        "date": "2025-05-22",
-        "tags": [
-            "AI in agriculture",
-            "data-driven solutions",
-            "plant recognition"
-        ],
+        "id": "16",
+        "title": "MobAi",
+        "description": "MobAi is a hackathon organized by Skill&Tell, where innovators and tech enthusiasts come together to build AI-powered mobile applications. Participants compete to create amazing apps.",
+        "date": "2026-02-12",
+        "tags": ["Mobile dev", "AI", "UI/UX", "Hackathon"],
         "category": "Hackathon",
-        "image": "/images/agrichallenge.jpg"
+        "image": "/images/mobai2026.png",
+        "path": "register/mobai"
+    },
+    {
+        "id": "17",
+        "title": "Arcade",
+        "description": "ARCADE is a unique event organized by Skill&Tell, bringing together teams and individuals to take on a variety of game-based challenges that combine both individual and group activities. Participants are immersed in realistic, scenario-based situations that require them to apply and develop a range of skills to successfully complete each task.",
+        "date": "2026-04-24",
+        "tags": ["Math puzzles", "Programming tasks", "Scavenger hunt", "Games"],
+        "category": "Competition",
+        "image": "/images/arcade/UNKNOWN.jpg",
+        "path": "register/arcade"
+    },
+    {
+        "id": "18",
+        "title": "Odyssea",
+        "description": "ODYSSEA is a free 48-hour online datathon organized by Skill and Tell on October 8 and 9, as part of the World AI Week program.",
+        "date": "2026-10-08",
+        "tags": ["Datathon", "Models", "AI"],
+        "category": "Datathon",
+        "image": "/images/Odyssea.png",
+        "path": "register/odyssea"
+    },
+    {
+        "id": "19",
+        "title": "FormaTech Expo",
+        "description": "Skill&Tell took part in the second edition of FormaTech Expo in Algiers, the national fair for digital skills and technology training: four days at our stand presenting the club, its projects and events like MobAI to students, schools and companies.",
+        "date": "2026-10-12",
+        "tags": ["2nd edition", "Exhibition", "Algiers"],
+        "category": "Exhibition",
+        "image": "/images/formatech-expo.png",
+        "featuredImage": "/images/events/formatech-4.webp"
     }
 ]

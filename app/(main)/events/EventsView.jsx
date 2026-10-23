@@ -66,7 +66,8 @@ function Featured({ event }) {
         <div className="mt-8 grid overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] lg:grid-cols-2">
           <div data-reveal="clip" className="group relative min-h-[340px] overflow-hidden lg:min-h-[560px]">
             <div data-parallax="-0.2" className="absolute -inset-y-[12%] inset-x-0">
-              <EventArt event={event} sizes="(min-width:1024px) 50vw, 100vw" />
+              {/* "featuredImage" in events.json overrides the card image for this big card only */}
+              <EventArt event={{ ...event, image: event.featuredImage ?? event.image }} sizes="(min-width:1024px) 50vw, 100vw" />
             </div>
           </div>
           <div className="flex flex-col justify-center gap-6 p-7 md:p-12">

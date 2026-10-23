@@ -107,8 +107,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col-reverse items-center justify-between gap-4 border-t border-footer-text/15 py-6 text-sm text-footer-text/60 md:flex-row">
           <span className="flex items-center gap-2">
-            © Skill &amp; Tell {new Date().getFullYear()}. All rights reserved. Crafted with
-            <Heart className="h-4 w-4 animate-pulse fill-red-500 text-red-500" />
+            © Skill &amp; Tell {new Date().getFullYear()}. All rights reserved.
           </span>
           <Magnetic strength={0.3}>
             <button type="button" onClick={toTop} className="group flex items-center gap-2 rounded-full border border-footer-text/20 px-4 py-2 text-footer-text/80 transition-colors hover:bg-footer-text hover:text-white">

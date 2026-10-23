@@ -347,3 +347,7 @@ html:has(.snt) { font-size: 16px; }
     radial-gradient(1.6px 1.6px at 92% 88%, rgba(255,255,255,0.6), transparent 60%);
   background-size: 420px 420px, 380px 380px, 520px 520px, 300px 300px, 460px 460px, 340px 340px, 400px 400px, 360px 360px;
 }
+
+/* Missions monster lurks small until its jump scare (set before JS to avoid a flash). */
+html.js .snt [data-monster] { transform: scale(0.34); opacity: 0.55; }
+@media (prefers-reduced-motion: reduce) { html.js .snt [data-monster] { transform: none; opacity: 1; } }
