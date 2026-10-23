@@ -107,7 +107,7 @@ function Departments({ departments }) {
           <p data-reveal="up" className="max-w-md text-white/60 lg:text-right">Every department has its lead and managers. Filter to explore who drives what.</p>
         </div>
 
-        <div className="sticky top-[92px] z-20 -mx-5 mt-10 overflow-x-auto px-5 py-3 no-scrollbar md:top-[104px]">
+        <div className="top-[92px] z-20 -mx-5 mt-10 overflow-x-auto px-5 py-3 no-scrollbar md:top-[104px]">
           <div role="tablist" aria-label="Filter by department" className="flex w-max gap-2 rounded-full border border-white/10 bg-[#12002a]/80 p-1.5 backdrop-blur-xl">
             {[{ key: "all", label: "All" }, ...departments].map((d) => (
               <button

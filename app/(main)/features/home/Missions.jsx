@@ -54,7 +54,7 @@ export default function Missions() {
           <span data-reveal="fade" className="snt-eyebrow">03 — Skill&amp;Tell Missions</span>
           <Image
             data-reveal="up"
-            src="/images/missions/logo.webp"
+            src="/images/missions/logo-2.PNG"
             alt="Skill&Tell Missions"
             width={960}
             height={418}

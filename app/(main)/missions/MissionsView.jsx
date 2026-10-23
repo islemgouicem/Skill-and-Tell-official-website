@@ -50,7 +50,7 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#07000f]/70 via-[#07000f]/40 to-[#07000f]" />
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 text-center">
-        <Image data-g-fade src="/images/missions/logo.webp" alt="Skill&Tell Missions" width={960} height={418} priority sizes="340px" className="h-auto w-[240px] md:w-[340px]" />
+        <Image data-g-fade src="/images/missions/logo-1.PNG" alt="Skill&Tell Missions" width={960} height={418} priority sizes="340px" className="h-auto w-[240px] md:w-[340px]" />
         <h1 data-g-title className="snt-display mt-6 text-white opacity-0 [text-shadow:0_10px_60px_rgba(10,0,26,0.8)]">
           From zero to <span className="gradient-text-warm">hero.</span>
         </h1>
