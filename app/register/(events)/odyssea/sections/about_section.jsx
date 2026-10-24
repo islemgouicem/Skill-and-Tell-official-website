@@ -21,7 +21,7 @@ function AboutSection() {
         className="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-gradient-to-b from-ody-night via-ody-night/65 to-transparent lg:hidden"
       />
 
-      {/* phones only: the whole sun, its centre parked on the fold — half of it
+      {/* phones only: the whole sun, its centre parked on the fold , half of it
           shows at the foot of the first screen and a small scroll reveals the
           rest. .ody-about-sun does the maths and keeps it in the flow, so the
           heading below always clears it. */}

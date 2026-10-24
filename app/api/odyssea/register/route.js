@@ -8,7 +8,7 @@ import { sendConfirmationEmail, smtpConfig, verifySmtp } from "./email";
  * The browser never sees Supabase: it posts here, this runs on the server with
  * the service-role key, and the key can only reach ONE database function (see
  * supabase/migrations/20260921120000_odyssea_registrations.sql). Every field is
- * validated twice — here, and again inside that function.
+ * validated twice , here, and again inside that function.
  */
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -101,7 +101,7 @@ export async function POST(request) {
     return fail("invalid_payload");
   }
 
-  // honeypot — answer like a success, tell the database nothing
+  // honeypot , answer like a success, tell the database nothing
   if (text(body.website, 50) !== "") {
     return Response.json({ ok: true, reference: "ODY-000000" });
   }
@@ -171,7 +171,7 @@ export async function POST(request) {
     return fail(data?.code ?? "server_error", data?.code === "registrations_closed" ? 403 : 409);
   }
 
-  // registration is safe in the database — the email must never fail the request
+  // registration is safe in the database , the email must never fail the request
   let emailSent = false;
   try {
     const sent = await sendConfirmationEmail({
@@ -201,7 +201,7 @@ export async function POST(request) {
 
 /**
  * Development-only health check: GET the endpoint and it audits its own
- * configuration — which variables are missing, which ones are the wrong shape,
+ * configuration , which variables are missing, which ones are the wrong shape,
  * and whether the database actually answers. It never prints a secret, and in
  * production it is just a 405 like any other wrong method.
  */
@@ -226,7 +226,7 @@ export async function GET() {
   check("SUPABASE_SERVICE_ROLE_KEY", looksLikeKey && key.length > 40,
     key === projectRef
       ? `You pasted the project ref ("${projectRef}") instead of the key. The key is a long secret: Supabase dashboard → Project Settings (gear, bottom left) → API Keys → either "Secret keys" (starts sb_secret_) or the "Legacy API keys" tab → service_role (starts eyJ, ~200+ characters).`
-      : `This is ${key.length} characters and starts with "${key.slice(0, 4)}" — a service-role key is 200+ characters starting with "eyJ", or one starting with "sb_secret_". Project Settings → API Keys.`);
+      : `This is ${key.length} characters and starts with "${key.slice(0, 4)}" , a service-role key is 200+ characters starting with "eyJ", or one starting with "sb_secret_". Project Settings → API Keys.`);
 
   check("ODYSSEA_IP_SALT", (process.env.ODYSSEA_IP_SALT ?? "").length >= 16,
     "Any long random string: openssl rand -hex 32");
@@ -237,7 +237,7 @@ export async function GET() {
   if (smtp) {
     check("ODYSSEA_SMTP_USER / PASSWORD", true, "");
     check("ODYSSEA_FROM_EMAIL", fromMailbox === smtp.auth.user.toLowerCase(),
-      `Gmail only lets you send as the mailbox you log in with (or an alias verified in Gmail → Settings → Accounts → "Send mail as"). The From is ${fromMailbox || "empty"} but SMTP logs in as ${smtp.auth.user} — Gmail will silently rewrite it.`);
+      `Gmail only lets you send as the mailbox you log in with (or an alias verified in Gmail → Settings → Accounts → "Send mail as"). The From is ${fromMailbox || "empty"} but SMTP logs in as ${smtp.auth.user} , Gmail will silently rewrite it.`);
   } else {
     check("mail transport", (process.env.RESEND_API_KEY ?? "").startsWith("re_"),
       "Set ODYSSEA_SMTP_USER and ODYSSEA_SMTP_PASSWORD to send from the club's Google account, or keep a Resend key as the fallback.");
@@ -252,7 +252,7 @@ export async function GET() {
       const supabase = createClient(url, key, {
         auth: { persistSession: false, autoRefreshToken: false },
       });
-      // an empty payload is rejected by the function itself — nothing is written
+      // an empty payload is rejected by the function itself , nothing is written
       const { data, error } = await supabase.rpc("odyssea_submit_registration", { payload: {} });
 
       if (error) {

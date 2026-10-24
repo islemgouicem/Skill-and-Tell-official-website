@@ -6,24 +6,24 @@
  * because it rules out the obvious layout. Gmail's phone apps repaint a message
  * they judge to be "light": dark text is lightened. They do NOT repaint images.
  * So "dark ink written on the parchment picture" is the one combination that
- * cannot survive — the paper stays light because it is an image, the ink turns
+ * cannot survive , the paper stays light because it is an image, the ink turns
  * light because it is text, and the words vanish. No CSS reaches that pass:
  * not color-scheme, not prefers-color-scheme, not !important.
  *
- * So the parchment is kept, and used as what it actually is — paper. It is the
+ * So the parchment is kept, and used as what it actually is , paper. It is the
  * full canvas of the email, with a gilt rule drawn on it, and the message sits
  * on a deep-blue plaque mounted in the middle of that sheet, the way the
  * registration card sits on the page. Every pixel is then one of two things
  * that no client repaints:
  *
- *   · the parchment — an image, and images are never touched;
- *   · the plaque — a mid-band blue (L* 33) carrying cream and gold type, which
+ *   · the parchment , an image, and images are never touched;
+ *   · the plaque , a mid-band blue (L* 33) carrying cream and gold type, which
  *     is already what a dark-mode pass is trying to produce, so it is left be.
  *
  * Nothing legible is ever on the paper itself, so nothing can go invisible.
  * With remote images blocked (Gmail's default until the reader allows them)
  * the sheet falls back to the deep blue underneath it and the plaque still
- * reads exactly the same — both states are deliberate, and the words never
+ * reads exactly the same , both states are deliberate, and the words never
  * move in either.
  */
 
@@ -35,12 +35,12 @@ const WORDMARK = process.env.ODYSSEA_EMAIL_WORDMARK_URL ?? "";
 
 /* the plaque and the fallback sheet: brand blues, mid-band, so no dark-mode
    pass has anything to correct (L* 24 / 33 / 40) */
-const SHELL = "#123E51"; /* the register button's dark stop — also the no-image sheet */
-const CARD = "#195469"; /* its light stop — the plaque */
+const SHELL = "#123E51"; /* the register button's dark stop , also the no-image sheet */
+const CARD = "#195469"; /* its light stop , the plaque */
 const PANEL = "#1E6580"; /* one step up, for the reference block */
 
 const GOLD = "#C9A24B"; /* the plaque's frame */
-const GOLD_RULE = "#A07C2E"; /* the rule drawn on the paper — darker, to read on parchment */
+const GOLD_RULE = "#A07C2E"; /* the rule drawn on the paper , darker, to read on parchment */
 const GOLD_SOFT = "#E2C076";
 const TITLE = "#FDCC46";
 const EMBER = "#F2B478";
@@ -94,7 +94,7 @@ export function buildHtml({
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
-    <title>Odyssea — registration received</title>
+    <title>Odyssea , registration received</title>
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
     <style>
       a { text-decoration: none; }
@@ -127,7 +127,7 @@ export function buildHtml({
   </head>
   <body class="sheet" bgcolor="${SHELL}" style="margin:0;padding:0;background-color:${SHELL};">
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all;">
-      We received your registration — reference ${escape(reference)}. We will confirm soon.
+      We received your registration , reference ${escape(reference)}. We will confirm soon.
     </div>
 
     <!-- the parchment sheet: an image, so no client repaints it, over the blue
@@ -234,7 +234,7 @@ export function buildHtml({
 
 export function buildText({ leaderName, teamName, reference, isTeam, mode, crew, contactEmail, eventUrl }) {
   return [
-    "ODYSSEA — BY SKILL&TELL",
+    "ODYSSEA , BY SKILL&TELL",
     "",
     "REGISTRATION RECEIVED",
     "",

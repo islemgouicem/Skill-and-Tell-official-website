@@ -134,7 +134,7 @@ function OrganizerRegistration() {
                         Organizer Registration
                     </h1>
                     <p className="text-white/80 mt-3 text-lg">
-                        Join the organizing team — we’re glad to have you!
+                        Join the organizing team , we’re glad to have you!
                     </p>
 
                 </div>
@@ -223,9 +223,9 @@ function OrganizerRegistration() {
                     </div>
                 </div>
 
-                {/* Footer — Fixes empty bottom */}
+                {/* Footer , Fixes empty bottom */}
                 <div className="text-center text-white/60 py-6 text-sm">
-                    © 2025 Eunoia — All rights reserved
+                    © 2025 Eunoia , All rights reserved
                 </div>
             </div>
         </div>);

@@ -25,7 +25,7 @@ function SuccessState({ teamName, email, reference = null, isTeam = true }) {
         {teamName ? (
           <>
             <span className="font-semibold text-ody-ink">{teamName}</span>
-            {isTeam ? " is on our list." : " — you are on our list."}{" "}
+            {isTeam ? " is on our list." : " , you are on our list."}{" "}
           </>
         ) : null}
         This is not a place yet: our team reads every application and will get back to you by

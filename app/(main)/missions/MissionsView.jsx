@@ -73,7 +73,7 @@ function Concept() {
     <section id="concept" className="relative scroll-mt-24 bg-[#07000f] py-16 md:py-24">
       <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 md:px-10 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-5">
-          <span data-reveal="fade" className="snt-eyebrow">01 — The concept</span>
+          <span data-reveal="fade" className="snt-eyebrow">01 , The concept</span>
           <h2 data-split="lines" className="snt-h2 mt-5 text-white">Inspired by Solo Leveling</h2>
           <p data-reveal="up" className="mt-6 leading-relaxed text-white/70 md:text-lg">{MISSIONS_STORY.anime}</p>
           <p data-reveal="up" className="mt-5 font-futura_bold text-xl text-accent-300 md:text-2xl">{MISSIONS_STORY.you}</p>
@@ -114,7 +114,7 @@ function Journey() {
       <div className="mx-auto max-w-[1280px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
-            <span data-reveal="fade" className="snt-eyebrow">02 — Your journey</span>
+            <span data-reveal="fade" className="snt-eyebrow">02 , Your journey</span>
             <h2 data-split="lines" className="snt-h2 mt-5 text-white">How it works</h2>
           </div>
           <div data-reveal="fade" className="w-full max-w-xs">

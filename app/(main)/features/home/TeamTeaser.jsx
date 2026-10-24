@@ -24,7 +24,7 @@ export default function TeamTeaser({ teamMembers = [] }) {
 
       <div className="relative mx-auto max-w-[1280px] px-5 md:px-10">
         <div className="max-w-2xl">
-          <span data-reveal="fade" className="snt-eyebrow">05 — People</span>
+          <span data-reveal="fade" className="snt-eyebrow">05 , People</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Our Heads</h2>
           <p data-reveal="up" className="snt-lead mt-4 text-white/65">
             The executive board leading Skill&amp;Tell this mandate.

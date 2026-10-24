@@ -14,7 +14,7 @@ export default function Stats({ tone = "light" }) {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span data-reveal="fade" className={`snt-eyebrow ${light ? "snt-eyebrow--dark" : ""}`}>02 — Impact</span>
+            <span data-reveal="fade" className={`snt-eyebrow ${light ? "snt-eyebrow--dark" : ""}`}>02 , Impact</span>
             <h2 data-split="chars" className={`snt-h2 mt-5 ${light ? "text-neutral-600" : "text-white"}`}>Some Statistics</h2>
           </div>
           <p data-reveal="up" className={`max-w-md snt-lead ${light ? "text-neutral-400" : "text-white/60"}`}>

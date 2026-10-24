@@ -9,7 +9,7 @@ export function EventArt({ event, sizes = "(min-width:1024px) 33vw, 90vw", class
     return (
       <Image
         src={event.image}
-        alt={`${event.title} — Skill&Tell event`}
+        alt={`${event.title} , Skill&Tell event`}
         fill
         sizes={sizes}
         className={`object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.06] ${className}`}
@@ -64,7 +64,7 @@ export default function EventCard({ event, className = "", compact = false }) {
         <h3 className="mt-2 font-futura_bold text-2xl text-white md:text-3xl">{event.title}</h3>
         {!compact && (
           <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-white/65">
-            {event.description || "More about this experience is coming soon — stay tuned."}
+            {event.description || "More about this experience is coming soon , stay tuned."}
           </p>
         )}
         {event.tags?.length > 0 && (
@@ -81,7 +81,7 @@ export default function EventCard({ event, className = "", compact = false }) {
   return (
     <Tilt max={4} className={`group relative block rounded-[24px] border border-white/10 bg-white/[0.03] p-3 transition-colors duration-500 hover:border-white/20 ${className}`}>
       {event.href ? (
-        <TLink href={event.href} className="block focus-visible:outline-2 focus-visible:outline-accent-300 rounded-[18px]" aria-label={`${event.title} — open event page`}>
+        <TLink href={event.href} className="block focus-visible:outline-2 focus-visible:outline-accent-300 rounded-[18px]" aria-label={`${event.title} , open event page`}>
           {body}
         </TLink>
       ) : (

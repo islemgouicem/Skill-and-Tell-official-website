@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 "use client";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import logo_1 from "@/assets/images/mobai/mobai_logo1.png";
@@ -20,7 +21,7 @@ export default function Footer() {
                             </a>
                             <a href="tel:+213799838954" className="flex items-start gap-3 text-white/80  transition-colors group">
                                 <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-primary-white"/>
-                                <span className="text-base">+213 561 71 84 75</span>
+                                <span className="text-base">+213 799 83 89 54</span>
                             </a>
 
                             <div className="flex items-start gap-3 text-white/80 ">
@@ -65,7 +66,7 @@ export default function Footer() {
                     {/* Logo and Description */}
                     <div className="space-y-6 order-3 md:order-1">
                         <a href="#hero" className="inline-block" aria-label="logo">
-                            <Image height={400} width={300} src={logo_1} width={180} height={60} alt="Eunoia by Skill & Tell Logo" className="w-[180px]"/>
+                            <Image height={400} width={300} src={logo_1} alt="Eunoia by Skill & Tell Logo" className="w-[180px]"/>
                         </a>
                         <p className="text-white/80 text-base leading-relaxed max-w-sm">
                             Mobai is a hackathon organized by skill&tell, where ennovators and tech enthousiasts come together to build ai

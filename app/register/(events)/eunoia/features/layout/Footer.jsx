@@ -84,10 +84,7 @@ export default function Footer() {
                                 <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold"/>
                                 <span className="text-base">+213 799 83 89 54</span>
                             </a>
-                            <a href="tel:+213799838954" className="flex items-start gap-3 text-white/80 hover:text-white transition-colors group">
-                                <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold"/>
-                                <span className="text-base">+213 561 71 84 75</span>
-                            </a>
+                            
 
                             <div className="flex items-start gap-3 text-white/80">
                                 <MapPin className="h-6 w-6 flex-shrink-0 mt-0.5 text-gold"/>

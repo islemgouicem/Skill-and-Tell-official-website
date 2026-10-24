@@ -25,7 +25,7 @@ function sprite(rgb) {
 }
 
 /**
- * Glowing embers drifting through space — the floating orange lights of the
+ * Glowing embers drifting through space , the floating orange lights of the
  * Skill&Tell backgrounds, brought to life. Reacts softly to the pointer.
  */
 export default function EmberField({ density = 1, className = "", interactive = true }) {

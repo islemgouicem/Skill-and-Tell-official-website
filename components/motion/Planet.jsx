@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { prefersReducedMotion } from "@/lib/motion/gsap";
 
 /*
- * A slowly rotating night-side planet rising from the bottom of the hero —
+ * A slowly rotating night-side planet rising from the bottom of the hero ,
  * the old site's planet horizon, rendered in WebGL from a real map texture
  * (NASA Black Marble city lights + land mask + relief, packed into one image)
  * and recoloured in the Skill&Tell palette. Falls back to the original image

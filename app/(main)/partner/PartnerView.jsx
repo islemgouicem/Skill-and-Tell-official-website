@@ -38,7 +38,7 @@ function Formats() {
   return (
     <section ref={root} className="snt-light relative py-24 md:py-32">
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
-        <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">03 — Formats</span>
+        <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">03 , Formats</span>
         <h2 data-split="chars" className="snt-h2 mt-5 max-w-3xl text-neutral-600">Ways to work together</h2>
         <div className="mt-14 grid gap-10 lg:grid-cols-12">
           <ul className="lg:col-span-7">
@@ -106,7 +106,7 @@ function Process() {
   return (
     <section ref={root} className="relative bg-space-dark py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <span data-reveal="fade" className="snt-eyebrow">05 — Process</span>
+        <span data-reveal="fade" className="snt-eyebrow">05 , Process</span>
         <h2 data-split="chars" className="snt-h2 mt-5 text-white">From first message to launch</h2>
         <div className="relative mt-16">
           <span className="absolute left-0 right-0 top-6 hidden h-px bg-white/10 md:block" />
@@ -140,11 +140,11 @@ function ContactForm() {
     if (!data.message?.trim()) errs.message = "A few words about your idea help a lot.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
-    const subject = `Partnership — ${data.organization || data.name} (${data.type})`;
+    const subject = `Partnership , ${data.organization || data.name} (${data.type})`;
     const body = [
       `Name: ${data.name}`,
       `Email: ${data.email}`,
-      `Organization: ${data.organization || "—"}`,
+      `Organization: ${data.organization || ","}`,
       `Partnership type: ${data.type}`,
       "",
       data.message,
@@ -161,7 +161,7 @@ function ContactForm() {
       <div className="absolute inset-0" style={{ background: "radial-gradient(45% 50% at 85% 20%, rgba(255,109,0,0.18), transparent 70%), radial-gradient(45% 55% at 10% 90%, rgba(123,44,191,0.35), transparent 70%)" }} />
       <div className="relative mx-auto grid max-w-[1400px] gap-14 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <span data-reveal="fade" className="snt-eyebrow">06 — Contact</span>
+          <span data-reveal="fade" className="snt-eyebrow">06 , Contact</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Let&apos;s talk.</h2>
           <p data-reveal="up" className="snt-lead mt-6 max-w-md text-white/65">
             Tell us about your organization and your idea. We usually answer within a few days.
@@ -193,7 +193,7 @@ function ContactForm() {
               <div data-sent className="flex min-h-[420px] flex-col items-center justify-center text-center">
                 <span className="snt-icon h-20 w-20 rounded-full !border-accent-400/50 shadow-[0_0_40px_-10px_rgba(255,109,0,0.6)]"><Check className="h-9 w-9" /></span>
                 <h3 className="mt-6 font-futura_bold text-3xl text-white">Your email is ready</h3>
-                <p className="mt-3 max-w-sm text-white/65">Your mail app should have opened with everything filled in — just hit send. If it didn&apos;t, write to us at <a className="text-accent-300 underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+                <p className="mt-3 max-w-sm text-white/65">Your mail app should have opened with everything filled in , just hit send. If it didn&apos;t, write to us at <a className="text-accent-300 underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
                 <button type="button" onClick={() => setSent(false)} className="mt-8 text-sm text-white/60 underline-offset-4 hover:underline">Edit my message</button>
               </div>
             ) : (
@@ -248,7 +248,7 @@ export default function PartnerView() {
         compact
         eyebrow="Partner with us"
         title={<>Let&apos;s create <span className="gradient-text">impact</span> together</>}
-        lead="Skill&Tell connects clubs, companies and organizations with a growing community of motivated students at ENSIA — through events, workshops, Missions and more."
+        lead="Skill&Tell connects clubs, companies and organizations with a growing community of motivated students at ENSIA , through events, workshops, Missions and more."
         aside={
           <div className="flex flex-wrap gap-3">
             <Magnetic>
@@ -263,7 +263,7 @@ export default function PartnerView() {
 
       <section className="relative bg-space-dark py-20 md:py-24">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <span data-reveal="fade" className="snt-eyebrow">01 — Why Skill&amp;Tell</span>
+          <span data-reveal="fade" className="snt-eyebrow">01 , Why Skill&amp;Tell</span>
           <div data-reveal-stagger className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-[26px] bg-white/10 lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="bg-space-dark p-6 md:p-9">
@@ -277,7 +277,7 @@ export default function PartnerView() {
 
       <section className="relative bg-space-dark pb-24 md:pb-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <span data-reveal="fade" className="snt-eyebrow">02 — Who it&apos;s for</span>
+          <span data-reveal="fade" className="snt-eyebrow">02 , Who it&apos;s for</span>
           <h2 data-split="chars" className="snt-h2 mt-5 max-w-3xl text-white">Built for collaborators of every kind</h2>
           <div data-reveal-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {AUDIENCES.map((a) => {
@@ -299,7 +299,7 @@ export default function PartnerView() {
       <Formats />
 
       <section className="relative bg-white py-16 md:py-20">
-        <p data-reveal="fade" className="text-center font-futura_md_bt text-xs uppercase tracking-[0.3em] text-Main-500">04 — They trusted us</p>
+        <p data-reveal="fade" className="text-center font-futura_md_bt text-xs uppercase tracking-[0.3em] text-Main-500">04 , They trusted us</p>
         <div className="mt-10">
           <Marquee speed={45} pauseOnHover>
             {PARTNER_LOGOS.map((l) => (

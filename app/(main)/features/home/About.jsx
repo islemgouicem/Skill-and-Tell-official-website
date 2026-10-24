@@ -75,7 +75,7 @@ export default function About() {
         </div>
 
         <div className="order-1 lg:order-2 lg:col-span-7">
-          <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">01 — Identity</span>
+          <span data-reveal="fade" className="snt-eyebrow snt-eyebrow--dark">01 , Identity</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-neutral-600">Who Are We?</h2>
           <p data-reveal="up" className="snt-lead mt-5 max-w-xl text-neutral-500">
             The scientific club of ENSIA where skills are sharpened, ideas come to life and collaboration thrives.

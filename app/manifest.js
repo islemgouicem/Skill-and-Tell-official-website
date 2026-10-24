@@ -1,6 +1,6 @@
 import { SITE } from "@/lib/seo";
 
-// /manifest.webmanifest — install name, icons and colours (also used by Android / Chrome).
+// /manifest.webmanifest , install name, icons and colours (also used by Android / Chrome).
 export default function manifest() {
   return {
     name: SITE.legalName,

@@ -10,9 +10,9 @@ const THREE_MONTHS = 60 * 60 * 24 * 30 * 3;
 
 function absoluteUrl(url) {
   if (typeof url !== "string" || url.length === 0) return null;
-  // Absolute URL (e.g. a direct Blob URL) — use as-is
+  // Absolute URL (e.g. a direct Blob URL) , use as-is
   if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  // Relative URL (Payload's own file-serving route) — prefix with backend origin
+  // Relative URL (Payload's own file-serving route) , prefix with backend origin
   if (url.startsWith("/")) return `${BACKEND_ORIGIN}${url}`;
   return null;
 }

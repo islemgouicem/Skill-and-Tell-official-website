@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 /* ================================================================== */
-/* ODYSSEA — by Skill&Tell                                            */
+/* ODYSSEA , by Skill&Tell                                            */
 /* Scoped design system. Everything lives under .odyssea-app so the   */
 /* global Skill&Tell theme (futura / purple) is never touched.        */
 /* ================================================================== */
 
 @theme {
   /* ---- Odyssea brand palette (Skill&Tell) ---- */
-  --color-ody-night: #011b2a;        /* Aegean Night   */
-  --color-ody-night-deep: #00131e;   /* Aegean Night -  */
-  --color-ody-night-soft: #062b41;   /* Aegean Night +  */
-  --color-ody-gold: #bc9336;         /* Olympian Gold   */
-  --color-ody-title: #fdcc46;        /* title yellow    */
-  --color-ody-orange: #d77a34;       /* sub-brand orange*/
-  --color-ody-gold-deep: #8d6d25;    /* Olympian Gold - */
-  --color-ody-gold-soft: #d9b464;    /* Olympian Gold + */
-  --color-ody-blue: #3c6daa;         /* Odyssey Blue    */
-  --color-ody-sea: #4d90a3;          /* Seafoam         */
-  --color-ody-parchment: #f6e7ca;    /* Parchment       */
+  --color-ody-night: #011b2a; /* Aegean Night   */
+  --color-ody-night-deep: #00131e; /* Aegean Night -  */
+  --color-ody-night-soft: #062b41; /* Aegean Night +  */
+  --color-ody-gold: #bc9336; /* Olympian Gold   */
+  --color-ody-title: #fdcc46; /* title yellow    */
+  --color-ody-orange: #d77a34; /* sub-brand orange*/
+  --color-ody-gold-deep: #8d6d25; /* Olympian Gold - */
+  --color-ody-gold-soft: #d9b464; /* Olympian Gold + */
+  --color-ody-blue: #3c6daa; /* Odyssey Blue    */
+  --color-ody-sea: #4d90a3; /* Seafoam         */
+  --color-ody-parchment: #f6e7ca; /* Parchment       */
   --color-ody-parchment-deep: #e8d5b0;
-  --color-ody-white: #fdfdfd;        /* Royal White     */
+  --color-ody-white: #fdfdfd; /* Royal White     */
   --color-ody-ink: #011b2a;
-  --color-ody-danger: #bc1d0c;       /* Ithacan Red     */
+  --color-ody-danger: #bc1d0c; /* Ithacan Red     */
 }
 
 @font-face {
@@ -43,11 +43,16 @@
 /* ---------- font scoping (beats the global `* { font-futura }`) ---------- */
 .odyssea-app,
 .odyssea-app * {
-  font-family: "WorkSans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family:
+    "WorkSans",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 /* sections land on fractional pixel boundaries, and a sub-pixel gap would let
-   the page background flash through as a white hairline — so the page itself is
+   the page background flash through as a white hairline , so the page itself is
    night, and there is nothing light left to show */
 .odyssea-app {
   background-color: var(--color-ody-night);
@@ -62,7 +67,7 @@ body.odyssea-active {
 .odyssea-app .ody-display * {
   font-family: "Castelforte", serif;
   /* Castelforte keeps its alternate (round-E, round-a) set in the lowercase
-     slots — that is the cut the brand uses, so every display line is folded
+     slots , that is the cut the brand uses, so every display line is folded
      to lowercase to reach it. Visually it still reads as capitals. */
   text-transform: lowercase;
 }
@@ -180,12 +185,11 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   pointer-events: none;
 }
 
-
 /* phones: the turning sun sits ON THE FOLD.
 
    the hero is 82svh tall, so the bottom of the first screen falls 18svh below
    this section's top. parking the disc's centre there means the top half is
-   already showing when the page opens and one small scroll reveals the rest —
+   already showing when the page opens and one small scroll reveals the rest ,
    and because it is stated in svh rather than pixels it lands on the fold on
    every phone, not just a 844pt one.
 
@@ -217,7 +221,9 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 }
 
 .ody-col-indent {
-  padding-left: calc(var(--ody-compass, 2.25rem) + var(--ody-compass-gap, 0.875rem));
+  padding-left: calc(
+    var(--ody-compass, 2.25rem) + var(--ody-compass-gap, 0.875rem)
+  );
 }
 
 @media (min-width: 1280px) {
@@ -229,7 +235,11 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 /* the tapering gold rules either side of the hero's date */
 .ody-date-rule {
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--color-ody-gold-soft));
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-ody-gold-soft)
+  );
 }
 
 /* ---------- hero ---------- */
@@ -255,8 +265,6 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 .ody-float {
   animation: ody-float 7s ease-in-out infinite;
 }
-
-
 
 @keyframes ody-float {
   0%,
@@ -291,12 +299,7 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(
-    90deg,
-    #fdcc46 0%,
-    #ffe08a 42%,
-    #fdfdfd 100%
-  );
+  background: linear-gradient(90deg, #fdcc46 0%, #ffe08a 42%, #fdfdfd 100%);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -418,7 +421,11 @@ body.odyssea-active::-webkit-scrollbar-thumb {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(60, 109, 170, 0.35), transparent 70%);
+  background: linear-gradient(
+    180deg,
+    rgba(60, 109, 170, 0.35),
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
   z-index: -1;
@@ -440,8 +447,11 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 /* ---------- FAQ ---------- */
 .ody-faq-card {
-  background:
-    linear-gradient(180deg, rgba(6, 43, 65, 0.97), rgba(1, 19, 30, 0.99));
+  background: linear-gradient(
+    180deg,
+    rgba(6, 43, 65, 0.97),
+    rgba(1, 19, 30, 0.99)
+  );
   border: 2px solid var(--color-ody-title);
   box-shadow:
     0 26px 60px rgba(1, 27, 42, 0.45),
@@ -470,10 +480,8 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 .odyssea-registration {
   --ody-reg-sky: #0f2b45;
   background-color: var(--ody-reg-sky);
-  background-image: linear-gradient(
-      rgba(1, 27, 42, 0.42),
-      rgba(1, 27, 42, 0.55)
-    ),
+  background-image:
+    linear-gradient(rgba(1, 27, 42, 0.42), rgba(1, 27, 42, 0.55)),
     var(--ody-registration-img);
   background-size: cover;
   background-position: center;
@@ -483,7 +491,8 @@ body.odyssea-active::-webkit-scrollbar-thumb {
 
 @media (min-width: 1024px) {
   .odyssea-registration {
-    background-image: linear-gradient(
+    background-image:
+      linear-gradient(
         to bottom,
         rgba(1, 27, 42, 0.62) 0%,
         rgba(1, 27, 42, 0.34) 16%,

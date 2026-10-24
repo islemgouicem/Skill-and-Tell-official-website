@@ -40,7 +40,7 @@ export default function OdysseaPage() {
            z-10 puts this half ABOVE the parchment below it in paint order. the
            parchment section's background is attachment:fixed, so the engine
            composites it in its own layer and can round it a device row higher
-           than the section's own box — that stray row of paper is what showed
+           than the section's own box , that stray row of paper is what showed
            as a pale hairline just above the chevron. painting the night over it
            removes the row outright, whatever the engine rounds to, and the
            3px lap below finishes the join from the other side. */}
@@ -57,7 +57,7 @@ export default function OdysseaPage() {
           <AboutSection />
         </div>
 
-        {/* the night lapped 3px over the parchment's top edge — the same 3px the
+        {/* the night lapped 3px over the parchment's top edge , the same 3px the
             chevron already paints there, so nothing looks different */}
         <div
           aria-hidden="true"

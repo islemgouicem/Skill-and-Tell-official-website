@@ -62,7 +62,7 @@ function Featured({ event }) {
   return (
     <section className="relative bg-space-dark py-20 md:py-28">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <span data-reveal="fade" className="snt-eyebrow">01 — {event.status === "upcoming" ? "Next up" : "Latest"}</span>
+        <span data-reveal="fade" className="snt-eyebrow">01 , {event.status === "upcoming" ? "Next up" : "Latest"}</span>
         <div className="mt-8 grid overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] lg:grid-cols-2">
           <div data-reveal="clip" className="group relative min-h-[340px] overflow-hidden lg:min-h-[560px]">
             <div data-parallax="-0.2" className="absolute -inset-y-[12%] inset-x-0">
@@ -118,7 +118,7 @@ function Arcade({ event }) {
       <div data-arcade-word aria-hidden="true" className="pointer-events-none absolute top-6 whitespace-nowrap font-futura_bold text-[22vw] leading-none text-white/[0.04]">ARCADE ARCADE</div>
       <div className="relative mx-auto grid max-w-[1400px] items-center gap-14 px-5 md:px-10 lg:grid-cols-2">
         <div>
-          <span data-reveal="fade" className="snt-eyebrow !text-[#ff7b7b]">03 — Signature event</span>
+          <span data-reveal="fade" className="snt-eyebrow !text-[#ff7b7b]">03 , Signature event</span>
           <h2 data-split="chars" className="snt-display mt-6 text-white">ARCADE</h2>
           <p data-reveal="up" className="snt-lead mt-6 max-w-xl text-white/70">{event.description}</p>
           <div data-reveal="up" className="mt-6 flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ function Archive({ events }) {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <span data-reveal="fade" className="snt-eyebrow">02 — Archive</span>
+            <span data-reveal="fade" className="snt-eyebrow">02 , Archive</span>
             <h2 data-split="chars" className="snt-h2 mt-5 text-white">Every edition</h2>
           </div>
           <div role="tablist" aria-label="Filter events" className="flex flex-wrap gap-2">
@@ -253,7 +253,7 @@ function Gallery() {
     <section ref={root} id="gallery" className="relative overflow-hidden bg-[#0d0022] py-24 md:py-36">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="text-center">
-          <span data-reveal="fade" className="snt-eyebrow justify-center">04 — Gallery</span>
+          <span data-reveal="fade" className="snt-eyebrow justify-center">04 , Gallery</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Moments &amp; memories</h2>
           <p data-reveal="up" className="mx-auto mt-5 max-w-xl text-white/60">Our people, at our events. Tap any picture to open it.</p>
         </div>
@@ -295,7 +295,7 @@ export default function EventsView() {
         compact
         eyebrow="Our Events"
         title={<>Moments that <span className="gradient-text">move</span> us</>}
-        lead="Datathons, hackathons, ideathons, competitions and workshops — every event is a chance to learn, build and meet people who push you further."
+        lead="Datathons, hackathons, ideathons, competitions and workshops , every event is a chance to learn, build and meet people who push you further."
         aside={
           <div className="flex gap-6 md:gap-8 whitespace-nowrap">
             <div><p className="font-compacta text-6xl leading-none text-white">{events.length}</p><p className="mt-1 text-sm text-white/60">Experiences</p></div>

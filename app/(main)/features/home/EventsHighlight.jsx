@@ -58,12 +58,12 @@ export default function EventsHighlight() {
       <div data-pin className="relative flex min-h-screen flex-col justify-center overflow-hidden py-24 lg:py-0">
         <div className="mx-auto mb-12 flex w-full max-w-[1400px] flex-col justify-between gap-6 px-5 md:px-10 lg:mb-14 lg:flex-row lg:items-end">
           <div>
-            <span data-reveal="fade" className="snt-eyebrow">04 — Experiences</span>
+            <span data-reveal="fade" className="snt-eyebrow">04 , Experiences</span>
             <h2 data-split="chars" className="snt-h2 mt-5 text-white">Our Events</h2>
           </div>
           <div className="flex flex-col items-start gap-5 lg:items-end">
             <p data-reveal="up" className="max-w-md text-white/65 lg:text-right">
-              Datathons, hackathons, ideathons and full days of challenges — scroll through the moments that shaped our community.
+              Datathons, hackathons, ideathons and full days of challenges , scroll through the moments that shaped our community.
             </p>
             <TLink data-reveal="up" href="/events" className="snt-btn snt-btn--ghost">
               All events <ArrowRight className="snt-btn__arrow h-5 w-5" />

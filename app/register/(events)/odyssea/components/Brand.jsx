@@ -6,7 +6,7 @@ import wordmarkLogo from "@/assets/images/odyssea/Odyssea-logo-wordmark.png";
 /**
  * The Odyssea mark, used exactly as drawn.
  *
- * Two pieces — the ship medallion and the lettering — set two ways:
+ * Two pieces , the ship medallion and the lettering , set two ways:
  *
  *   row    the medallion beside the lettering, for the navbar, where the
  *          header is short and a stacked mark would not fit

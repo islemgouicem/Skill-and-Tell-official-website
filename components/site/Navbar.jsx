@@ -120,7 +120,7 @@ export default function Navbar() {
               : "border-transparent bg-transparent"
           }`}
         >
-          <TLink href="/" aria-label="Skill & Tell — home" className="relative z-[2] flex items-center">
+          <TLink href="/" aria-label="Skill & Tell , home" className="relative z-[2] flex items-center">
             <Image src={logo} alt="Skill & Tell Scientific Club" width={460} height={210} priority sizes="160px" className="h-11 md:h-[52px] w-auto" />
           </TLink>
 

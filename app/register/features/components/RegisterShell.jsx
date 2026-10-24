@@ -20,7 +20,7 @@ export default function RegisterShell({ step, done = false, wide = false, childr
       </div>
 
       <header className="relative z-10 mx-auto flex max-w-[1200px] items-center justify-between px-5 py-5 md:px-10">
-        <Link href="/" aria-label="Skill & Tell — home">
+        <Link href="/" aria-label="Skill & Tell , home">
           <Image src={logo} alt="Skill & Tell Scientific Club" priority sizes="140px" className="h-10 w-auto md:h-12" />
         </Link>
         <Link href="/" className="inline-flex items-center gap-2 rounded-lg border border-Main-500 px-4 py-2 text-sm text-white/80 transition-colors hover:border-accent-400 hover:text-white">

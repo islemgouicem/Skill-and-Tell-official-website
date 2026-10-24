@@ -24,7 +24,7 @@ export const PERSON_FIELDS = [
   { name: "email", label: "Email Address", placeholder: "you@domain.com", type: "email", required: true, icon: "mail", max: 160 },
   { name: "university", label: "University / Institution", placeholder: "e.g. ENSIA", type: "text", required: true, icon: "building", max: 160 },
   { name: "linkedin", label: "LinkedIn", placeholder: "linkedin.com/in/your-profile", type: "url", required: true, icon: "linkedin", max: 240 },
-  { name: "phone", label: "Phone Number", placeholder: "+213 5 61 71 84 75", type: "tel", required: true, icon: "phone", max: 24 },
+  { name: "phone", label: "Phone Number", placeholder: "+213 799 83 89 54", type: "tel", required: true, icon: "phone", max: 24 },
   { name: "portfolio", label: "Github / Portfolio", placeholder: "github.com/your-handle", type: "url", required: true, icon: "github", max: 240 },
   { name: "year", label: "Year of Study", placeholder: "Select your year", type: "select", required: false, icon: "calendar", options: YEARS },
   { name: "study", label: "Field of Study", placeholder: "e.g. Computer Science", type: "text", required: true, icon: "book", max: 120 },

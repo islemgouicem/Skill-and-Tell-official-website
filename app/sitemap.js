@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/seo";
 
-// /sitemap.xml — every public page, with how often it changes and how important it is.
+// /sitemap.xml , every public page, with how often it changes and how important it is.
 const PAGES = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/events", changeFrequency: "weekly", priority: 0.9 },

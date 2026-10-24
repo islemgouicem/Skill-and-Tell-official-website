@@ -10,7 +10,7 @@ import aiWeek from "@/assets/images/odyssea/WSAI_logo.png";
  * sails under. The navbar carries the Odyssea mark on its own.
  *
  * The divider and the World AI Week mark are centred against the FULL height
- * of the Odyssea stack — medallion and lettering together — so the three read
+ * of the Odyssea stack , medallion and lettering together , so the three read
  * as one row rather than as a tall mark with two small things hung off it.
  */
 function BrandLockup({ size = "lg", className = "" }) {

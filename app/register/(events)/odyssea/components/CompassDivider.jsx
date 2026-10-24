@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import compass from "@/assets/images/odyssea/compass.webp";
 /**
- * Solid rule — compass star — solid rule. `width` lets a section stretch the
+ * Solid rule , compass star , solid rule. `width` lets a section stretch the
  * rules out to the exact edges of the heading underneath it.
  */
 function CompassDivider({

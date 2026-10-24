@@ -23,7 +23,7 @@ const pos = (i, r = 50) => {
 
 /**
  * Department test: the six departments orbit the Skill&Tell mark while a
- * "match" scans through them — a playful preview of what the test does.
+ * "match" scans through them , a playful preview of what the test does.
  */
 export default function DepartmentTest() {
   const root = useRef(null);

@@ -44,7 +44,7 @@ function buildPayload(formData) {
     discovery: trim(formData.discovery).slice(0, 500),
     motivation: trim(formData.motivation).slice(0, 1500),
     privacy_consent: formData.privacyConsent === true,
-    // honeypot — a real person never fills the hidden field
+    // honeypot , a real person never fills the hidden field
     website: trim(formData.website),
   };
 }

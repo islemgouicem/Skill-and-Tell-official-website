@@ -8,8 +8,8 @@ export const NAV_LINKS = [
 
 export const CONTACT = {
   email: "skill.and.tell@ensia.edu.dz",
-  phone: "+213 561 71 84 75",
-  phoneHref: "tel:+213561718475",
+  phone: "+213 799 83 89 54",
+  phoneHref: "tel:+213799838954",
   place: "ENSIA, Sidi Abdellah",
   instagram: "https://www.instagram.com/skillntell.club?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==",
   linkedin: "https://www.linkedin.com/company/skill-and-tell/posts/",

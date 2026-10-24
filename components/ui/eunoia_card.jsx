@@ -20,12 +20,12 @@ const JudgeCard = ({ name, subtitle, description, image = img, linkedIn = "#spea
         }}>
                 <div className="relative bg-purple-2 rounded-sm overflow-hidden flex flex-col h-full">
 
-                    {/* Image — upper 60% */}
+                    {/* Image , upper 60% */}
                     <div className="w-full overflow-hidden aspect-[4/3]">
                         <Image width={300} height={400} src={image} alt={name} className="w-full h-full object-cover object-top"/>
                     </div>
 
-                    {/* Content — lower 40% */}
+                    {/* Content , lower 40% */}
                     <div className="p-5 bg-purple-darker/95 flex flex-col">
                         <h3 className="text-foreground font-semibold text-lg mb-1">
                             {name}

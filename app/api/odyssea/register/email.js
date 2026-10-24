@@ -5,16 +5,16 @@ import { buildHtml, buildText } from "./email_template";
  * Delivery for the Odyssea confirmation.
  *
  * Two transports, picked automatically:
- *   1. SMTP  — the club's own Google account (skill.and.tell@ensia.edu.dz).
+ *   1. SMTP  , the club's own Google account (skill.and.tell@ensia.edu.dz).
  *              Used whenever ODYSSEA_SMTP_USER and ODYSSEA_SMTP_PASSWORD exist.
- *   2. Resend — HTTP API fallback, so nothing breaks if SMTP is unset.
+ *   2. Resend , HTTP API fallback, so nothing breaks if SMTP is unset.
  *
  * Nothing here ever logs a password or an API key.
  */
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
-/** Google shows app passwords as "abcd efgh ijkl mnop" — the spaces are display only. */
+/** Google shows app passwords as "abcd efgh ijkl mnop" , the spaces are display only. */
 const cleanPassword = (value) => String(value ?? "").replace(/\s+/g, "");
 
 export function smtpConfig() {
@@ -47,7 +47,7 @@ function transport() {
   return cachedTransport;
 }
 
-/** Logs in to the SMTP server without sending anything — used by the health check. */
+/** Logs in to the SMTP server without sending anything , used by the health check. */
 export async function verifySmtp() {
   const mailer = transport();
   if (!mailer) return { configured: false };
@@ -91,7 +91,7 @@ async function sendWithSmtp(from, to, replyTo, subject, html, text) {
 async function sendWithResend(from, to, replyTo, subject, html, text) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn("[odyssea] no SMTP and no RESEND_API_KEY — confirmation not sent");
+    console.warn("[odyssea] no SMTP and no RESEND_API_KEY , confirmation not sent");
     return { ok: false, skipped: true };
   }
 
@@ -164,7 +164,7 @@ export async function sendConfirmationEmail(details) {
     (smtp ? `Odyssea by Skill&Tell <${smtp.auth.user}>` : "");
 
   if (!from) {
-    console.warn("[odyssea] no sender configured — confirmation not sent");
+    console.warn("[odyssea] no sender configured , confirmation not sent");
     return { ok: false, skipped: true };
   }
 
@@ -174,7 +174,7 @@ export async function sendConfirmationEmail(details) {
     contactEmail,
   };
 
-  const subject = `Odyssea — we received your registration (${details.reference})`;
+  const subject = `Odyssea , we received your registration (${details.reference})`;
   const html = buildHtml(payload);
   const text = buildText(payload);
 

@@ -5,7 +5,7 @@
  *
  * Placement rule: every mark sits in a gap. None of them lands on the
  * wordmark, the display titles, the register button, the sun, a column of
- * text, the closing rule — or within reach of another compass star, so two
+ * text, the closing rule , or within reach of another compass star, so two
  * of them never clump together.
  */
 

@@ -9,14 +9,14 @@ import cloud from "@/assets/images/odyssea/cloud.webp";
  * stays pixel-perfect at every breakpoint, and `flip` mirrors the cloud so
  * its tail points right.
  *
- * The caption sits on the cloud's dense body — measured from the artwork at
- * 19%–86% across and centred a little above the middle — rather than on the
+ * The caption sits on the cloud's dense body , measured from the artwork at
+ * 19%–86% across and centred a little above the middle , rather than on the
  * image box, which the tail throws off.
  */
 function CloudCard({ time, title, flip = false, className = "", style }) {
   /* a range ("09:00 - 10:30") is about two and a half times the width of a bare
      hour, and the caption well is only 66% of the cloud, so the hour is sized
-     from its own length rather than fixed — short times keep the size they had */
+     from its own length rather than fixed , short times keep the size they had */
   const timeSize = time.length > 7 ? "7.4cqw" : "8.4cqw";
 
   return (

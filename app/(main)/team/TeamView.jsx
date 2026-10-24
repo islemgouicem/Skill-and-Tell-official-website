@@ -101,7 +101,7 @@ function Departments({ departments }) {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <span data-reveal="fade" className="snt-eyebrow">02 — Departments</span>
+            <span data-reveal="fade" className="snt-eyebrow">02 , Departments</span>
             <h2 data-split="chars" className="snt-h2 mt-5 text-white">Leads &amp; managers</h2>
           </div>
           <p data-reveal="up" className="max-w-md text-white/60 lg:text-right">Every department has its lead and managers. Filter to explore who drives what.</p>
@@ -149,8 +149,8 @@ function Departments({ departments }) {
   );
 }
 
-const MANDATE_SUBJECT = "Previous office — Skill&Tell website";
-const MANDATE_BODY = "Hi Skill&Tell,\n\nI was part of a previous office. Here are the details:\n\nMandate (years): \nPresident: \nBoard & managers (name — role): \nOur best memory: \n\nTeam photo attached.\n";
+const MANDATE_SUBJECT = "Previous office , Skill&Tell website";
+const MANDATE_BODY = "Hi Skill&Tell,\n\nI was part of a previous office. Here are the details:\n\nMandate (years): \nPresident: \nBoard & managers (name , role): \nOur best memory: \n\nTeam photo attached.\n";
 
 /** Opens a pre-filled email (Gmail in a new tab, works without a mail app) + copy the address. */
 function ShareMandate() {
@@ -190,7 +190,7 @@ function PreviousOffices() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <span data-reveal="fade" className="snt-eyebrow">03 — Legacy</span>
+            <span data-reveal="fade" className="snt-eyebrow">03 , Legacy</span>
             <h2 data-split="chars" className="snt-h2 mt-5 text-white">Previous offices</h2>
             <p data-reveal="up" className="mt-5 max-w-xl text-white/60">
               Every office built a piece of Skill&amp;Tell. Thank you to the presidents, boards and managers who carried the club before us.
@@ -228,7 +228,7 @@ function PreviousOffices() {
         <div data-reveal="up" className="mt-14 rounded-[22px] border border-dashed border-Main-300/40 p-6 md:flex md:items-center md:justify-between md:gap-8 md:p-8">
           <div>
             <p className="font-futura_bold text-xl text-white">Were you part of an earlier office?</p>
-            <p className="mt-2 text-white/60">Send us your mandate, your team photo and your best memory — we&apos;ll add it here.</p>
+            <p className="mt-2 text-white/60">Send us your mandate, your team photo and your best memory , we&apos;ll add it here.</p>
           </div>
           <ShareMandate />
         </div>
@@ -272,7 +272,7 @@ export default function TeamView({ teamMembers = [] }) {
 
       <section className="relative bg-space-dark py-20 md:py-28">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <span data-reveal="fade" className="snt-eyebrow">01 — Executive board</span>
+          <span data-reveal="fade" className="snt-eyebrow">01 , Executive board</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">Leading the club</h2>
           <div data-reveal-stagger className="mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
             {board.map((m) => (

@@ -38,7 +38,7 @@ function RegistrationForm() {
       if (error) throw error;
 
       if (data && data.length > 0) {
-        // Already registered — just show the message, no further steps.
+        // Already registered , just show the message, no further steps.
         setIsRegistered(true);
         setPhase1(4);
       } else {
@@ -59,7 +59,7 @@ function RegistrationForm() {
 
   return (
     <RegisterShell step={step} done={done} wide={phase1 !== 1}>
-      {/* Step 0 — email check */}
+      {/* Step 0 , email check */}
       {phase1 === 1 && (
         <form
           noValidate
@@ -102,7 +102,7 @@ function RegistrationForm() {
         </form>
       )}
 
-      {/* Steps 1–4 — new member */}
+      {/* Steps 1–4 , new member */}
       {phase1 === 2 && <NotRegistered />}
 
       {/* Completion (new member finished all steps) */}

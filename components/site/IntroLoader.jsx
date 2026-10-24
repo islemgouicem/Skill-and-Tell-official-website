@@ -11,7 +11,7 @@ const BRAND = "Skill&Tell".split("");
 
 /**
  * Branded intro, played once per session (the old loader's rule):
- * a shooting star — the one in our logo — streaks across the night and lands
+ * a shooting star , the one in our logo , streaks across the night and lands
  * in the centre, the mark ignites, the name rises, then the night opens like
  * an iris onto the site.
  */

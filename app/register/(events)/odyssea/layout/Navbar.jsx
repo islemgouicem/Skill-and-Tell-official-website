@@ -16,7 +16,7 @@ function Navbar() {
      This used to be an IntersectionObserver keyed on intersectionRatio, which
      silently failed on the long sections: with a rootMargin of -20%/-50% the
      root box is only 30% of the viewport, so a section taller than that can
-     never reach a ratio of 0.25 — Agenda (1070px) and FAQ (1220px) never fired
+     never reach a ratio of 0.25 , Agenda (1070px) and FAQ (1220px) never fired
      at all and the underline stayed stuck on About. Ratios are the wrong tool
      when a section can be taller than the screen.
 

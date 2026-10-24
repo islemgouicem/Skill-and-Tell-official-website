@@ -5,7 +5,7 @@ import compass from "@/assets/images/odyssea/compass.webp";
 
 /**
  * Compass rule over a display heading. The wrapper is width-fit, so the two
- * solid rules always stretch to exactly where the heading starts and ends —
+ * solid rules always stretch to exactly where the heading starts and ends ,
  * whatever the heading says.
  */
 function SectionTitle({ children, className = "" }) {

@@ -1,4 +1,4 @@
-// Skill&Tell Missions — the club's hands-on program, inspired by Solo Leveling.
+// Skill&Tell Missions , the club's hands-on program, inspired by Solo Leveling.
 // Every Missions section on the site reads from this file.
 
 // The Missions platform: accounts, mission board, XP, levels and leaderboard.

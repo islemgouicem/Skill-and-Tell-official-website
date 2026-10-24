@@ -51,7 +51,7 @@ export default function Missions() {
 
       <div data-shake className="relative mx-auto grid max-w-[1400px] items-center gap-12 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <span data-reveal="fade" className="snt-eyebrow">03 — Skill&amp;Tell Missions</span>
+          <span data-reveal="fade" className="snt-eyebrow">03 , Skill&amp;Tell Missions</span>
           <Image
             data-reveal="up"
             src="/images/missions/logo-2.webp"

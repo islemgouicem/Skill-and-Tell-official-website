@@ -14,7 +14,7 @@ export default function Faq({ items = faqItems, title = "More About S&T", subtit
     <section ref={root} id={id} className="relative overflow-hidden py-24 md:py-32" style={transparent ? undefined : { backgroundImage: "url('/images/bg/more-about.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="relative mx-auto grid max-w-[1400px] gap-12 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <span data-reveal="fade" className="snt-eyebrow">{index} — Questions</span>
+          <span data-reveal="fade" className="snt-eyebrow">{index} , Questions</span>
           <h2 data-split="chars" className="snt-h2 mt-5 text-white">{title}</h2>
           <p data-reveal="up" className="mt-5 max-w-sm text-white/60">{subtitle}</p>
         </div>

@@ -9,8 +9,8 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT_EMAIL = "skill.and.tell@ensia.edu.dz";
-export const CONTACT_PHONE = { label: "+213 561 71 84 75", href: "tel:+213561718475" };
-export const CONTACT_PLACE = "ENSIA, Sidi Abdellah — Algiers";
+export const CONTACT_PHONE = { label: "+213 799 83 89 54", href: "tel:+213561718475" };
+export const CONTACT_PLACE = "ENSIA, Sidi Abdellah , Algiers";
 
 export const SOCIALS = [
   { name: "Instagram", href: "https://www.instagram.com/skillntell.club", icon: "/icons/Instagram.svg" },
@@ -33,13 +33,13 @@ export const PILLARS = [
   {
     key: "about",
     title: "About us",
-    short: "A scientific club at ENSIA, born on 1 March 2022, growing students' skills — tech, design, marketing, events and more.",
-    body: "Skill&Tell is a dynamic scientific club at the National Higher School of Artificial Intelligence (ENSIA). Born on 1 March 2022, it fosters student growth by emphasizing soft skills including marketing, multimedia, and photography—empowering members to express themselves, collaborate effectively, and engage in creative, impactful initiatives.",
+    short: "A scientific club at ENSIA, born on 1 March 2022, growing students' skills , tech, design, marketing, events and more.",
+    body: "Skill&Tell is a dynamic scientific club at the National Higher School of Artificial Intelligence (ENSIA). Born on 1 March 2022, it fosters student growth by emphasizing soft skills including marketing, multimedia, and photography,empowering members to express themselves, collaborate effectively, and engage in creative, impactful initiatives.",
   },
   {
     key: "vision",
     title: "Our vision",
-    short: "A community where creativity, communication and collaboration thrive — shaping leaders beyond academics.",
+    short: "A community where creativity, communication and collaboration thrive , shaping leaders beyond academics.",
     body: "We envision a community where creativity, communication, and collaboration thrive. Skill&Tell aims to inspire students to grow beyond academics, shaping future leaders equipped with essential soft skills for both personal and professional success.",
   },
   {
@@ -74,5 +74,5 @@ export const EXTENSION = {
   name: "Skill & Tell extension",
   url: "https://chromewebstore.google.com/detail/Skill%20%26%20Tell%20extension/ieegploffcpecfhiebbihgncgcfflonj",
   tagline:
-    "Swap Chrome's default, boring new tab for a Skill&Tell one — a daily dose of motivation and the latest club updates, every time you open a tab.",
+    "Swap Chrome's default, boring new tab for a Skill&Tell one , a daily dose of motivation and the latest club updates, every time you open a tab.",
 };

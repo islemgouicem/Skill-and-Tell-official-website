@@ -72,7 +72,7 @@ export default function Footer() {
                             </Link>
                             <Link href="tel:+213799838954" className="flex items-start gap-3  transition-colors group">
                                 <Phone className="h-6 w-6 flex-shrink-0 mt-0.5 text-[#F68F1E]"/>
-                                <span className="text-base">+213 561 71 84 75</span>
+                                <span className="text-base">+213 799 83 89 54</span>
                             </Link>
 
                             <div className="flex items-start gap-3  ">

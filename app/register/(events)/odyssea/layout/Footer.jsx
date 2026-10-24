@@ -152,7 +152,7 @@ function Footer() {
             <span className="h-px flex-1 bg-ody-title/70" />
           </div>
           <p className="mt-4 text-center text-[0.9rem] tracking-wide text-ody-white/50">
-            © {new Date().getFullYear()} Skill&amp;Tell Scientific Club — ENSIA, Algeria
+            © {new Date().getFullYear()} Skill&amp;Tell Scientific Club , ENSIA, Algeria
           </p>
         </div>
       </div>

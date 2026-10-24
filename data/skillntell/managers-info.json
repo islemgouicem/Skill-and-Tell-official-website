@@ -23,7 +23,7 @@
     "email": "mohamedmerah362@gmail.com",
     "id": 3,
     "name": "Merah Mohammed El Amine",
-    "image": "",
+    "image": "/images/managers/web/Mohamed MERAH.JPG",
     "role": "Production lead",
     "instagram": "https://www.instagram.com/moha_mrhnn?igsh=aGdxODA5NGp3aHQ%3D&utm_source=qr",
     "linkedin": "https://www.linkedin.com/in/merah-mohammed-412234387?trk=contact-info",
@@ -47,7 +47,7 @@
     "role": "logistics Co-Manager",
     "instagram": "javascript:void(0)",
     "linkedin": "javascript:void(0)",
-    "description": "Hi I am Alaa, a naturally curious person who enjoys learning, trying new ideas, and gaining new experiences. I value progress, smart risk-taking, and continuous improvement, and I approach my work with energy and discipline—without forgetting to enjoy the process."
+    "description": "Hi I am Alaa, a naturally curious person who enjoys learning, trying new ideas, and gaining new experiences. I value progress, smart risk-taking, and continuous improvement, and I approach my work with energy and discipline,without forgetting to enjoy the process."
   },
   {
     "id": 5,
@@ -229,4 +229,4 @@
     "linkedin": "javascript:void(0)",
     "description": "Salamo is the Opportunities Manager at Skill&Tell, responsible for identifying and managing new opportunities for our growth."
   }
-]
+]

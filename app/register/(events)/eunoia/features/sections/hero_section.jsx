@@ -103,6 +103,6 @@ export default function HeroSection() {
                     "/>
 
             </div>
-            <PopUp isOpen={isPopupOpen} onClose={handleClosePopup} title={"Registration"} subtitle={"Closed for This Season"} msg={"Registration for this season has closed, but great things are ahead! Keep an eye out — we’ll be opening again with fresh opportunities next season."}/>
+            <PopUp isOpen={isPopupOpen} onClose={handleClosePopup} title={"Registration"} subtitle={"Closed for This Season"} msg={"Registration for this season has closed, but great things are ahead! Keep an eye out , we’ll be opening again with fresh opportunities next season."}/>
         </section>);
 }
